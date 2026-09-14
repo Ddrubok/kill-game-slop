@@ -71,6 +71,13 @@ Copy-Item -Recurse skills/kill-game-slop "$HOME/.codex/skills/"
 
 구체적인 디자인 전후 비교 분석 및 시나리오 예시는 [docs/examples.md](docs/examples.md)를 확인하세요.
 
+설치되는 스킬에는 필요한 상황에서만 읽는 참고 문서가 포함됩니다.
+
+- [프레젠테이션 검증](skills/kill-game-slop/references/presentation-checks.md): 구체적인 증상, 정상적인 반례, 동일 조건의 전후 화면 확인 절차
+- [에디터 편집 명세](skills/kill-game-slop/references/editor-specs.md): 정확한 대상 지정, 참조 보존, 제안·적용·검증 상태 구분
+
+자동 탐색을 위한 사용 조건은 description에 작성하며, 실제 호출 지원은 에이전트 환경에 따라 다릅니다. 비표준 triggers·file_patterns 필드에 의존하지 않습니다. [Agent Skills 규격](https://agentskills.io/specification)을 참고하세요.
+
 ## 라이선스
 
 이 프로젝트는 [MIT License](LICENSE)를 따릅니다. [yetone/kill-ai-slop](https://github.com/yetone/kill-ai-slop)의 정리 철학에서 영감을 받았으나, 게임 프레젠테이션 디자인 워크플로에 맞춰 독립적으로 개발되었으며 업스트림 코드를 포함하지 않습니다.

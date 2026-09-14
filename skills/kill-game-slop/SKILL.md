@@ -1,6 +1,6 @@
 ---
 name: kill-game-slop
-description: Remove generic, noisy, or misleading presentation from games while preserving their art direction and gameplay. Use when asked to deslop a game's HUD, menus, tutorial copy, visual effects, or audio feedback, or make them feel less AI-generated. Works as an engine-agnostic review and editing workflow, not an AI detector.
+description: Remove generic, noisy, or misleading presentation from games while preserving their art direction and gameplay. Use when asked to deslop a game, clean up a HUD, audit game presentation, reduce distracting screen shake, improve menus, tutorial copy, visual effects or audio feedback, or make presentation feel less AI-generated. Works as an engine-agnostic review and editing workflow, not an AI detector or a general gameplay optimizer.
 license: MIT
 ---
 
@@ -13,6 +13,8 @@ Make the game feel authored. Remove presentation that distracts from play, repea
 Read the requested feature, its real state transitions, and the relevant shared UI, localization, art, or audio resources. Identify the player's immediate action, what informs that action, and how the game acknowledges it. Inspect a running scene or supplied capture when available; source inspection alone cannot establish visual quality.
 
 Establish what to preserve: genre, audience, authored references, player/team colors, signature silhouettes, expressive language, and deliberate extravagance. Neon can belong in a cyberpunk arena; elaborate borders can belong in a fantasy inventory. Neither is a defect by itself.
+
+Distinguish observed behavior from inference. A still image can establish overlap at that captured size, but not animation timing, audio masking, input behavior, or the cause of a state mismatch. If art direction is unclear, use consistent existing scenes as provisional references and preserve ambiguous stylistic choices while fixing demonstrated functional costs.
 
 Follow the user's scope. For an audit, report findings without editing. For a fix, apply the smallest coherent change to the requested flow. Do not turn a HUD cleanup into a new combat system, economy, engine migration, or asset pipeline.
 
@@ -30,6 +32,8 @@ Follow the user's scope. For an audit, report findings without editing. For a fi
 
 Treat these as hypotheses, not a blacklist. Keep redundant channels when they improve accessibility: an icon plus text may be essential. Do not remove labels because icons look cleaner, or remove texture because a flat surface looks more fashionable.
 
+Compare routine events with meaningful milestones before reducing effects. Preserve intentional impact, anticipation and celebration; reduce repeated cues only when they mask information or interrupt play. Do not impose universal particle counts, shake amplitudes, hierarchy depths, font bans or a fixed reading pattern across games. For concrete symptoms, counterexamples and capture checks, read [presentation-checks.md](references/presentation-checks.md).
+
 ## Change the source of the problem
 
 - Trace shared styles, prefabs, widgets, scenes, localization keys, and callers. Change a shared resource only when the behavior should change for all its users.
@@ -39,6 +43,8 @@ Treat these as hypotheses, not a blacklist. Keep redundant channels when they im
 - Preserve gameplay rules, timing windows, hidden information, server validation, ownership, persistence, and purchase semantics. A cosmetic edit must not reveal a secret choice or turn a pending purchase into a success message.
 - Keep effects scoped to their scene, round, or entity. Re-entry, cancellation, and disconnects must not leave obsolete UI, sounds, subscriptions, or delayed callbacks active.
 - Avoid editing generated exports or opaque binary assets as text. Use the available editor/import workflow; if unavailable, provide a precise edit specification and disclose that it was not applied.
+
+For editor-only changes or serialized scene resources, read [editor-specs.md](references/editor-specs.md). Use its target, property, scope and verification template instead of inventing asset paths or shipping untested bulk-edit scripts.
 
 ## Verify the result, not a slop score
 

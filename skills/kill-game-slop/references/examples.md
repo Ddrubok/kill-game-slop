@@ -45,3 +45,25 @@ These are illustrative design cases, not measured project results or engine comp
 **Request:** “Fix this Unreal menu,” with screenshots and a binary asset but no working editor.
 
 **Decision:** Identify the exact widget/layout edits supported by the screenshots. Edit accessible source only if the change can be made reliably. List the editor steps still needed; do not hex-edit the asset or claim a successful playtest.
+
+**Check:** The edit specification identifies known targets and unresolved properties, the intended scope and runtime checks. A screenshot cannot establish whether a Blueprint compiles or whether controller focus reaches the button.
+
+## Normal signals: reject the false positive
+
+**Request:** “Find slop in this mobile game's loading screen.”
+
+**Evidence:** A progress bar advances during an actual background download. “Tap to continue” appears after completion on a touch device. A nested UI hierarchy supports safe-area layout without demonstrated clipping or input problems.
+
+**Decision:** Keep these elements. Neither an idle player, a familiar phrase nor node depth establishes a defect. Investigate only if the displayed progress misrepresents the actual operation or the instruction is wrong for the active input device.
+
+**Check:** Verify the operation driving progress and the completion/input state. Do not replace an accurate indicator with a fake percentage or remove a useful instruction to avoid a keyword.
+
+## Combat celebration: preserve the peak
+
+**Request:** “Reduce distracting combat effects while keeping our boss-finisher impact.”
+
+**Evidence:** The player reports that routine pickup notifications repeatedly cover attack telegraphs and identifies the finisher celebration as deliberate. Only a still image showing one overlap is available; repetition is reported, not independently verified.
+
+**Decision:** Report the visible overlap and trace the notification layout. Preserve the finisher and gameplay hit-stop. Request or use available runtime evidence before asserting repeated shake duration or audio masking; proceed with independently supported layout work when fixes are requested.
+
+**Check:** Compare the same encounter and inspect the pickup sequence and reduced-motion path when runtime access becomes available. Mark those dynamic checks unverified until exercised.

@@ -71,6 +71,13 @@ Invoke the skill using `$kill-game-slop` alongside context about your game, scen
 
 For illustrative before-and-after design breakdowns and scenario walkthroughs, refer to [docs/examples.md](docs/examples.md).
 
+The installed skill includes focused references, loaded when relevant:
+
+- [Presentation checks](skills/kill-game-slop/references/presentation-checks.md): concrete symptoms, legitimate counterexamples and before/after capture checks.
+- [Editor specifications](skills/kill-game-slop/references/editor-specs.md): identify exact targets, preserve references and distinguish proposed edits from verified changes.
+
+Automatic discovery uses the skill description; invocation support depends on the host. The package does not rely on nonstandard `triggers` or `file_patterns` fields. See the [Agent Skills specification](https://agentskills.io/specification).
+
 ## License
 
 This project is licensed under the [MIT License](LICENSE). Inspired by the cleanup philosophy of [yetone/kill-ai-slop](https://github.com/yetone/kill-ai-slop), but independently developed as a dedicated game design presentation workflow with no bundled upstream code.

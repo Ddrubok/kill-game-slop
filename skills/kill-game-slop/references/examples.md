@@ -36,7 +36,7 @@ These are illustrative design cases, not measured project results or engine comp
 
 **Before:** Clicking a card immediately displays “Locked!” even though the server has not accepted it and the rules allow changes until the deadline.
 
-**After:** Distinguish selected, sending, accepted, and locked. “Choice received · change it before the timer ends” describes the accepted-but-editable state.
+**After:** Distinguish selected, sending, accepted, and locked. While waiting, use “Sending choice…”; only after server acknowledgement use “Choice received · change it before the timer ends”, and only if the rules still permit changes. Use a locked message only after the authoritative lock. Preserve retry/rejection states; never replace a premature lock with premature acceptance.
 
 **Check:** Delayed acceptance, rejection, disconnect, and a late response from the previous round do not display a false lock. Do not expose the opponent's private card to make the screen more informative.
 
@@ -67,3 +67,25 @@ These are illustrative design cases, not measured project results or engine comp
 **Decision:** Report the visible overlap and trace the notification layout. Preserve the finisher and gameplay hit-stop. Request or use available runtime evidence before asserting repeated shake duration or audio masking; proceed with independently supported layout work when fixes are requested.
 
 **Check:** Compare the same encounter and inspect the pickup sequence and reduced-motion path when runtime access becomes available. Mark those dynamic checks unverified until exercised.
+
+## Ornate menu: no confirmed problems
+
+**Intent/evidence:** A supplied capture shows a theatrical fantasy collection screen. The request identifies the gilded frame as a signature; labels and focus in the supplied navigation recording remain visible.
+
+**Judgment:** Preserve the frame and icon-plus-text labels. No confirmed problems in those conditions. No need to replace the palette, font or layout to make the review look productive. Other languages remain untested, not failed.
+
+## Missing sound: bound the conclusion
+
+**Evidence:** A silent recording shows three reward animations; a player reports that a warning is difficult to hear.
+
+**Judgment:** Hypothesis: reward audio may mask the warning. No independent audio verification and no established mixing cause. Inspect the audible sequence and category settings before a sound change. Visible animations alone neither confirm nor refute the player's report.
+
+**Success check:** In the reported sequence, the warning remains identifiable with the relevant settings while the reward cue retains its role. Until that sequence is heard, report the check as not run.
+
+## Crafting cards: optional identity proposal
+
+**Request/intent:** “Explore a more handmade feel.” Existing cards are readable and accurate; there is no confirmed defect.
+
+**Proposal:** Compare the current card with (A) a material-specific silhouette, improving recognition but consuming space, or (B) a restrained stamped texture, supporting the crafting theme but potentially reducing small-text contrast. Preserve rarity labels, values and controller focus. Neither option is a required repair.
+
+**Trial:** Use one card at its target size, compare recognition and the intended handmade feeling, including a plain baseline. Record the actual feedback and any readability loss. Do not claim improved retention or player preference without that evidence.

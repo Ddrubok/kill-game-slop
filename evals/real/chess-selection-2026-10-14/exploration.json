@@ -1,0 +1,228 @@
+{
+  "browser": "155.0.4283.45",
+  "viewport": {
+    "width": 360,
+    "height": 800
+  },
+  "input": "emulated touch",
+  "externalNetwork": "blocked",
+  "instrumentation": "read-only runtime getters added to served main.ts in Playwright route only",
+  "captures": [
+    {
+      "name": "before-unselected",
+      "text": "메뉴로\nSelectionQA\n게스트 모드\n흑(후공)\n2인 대전\n백(선공)\n20s\n당구식\n클래식",
+      "selected": null,
+      "phase": "ready",
+      "side": "white",
+      "mode": "billiards",
+      "aimHidden": true,
+      "redDot": false,
+      "buttons": [
+        {
+          "text": "조준",
+          "hidden": false,
+          "pressed": "true",
+          "disabled": false
+        },
+        {
+          "text": "타점선택",
+          "hidden": false,
+          "pressed": "false",
+          "disabled": false
+        },
+        {
+          "text": "위치 변경",
+          "hidden": true,
+          "pressed": "false",
+          "disabled": false
+        },
+        {
+          "text": "철벽 방어",
+          "hidden": true,
+          "pressed": "false",
+          "disabled": false
+        }
+      ]
+    },
+    {
+      "name": "before-selected",
+      "text": "메뉴로\n고도 0°\n세기 0% · 피치 44.0°\n고도 0.0°\nSelectionQA\n게스트 모드\n흑(후공)\n2인 대전\n백(선공)\n19s\n당구식\n클래식\n조준\n타점선택",
+      "selected": "white-pawn-c2",
+      "phase": "ready",
+      "side": "white",
+      "mode": "billiards",
+      "aimHidden": false,
+      "redDot": true,
+      "buttons": [
+        {
+          "text": "조준",
+          "hidden": false,
+          "pressed": "true",
+          "disabled": false
+        },
+        {
+          "text": "타점선택",
+          "hidden": false,
+          "pressed": "false",
+          "disabled": false
+        },
+        {
+          "text": "위치 변경",
+          "hidden": true,
+          "pressed": "false",
+          "disabled": false
+        },
+        {
+          "text": "철벽 방어",
+          "hidden": true,
+          "pressed": "false",
+          "disabled": false
+        }
+      ]
+    },
+    {
+      "name": "before-strike",
+      "text": "메뉴로\n고도 0°\n세기 0% · 피치 44.0°\n고도 0.0°\nSelectionQA\n게스트 모드\n흑(후공)\n2인 대전\n백(선공)\n19s\n당구식\n클래식\n조준\n타점선택\n타점 선택\n타점 초기화",
+      "selected": "white-pawn-c2",
+      "phase": "ready",
+      "side": "white",
+      "mode": "billiards",
+      "aimHidden": false,
+      "redDot": true,
+      "buttons": [
+        {
+          "text": "조준",
+          "hidden": false,
+          "pressed": "false",
+          "disabled": false
+        },
+        {
+          "text": "타점선택",
+          "hidden": false,
+          "pressed": "true",
+          "disabled": false
+        },
+        {
+          "text": "위치 변경",
+          "hidden": true,
+          "pressed": "false",
+          "disabled": false
+        },
+        {
+          "text": "철벽 방어",
+          "hidden": true,
+          "pressed": "false",
+          "disabled": false
+        }
+      ]
+    },
+    {
+      "name": "before-aim",
+      "text": "메뉴로\n고도 0°\n세기 0% · 피치 44.0°\n고도 -0.0°\nSelectionQA\n게스트 모드\n흑(후공)\n2인 대전\n백(선공)\n19s\n당구식\n클래식\n조준\n타점선택",
+      "selected": "white-pawn-c2",
+      "phase": "ready",
+      "side": "white",
+      "mode": "billiards",
+      "aimHidden": false,
+      "redDot": true,
+      "buttons": [
+        {
+          "text": "조준",
+          "hidden": false,
+          "pressed": "true",
+          "disabled": false
+        },
+        {
+          "text": "타점선택",
+          "hidden": false,
+          "pressed": "false",
+          "disabled": false
+        },
+        {
+          "text": "위치 변경",
+          "hidden": true,
+          "pressed": "false",
+          "disabled": false
+        },
+        {
+          "text": "철벽 방어",
+          "hidden": true,
+          "pressed": "false",
+          "disabled": false
+        }
+      ]
+    },
+    {
+      "name": "before-reselected",
+      "text": "메뉴로\n고도 0°\n세기 0% · 피치 44.0°\n고도 0.0°\nSelectionQA\n게스트 모드\n흑(후공)\n2인 대전\n백(선공)\n19s\n당구식\n클래식\n조준\n타점선택",
+      "selected": "white-pawn-c2",
+      "phase": "ready",
+      "side": "white",
+      "mode": "billiards",
+      "aimHidden": false,
+      "redDot": true,
+      "buttons": [
+        {
+          "text": "조준",
+          "hidden": false,
+          "pressed": "true",
+          "disabled": false
+        },
+        {
+          "text": "타점선택",
+          "hidden": false,
+          "pressed": "false",
+          "disabled": false
+        },
+        {
+          "text": "위치 변경",
+          "hidden": true,
+          "pressed": "false",
+          "disabled": false
+        },
+        {
+          "text": "철벽 방어",
+          "hidden": true,
+          "pressed": "false",
+          "disabled": false
+        }
+      ]
+    },
+    {
+      "name": "before-empty",
+      "text": "메뉴로\nSelectionQA\n게스트 모드\n흑(후공)\n2인 대전\n백(선공)\n18s\n당구식\n클래식",
+      "selected": null,
+      "phase": "ready",
+      "side": "white",
+      "mode": "billiards",
+      "aimHidden": true,
+      "redDot": false,
+      "buttons": [
+        {
+          "text": "조준",
+          "hidden": false,
+          "pressed": "true",
+          "disabled": false
+        },
+        {
+          "text": "타점선택",
+          "hidden": false,
+          "pressed": "false",
+          "disabled": false
+        },
+        {
+          "text": "위치 변경",
+          "hidden": true,
+          "pressed": "false",
+          "disabled": false
+        },
+        {
+          "text": "철벽 방어",
+          "hidden": true,
+          "pressed": "false",
+          "disabled": false
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "evals/inputs/cases.md": "84b0cfe266d30b4b27375ac23ae13a3f004adef57c48add8d7b9b9b2d52d941d",
+  "evals/runs/2026-10-14/cases-snapshot.md": "84b0cfe266d30b4b27375ac23ae13a3f004adef57c48add8d7b9b9b2d52d941d",
+  "evals/runs/2026-10-14/run-metadata.json": "8374d13735b22b7c700e13c755eae44ba9acb08d7036a8acdabdadaa81383583",
+  "evals/runs/2026-10-14/case-scores.csv": "1e5ce37f08b393cbe80f5dcab48f2f65465c18ade41a86571ea185ddb0a4923e",
+  "evals/runs/2026-10-14/skill-snapshot/references/editor-specs.md": "5d0afe5de1ade98c7c211c009697045e96e9e5ec51ffd6476221a7eb8d1f755d",
+  "evals/runs/2026-10-14/skill-snapshot/references/examples.md": "04c6a2aa7fccba3864ad41384d821040056edaf6c99a0d5384f4dbd860cb1987",
+  "evals/runs/2026-10-14/skill-snapshot/references/presentation-checks.md": "1b0f90181604ca85890579a62814616a96b62a7698edda5f8a8e2f47e6603eeb",
+  "evals/runs/2026-10-14/skill-snapshot/SKILL.md": "b0f23de46d4e29376577bc2134a42866dd12ef4fd6e493af78970826bdf0af32",
+  "evals/runs/2026-10-14/brief-prompt.txt": "824aa95756148ed42fc01e0f45d8c0e144fa852f091a5ec33e5b26b1665a240e",
+  "evals/runs/2026-10-14/full-prompt.txt": "a38c6042a96a1e22e3f83dc832310498a8c7489576595eea467d45d8498e7cd1",
+  "evals/runs/2026-10-14/generic-prompt.txt": "2f58a2d957c7320649f938827c8e9c1ab9a71651a51fce3ebf0af72b8a577d6a",
+  "evals/runs/2026-10-14/brief-response.md": "683d482585fd63e2e11b715e272325e741c6efc8f6505cef7c7a5764f019ac02",
+  "evals/runs/2026-10-14/full-response.md": "d72c787a893ed455eef578ae3bbe94ef386ccd1fb36a0ef9231f14b52f6d5560",
+  "evals/runs/2026-10-14/generic-response.md": "b9aa89368c0695549a5cc58d383d2ad37348fd21f5eff0708c14d1984b7cffc3"
+}

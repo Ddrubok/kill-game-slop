@@ -4,24 +4,35 @@
 
 **Remove the slop. Keep the game.**
 
-An agent skill for cluttered HUDs, generic tutorial copy, misleading feedback, and effects that drown out play. It asks what gets in the player's way, then fixes that without erasing the game's style.
+An agent skill for cluttered HUDs, generic tutorial copy, misleading feedback, and effects that drown out play. It records the game's intent, distinguishes demonstrated defects from hypotheses and optional style proposals, and verifies changes without erasing the game's identity. A review with no confirmed problems is a valid outcome.
 
 Use it with Unity, Unreal, Godot, Roblox, web games, or a custom engine. These are review workflows, not tested engine integrations. There is no scanner or AI detector to install.
 
 | Before | After |
 | --- | --- |
-| “Locked!” before the server accepts a choice | “Choice received · change it before the timer ends” |
+| “Locked!” before the server accepts a choice | “Sending choice…” while pending; “Choice received” only after acknowledgement; “Locked” only after an authoritative lock |
 | Every panel glows as brightly as an enemy marker | Quieter panels; the enemy marker stays bright |
 | Ornate pixel-art borders that already work | Leave them alone |
 
 Examples are illustrative. See [the reasoning and checks](docs/examples.md).
+
+## Decisions and evidence
+
+| Decision | Response |
+| --- | --- |
+| Confirmed defect | Correct within the requested scope; verify an observable success condition |
+| Hypothesis | Identify the missing evidence and the check that would distinguish causes |
+| Optional identity proposal | Compare expected gains, losses and a bounded trial with the current version |
+| Preserve | Keep purposeful elements; record the reviewed conditions |
+
+The brief game-intent record covers the player's action, intended feeling, visual/audio identity, device/input and requested scope. It is inferred from available documents first, with questions only for material unknowns. Reports distinguish screenshots, recordings, runtime checks, source evidence and attributed user reports. Applied changes and verified outcomes are separate.
 
 ## Core Focus Areas
 
 - **UI / HUD Hierarchy**: Reduce screen clutter, streamline micro-badges, and prioritize essential gameplay information over decorative noise.
 - **Copy & Narrative**: Trim repetitive tutorial prompts, generic placeholders, and verbose system dialogs into crisp, tone-appropriate text.
 - **Visual Readability**: Clarify background-foreground separation, mitigate particle stacking, and maintain silhouette readability during combat or movement.
-- **Motion & Audio Restraint**: Tune down disorienting camera shakes, aggressive post-processing blooms, and repetitive high-frequency audio cues.
+- **Motion & Audio**: Investigate demonstrated masking or interruption while preserving meaningful impact and celebration. A still image cannot establish audio or repeated motion problems.
 - **Integrity Preservation**: Never compromise intentional artistic vision, gameplay balances, accessibility compliance, or server-authoritative networking constraints.
 
 ## Installation
@@ -70,6 +81,10 @@ Invoke the skill using `$kill-game-slop` alongside context about your game, scen
 ## Examples
 
 For illustrative before-and-after design breakdowns and scenario walkthroughs, refer to [docs/examples.md](docs/examples.md).
+
+For evaluation inputs, the separate judge key and three-condition protocol, see [evals/README.md](evals/README.md). The [first comparison](evals/runs/2026-10-14/report.md) uses 12 synthetic text cases and provisional AI scoring; it does not establish superiority over a short prompt. The [ChessAlkkkaegi application](evals/real/chess-selection-2026-10-14/report.md) records actual local runtime checks and their limits. Human comprehension and preference are not inferred from automation.
+
+For an identity experiment, ask: `Review this card's intended feeling. Separate defects from optional proposals, compare a few small alternatives with the current version, and state what to preserve and how to check the trial.` An audit does not authorize edits, and an optional proposal is not a required fix.
 
 The installed skill includes focused references, loaded when relevant:
 

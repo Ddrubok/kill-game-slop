@@ -29,4 +29,31 @@ A still capture supports static layout observations only. Use a sequence or runt
 
 ## Finding format
 
-For each actionable finding, record the scene/state and evidence, the player cost, the proposed or applied correction, what must remain, and the verification status. Prioritize blocked actions and false state messages before cosmetic consistency. If no cost is demonstrated, preserve the element and explain the uncertainty rather than manufacturing a finding.
+Use one record per decision, scaled to the evidence. Do not create separate reports for each field or invent findings to fill a template.
+
+| Field | Record |
+| --- | --- |
+| ID / scene / judgment | Stable ID, state, and confirmed defect / hypothesis / optional proposal / preserve |
+| Evidence / provenance | Screenshot path + frame; video + time interval; runtime + steps; source + symbol/revision; or attributed user report. List multiple sources separately |
+| Observed scope / unknowns | Viewport, language, input, accessibility mode, relevant state and exactly what was observed; missing conditions and uncertain causes |
+| Player impact | Action or information affected. Separate an observed loss from its inferred consequence; for proposals, state expected benefit |
+| Correction / disposition | Proposed or applied smallest change, or preserved/deferred/rejected with reason |
+| Preserve / tradeoff | Identity, accessible channels, state truth, timing and meaningful effects that must remain; expected losses if a proposal is adopted |
+| Success condition | Observable task outcome under specified conditions, plus the preservation check; name the next check if evidence is missing |
+| Verification | Not run / blocked / passed / failed / mixed, actual method and conditions, artifact links, and remaining limits. Applied is not verified |
+
+Evidence limits:
+
+- **Screenshot:** establishes the captured layout; it cannot establish repeated interruption, animation timing, sound, input behavior or server acceptance.
+- **Video:** establishes the recorded interval, with audible evidence only when the track was actually available and inspected. Do not infer all sessions from one interval.
+- **Runtime:** state the steps/environment you actually exercised; synthetic events, test instrumentation and mocks must be disclosed.
+- **Source:** can establish a code path or a violated contract with sufficient context. It does not establish a rendered defect, timing in production or that the path ran for the user.
+- **User report:** preserve the attribution and reported scope. Do not relabel it as your own reproduction. Lack of reproduction does not disprove the report.
+
+Example record (illustrative): `F01 / combat / confirmed static overlap`: supplied `fight.png` at 1280×720 shows a reward banner over the wind-up marker. Repetition is separately user-reported; animation and other resolutions are unverified. Player may lose the cue needed to dodge. Propose moving the banner outside that region; preserve reward count and milestone emphasis. Success: both cue and count visible during the same encounter and repeated pickups. Verification: not run; runtime required for the repeated sequence.
+
+Prioritize blocked actions and false state messages before optional cosmetics. If no cost is demonstrated, say **no confirmed problems in the reviewed conditions**, preserve the element and list only material uncertainties. An optional proposal does not become a failed QA check merely because it was not adopted.
+
+## Real application record
+
+Keep the intent, before capture and conditions, decisions (including preserved elements), adopted/rejected changes, comparable after capture, and success-check results together. For an unchanged scene, explicitly record a preservation outcome and why no patch was justified; do not manufacture a modification to complete a case study. Clearly label historical captures, synthetic fixtures and current live captures. When collecting human feedback, record task, order, sample and observations separately from automated assertions.

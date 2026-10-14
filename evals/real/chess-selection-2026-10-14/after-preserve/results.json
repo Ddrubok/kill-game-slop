@@ -1,0 +1,727 @@
+{
+  "pass": "after-preserve",
+  "started": "2026-10-14T06:06:36.830Z",
+  "browser": "155.0.4283.45",
+  "externalNetwork": "blocked",
+  "instrumentation": "Playwright response interception adds a getter for actual runtime objects; no game state or clock mutation",
+  "conditions": [
+    {
+      "width": 360,
+      "height": 800,
+      "input": "emulated touch",
+      "language": "ko",
+      "captures": [
+        {
+          "name": "unselected",
+          "path": "360-unselected.png",
+          "selected": null,
+          "phase": "ready",
+          "side": "white",
+          "mode": "billiards",
+          "previewVisible": false,
+          "redDot": false,
+          "feedback": "",
+          "actionBarVisible": false,
+          "strikePanelVisible": false,
+          "buttons": [],
+          "text": "메뉴로\nSelectionQA\n게스트 모드\n흑(후공)\n2인 대전\n백(선공)\n20s\n당구식\n클래식"
+        },
+        {
+          "name": "selected",
+          "path": "360-selected.png",
+          "selected": "white-pawn-c2",
+          "phase": "ready",
+          "side": "white",
+          "mode": "billiards",
+          "previewVisible": true,
+          "redDot": true,
+          "feedback": "세기 0% · 피치 44.0°\n고도 0.0°",
+          "actionBarVisible": true,
+          "strikePanelVisible": false,
+          "buttons": [
+            {
+              "text": "조준",
+              "action": "launch",
+              "pressed": "true",
+              "bounds": {
+                "x": 18,
+                "y": 630,
+                "width": 159,
+                "height": 44,
+                "top": 630,
+                "right": 177,
+                "bottom": 674,
+                "left": 18
+              }
+            },
+            {
+              "text": "타점선택",
+              "action": "strike",
+              "pressed": "false",
+              "bounds": {
+                "x": 183,
+                "y": 630,
+                "width": 159,
+                "height": 44,
+                "top": 630,
+                "right": 342,
+                "bottom": 674,
+                "left": 183
+              }
+            }
+          ],
+          "text": "메뉴로\n고도 0°\n세기 0% · 피치 44.0°\n고도 0.0°\nSelectionQA\n게스트 모드\n흑(후공)\n2인 대전\n백(선공)\n19s\n당구식\n클래식\n조준\n타점선택"
+        },
+        {
+          "name": "strike",
+          "path": "360-strike.png",
+          "selected": "white-pawn-c2",
+          "phase": "ready",
+          "side": "white",
+          "mode": "billiards",
+          "previewVisible": true,
+          "redDot": true,
+          "feedback": "세기 0% · 피치 44.0°\n고도 0.0°",
+          "actionBarVisible": true,
+          "strikePanelVisible": true,
+          "buttons": [
+            {
+              "text": "조준",
+              "action": "launch",
+              "pressed": "false",
+              "bounds": {
+                "x": 18,
+                "y": 630,
+                "width": 159,
+                "height": 44,
+                "top": 630,
+                "right": 177,
+                "bottom": 674,
+                "left": 18
+              }
+            },
+            {
+              "text": "타점선택",
+              "action": "strike",
+              "pressed": "true",
+              "bounds": {
+                "x": 183,
+                "y": 630,
+                "width": 159,
+                "height": 44,
+                "top": 630,
+                "right": 342,
+                "bottom": 674,
+                "left": 183
+              }
+            }
+          ],
+          "text": "메뉴로\n고도 0°\n세기 0% · 피치 44.0°\n고도 0.0°\nSelectionQA\n게스트 모드\n흑(후공)\n2인 대전\n백(선공)\n19s\n당구식\n클래식\n조준\n타점선택\n타점 선택\n타점 초기화"
+        },
+        {
+          "name": "aim",
+          "path": "360-aim.png",
+          "selected": "white-pawn-c2",
+          "phase": "ready",
+          "side": "white",
+          "mode": "billiards",
+          "previewVisible": true,
+          "redDot": true,
+          "feedback": "세기 0% · 피치 44.0°\n고도 0.0°",
+          "actionBarVisible": true,
+          "strikePanelVisible": false,
+          "buttons": [
+            {
+              "text": "조준",
+              "action": "launch",
+              "pressed": "true",
+              "bounds": {
+                "x": 18,
+                "y": 630,
+                "width": 159,
+                "height": 44,
+                "top": 630,
+                "right": 177,
+                "bottom": 674,
+                "left": 18
+              }
+            },
+            {
+              "text": "타점선택",
+              "action": "strike",
+              "pressed": "false",
+              "bounds": {
+                "x": 183,
+                "y": 630,
+                "width": 159,
+                "height": 44,
+                "top": 630,
+                "right": 342,
+                "bottom": 674,
+                "left": 183
+              }
+            }
+          ],
+          "text": "메뉴로\n고도 0°\n세기 0% · 피치 44.0°\n고도 0.0°\nSelectionQA\n게스트 모드\n흑(후공)\n2인 대전\n백(선공)\n18s\n당구식\n클래식\n조준\n타점선택"
+        },
+        {
+          "name": "reselected",
+          "path": "360-reselected.png",
+          "selected": "white-pawn-f2",
+          "phase": "ready",
+          "side": "white",
+          "mode": "billiards",
+          "previewVisible": true,
+          "redDot": true,
+          "feedback": "세기 0% · 피치 44.0°\n고도 -0.0°",
+          "actionBarVisible": true,
+          "strikePanelVisible": false,
+          "buttons": [
+            {
+              "text": "조준",
+              "action": "launch",
+              "pressed": "true",
+              "bounds": {
+                "x": 18,
+                "y": 630,
+                "width": 159,
+                "height": 44,
+                "top": 630,
+                "right": 177,
+                "bottom": 674,
+                "left": 18
+              }
+            },
+            {
+              "text": "타점선택",
+              "action": "strike",
+              "pressed": "false",
+              "bounds": {
+                "x": 183,
+                "y": 630,
+                "width": 159,
+                "height": 44,
+                "top": 630,
+                "right": 342,
+                "bottom": 674,
+                "left": 183
+              }
+            }
+          ],
+          "text": "메뉴로\n고도 0°\n세기 0% · 피치 44.0°\n고도 -0.0°\nSelectionQA\n게스트 모드\n흑(후공)\n2인 대전\n백(선공)\n17s\n당구식\n클래식\n조준\n타점선택"
+        },
+        {
+          "name": "cleared",
+          "path": "360-cleared.png",
+          "selected": null,
+          "phase": "ready",
+          "side": "white",
+          "mode": "billiards",
+          "previewVisible": false,
+          "redDot": false,
+          "feedback": "세기 0% · 피치 44.0°\n고도 -0.0°",
+          "actionBarVisible": false,
+          "strikePanelVisible": false,
+          "buttons": [],
+          "text": "메뉴로\nSelectionQA\n게스트 모드\n흑(후공)\n2인 대전\n백(선공)\n17s\n당구식\n클래식"
+        },
+        {
+          "name": "reentry",
+          "path": "360-reentry.png",
+          "selected": null,
+          "phase": "ready",
+          "side": "white",
+          "mode": "billiards",
+          "previewVisible": false,
+          "redDot": false,
+          "feedback": "세기 0% · 피치 44.0°\n고도 -0.0°",
+          "actionBarVisible": false,
+          "strikePanelVisible": false,
+          "buttons": [],
+          "text": "메뉴로\nSelectionQA\n게스트 모드\n흑(후공)\n2인 대전\n백(선공)\n20s\n당구식\n클래식"
+        }
+      ],
+      "errors": [],
+      "status": "passed"
+    },
+    {
+      "width": 320,
+      "height": 568,
+      "input": "emulated touch",
+      "language": "ko",
+      "captures": [
+        {
+          "name": "unselected",
+          "path": "320-unselected.png",
+          "selected": null,
+          "phase": "ready",
+          "side": "white",
+          "mode": "billiards",
+          "previewVisible": false,
+          "redDot": false,
+          "feedback": "",
+          "actionBarVisible": false,
+          "strikePanelVisible": false,
+          "buttons": [],
+          "text": "메뉴로\nSelectionQA\n게스트 모드\n흑(후공)\n2인 대전\n백(선공)\n20s\n당구식\n클래식"
+        },
+        {
+          "name": "selected",
+          "path": "320-selected.png",
+          "selected": "white-pawn-c2",
+          "phase": "ready",
+          "side": "white",
+          "mode": "billiards",
+          "previewVisible": true,
+          "redDot": true,
+          "feedback": "세기 0% · 피치 44.0°\n고도 0.0°",
+          "actionBarVisible": true,
+          "strikePanelVisible": false,
+          "buttons": [
+            {
+              "text": "조준",
+              "action": "launch",
+              "pressed": "true",
+              "bounds": {
+                "x": 18,
+                "y": 414,
+                "width": 139,
+                "height": 44,
+                "top": 414,
+                "right": 157,
+                "bottom": 458,
+                "left": 18
+              }
+            },
+            {
+              "text": "타점선택",
+              "action": "strike",
+              "pressed": "false",
+              "bounds": {
+                "x": 163,
+                "y": 414,
+                "width": 139,
+                "height": 44,
+                "top": 414,
+                "right": 302,
+                "bottom": 458,
+                "left": 163
+              }
+            }
+          ],
+          "text": "메뉴로\n고도 0°\n세기 0% · 피치 44.0°\n고도 0.0°\nSelectionQA\n게스트 모드\n흑(후공)\n2인 대전\n백(선공)\n19s\n당구식\n클래식\n조준\n타점선택"
+        },
+        {
+          "name": "strike",
+          "path": "320-strike.png",
+          "selected": "white-pawn-c2",
+          "phase": "ready",
+          "side": "white",
+          "mode": "billiards",
+          "previewVisible": true,
+          "redDot": true,
+          "feedback": "세기 0% · 피치 44.0°\n고도 0.0°",
+          "actionBarVisible": true,
+          "strikePanelVisible": true,
+          "buttons": [
+            {
+              "text": "조준",
+              "action": "launch",
+              "pressed": "false",
+              "bounds": {
+                "x": 18,
+                "y": 414,
+                "width": 139,
+                "height": 44,
+                "top": 414,
+                "right": 157,
+                "bottom": 458,
+                "left": 18
+              }
+            },
+            {
+              "text": "타점선택",
+              "action": "strike",
+              "pressed": "true",
+              "bounds": {
+                "x": 163,
+                "y": 414,
+                "width": 139,
+                "height": 44,
+                "top": 414,
+                "right": 302,
+                "bottom": 458,
+                "left": 163
+              }
+            }
+          ],
+          "text": "메뉴로\n고도 0°\n세기 0% · 피치 44.0°\n고도 0.0°\nSelectionQA\n게스트 모드\n흑(후공)\n2인 대전\n백(선공)\n19s\n당구식\n클래식\n조준\n타점선택\n타점 선택\n타점 초기화"
+        },
+        {
+          "name": "aim",
+          "path": "320-aim.png",
+          "selected": "white-pawn-c2",
+          "phase": "ready",
+          "side": "white",
+          "mode": "billiards",
+          "previewVisible": true,
+          "redDot": true,
+          "feedback": "세기 0% · 피치 44.0°\n고도 0.0°",
+          "actionBarVisible": true,
+          "strikePanelVisible": false,
+          "buttons": [
+            {
+              "text": "조준",
+              "action": "launch",
+              "pressed": "true",
+              "bounds": {
+                "x": 18,
+                "y": 414,
+                "width": 139,
+                "height": 44,
+                "top": 414,
+                "right": 157,
+                "bottom": 458,
+                "left": 18
+              }
+            },
+            {
+              "text": "타점선택",
+              "action": "strike",
+              "pressed": "false",
+              "bounds": {
+                "x": 163,
+                "y": 414,
+                "width": 139,
+                "height": 44,
+                "top": 414,
+                "right": 302,
+                "bottom": 458,
+                "left": 163
+              }
+            }
+          ],
+          "text": "메뉴로\n고도 0°\n세기 0% · 피치 44.0°\n고도 0.0°\nSelectionQA\n게스트 모드\n흑(후공)\n2인 대전\n백(선공)\n18s\n당구식\n클래식\n조준\n타점선택"
+        },
+        {
+          "name": "reselected",
+          "path": "320-reselected.png",
+          "selected": "white-pawn-f2",
+          "phase": "ready",
+          "side": "white",
+          "mode": "billiards",
+          "previewVisible": true,
+          "redDot": true,
+          "feedback": "세기 0% · 피치 44.0°\n고도 0.0°",
+          "actionBarVisible": true,
+          "strikePanelVisible": false,
+          "buttons": [
+            {
+              "text": "조준",
+              "action": "launch",
+              "pressed": "true",
+              "bounds": {
+                "x": 18,
+                "y": 414,
+                "width": 139,
+                "height": 44,
+                "top": 414,
+                "right": 157,
+                "bottom": 458,
+                "left": 18
+              }
+            },
+            {
+              "text": "타점선택",
+              "action": "strike",
+              "pressed": "false",
+              "bounds": {
+                "x": 163,
+                "y": 414,
+                "width": 139,
+                "height": 44,
+                "top": 414,
+                "right": 302,
+                "bottom": 458,
+                "left": 163
+              }
+            }
+          ],
+          "text": "메뉴로\n고도 0°\n세기 0% · 피치 44.0°\n고도 0.0°\nSelectionQA\n게스트 모드\n흑(후공)\n2인 대전\n백(선공)\n17s\n당구식\n클래식\n조준\n타점선택"
+        },
+        {
+          "name": "cleared",
+          "path": "320-cleared.png",
+          "selected": null,
+          "phase": "ready",
+          "side": "white",
+          "mode": "billiards",
+          "previewVisible": false,
+          "redDot": false,
+          "feedback": "세기 0% · 피치 44.0°\n고도 0.0°",
+          "actionBarVisible": false,
+          "strikePanelVisible": false,
+          "buttons": [],
+          "text": "메뉴로\nSelectionQA\n게스트 모드\n흑(후공)\n2인 대전\n백(선공)\n17s\n당구식\n클래식"
+        },
+        {
+          "name": "reentry",
+          "path": "320-reentry.png",
+          "selected": null,
+          "phase": "ready",
+          "side": "white",
+          "mode": "billiards",
+          "previewVisible": false,
+          "redDot": false,
+          "feedback": "세기 0% · 피치 44.0°\n고도 0.0°",
+          "actionBarVisible": false,
+          "strikePanelVisible": false,
+          "buttons": [],
+          "text": "메뉴로\nSelectionQA\n게스트 모드\n흑(후공)\n2인 대전\n백(선공)\n20s\n당구식\n클래식"
+        }
+      ],
+      "errors": [],
+      "status": "passed"
+    },
+    {
+      "width": 1280,
+      "height": 800,
+      "input": "mouse",
+      "language": "ko",
+      "captures": [
+        {
+          "name": "unselected",
+          "path": "1280-unselected.png",
+          "selected": null,
+          "phase": "ready",
+          "side": "white",
+          "mode": "billiards",
+          "previewVisible": false,
+          "redDot": false,
+          "feedback": "",
+          "actionBarVisible": false,
+          "strikePanelVisible": false,
+          "buttons": [],
+          "text": "메뉴로\nSelectionQA\n게스트 모드\n흑(후공)\n2인 대전\n백(선공)\n20s\n당구식\n클래식"
+        },
+        {
+          "name": "selected",
+          "path": "1280-selected.png",
+          "selected": "white-pawn-c2",
+          "phase": "ready",
+          "side": "white",
+          "mode": "billiards",
+          "previewVisible": true,
+          "redDot": true,
+          "feedback": "세기 0% · 피치 44.0°\n고도 0.0°",
+          "actionBarVisible": true,
+          "strikePanelVisible": false,
+          "buttons": [
+            {
+              "text": "조준",
+              "action": "launch",
+              "pressed": "true",
+              "bounds": {
+                "x": 294,
+                "y": 722,
+                "width": 278,
+                "height": 60,
+                "top": 722,
+                "right": 572,
+                "bottom": 782,
+                "left": 294
+              }
+            },
+            {
+              "text": "타점선택",
+              "action": "strike",
+              "pressed": "false",
+              "bounds": {
+                "x": 578,
+                "y": 722,
+                "width": 304,
+                "height": 60,
+                "top": 722,
+                "right": 882,
+                "bottom": 782,
+                "left": 578
+              }
+            }
+          ],
+          "text": "메뉴로\n고도 0°\n세기 0% · 피치 44.0°\n고도 0.0°\nSelectionQA\n게스트 모드\n흑(후공)\n2인 대전\n백(선공)\n19s\n당구식\n클래식\n조준\n타점선택"
+        },
+        {
+          "name": "strike",
+          "path": "1280-strike.png",
+          "selected": "white-pawn-c2",
+          "phase": "ready",
+          "side": "white",
+          "mode": "billiards",
+          "previewVisible": true,
+          "redDot": true,
+          "feedback": "세기 0% · 피치 44.0°\n고도 0.0°",
+          "actionBarVisible": true,
+          "strikePanelVisible": true,
+          "buttons": [
+            {
+              "text": "조준",
+              "action": "launch",
+              "pressed": "false",
+              "bounds": {
+                "x": 294,
+                "y": 722,
+                "width": 278,
+                "height": 60,
+                "top": 722,
+                "right": 572,
+                "bottom": 782,
+                "left": 294
+              }
+            },
+            {
+              "text": "타점선택",
+              "action": "strike",
+              "pressed": "true",
+              "bounds": {
+                "x": 578,
+                "y": 722,
+                "width": 304,
+                "height": 60,
+                "top": 722,
+                "right": 882,
+                "bottom": 782,
+                "left": 578
+              }
+            }
+          ],
+          "text": "메뉴로\n고도 0°\n세기 0% · 피치 44.0°\n고도 0.0°\nSelectionQA\n게스트 모드\n흑(후공)\n2인 대전\n백(선공)\n19s\n당구식\n클래식\n조준\n타점선택\n타점 선택\n타점 초기화"
+        },
+        {
+          "name": "aim",
+          "path": "1280-aim.png",
+          "selected": "white-pawn-c2",
+          "phase": "ready",
+          "side": "white",
+          "mode": "billiards",
+          "previewVisible": true,
+          "redDot": true,
+          "feedback": "세기 0% · 피치 44.0°\n고도 0.0°",
+          "actionBarVisible": true,
+          "strikePanelVisible": false,
+          "buttons": [
+            {
+              "text": "조준",
+              "action": "launch",
+              "pressed": "true",
+              "bounds": {
+                "x": 294,
+                "y": 722,
+                "width": 278,
+                "height": 60,
+                "top": 722,
+                "right": 572,
+                "bottom": 782,
+                "left": 294
+              }
+            },
+            {
+              "text": "타점선택",
+              "action": "strike",
+              "pressed": "false",
+              "bounds": {
+                "x": 578,
+                "y": 722,
+                "width": 304,
+                "height": 60,
+                "top": 722,
+                "right": 882,
+                "bottom": 782,
+                "left": 578
+              }
+            }
+          ],
+          "text": "메뉴로\n고도 0°\n세기 0% · 피치 44.0°\n고도 0.0°\nSelectionQA\n게스트 모드\n흑(후공)\n2인 대전\n백(선공)\n18s\n당구식\n클래식\n조준\n타점선택"
+        },
+        {
+          "name": "reselected",
+          "path": "1280-reselected.png",
+          "selected": "white-pawn-f2",
+          "phase": "ready",
+          "side": "white",
+          "mode": "billiards",
+          "previewVisible": true,
+          "redDot": true,
+          "feedback": "세기 0% · 피치 44.0°\n고도 0.0°",
+          "actionBarVisible": true,
+          "strikePanelVisible": false,
+          "buttons": [
+            {
+              "text": "조준",
+              "action": "launch",
+              "pressed": "true",
+              "bounds": {
+                "x": 294,
+                "y": 722,
+                "width": 278,
+                "height": 60,
+                "top": 722,
+                "right": 572,
+                "bottom": 782,
+                "left": 294
+              }
+            },
+            {
+              "text": "타점선택",
+              "action": "strike",
+              "pressed": "false",
+              "bounds": {
+                "x": 578,
+                "y": 722,
+                "width": 304,
+                "height": 60,
+                "top": 722,
+                "right": 882,
+                "bottom": 782,
+                "left": 578
+              }
+            }
+          ],
+          "text": "메뉴로\n고도 0°\n세기 0% · 피치 44.0°\n고도 0.0°\nSelectionQA\n게스트 모드\n흑(후공)\n2인 대전\n백(선공)\n17s\n당구식\n클래식\n조준\n타점선택"
+        },
+        {
+          "name": "cleared",
+          "path": "1280-cleared.png",
+          "selected": null,
+          "phase": "ready",
+          "side": "white",
+          "mode": "billiards",
+          "previewVisible": false,
+          "redDot": false,
+          "feedback": "세기 0% · 피치 44.0°\n고도 0.0°",
+          "actionBarVisible": false,
+          "strikePanelVisible": false,
+          "buttons": [],
+          "text": "메뉴로\nSelectionQA\n게스트 모드\n흑(후공)\n2인 대전\n백(선공)\n16s\n당구식\n클래식"
+        },
+        {
+          "name": "reentry",
+          "path": "1280-reentry.png",
+          "selected": null,
+          "phase": "ready",
+          "side": "white",
+          "mode": "billiards",
+          "previewVisible": false,
+          "redDot": false,
+          "feedback": "세기 0% · 피치 44.0°\n고도 0.0°",
+          "actionBarVisible": false,
+          "strikePanelVisible": false,
+          "buttons": [],
+          "text": "메뉴로\nSelectionQA\n게스트 모드\n흑(후공)\n2인 대전\n백(선공)\n20s\n당구식\n클래식"
+        }
+      ],
+      "errors": [],
+      "status": "passed"
+    }
+  ],
+  "finished": "2026-10-14T06:07:17.532Z"
+}

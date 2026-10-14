@@ -1,0 +1,18 @@
+{
+  "date": "2026-10-14",
+  "commonDispatchPrepared": "2026-10-14T05:59:53.558Z",
+  "model": "Parent model inherited, no override; exact serving ID not exposed",
+  "context": "fork_turns=none for each condition",
+  "reviewers": [
+    "eval_generic",
+    "eval_brief",
+    "eval_full"
+  ],
+  "observedCompletionReceipts": {
+    "generic": "2026-10-14T06:01:59.924Z",
+    "brief": "2026-10-14T06:02:45.823Z",
+    "full": "2026-10-14T06:03:21.792Z"
+  },
+  "timing": "Upper bounds from common preparation to receipt logging, not individual execution durations",
+  "scorer": "Authoring AI; provisional, human scoring pending"
+}

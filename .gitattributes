@@ -1,0 +1,2 @@
+# Preserve archived evidence bytes for the SHA-256 manifests on every OS.
+evals/** -text

@@ -28,3 +28,20 @@ No fresh model comparisons or player trials were run for this patch. The editing
 | Case | Skill commit / snapshot hashes | Host / model / settings | Exact input / starting project | Conditions / tools | Actual behavior | Result | Evidence | Limits / scorer |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Case ID | Before or after version | Unknown fields stay unknown | Prompt and fixture paths | Device, viewport, input, language, access | Observed actions only | NOT RUN / PASS / FAIL / MIXED / BLOCKED | Raw response and trace paths | Untested scope; human or AI |
+
+## Supplemental evaluation v2
+
+The supplemental guide v2.0 adds V05–V08 here; bettermakegame contains V01–V04. Preserve the U inputs, key, and status above as the first patch's separate record. Guide version 2.0 is not a skill release version.
+
+For this comparison, the **before** commit is `7b79f19dfd103dff9d29b5bf601f9c159522e82b`. Pin the after commit or exact snapshot hashes. Provide [supplemental-cases.md](supplemental-cases.md) and the selected skill runtime files only in fresh independent conversations with the same model, settings, tools, and inputs. Exclude both judge keys, previous responses, and patch explanations. Save raw prompts, responses, tool traces, changes, and captures before using [supplemental-judge-key.md](supplemental-judge-key.md). Reuse the run record above, distinguishing NOT RUN from an attempted check blocked by a documented constraint.
+
+These synthetic inputs test judgment, not the described captures or actual game behavior. V05–V07 need a small executable notification/lifecycle fixture, including normal and injected conditions. Reset starting state between runs and inspect delayed callbacks and re-entry without assuming reachability. Record device, language, settings, and actual observations. Human checks use concrete tasks, record assistance/errors/time only when observed, and disclose sample limits. These cases informed the patch; they are not unseen tests.
+
+| Case | Before response | After response | Runtime / human checks |
+| --- | --- | --- | --- |
+| V05 | NOT RUN | NOT RUN | NOT RUN |
+| V06 | NOT RUN | NOT RUN | NOT RUN |
+| V07 | NOT RUN | NOT RUN | NOT RUN |
+| V08 | NOT RUN | NOT RUN | NOT RUN |
+
+No independent model comparison, executable fixture run, or human observation was performed for the supplemental patch. This editing session remains solo, and its author has seen the key. Fixtures are not included. Static package checks and maintainer review are separate from these unrun evaluations and cannot establish improved usability or preference. Historical comparison results remain unchanged.

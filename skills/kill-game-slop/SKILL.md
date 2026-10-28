@@ -79,6 +79,8 @@ Before editing, state an observable success condition tied to the player's task 
 
 Compare the same scene and state before and after where possible. Exercise the complete relevant flow: initialization, input, acknowledgement, result, exit, and re-entry. Partial HUD creation or compilation does not prove the rest of the interface works.
 
+For transient or coinciding presentation, use the relevant-moments checks in `presentation-checks.md`. Confirm that the tested combination can occur, and keep automated geometry warnings separate from demonstrated loss of information or control.
+
 Check the intended viewport and input method. Parent scaling alone does not prove children fit. Inspect overlays, long localized text, safe areas, focus, and back/close controls. Use the project's normal checks for changed code; do not replace runtime verification with keyword matching.
 
 Engine-specific checks are conditional, not mandatory dependencies:

@@ -37,6 +37,8 @@ A technically working UI can still make necessary information hard to find, conf
 - **Motion & Audio**: Investigate demonstrated masking or interruption while preserving meaningful impact and celebration. A still image cannot establish audio or repeated motion problems.
 - **Integrity Preservation**: Never compromise intentional artistic vision, gameplay balances, accessibility compliance, or server-authoritative networking constraints.
 
+For temporary or coinciding displays, record the starting state, trigger, and evidence, then recheck the affected moment and neighboring elements after a change. Distinguish reachable play from scripted input or injected states. A rectangle overlap may be intentional containment, and an AI reader's uncertainty does not establish human confusion. Use geometry warnings to find candidates, then inspect what is actually visible and operable; no new scanner is required.
+
 ## Installation
 
 `kill-game-slop` is packaged as a portable Markdown skill definition located at `skills/kill-game-slop/SKILL.md`.
@@ -94,7 +96,7 @@ For illustrative before-and-after design breakdowns and scenario walkthroughs, r
 
 For evaluation inputs, the separate judge key and three-condition protocol, see [evals/README.md](evals/README.md). The [first comparison](evals/runs/2026-10-14/report.md) uses 12 synthetic text cases and provisional AI scoring; it does not establish superiority over a short prompt. The [ChessAlkkkaegi application](evals/real/chess-selection-2026-10-14/report.md) records actual local runtime checks and their limits. Human comprehension and preference are not inferred from automation.
 
-The new [UI/HUD regression cases](evals/ui-hud/README.md) keep reviewer inputs and maintainer criteria separate. Their before/after behavior evaluations are **NOT RUN**. The earlier comparisons and ChessAlkkkaegi record are not validation of this patch or of the whole game.
+The [UI/HUD regression cases](evals/ui-hud/README.md) keep reviewer inputs and maintainer criteria separate. The original U cases are preserved; supplemental V cases cover the new checks. Both sets' before/after behavior evaluations are **NOT RUN**. The earlier comparisons and ChessAlkkkaegi record are not validation of either patch or of the whole game.
 
 For an identity experiment, ask: `Review this card's intended feeling. Separate defects from optional proposals, compare a few small alternatives with the current version, and state what to preserve and how to check the trial.` An audit does not authorize edits, and an optional proposal is not a required fix.
 

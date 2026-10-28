@@ -39,6 +39,14 @@ Select checks relevant to the scene and input. Familiar appearance, minimalism a
 
 Repair the smallest supported problem while preserving accurate state, control availability, non-color signals and identity. For requested UI construction or broader layout/style alternatives, explain the relevant bettermakegame scope without requiring its installation or an automatic second pass. Do not drop independently supported local repairs merely because that skill is unavailable.
 
+## Inspect relevant moments
+
+1. Select conditions from the requested flow: a relevant notice appearing or clearing, reachable simultaneous events, and an affected element near a viewport or panel boundary. Reuse existing captures and fixtures. Do not enumerate every event pair or expand into unrelated screens.
+2. Reproduce the condition with recorded starting state and triggers. Label scripted input or injected state and establish reachability before calling the condition a normal-play failure. Mutually exclusive normal branches do not rule out stale callbacks or re-entry; leave those paths unverified until inspected. Use a timed sequence for duration claims; mark unavailable observations explicitly.
+3. Inspect visibility, state meaning and input routing. When bounds or draw-order data already exist, use them to locate candidates. Rectangle intersection alone is not a defect: a label may be inside its own panel, the panel may be transparent, or drawing may be clipped. Unknown or tied ordering requires inspection, not an automatic pass or failure.
+4. Connect an observed symptom to the affected decision or action. An AI reader's uncertain interpretation is a hypothesis to investigate, not a measured human error. Preserve labels and redundant channels that serve a purpose. Choose the smallest supported correction, with the unchanged version remaining valid when no cost is demonstrated.
+5. Recheck the changed condition and directly affected neighbors. Keep the existing finding format; attach the moment and evidence rather than creating a separate score or report. State which checks were not run.
+
 ## Finding format
 
 Use one record per decision, scaled to the evidence. Do not create separate reports for each field or invent findings to fill a template.
@@ -46,8 +54,8 @@ Use one record per decision, scaled to the evidence. Do not create separate repo
 | Field | Record |
 | --- | --- |
 | ID / scene / judgment | Stable ID, state, and confirmed defect / hypothesis / optional proposal / preserve |
-| Evidence / provenance | Screenshot path + frame; video + time interval; runtime + steps; source + symbol/revision; or attributed user report. List multiple sources separately |
-| Observed scope / unknowns | Viewport, language, input, accessibility mode, relevant state and exactly what was observed; missing conditions and uncertain causes |
+| Evidence / provenance | Screenshot path + frame; video + time interval; runtime + steps; source + symbol/revision; or attributed user report. Include a moment ID and reproduction path when relevant. List multiple sources separately |
+| Observed scope / unknowns | Viewport, language, input, accessibility mode, relevant state and exactly what was observed; normal play, scripted input or state injection; missing conditions, uncertain causes and unverified reachability |
 | Player impact | Action or information affected. Separate an observed loss from its inferred consequence; for proposals, state expected benefit |
 | Correction / disposition | Proposed or applied smallest change, or preserved/deferred/rejected with reason |
 | Preserve / tradeoff | Identity, accessible channels, state truth, timing and meaningful effects that must remain; expected losses if a proposal is adopted |

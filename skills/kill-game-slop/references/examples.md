@@ -107,3 +107,21 @@ These are illustrative design cases, not measured project results or engine comp
 **Evidence:** A player reports difficulty locating a stylized action button; only a still capture is available. The button is visible and unobstructed in that image.
 
 **Decision:** Record the attributed report and a search/affordance hypothesis. Do not dismiss it because the button is visible, or claim a reproduced failure. Check the actual input state and ask first-time viewers to find and use the action. Keep style changes optional until their basis is clear.
+
+## Coinciding notices with a reproduced obstruction
+
+**Evidence:** A recorded reachable sequence shows a reward notice covering an actionable turn instruction at the stated viewport. Each notice is readable when shown alone.
+
+**Decision:** Confirm the captured obstruction, not a population error rate. Adjust the responsible placement or scheduling without delaying the underlying turn or losing the reward. Reproduce the same overlap and verify both messages and the next action.
+
+## A geometry warning with purposeful containment
+
+**Evidence:** A bounds check reports a title intersecting its containing panel. The captured rendering shows the title drawn legibly over the panel, and input follows the intended routing.
+
+**Decision:** Preserve for this reported condition. Containment is expected; do not relocate the title to satisfy a rectangle-only rule. Other sizes remain unverified.
+
+## A counter whose meaning is uncertain to an AI reader
+
+**Evidence:** An AI reader cannot explain a counter from one frame. No first-time player observation or reproduced state transition is supplied.
+
+**Decision:** Record an interpretation hypothesis. Inspect the counter's actual cause and existing explanation, then give a concrete task to an appropriate viewer when available. Do not delete the counter or claim human confusion solely from this answer.

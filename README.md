@@ -27,9 +27,11 @@ Examples are illustrative. See [the reasoning and checks](docs/examples.md).
 
 The brief game-intent record covers the player's action, intended feeling, visual/audio identity, device/input and requested scope. It is inferred from available documents first, with questions only for material unknowns. Reports distinguish screenshots, recordings, runtime checks, source evidence and attributed user reports. Applied changes and verified outcomes are separate.
 
+A technically working UI can still make necessary information hard to find, confuse controls with decoration, or route input somewhere other than the visible target. Separate observations, user reports, and hypotheses; appearance alone does not establish error rates or comprehension. [bettermakegame](https://github.com/Ddrubok/bettermakegame) covers new UI/HUD designs and broader layout or identity alternatives. The skills work independently, with no required order. Either can add, simplify, move, or remove elements within scope; local usability repairs do not require bettermakegame to be installed.
+
 ## Core Focus Areas
 
-- **UI / HUD Hierarchy**: Reduce screen clutter, streamline micro-badges, and prioritize essential gameplay information over decorative noise.
+- **UI / HUD and controls**: Check information visibility, control recognition, actual hit regions, focus/back navigation, and unnecessary search. Preserve purposeful density and unfamiliar shapes when no cost is demonstrated.
 - **Copy & Narrative**: Trim repetitive tutorial prompts, generic placeholders, and verbose system dialogs into crisp, tone-appropriate text.
 - **Visual Readability**: Clarify background-foreground separation, mitigate particle stacking, and maintain silhouette readability during combat or movement.
 - **Motion & Audio**: Investigate demonstrated masking or interruption while preserving meaningful impact and celebration. A still image cannot establish audio or repeated motion problems.
@@ -63,6 +65,14 @@ Invoke the skill using `$kill-game-slop` alongside context about your game, scen
 
 ### Example Prompts
 
+- **HUD usability review**
+  ```text
+  $kill-game-slop Review this HUD for obscured information, control recognition,
+  hit regions, and unnecessary search. Distinguish confirmed defects from hypotheses.
+  Preserve distinctive, purposeful presentation. Report evidence and minimal repairs
+  without editing files or redesigning the whole screen.
+  ```
+
 - **Arena Shooter**
   ```text
   $kill-game-slop Review our fast-paced sci-fi arena shooter HUD. Reduce screen clutter, tone down excessive hit markers and screen shake, and ensure target silhouettes remain readable during multi-player firefights without touching weapon balancing.
@@ -83,6 +93,8 @@ Invoke the skill using `$kill-game-slop` alongside context about your game, scen
 For illustrative before-and-after design breakdowns and scenario walkthroughs, refer to [docs/examples.md](docs/examples.md).
 
 For evaluation inputs, the separate judge key and three-condition protocol, see [evals/README.md](evals/README.md). The [first comparison](evals/runs/2026-10-14/report.md) uses 12 synthetic text cases and provisional AI scoring; it does not establish superiority over a short prompt. The [ChessAlkkkaegi application](evals/real/chess-selection-2026-10-14/report.md) records actual local runtime checks and their limits. Human comprehension and preference are not inferred from automation.
+
+The new [UI/HUD regression cases](evals/ui-hud/README.md) keep reviewer inputs and maintainer criteria separate. Their before/after behavior evaluations are **NOT RUN**. The earlier comparisons and ChessAlkkkaegi record are not validation of this patch or of the whole game.
 
 For an identity experiment, ask: `Review this card's intended feeling. Separate defects from optional proposals, compare a few small alternatives with the current version, and state what to preserve and how to check the trial.` An audit does not authorize edits, and an optional proposal is not a required fix.
 

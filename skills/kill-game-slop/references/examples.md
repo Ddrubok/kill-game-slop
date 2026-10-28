@@ -89,3 +89,21 @@ These are illustrative design cases, not measured project results or engine comp
 **Proposal:** Compare the current card with (A) a material-specific silhouette, improving recognition but consuming space, or (B) a restrained stamped texture, supporting the crafting theme but potentially reducing small-text contrast. Preserve rarity labels, values and controller focus. Neither option is a required repair.
 
 **Trial:** Use one card at its target size, compare recognition and the intended handmade feeling, including a plain baseline. Record the actual feedback and any readability loss. Do not claim improved retention or player preference without that evidence.
+
+## Distinctive controls with no demonstrated cost
+
+**Intent/evidence:** A supplied capture and navigation recording show slanted buttons matching the game's authored style. Labels and focus remain visible, and the demonstrated task is completed without assistance.
+
+**Decision:** Preserve in the reviewed conditions. Do not round the buttons or relocate them to a conventional corner solely for familiarity. Other devices and first-time users remain untested.
+
+## Hit regions trigger the neighboring action
+
+**Evidence:** Source and a reproduced touch sequence show that a transparent hit region extends over a neighboring control. Touching the visibly labeled target triggers the wrong action at the recorded coordinates.
+
+**Decision:** Confirm the routing/geometry defect; do not invent a population mistap rate. Correct the responsible bounds or event route, preserving labels, action semantics, accessibility and supported target size. Verify both controls, boundaries and cancellation at the affected viewport.
+
+## Suspected search burden from a still image
+
+**Evidence:** A player reports difficulty locating a stylized action button; only a still capture is available. The button is visible and unobstructed in that image.
+
+**Decision:** Record the attributed report and a search/affordance hypothesis. Do not dismiss it because the button is visible, or claim a reproduced failure. Check the actual input state and ask first-time viewers to find and use the action. Keep style changes optional until their basis is clear.

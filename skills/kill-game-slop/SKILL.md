@@ -1,6 +1,14 @@
 ---
 name: kill-game-slop
-description: Find and remove AI-slop presentation patterns in games while preserving art direction and gameplay. Use for kill-game-slop, game deslop, generic or misleading copy, visual clutter, redundant effects, overlapping UI roles, and inconsistent game styling. Judge demonstrated player costs, not AI authorship. For improving game feel, missing feedback, UI interaction polish, or complete event sequences, use bettermakegame; general web product deslop belongs to kill-ai-slop.
+description: >-
+  Find and repair distracting, redundant, misleading, inconsistent, or
+  difficult-to-use game presentation while preserving art direction and
+  gameplay. Use for kill-game-slop, game deslop, cluttered HUDs, confusing
+  controls, unnecessary visual search, and inaccurate state cues. Judge
+  demonstrated player costs, not AI authorship or stylistic unfamiliarity.
+  For requested UI/HUD creation, broader layout or identity alternatives,
+  and interaction or sequence polish, use bettermakegame. General web
+  product deslop belongs to kill-ai-slop.
 license: MIT
 ---
 
@@ -8,7 +16,7 @@ license: MIT
 
 Make the game feel authored. Remove presentation that distracts from play, repeats information without purpose, or promises behavior the game does not deliver. Judge the shipped experience, not whether a human or AI produced it.
 
-This skill detects and cleans up generic, noisy, redundant, or misleading presentation in games, including browser games. `bettermakegame` separately improves UI, feedback, game feel, and event sequences, especially where existing gameplay lacks expression. `kill-ai-slop` addresses general web product visuals and copy. Select by the requested outcome; no skill requires automatically running the others. In a mixed project, distinguish the playable game from its marketing site. AI-slop is a presentation diagnosis here, not evidence of who generated an asset or code.
+This skill diagnoses and repairs game presentation with concrete costs to understanding or control, including browser games. A working control can still be difficult to find, distinguish or operate. `bettermakegame` leads requested UI/HUD creation, broader layout or identity alternatives, and interaction or sequence improvements. Either skill may add, simplify, move or remove elements within scope; they are independent and require no automatic ordering. In mixed projects, distinguish playable UI from the marketing site, where `kill-ai-slop` applies. AI-slop here is not evidence of who created an asset or code.
 
 ## Start from this game
 
@@ -44,6 +52,10 @@ Follow the user's scope. For an audit, report findings without editing. For a fi
 | Motion and VFX | Ambient shake, flashing, or effects conceal meaningful changes | Reserve emphasis for relevant events; respect existing motion settings |
 | Audio | Repeated cues mask an important sound; settings omit sounds in the same category | Reduce repetition or route existing cues through the appropriate mix controls |
 | Rewards and progression | Fake activity, inflated achievement text, or invented scarcity obscures the actual reward | Show the real reward and condition; leave balance changes outside this task |
+
+Include usability costs even when the implementation technically works: unnecessary search, ambiguous affordances, avoidable misactivation, confusing focus or back navigation, and unclear state distinctions. Identify the affected task, evidence and conditions. Do not infer error rates or comprehension from appearance alone. A confirmed geometry or state problem may be reported without claiming a measured human consequence.
+
+Treat unfamiliar placement or shape as a candidate, not a defect. Use the UI usability checks in [presentation-checks.md](references/presentation-checks.md) to distinguish confirmed problems, hypotheses, optional proposals and preservation. A broader redesign is not required to repair a local defect; propose one only when requested or explain it as an optional next step.
 
 Treat these as hypotheses, not a blacklist. Keep redundant channels when they improve accessibility: an icon plus text may be essential. Do not remove labels because icons look cleaner, or remove texture because a flat surface looks more fashionable.
 

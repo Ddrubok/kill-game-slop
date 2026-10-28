@@ -27,6 +27,18 @@ Search relevant text resources with existing repository tools to locate candidat
 
 A still capture supports static layout observations only. Use a sequence or runtime for transitions and repeated motion, listening for audio claims, and source/state evidence for networking claims. Do not claim frame rate, latency, texel density or a contrast ratio from appearance alone. Measure when the task and tools support it; use the project's platform targets rather than invented universal numbers. Never claim an accessibility audit passed from a screenshot alone.
 
+## UI usability checks
+
+Select checks relevant to the scene and input. Familiar appearance, minimalism and compliance with a named psychology law are not verdicts. Connect each concern to a task, evidence, preservation needs and a discriminating check.
+
+- Placement and hierarchy: inspect whether required information competes with decoration, obscures play, or requires avoidable search. A screenshot can establish captured occlusion, not a player's search time. Preserve deliberate off-center or dense layouts when they support the task. Check finding the next action at the target size.
+- Shape and hit regions: compare interactive and decorative elements, actual hit geometry, target spacing and focus/press states. Separate a demonstrated overlap or blocked target from an untested prediction of mistaps. Preserve distinctive shapes and useful icon-plus-text labels. Check activation, cancellation and neighboring targets with the relevant input.
+- Navigation and grouping: inspect consistent meanings, focus movement, back/close paths and the cost of hiding related information. Fewer visible options are not automatically better. Check the complete requested task and return path; preserve necessary expert information and accessibility cues.
+- Contrast and identity: inspect relevant backgrounds and actual display scale. Compare outliers with documented or provisional authored references. Do not mandate a backplate, shadow, font replacement, material or genre palette. If a visual alternative lacks a demonstrated cost, label it optional and compare its gains and losses.
+- Device and evidence limits: record viewport, UI scale, input, language and accessibility settings. Mobile emulation can check layout and event routing, not prove thumb reach or comfort. Without runtime or user evidence, keep claims about repeated errors, reaction time and comprehension unverified.
+
+Repair the smallest supported problem while preserving accurate state, control availability, non-color signals and identity. For requested UI construction or broader layout/style alternatives, explain the relevant bettermakegame scope without requiring its installation or an automatic second pass. Do not drop independently supported local repairs merely because that skill is unavailable.
+
 ## Finding format
 
 Use one record per decision, scaled to the evidence. Do not create separate reports for each field or invent findings to fill a template.

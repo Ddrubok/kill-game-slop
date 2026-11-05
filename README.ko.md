@@ -109,6 +109,10 @@ Copy-Item -Recurse skills/kill-game-slop "$HOME/.codex/skills/"
 
 자동 탐색을 위한 사용 조건은 description에 작성하며, 실제 호출 지원은 에이전트 환경에 따라 다릅니다. 비표준 triggers·file_patterns 필드에 의존하지 않습니다. [Agent Skills 규격](https://agentskills.io/specification)을 참고하세요.
 
+## 이번 변경
+
+2026-11-05 업데이트에는 bettermakegame·game-vfx로 이어지는 [범위 내 작업 전달 안내](skills/kill-game-slop/references/skill-handoff.md)를 추가했습니다. 발견 사항의 판단 유형·출처·검토/수정 범위·성공 조건을 유지하고, 돌아온 검증 결과를 같은 기록에 합칩니다. 다른 스킬이나 두 번째 감사를 필수로 요구하지 않습니다. [업데이트 기록](evals/handoff-2026-11-05.md)에서 문서 검사·합성 예제 근거와 미실행 모델/사람 평가를 구분합니다.
+
 ## 라이선스
 
 이 프로젝트는 [MIT License](LICENSE)를 따릅니다. [yetone/kill-ai-slop](https://github.com/yetone/kill-ai-slop)의 정리 철학에서 영감을 받았으나, 게임 프레젠테이션 디자인 워크플로에 맞춰 독립적으로 개발되었으며 업스트림 코드를 포함하지 않습니다.

@@ -107,6 +107,10 @@ The installed skill includes focused references, loaded when relevant:
 
 Automatic discovery uses the skill description; invocation support depends on the host. The package does not rely on nonstandard `triggers` or `file_patterns` fields. See the [Agent Skills specification](https://agentskills.io/specification).
 
+## This update
+
+The 2026-11-05 update adds a [scoped handoff](skills/kill-game-slop/references/skill-handoff.md) to bettermakegame and game-vfx. It preserves the finding's judgment, provenance, review/edit scope and success condition, then reconciles returned evidence into that finding. It does not require another skill or a second audit. The [update record](evals/handoff-2026-11-05.md) separates document checks and synthetic fixture evidence from unrun model/human evaluations.
+
 ## License
 
 This project is licensed under the [MIT License](LICENSE). Inspired by the cleanup philosophy of [yetone/kill-ai-slop](https://github.com/yetone/kill-ai-slop), but independently developed as a dedicated game design presentation workflow with no bundled upstream code.

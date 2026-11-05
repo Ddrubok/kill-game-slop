@@ -73,6 +73,8 @@ Compare routine events with meaningful milestones before reducing effects. Prese
 
 For editor-only changes or serialized scene resources, read [editor-specs.md](references/editor-specs.md). Use its target, property, scope and verification template instead of inventing asset paths or shipping untested bulk-edit scripts.
 
+When a finding leads to requested design or effect production with `bettermakegame` or `game-vfx`, read [skill-handoff.md](references/skill-handoff.md). Carry its judgment, evidence limits, scope and success condition through the same session; reuse the returned checks in that finding. A companion's completion claim does not verify it, and review-only scope remains review-only. A local repair does not require a handoff.
+
 ## Verify the result, not a slop score
 
 Before editing, state an observable success condition tied to the player's task and a preservation condition tied to game intent. For example, the attack cue and reward amount must both remain identifiable in the same encounter, while the milestone celebration retains its intended emphasis. Capture the baseline and conditions when possible; do not reconstruct a supposed before image after editing.

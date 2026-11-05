@@ -1,0 +1,24 @@
+{
+  "date": "2026-11-05",
+  "base_commit": "b1d41ffc7795f7b8c62b81a853aed66158eb004f",
+  "revision": "uncommitted working-tree candidate",
+  "normalization": "UTF-8 text; CRLF/CR normalized to LF; SHA-256",
+  "runtime_files": {
+    "references/editor-specs.md": "5d0afe5de1ade98c7c211c009697045e96e9e5ec51ffd6476221a7eb8d1f755d",
+    "references/examples.md": "5659ed636b6cacac2539de11163d01b27c89d57a9ba92e88baebff62035c046a",
+    "references/presentation-checks.md": "6781b51931637f6ccb7fa7df6d3b32db27f8e58db4261029b7ff1b77e2b93885",
+    "references/skill-handoff.md": "f211ee2bb27c6ef595d55b56cd4f82f56226e57733fa6031247b4a242a7ca727",
+    "SKILL.md": "cd4a1cc22f5405ea64145441f10d2fa03c9937c0299ecfc1b641b6c559061228"
+  },
+  "meaning": "file identity for package checks and maintainer fixtures; not a fresh model-use evaluation",
+  "shared_fixture_evidence": {
+    "repository": "Ddrubok/bettermakegame",
+    "directory": "evals/behavior",
+    "source_sha256_lf": "06f09ed21922f4b05514ebb80909f87a2e6d4f3d2e1fb27efaf5da63181bc368",
+    "tests_sha256_lf": "d60e858418cbcb946d334e0974b945d33e89771008331773ba0d8ab8de161597",
+    "node": "v22.18.0",
+    "date": "2026-11-05",
+    "passed": 9,
+    "scope": "synthetic local trusted-event adapter and toy simulation; not skill-behavior evaluation"
+  }
+}

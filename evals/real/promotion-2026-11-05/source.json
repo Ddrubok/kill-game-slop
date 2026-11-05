@@ -1,0 +1,14 @@
+{
+  "source_commit": "974cb39bcc716815aee79117f4f710b367454050",
+  "scope": "Isolated copy of two actual game files; original checkout unchanged.",
+  "files": {
+    "web/src/promotion-modal.ts": {
+      "before_sha256_lf": "0c4c79442da13212fe8ed14739ddd78575d97edbf46fc23eb73d9ed20e0947bb",
+      "after_sha256_lf": "59bf7deeaaa39ba3e621d3c5b16f42462abdf05f63bd98cc833a3ca37085ee69"
+    },
+    "web/src/style.css": {
+      "before_sha256_lf": "4d55acdf15bd4ade114b4c7fef5401f1a4f7ec86b0796ad95f0f4e6664f9012f",
+      "after_sha256_lf": "95e31ae399ac799976726d1226f767fd46c7ab72be0a893e5929e184dc58affb"
+    }
+  }
+}

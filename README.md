@@ -117,3 +117,9 @@ The [feedback repairs](evals/feedback-repair-2026-11-05.md) make review examples
 ## License
 
 This project is licensed under the [MIT License](LICENSE). Inspired by the cleanup philosophy of [yetone/kill-ai-slop](https://github.com/yetone/kill-ai-slop), but independently developed as a dedicated game design presentation workflow with no bundled upstream code.
+
+## Practical follow-up — 2026-11-05
+
+See the [current repair and evidence record](evals/practical-validation-2026-11-05.md). This pass fixes the shared fixture's stale completion callback, preserves historical results, and publishes a real game-component repair plus a fresh four-session comparison. Both short and full-skill conditions repaired the selection task and preserved the normal celebration; no added accuracy advantage was demonstrated. The original game project was not edited. Human/device/network tests and the dedicated U/V/handoff sets remain unrun.
+
+The installable folder now includes the same MIT LICENSE as the repository root.

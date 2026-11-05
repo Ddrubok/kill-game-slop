@@ -1,0 +1,56 @@
+{
+  "date": "2026-11-05T06:28:14.221Z",
+  "browser": "156.0.8078.80",
+  "conditions": [
+    {
+      "width": 360,
+      "input": "Browser mouse events; programmatic modal open/replacement",
+      "options": [
+        "\n          ♕\n          \n            퀸\n            무회전 최대 150% 직선 발사와 스핀 2.2배 굴절.\n          \n        ",
+        "\n          ♖\n          \n            룩\n            무회전 직선 발사 최대 150%.\n          \n        ",
+        "\n          ♗\n          \n            비숍\n            스핀 충돌 시 반사 각도 2.2배.\n          \n        ",
+        "\n          ♘\n          \n            나이트\n            65° 포물선으로 앞 기물을 뛰어넘습니다.\n          \n        "
+      ],
+      "doubleClick": [
+        "Queen"
+      ],
+      "staleClose": [],
+      "replacementVisible": true,
+      "currentChoice": [
+        "Rook"
+      ]
+    },
+    {
+      "width": 960,
+      "input": "Browser mouse events; programmatic modal open/replacement",
+      "options": [
+        "\n          ♕\n          \n            퀸\n            무회전 최대 150% 직선 발사와 스핀 2.2배 굴절.\n          \n        ",
+        "\n          ♖\n          \n            룩\n            무회전 직선 발사 최대 150%.\n          \n        ",
+        "\n          ♗\n          \n            비숍\n            스핀 충돌 시 반사 각도 2.2배.\n          \n        ",
+        "\n          ♘\n          \n            나이트\n            65° 포물선으로 앞 기물을 뛰어넘습니다.\n          \n        "
+      ],
+      "doubleClick": [
+        "Queen"
+      ],
+      "staleClose": [],
+      "replacementVisible": true,
+      "currentChoice": [
+        "Rook"
+      ]
+    }
+  ],
+  "errors": [],
+  "fixed": true,
+  "reducedState": {
+    "animation": "none",
+    "disabled": 4,
+    "selected": "Bishop",
+    "outline": "solid",
+    "callsBeforeClose": []
+  },
+  "reducedCalls": [
+    "Bishop"
+  ],
+  "captureTiming": "Closing-state screenshot uses paused synthetic browser clock; behavioral double-click/replacement checks above use real browser timing.",
+  "scope": "Actual game promotion module and CSS in an isolated component harness. Modal creation/replacement invoked by harness; full pawn progression, server and natural match flow NOT RUN."
+}

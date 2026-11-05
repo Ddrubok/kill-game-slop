@@ -1,0 +1,78 @@
+--- a/web/src/promotion-modal.ts
++++ b/web/src/promotion-modal.ts
+@@ -1,5 +1,6 @@
+ import { I18nManager } from "./i18n";
+ import { uiText } from "./ui-text";
++import { isMotionReduced } from "./ui-motion";
+ /**
+  * 폰 승급(프로모션) 선택 모달
+  * 상대 진영 끝에서 1턴 생존한 폰을 4종 기물(퀸, 룩, 비숍, 나이트) 중 하나로 선택하는 UI
+@@ -7,6 +8,8 @@
+ 
+ import type { PieceType } from "./config";
+ import type { PieceSide } from "./layout";
++
++let closeActivePromotion: (() => void) | null = null;
+ 
+ export interface PromotionPieceOption {
+   type: PieceType;
+@@ -51,6 +54,7 @@
+   onSelect: (chosenType: PieceType) => void,
+   parentContainer?: HTMLElement,
+ ): void {
++  closeActivePromotion?.();
+   const container = parentContainer ?? document.body;
+   const existing = document.querySelector(".promotion-modal-overlay");
+   if (existing) {
+@@ -59,6 +63,16 @@
+ 
+   const overlay = document.createElement("div");
+   overlay.className = "promotion-modal-overlay";
++  if (isMotionReduced()) overlay.style.animation = "none";
++  let chosen = false;
++  let timer: number | undefined;
++  const dispose = () => {
++    if (timer !== undefined) window.clearTimeout(timer);
++    timer = undefined;
++    overlay.remove();
++    if (closeActivePromotion === dispose) closeActivePromotion = null;
++  };
++  closeActivePromotion = dispose;
+ 
+   const card = document.createElement("div");
+   card.className = "promotion-modal-card";
+@@ -95,10 +109,18 @@
+   );
+   for (const btn of buttons) {
+     btn.addEventListener("click", () => {
++      if (chosen || !overlay.isConnected) return;
++      chosen = true;
++      for (const option of buttons) {
++        option.disabled = true;
++        option.setAttribute("aria-pressed", String(option === btn));
++      }
+       const chosenType = btn.dataset.pieceType as PieceType;
+       overlay.classList.add("promotion-closing");
+-      setTimeout(() => {
+-        overlay.remove();
++      timer = window.setTimeout(() => {
++        const connected = overlay.isConnected;
++        dispose();
++        if (!connected) return;
+         onSelect(chosenType);
+       }, 120);
+     });
+--- a/web/src/style.css
++++ b/web/src/style.css
+@@ -1645,6 +1645,11 @@
+   animation: promotionModalIn 0.2s ease-out;
+ }
+ 
++.promotion-piece-card[aria-pressed="true"] {
++  outline: 2px solid #38bdf8;
++  outline-offset: 2px;
++}
++
+ .promotion-modal-overlay.promotion-closing {
+   animation: promotionModalOut 0.12s ease-in forwards;
+ }

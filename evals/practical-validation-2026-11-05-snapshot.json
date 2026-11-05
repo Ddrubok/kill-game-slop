@@ -1,0 +1,47 @@
+{
+  "date": "2026-11-05",
+  "base_commit": "2db4ae0ccfc95ad148650471762b162860b0695b",
+  "identity": "Content-addressed source snapshot after base commit. Hashes identify evaluated artifacts; no final commit identity is claimed.",
+  "hash_algorithm": "SHA-256 of raw bytes",
+  "runtime_files": {
+    "agents/openai.yaml": "efeb64f7820b909c98dd95edc6cc83028874e500c3046a634d52adb55e98f372",
+    "LICENSE": "886b58ffefbe10accb31eed8b494969cb5ac89fd983d634ecba542b69f018396",
+    "references/editor-specs.md": "e25df1b17c4693f1f2d3aa940e4395dc33d4cc8f9e7229d14fd67e30743a94ba",
+    "references/examples.md": "8c205f2c68e010dcd7fd4bd1d5de893b09e7b47cbf2b11eaf7fc90fd78f889d9",
+    "references/presentation-checks.md": "4109bed500fd70dcbb830d02856d3ae77a70889f6a2f88597c5206cb8bb6d067",
+    "references/runtime-checks.md": "7d341f82d93b599d3db1ca14b499a092203b8e918a3954067f5c23510581785c",
+    "references/skill-handoff.md": "6389d3995bb767f065d9a12d557cdf5e119b82c0fbd78e8877ba6ce4a1d7e928",
+    "SKILL.md": "88237217b4c0532f274de61e1c9a9ddc208c44bc1f8bb1621fabc1eb8450e999"
+  },
+  "example_files": {
+    "evals/real/promotion-2026-11-05/repair.patch": "c93ef313b359a80ad132696727c594dd071ae703875f9fe4f5e7a7734b76961b",
+    "evals/real/promotion-2026-11-05/source.json": "c354a8157f3d20c739f5c0b33b3b880665a1626d3f4634bbb0e7268d31e55d6d",
+    "evals/real/promotion-2026-11-05/verify.mjs": "5590f9bcf90bfdd39078838965de88fd3fdd669379a6d1adf0aa763c4a4f9998"
+  },
+  "portable_normalization": "Additional hashes normalize UTF-8 CRLF/CR to LF; binary files unchanged. Use when checkout line endings differ.",
+  "runtime_sha256_lf": {
+    "agents/openai.yaml": "efeb64f7820b909c98dd95edc6cc83028874e500c3046a634d52adb55e98f372",
+    "LICENSE": "70bdc0ae8b62c13933d0fe19bfb87892d44f17d1ad84ae66c29ee906f228c0d6",
+    "references/editor-specs.md": "5d0afe5de1ade98c7c211c009697045e96e9e5ec51ffd6476221a7eb8d1f755d",
+    "references/examples.md": "5659ed636b6cacac2539de11163d01b27c89d57a9ba92e88baebff62035c046a",
+    "references/presentation-checks.md": "6781b51931637f6ccb7fa7df6d3b32db27f8e58db4261029b7ff1b77e2b93885",
+    "references/runtime-checks.md": "7d341f82d93b599d3db1ca14b499a092203b8e918a3954067f5c23510581785c",
+    "references/skill-handoff.md": "6389d3995bb767f065d9a12d557cdf5e119b82c0fbd78e8877ba6ce4a1d7e928",
+    "SKILL.md": "88237217b4c0532f274de61e1c9a9ddc208c44bc1f8bb1621fabc1eb8450e999"
+  },
+  "example_sha256_lf": {
+    "evals/real/promotion-2026-11-05/repair.patch": "c93ef313b359a80ad132696727c594dd071ae703875f9fe4f5e7a7734b76961b",
+    "evals/real/promotion-2026-11-05/source.json": "c354a8157f3d20c739f5c0b33b3b880665a1626d3f4634bbb0e7268d31e55d6d",
+    "evals/real/promotion-2026-11-05/verify.mjs": "5590f9bcf90bfdd39078838965de88fd3fdd669379a6d1adf0aa763c4a4f9998"
+  },
+  "shared_fixture_evidence": {
+    "repository": "Ddrubok/bettermakegame",
+    "base_commit": "17fccc1d1d002a6e099ff033afd12c6fbc141f77",
+    "source_sha256": "6993b9db8248f4b2f51d5e660a5441e563cc602f200bb65c2b0a191f70861cde",
+    "tests_sha256": "fda5270194ab89efd08052ca69bfc1c3396a1f0611dcc89be8af53080c66283f",
+    "node": "22.18.0",
+    "online_passed": 17,
+    "full_node_passed": 42,
+    "limits": "Local trusted-event fixture and toy world; not engine/network/human or agent effectiveness."
+  }
+}

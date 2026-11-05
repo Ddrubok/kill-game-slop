@@ -119,3 +119,9 @@ Copy-Item -Recurse skills/kill-game-slop "$HOME/.codex/skills/"
 ## 라이선스
 
 이 프로젝트는 [MIT License](LICENSE)를 따릅니다. [yetone/kill-ai-slop](https://github.com/yetone/kill-ai-slop)의 정리 철학에서 영감을 받았으나, 게임 프레젠테이션 디자인 워크플로에 맞춰 독립적으로 개발되었으며 업스트림 코드를 포함하지 않습니다.
+
+## 실제 적용 후속 작업 — 2026-11-05
+
+[현재 수정·검증 기록](evals/practical-validation-2026-11-05.md)에 이전 라운드의 늦은 종료 콜백 수정, 실제 게임 구성요소 수리, 새 Astra 4세션 비교를 정리했습니다. 과거 결과는 보존했습니다. 짧은 지침과 전체 스킬 모두 선택 과제를 고쳤고 정상 축하 화면은 유지했습니다. 추가 정확도 우위는 확인되지 않았습니다. 원본 게임 프로젝트는 수정하지 않았습니다. 사람·실기기·네트워크와 별도 U/V·전달 평가 묶음은 미실행입니다.
+
+설치용 폴더에도 저장소 루트와 동일한 MIT LICENSE를 포함했습니다.

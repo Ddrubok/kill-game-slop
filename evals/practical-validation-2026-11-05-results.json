@@ -1,0 +1,43 @@
+{
+  "date": "2026-11-05",
+  "scope": "Current local source; see companion snapshot for identity. No publish or final commit is claimed.",
+  "executed": {
+    "real_component": {
+      "viewports": [
+        360,
+        960
+      ],
+      "double_callback_before": [
+        "Queen",
+        "Queen"
+      ],
+      "double_callback_after": [
+        "Queen"
+      ],
+      "stale_callback_before": [
+        "Knight"
+      ],
+      "stale_callback_after": [],
+      "opening_captures_identical": true,
+      "reduced_motion_after": "animation none, selected Bishop, 4 disabled choices, one completion"
+    },
+    "root_and_runtime_license_identical": true,
+    "full_match": "NOT RUN"
+  },
+  "static": {
+    "runtime_files": 8,
+    "evaluated_runtime_matches": true,
+    "markdown_file_targets": 92,
+    "git_diff_check_exit": 0,
+    "new_text_whitespace_errors": 0
+  },
+  "yaml_quick_validate": "PASS",
+  "runtime_package_file_links": "PASS",
+  "not_run": [
+    "Human playtest/preference",
+    "Physical mobile/gamepad tests",
+    "Production network",
+    "Dedicated U/V and handoff case sets"
+  ],
+  "limits": "Automated artifact checks and four author-aware Astra sessions are separate; no general accuracy, speed or quality improvement percentage."
+}

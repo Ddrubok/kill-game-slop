@@ -1,2 +1,4 @@
 # Preserve archived evidence bytes for the SHA-256 manifests on every OS.
 evals/** -text
+# Unified diffs require a space prefix even on empty context lines.
+evals/real/promotion-2026-11-05/repair.patch -whitespace

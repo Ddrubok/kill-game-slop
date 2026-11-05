@@ -22,7 +22,7 @@ Do not turn this example into a rule that all optimistic feedback is wrong. Clea
 
 Reuse the producer's files, parameters, before/after conditions and actual checks in the original finding. Keep **applied**, **verified**, **remaining discrepancy** and **approved departure** distinct. A producer's “done” message or screenshot count does not close the finding. Recheck the success and preservation conditions affected by the final edit; do not restart unrelated analysis.
 
-For a pending/online cue, inspect event identity, round/owner lifetime and actual state order. Test late, duplicate, denied and corrected messages where reachable. A wrong success cue is a state problem; reduce particles only if they independently obscure information. Do not alter collision, network authority or simulation clocks to repair feedback.
+For a pending/online cue, inspect event identity, round/owner lifetime and actual state order. Test late, duplicate, denied and corrected messages where reachable, including a higher revision after the effect has finished. Keep that presentation lifetime closed unless the actual protocol explicitly creates a new one; an old callback must not finish a reused instance. A wrong success cue is a state problem; reduce particles only if they independently obscure information. Do not alter collision, network authority or simulation clocks to repair feedback.
 
 For audio/VFX overlap, report which channels were actually experienced. Source routing or scheduled playback can support a causal hypothesis; hearing and motion claims need the relevant playback evidence. A headless command log cannot establish mix quality or haptic feel.
 

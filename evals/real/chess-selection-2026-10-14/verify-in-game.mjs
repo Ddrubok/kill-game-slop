@@ -1,13 +1,19 @@
 // Run against a local Vite dev server. This observes real runtime objects without changing game state.
-import { chromium } from '../../.orca/ui-check/node_modules/playwright/index.mjs';
+import { createRequire } from 'node:module';
+import path from 'node:path';
+const require = process.env.PLAYWRIGHT_ROOT
+  ? createRequire(path.join(path.resolve(process.env.PLAYWRIGHT_ROOT), 'package.json'))
+  : createRequire(import.meta.url);
+const { chromium } = require('playwright');
 import fs from 'node:fs/promises';
 import assert from 'node:assert/strict';
 import { fileURLToPath } from 'node:url';
-const pass = process.argv[2] ?? 'recheck';
-assert.match(pass, /^[a-z-]+$/);
-const out = new URL(`./${pass}/`, import.meta.url);
-await fs.mkdir(out,{recursive:true});
-const browser = await chromium.launch({channel:'msedge',headless:true});
+const pass = process.argv[2] ?? ('recheck-' + Date.now());
+assert.match(pass, /^[a-z0-9-]+$/);
+const out = new URL(`./rechecks/${pass}/`, import.meta.url);
+await fs.mkdir(new URL('./rechecks/', import.meta.url), {recursive:true});
+await fs.mkdir(out); // Refuse to overwrite a previous result or historical evidence.
+const browser = await chromium.launch({...(process.env.BROWSER_PATH ? {executablePath:process.env.BROWSER_PATH} : {channel:'msedge'}),headless:true});
 const results = {pass,started:new Date().toISOString(),browser:browser.version(),externalNetwork:'blocked',instrumentation:'Playwright response interception adds a getter for actual runtime objects; no game state or clock mutation',conditions:[]};
 try {
  for (const [width,height,touch] of [[360,800,true],[320,568,true],[1280,800,false]]) {

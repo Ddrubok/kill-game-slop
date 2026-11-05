@@ -1,7 +1,7 @@
 {
   "date": "2026-11-05",
   "base_commit": "b1d41ffc7795f7b8c62b81a853aed66158eb004f",
-  "revision": "uncommitted working-tree candidate",
+  "revision": "Historical pre-publication snapshot; published in e8a68bdf0405bd2e8f313ba1f6c4ec668345c684",
   "normalization": "UTF-8 text; CRLF/CR normalized to LF; SHA-256",
   "runtime_files": {
     "references/editor-specs.md": "5d0afe5de1ade98c7c211c009697045e96e9e5ec51ffd6476221a7eb8d1f755d",
@@ -19,6 +19,8 @@
     "node": "v22.18.0",
     "date": "2026-11-05",
     "passed": 9,
-    "scope": "synthetic local trusted-event adapter and toy simulation; not skill-behavior evaluation"
-  }
+    "scope": "synthetic local trusted-event adapter and toy simulation; not skill-behavior evaluation",
+    "known_limit": "Historical nine-test run missed higher-revision resurrection after finish and lacked a fault-sensitive world-write check. Superseded by the repair record; not erased or reclassified as a current pass."
+  },
+  "published_commit": "e8a68bdf0405bd2e8f313ba1f6c4ec668345c684"
 }

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Kill Game Slop"
+  short_description: "Review game presentation with scoped evidence"
+  default_prompt: "Use $kill-game-slop to review this game scene, separate defects from hypotheses, and report evidence without editing."

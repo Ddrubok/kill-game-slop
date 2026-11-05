@@ -1,0 +1,25 @@
+{
+  "date": "2026-11-05",
+  "base_commit": "e8a68bdf0405bd2e8f313ba1f6c4ec668345c684",
+  "identity": "Content snapshot identified by SHA-256; capture is after the base commit, not a claim of agent evaluation at that commit.",
+  "normalization": "UTF-8 text CRLF/CR to LF; SHA-256",
+  "runtime_files": {
+    "agents/openai.yaml": "efeb64f7820b909c98dd95edc6cc83028874e500c3046a634d52adb55e98f372",
+    "references/editor-specs.md": "5d0afe5de1ade98c7c211c009697045e96e9e5ec51ffd6476221a7eb8d1f755d",
+    "references/examples.md": "5659ed636b6cacac2539de11163d01b27c89d57a9ba92e88baebff62035c046a",
+    "references/presentation-checks.md": "6781b51931637f6ccb7fa7df6d3b32db27f8e58db4261029b7ff1b77e2b93885",
+    "references/runtime-checks.md": "7d341f82d93b599d3db1ca14b499a092203b8e918a3954067f5c23510581785c",
+    "references/skill-handoff.md": "6389d3995bb767f065d9a12d557cdf5e119b82c0fbd78e8877ba6ce4a1d7e928",
+    "SKILL.md": "88237217b4c0532f274de61e1c9a9ddc208c44bc1f8bb1621fabc1eb8450e999",
+    "LICENSE": "70bdc0ae8b62c13933d0fe19bfb87892d44f17d1ad84ae66c29ee906f228c0d6"
+  },
+  "shared_fixture_evidence": {
+    "repository": "Ddrubok/bettermakegame",
+    "commit": "fd3c15df5cbbd9226003233e573af67cf8da0c85",
+    "source_sha256_lf": "afa4f590f07b729934f55d106278c480260a7065b674895850e543796022df18",
+    "tests_sha256_lf": "a501a4dec534f5ae06f536dc814c3a9ff66666ece263896dcc0962502a2cf3a1",
+    "node": "v22.18.0",
+    "passed": 13,
+    "scope": "Synthetic trusted-event adapter and toy world; not agent, network or renderer verification"
+  }
+}

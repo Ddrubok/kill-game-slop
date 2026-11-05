@@ -1,108 +1,71 @@
 ---
 name: kill-game-slop
 description: >-
-  Find and repair distracting, redundant, misleading, inconsistent, or
-  difficult-to-use game presentation while preserving art direction and
-  gameplay. Use for kill-game-slop, game deslop, cluttered HUDs, confusing
-  controls, unnecessary visual search, and inaccurate state cues. Judge
-  demonstrated player costs, not AI authorship or stylistic unfamiliarity.
-  For requested UI/HUD creation, broader layout or identity alternatives,
-  and interaction or sequence polish, use bettermakegame. General web
-  product deslop belongs to kill-ai-slop.
+  Review and repair distracting, redundant, misleading or difficult-to-use
+  game presentation while preserving art direction and gameplay. Use for
+  kill-game-slop, game deslop, cluttered HUDs, confusing controls, inaccurate
+  state cues, 게임 UI 가독성 점검, 게임 연출 정리, HUD 사용성 검토,
+  and 잘못된 상태 안내 수정. For requested UI/HUD creation or broader
+  design alternatives use bettermakegame; general web styling belongs to
+  kill-ai-slop. Not an AI-authorship detector.
 license: MIT
 ---
 
 # Kill Game Slop
 
-Make the game feel authored. Remove presentation that distracts from play, repeats information without purpose, or promises behavior the game does not deliver. Judge the shipped experience, not whether a human or AI produced it.
+Find demonstrated costs to understanding or control, including in browser games. Preserve purposeful style and gameplay. A working control can still be hard to find or operate; unfamiliar art, dense information or elaborate celebration is not a defect by itself. **No confirmed problem is a valid result.** There is no defect quota or required style change.
 
-This skill diagnoses and repairs game presentation with concrete costs to understanding or control, including browser games. A working control can still be difficult to find, distinguish or operate. `bettermakegame` leads requested UI/HUD creation, broader layout or identity alternatives, and interaction or sequence improvements. Either skill may add, simplify, move or remove elements within scope; they are independent and require no automatic ordering. In mixed projects, distinguish playable UI from the marketing site, where `kill-ai-slop` applies. AI-slop here is not evidence of who created an asset or code.
+## Establish scope and intent
 
-## Start from this game
+For an audit, report without edits. For an authorized fix, apply the smallest coherent change to the affected flow. Do not turn a local review into a redesign, new combat/economy system, engine migration or asset pipeline. Use clear instructions and existing authorization without routine reconfirmation.
 
-Read the requested feature, its real state transitions, and the relevant shared UI, localization, art, or audio resources. Identify the player's immediate action, what informs that action, and how the game acknowledges it. Inspect a running scene or supplied capture when available; source inspection alone cannot establish visual quality.
+Read the affected feature, state transitions and shared UI, localization, art and audio resources. Inspect a running scene or supplied capture when available. Briefly record the player's immediate action, intended feeling, identity to preserve, device/input and review/edit scope. Cite the request, design document or scene; mark inferred intent provisional. Read available material before asking only about material unknowns.
 
-Establish what to preserve: genre, audience, authored references, player/team colors, signature silhouettes, expressive language, and deliberate extravagance. Neon can belong in a cyberpunk arena; elaborate borders can belong in a fantasy inventory. Neither is a defect by itself.
+Keep screenshot, recording, runtime, source and user-report evidence distinct. A still can show overlap at that size, not motion timing, sound masking, input behavior or the cause of a state mismatch. Attribute reports until reproduced. A visible symptom may be confirmed while its cause remains a hypothesis. Do not infer error rates, comprehension or preference from appearance alone.
 
-Record a brief **game intent** before judging: the player's action in this scene, intended feeling, visual/audio identity to preserve, target device/input, and authorized review or editing scope. Cite the request, design document or existing scene used; mark inferred intent as provisional. Read available material first, rather than asking a questionnaire. Ask only about unknowns that materially change a decision; continue independent work meanwhile.
+## Classify before acting
 
-Distinguish observed behavior from inference. A still image can establish overlap at that captured size, but not animation timing, audio masking, input behavior, or the cause of a state mismatch. If art direction is unclear, use consistent existing scenes as provisional references and preserve ambiguous stylistic choices while fixing demonstrated functional costs.
+| Judgment | Basis and response |
+| --- | --- |
+| Confirmed defect | Evidence of inaccurate state, blocked action, lost information or another concrete cost in identified conditions; repair within scope and verify success |
+| Hypothesis | Plausible cost with missing evidence; name the discriminating check, without claiming the cause or fix is confirmed |
+| Optional identity/taste proposal | Possible better expression of intent; compare gains and losses, trial only when requested |
+| Preserve | Purposeful element with no demonstrated cost in reviewed conditions; keep it without claiming untested conditions passed |
 
-Follow the user's scope. For an audit, report findings without editing. For a fix, apply the smallest coherent change to the requested flow. Do not turn a HUD cleanup into a new combat system, economy, engine migration, or asset pipeline.
+Evidence type and judgment are separate fields, not confidence percentages. Preserve ambiguous stylistic choices while addressing demonstrated functional costs. Neon, ornate borders and icon-plus-text can be deliberate or accessible. Compare routine events with milestones before reducing emphasis; no universal particle count, shake amplitude, font ban or hierarchy depth applies.
 
-## Classify the judgment before acting
+## Inspect the relevant route
 
-| Judgment | Required basis | Treatment |
-| --- | --- | --- |
-| Confirmed defect | Evidence of an inaccurate state, blocked action, lost information, or other concrete cost in identified conditions | Correct within the authorized scope; define and verify success |
-| Hypothesis to investigate | A plausible cost with missing evidence | Name the missing observation and a discriminating check; do not present the cause or repair as confirmed |
-| Optional identity/taste proposal | A possible better expression of the game's intent, without a demonstrated defect | Label it optional; compare benefits and losses; trial only within the requested scope |
-| Preserve | A purposeful element with no demonstrated cost in the reviewed conditions | Keep it and explain its role; do not imply untested conditions passed |
+Read only what the task needs:
 
-**No confirmed problems is a valid result.** There is no quota of defects or style changes. A confirmed visible symptom can have an unknown cause; keep the symptom and causal hypothesis separate. User reports remain attributed reports until reproduced. Evidence type and judgment type are different fields, not confidence percentages.
+- [presentation-checks.md](references/presentation-checks.md): symptoms, legitimate counterexamples, UI usability, coinciding displays and the finding record. Use it when examining a suspected cost or reporting a finding.
+- [editor-specs.md](references/editor-specs.md): editor-only or serialized changes. Identify the actual target and unapplied specification if the editor is unavailable.
+- [runtime-checks.md](references/runtime-checks.md): relevant engine/input checks and human observation when verifying a repair.
+- [skill-handoff.md](references/skill-handoff.md): a finding leads to requested design/effect production. Local repairs need no companion.
+- [examples.md](references/examples.md): calibration, including cases where restraint would remove important information.
 
-## Find a concrete cost before removing anything
+Inspect hierarchy, state distinctions, control recognition, hit regions, focus/back navigation, meaningful feedback and information masking where relevant. Treat geometry warnings as candidates: containment can be intentional. Establish that a tested transient combination can actually occur; distinguish reachable play from injected state. An AI reader's uncertainty does not establish human confusion.
 
-| Area | Evidence worth acting on | Smallest useful correction |
-| --- | --- | --- |
-| HUD and menus | Competing emphasis obscures the next action; fixed children overflow a scaled panel | Restore hierarchy and layout at the actual input size |
-| Copy | Generic hype replaces a rule, result, or recovery instruction | State the action, consequence, and next step in the player's language |
-| Feedback | Selected, sent, accepted, and locked look identical | Show the actual state without implying a guarantee the game cannot make |
-| Art and world dressing | Detail competes with enemy silhouettes, hazards, navigation, or interaction cues | Reduce the competing detail while preserving the world's visual identity |
-| Motion and VFX | Ambient shake, flashing, or effects conceal meaningful changes | Reserve emphasis for relevant events; respect existing motion settings |
-| Audio | Repeated cues mask an important sound; settings omit sounds in the same category | Reduce repetition or route existing cues through the appropriate mix controls |
-| Rewards and progression | Fake activity, inflated achievement text, or invented scarcity obscures the actual reward | Show the real reward and condition; leave balance changes outside this task |
+`bettermakegame` leads requested UI/HUD creation, broader identity/layout alternatives and interaction sequences; `game-vfx` handles scoped effect production. Both can receive a finding directly. Preserve its ID, judgment, provenance, unknowns, scope and success condition. Reconcile returned evidence into the original finding; another skill saying “done” does not verify it. No automatic agent launch, compulsory install, second audit or repeated bouncing between skills.
 
-Include usability costs even when the implementation technically works: unnecessary search, ambiguous affordances, avoidable misactivation, confusing focus or back navigation, and unclear state distinctions. Identify the affected task, evidence and conditions. Do not infer error rates or comprehension from appearance alone. A confirmed geometry or state problem may be reported without claiming a measured human consequence.
+## Repair the source and preserve meaning
 
-Treat unfamiliar placement or shape as a candidate, not a defect. Use the UI usability checks in [presentation-checks.md](references/presentation-checks.md) to distinguish confirmed problems, hypotheses, optional proposals and preservation. A broader redesign is not required to repair a local defect; propose one only when requested or explain it as an optional next step.
+Trace shared styles, scenes, prefabs, widgets, localization keys and callers; change a shared resource only when the behavior should change for its users. Prefer existing engine layout/input/animation/audio/accessibility systems. Do not install a scanner or framework for a review, or edit generated exports and opaque binaries as text.
 
-Treat these as hypotheses, not a blacklist. Keep redundant channels when they improve accessibility: an icon plus text may be essential. Do not remove labels because icons look cleaner, or remove texture because a flat surface looks more fashionable.
+Keep supported languages, natural project terminology, pluralization and dynamic values. Preserve contrast, non-color cues, readable expanded text, touch targets, focus/controller navigation, subtitles and reduced-motion information. Preserve authored identity and significant impact/celebration; reducing spectacle is not automatically an improvement.
 
-Compare routine events with meaningful milestones before reducing effects. Preserve intentional impact, anticipation and celebration; reduce repeated cues only when they mask information or interrupt play. Do not impose universal particle counts, shake amplitudes, hierarchy depths, font bans or a fixed reading pattern across games. For concrete symptoms, counterexamples and capture checks, read [presentation-checks.md](references/presentation-checks.md).
+Preserve rules, timing windows, hidden information, server validation, ownership, persistence, rewards and purchase semantics. Selected, sent, accepted and locked must reflect the actual state. Do not reveal a secret choice or signal confirmed success while pending. Keep effects, audio, subscriptions and callbacks scoped to their owner/round; exit, cancellation, disconnect and pooled reuse must not leave obsolete cues.
 
-## Change the source of the problem
+## Verify and report
 
-- Trace shared styles, prefabs, widgets, scenes, localization keys, and callers. Change a shared resource only when the behavior should change for all its users.
-- Prefer the engine's existing layout, input, animation, audio, and accessibility systems. Do not add a framework, scanner, dependency, or asset generator just to perform this review.
-- Write short, natural copy in the project's supported languages. Preserve terminology, pluralization, dynamic values, and localized text expansion. A literal translation is not always the right tone.
-- Preserve readable contrast, non-color state cues, focus order, controller navigation, touch targets, subtitles, and reduced-motion paths. Respect the project's target platforms and accessibility constraints.
-- Preserve gameplay rules, timing windows, hidden information, server validation, ownership, persistence, and purchase semantics. A cosmetic edit must not reveal a secret choice or turn a pending purchase into a success message.
-- Keep effects scoped to their scene, round, or entity. Re-entry, cancellation, and disconnects must not leave obsolete UI, sounds, subscriptions, or delayed callbacks active.
-- Avoid editing generated exports or opaque binary assets as text. Use the available editor/import workflow; if unavailable, provide a precise edit specification and disclose that it was not applied.
+Before editing, state observable success and preservation conditions tied to the player's task and game intent. Capture a baseline when possible; never reconstruct a supposed before image afterward. Compare the same scene/state after the final edit. Exercise relevant initialization, input, acknowledgement, result, exit and re-entry, plus directly affected shared-resource users. Partial HUD creation or compilation does not prove the flow works.
 
-For editor-only changes or serialized scene resources, read [editor-specs.md](references/editor-specs.md). Use its target, property, scope and verification template instead of inventing asset paths or shipping untested bulk-edit scripts.
+Check the actual viewport/input: scaled parents do not prove children fit. Include relevant overlays, localization, safe areas, focus and close/back behavior. Use project checks for code, rendered comparison for appearance, playback for motion/audio and devices for haptics. If unavailable, disclose the missing check. Keep proposed, applied, verified, remaining differences and approved departures separate; explaining a difference is not approval.
 
-When a finding leads to requested design or effect production with `bettermakegame` or `game-vfx`, read [skill-handoff.md](references/skill-handoff.md). Carry its judgment, evidence limits, scope and success condition through the same session; reuse the returned checks in that finding. A companion's completion claim does not verify it, and review-only scope remains review-only. A local repair does not require a handoff.
+Reuse the finding record: judgment, evidence/provenance, observed scope, player impact, change, preservation, success condition and actual result. Record rejected changes and reasons. When all elements are preserved, a short scene summary is sufficient. Do not infer human authorship, detector evasion, fun, retention or preference from a style edit or automation.
 
-## Verify the result, not a slop score
+For requested identity experiments, compare a small number of intent-based alternatives with the unchanged baseline, their gains/losses and bounded checks. Do not make optional proposals mandatory repairs. Human checks use concrete player tasks and disclose sample/learning effects; see runtime checks.
 
-Before editing, state an observable success condition tied to the player's task and a preservation condition tied to game intent. For example, the attack cue and reward amount must both remain identifiable in the same encounter, while the milestone celebration retains its intended emphasis. Capture the baseline and conditions when possible; do not reconstruct a supposed before image after editing.
+Maintainers only: repository `evals/` contains inputs, judge keys and historical results. Do not load answers during normal game work or fresh evaluation; static validation and favorable AI scoring do not prove skill effectiveness.
 
-Compare the same scene and state before and after where possible. Exercise the complete relevant flow: initialization, input, acknowledgement, result, exit, and re-entry. Partial HUD creation or compilation does not prove the rest of the interface works.
-
-For transient or coinciding presentation, use the relevant-moments checks in `presentation-checks.md`. Confirm that the tested combination can occur, and keep automated geometry warnings separate from demonstrated loss of information or control.
-
-Check the intended viewport and input method. Parent scaling alone does not prove children fit. Inspect overlays, long localized text, safe areas, focus, and back/close controls. Use the project's normal checks for changed code; do not replace runtime verification with keyword matching.
-
-Engine-specific checks are conditional, not mandatory dependencies:
-
-- Unity: inspect prefab overrides, serialized references, Canvas layout and the project's actual UI/input stack.
-- Unreal: inspect widget/Blueprint references, focus/navigation, anchors and safe zones with available editor tools.
-- Godot: inspect Control containers, size flags, theme overrides, signals and the project's input actions.
-- Roblox: inspect full client initialization, GUI bounds and remotes; compile Luau at O0 as well as the project's normal optimization when a compiler is available.
-- Web/custom engines: inspect DOM or canvas scaling, device pixels, focus/input routing and scene cleanup in the actual runtime.
-
-Use the finding record in [presentation-checks.md](references/presentation-checks.md): judgment, evidence and provenance, observed scope, player impact, change, preservation, success condition and actual verification. Keep proposed, applied and verified separate. Record rejected changes and why; use one short scene summary when everything is preserved. Separate unresolved editor/device limitations from completed work. Never claim human authorship, detector evasion, improved retention, or player preference from a style edit alone.
-
-For human checks, give a concrete task (identify the selected piece, find the next action, recognize an attack cue), not only “Is this better?”. Where feasible, alternate before/after order or use different first viewers to reduce learning effects. Record observations and their limited sample; automated checks establish behavior, not human comprehension or fun.
-
-## Optional identity improvements
-
-When requested, confirm the intended feeling, explain what expression seems weak, and offer a small number of alternatives using existing art direction. Compare each alternative's expected gain, loss and preservation needs, then try a bounded change and evaluate it against those expectations. Retain the current version as a valid comparison. Do not call “generic” or “not original enough” a defect without evidence of a player cost, or automatically apply optional proposals while fixing defects.
-
-The repository's `evals/` contains maintainer comparisons and a separate judge key. These are not ordinary review instructions. Keep keys and prior results out of fresh evaluation conversations; do not claim the skill is effective merely because its files validate or an AI assigns favorable scores.
-
-For calibration cases and examples where restraint is the wrong answer, read [examples.md](references/examples.md).
-
-Independent game-focused work inspired by [yetone/kill-ai-slop](https://github.com/yetone/kill-ai-slop). No upstream scanner or source code is bundled.
+Independent game-focused work inspired by [yetone/kill-ai-slop](https://github.com/yetone/kill-ai-slop). No upstream scanner or code is bundled.

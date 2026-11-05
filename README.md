@@ -32,8 +32,8 @@ A technically working UI can still make necessary information hard to find, conf
 ## Core Focus Areas
 
 - **UI / HUD and controls**: Check information visibility, control recognition, actual hit regions, focus/back navigation, and unnecessary search. Preserve purposeful density and unfamiliar shapes when no cost is demonstrated.
-- **Copy & Narrative**: Trim repetitive tutorial prompts, generic placeholders, and verbose system dialogs into crisp, tone-appropriate text.
-- **Visual Readability**: Clarify background-foreground separation, mitigate particle stacking, and maintain silhouette readability during combat or movement.
+- **Copy & Narrative**: Check whether repetition or vague copy obscures an action, rule or recovery step. Keep useful reminders and the game's voice; edit only within scope.
+- **Visual Readability**: Check target and hazard visibility during actual combat or movement. Overlap and decoration remain valid when they preserve useful information.
 - **Motion & Audio**: Investigate demonstrated masking or interruption while preserving meaningful impact and celebration. A still image cannot establish audio or repeated motion problems.
 - **Integrity Preservation**: Never compromise intentional artistic vision, gameplay balances, accessibility compliance, or server-authoritative networking constraints.
 
@@ -77,17 +77,17 @@ Invoke the skill using `$kill-game-slop` alongside context about your game, scen
 
 - **Arena Shooter**
   ```text
-  $kill-game-slop Review our fast-paced sci-fi arena shooter HUD. Reduce screen clutter, tone down excessive hit markers and screen shake, and ensure target silhouettes remain readable during multi-player firefights without touching weapon balancing.
+  $kill-game-slop Review our sci-fi arena HUD during firefights. Check whether hit markers or shake obscure targets, citing the observed conditions. Preserve purposeful impact and weapon balance. Report confirmed issues, hypotheses and what to keep; do not edit.
   ```
 
 - **Cozy Mobile Farm**
   ```text
-  $kill-game-slop Audit the UI and tutorial dialogue for our cozy farming sim. Trim repetitive prompt copy, simplify cluttered shop menus, and soften reward fanfare sounds while keeping the warm, pastel aesthetic intact.
+  $kill-game-slop Review our farming sim shop, tutorial and reward feedback. Check whether repetition interferes with the player task; preserve useful guidance, milestones and the pastel style. Do not claim sound masking without playback. Report findings without edits.
   ```
 
 - **Pixel-Art Roguelike**
   ```text
-  $kill-game-slop Polish the dungeon presentation for a 2D pixel-art roguelike. Clean up particle overlap on spell casts, improve tile readability against enemy sprites, and maintain 1-bit / retro visual constraints.
+  $kill-game-slop Review spell effects and enemy visibility in this pixel-art roguelike. Distinguish intentional overlap from demonstrated loss of information, keep the 1-bit style, and report evidence without edits. No confirmed problem is an acceptable result.
   ```
 
 ## Examples
@@ -110,6 +110,9 @@ Automatic discovery uses the skill description; invocation support depends on th
 ## This update
 
 The 2026-11-05 update adds a [scoped handoff](skills/kill-game-slop/references/skill-handoff.md) to bettermakegame and game-vfx. It preserves the finding's judgment, provenance, review/edit scope and success condition, then reconciles returned evidence into that finding. It does not require another skill or a second audit. The [update record](evals/handoff-2026-11-05.md) separates document checks and synthetic fixture evidence from unrun model/human evaluations.
+
+
+The [feedback repairs](evals/feedback-repair-2026-11-05.md) make review examples neutral, add Korean discovery phrases and optional Codex display metadata, move conditional runtime details out of the entrypoint, and remove the chess script's private `.orca` dependency. The changed chess launcher has only been syntax-checked, not rerun against the game. Shared fixture evidence now points to the repaired version; old hashes/results remain historical. New handoff behavior and U/V cases remain NOT RUN.
 
 ## License
 

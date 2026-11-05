@@ -14,7 +14,7 @@ Use this when a change involves editor-managed assets or cannot be safely applie
 | Field | Required information |
 | --- | --- |
 | Target | Verified asset path and object/component/widget identifier; label unknown values as unresolved |
-| Evidence | Scene/state or capture and the observed player cost |
+| Evidence | Scene/state or capture, observed functional or expression mismatch, and the rule/reference it violates |
 | Change | Verified property and old/new value, or an explicit layout intent if property/value is not yet known |
 | Scope | Instance, prefab variant, shared asset or theme; identify other affected users before changing a shared resource |
 | Preserve | References, callbacks, input behavior, gameplay timing and accessibility channels that must remain |
@@ -25,7 +25,7 @@ Unknown targets can still yield a useful proposal. They must be resolved before 
 
 ## Conditional engine checks
 
-These are inspection prompts; use only the engine and UI stack in the project.
+These are inspection prompts; use only the relevant engine systems in the project. For animation edits, resolve the actual clip, rig, controller/layer and transform owner rather than applying a UI-only checklist; use [gameplay-coherence.md](gameplay-coherence.md) for the behavior contract.
 
 - **Unity:** Determine whether the target is an instance, prefab/variant or shared UI resource. Preserve serialized references and event bindings. Check changes on affected instances in the editor and the actual UI/input stack; do not assume all projects use Canvas or TextMeshPro.
 - **Unreal:** Resolve the widget/Blueprint asset and any bound layout properties or animations. Use supported editor tools for binary assets. Verify compilation, focus/navigation and the changed state in the editor; a blanket Python rewrite is not a substitute for validating the available API.

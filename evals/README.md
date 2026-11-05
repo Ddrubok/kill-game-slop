@@ -1,5 +1,7 @@
 # Comparison evaluation
 
+The [gameplay coherence set](gameplay-coherence-2026-11-05/README.md) adds action combinations, intended motion, interruption and contextual meaning. Its fresh-agent evaluation is **NOT RUN**; earlier comparisons do not validate the revised instructions.
+
 ## Protocol
 
 Run three new conversations with the same model, settings, input packet and review scope. Do not reuse conversations or show prior answers. Give each only `inputs/cases.md`, the common request and its condition below. For full-skill only, additionally provide a snapshot of `skills/kill-game-slop/` and its relevant references. Never send `judge/`, results or expected case distribution to reviewers. Disable unrelated skills when the host permits; record host/system context that cannot be controlled.

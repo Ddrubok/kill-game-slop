@@ -2,9 +2,9 @@
 
 [한국어](README.ko.md)
 
-**Remove the slop. Keep the game.**
+**Review how game actions, rules and presentation work together.**
 
-An agent skill for cluttered HUDs, generic tutorial copy, misleading feedback, and effects that drown out play. It records the game's intent, distinguishes demonstrated defects from hypotheses and optional style proposals, and verifies changes without erasing the game's identity. A review with no confirmed problems is a valid outcome.
+An agent skill for awkward action combinations, broken transitions, motion/hit/feedback mismatches, cluttered HUDs and misleading presentation. It records the game's intent, distinguishes demonstrated defects from hypotheses and optional style proposals, and verifies changes without erasing the game's identity. A review with no confirmed problems is a valid outcome.
 
 Use it with Unity, Unreal, Godot, Roblox, web games, or a custom engine. These are review workflows, not tested engine integrations. There is no scanner or AI detector to install.
 
@@ -15,6 +15,33 @@ Use it with Unity, Unreal, Godot, Roblox, web games, or a custom engine. These a
 | Ornate pixel-art borders that already work | Leave them alone |
 
 Examples are illustrative. See [the reasoning and checks](docs/examples.md).
+
+## What game slop means here
+
+For this skill, slop means unfinished or contradictory connections between actions, rules, motion, feedback and content relative to the game's intent. This is an operational review definition, not a claim that AI made the game. Individual functions can work while their combination is visibly or functionally inconsistent.
+
+| Criterion | Question |
+| --- | --- |
+| Combined actions | Do permitted actions work together, such as moving while attacking? |
+| Transition and recovery | Do entry, interruption, cancellation and return preserve the intended control and state? |
+| Spatial agreement | Do visible movement/contact and actual position/collision agree with the intended abstraction? |
+| Timing and causality | Do input, meaningful events, sound and visual feedback follow the intended order and clocks? |
+| State and control | Does the displayed action availability agree with what input can actually do? |
+| Context and identity | Do text, art and cues communicate the actual event in the game's own vocabulary? |
+| Repetition and closure | Do repeated actions preserve a usable flow, accurate outcomes and meaningful emphasis? |
+
+Walking while attacking is not inherently a defect. A grounded moving attack whose planted foot drifts can violate its intended expression; deliberate skating or floating can be correct. Do not force the actor to stop to hide a motion problem. Do not remove an already released projectile merely because its caster was interrupted: its lifetime follows the actual rules.
+
+A pose discontinuity can be an expression defect even when input works. Record the visible mismatch and its rule/reference basis; an observed symptom does not prove its implementation cause or human dislike. When intent or temporal evidence is missing, use a bounded hypothesis. No realism requirement, universal timing tolerance or slop score is introduced.
+
+The detailed [gameplay coherence guide](skills/kill-game-slop/references/gameplay-coherence.md) is loaded only for relevant action/transition work. It supplements existing UI and readability checks; a small text fix does not require a combat audit or a new report template.
+
+```text
+$kill-game-slop Review this character's movement and attack combination.
+Check entry, contact feedback, interruption and return to movement.
+Preserve permitted moving attacks, hit timing and the game's stylized motion.
+Separate observed mismatches from suspected causes; report without editing.
+```
 
 ## Decisions and evidence
 
@@ -30,6 +57,8 @@ The brief game-intent record covers the player's action, intended feeling, visua
 A technically working UI can still make necessary information hard to find, confuse controls with decoration, or route input somewhere other than the visible target. Separate observations, user reports, and hypotheses; appearance alone does not establish error rates or comprehension. [bettermakegame](https://github.com/Ddrubok/bettermakegame) covers new UI/HUD designs and broader layout or identity alternatives. The skills work independently, with no required order. Either can add, simplify, move, or remove elements within scope; local usability repairs do not require bettermakegame to be installed.
 
 ## Core Focus Areas
+
+- **Action coherence**: Check how movement, attacks, interaction, interruption and recovery combine. Align visible motion, actual position/contact and meaningful events with the intended rules; preserve valid moving attacks and deliberate abstraction.
 
 - **UI / HUD and controls**: Check information visibility, control recognition, actual hit regions, focus/back navigation, and unnecessary search. Preserve purposeful density and unfamiliar shapes when no cost is demonstrated.
 - **Copy & Narrative**: Check whether repetition or vague copy obscures an action, rule or recovery step. Keep useful reminders and the game's voice; edit only within scope.
@@ -120,6 +149,12 @@ This project is licensed under the [MIT License](LICENSE). Inspired by the clean
 
 ## Practical follow-up — 2026-11-05
 
-See the [current repair and evidence record](evals/practical-validation-2026-11-05.md). This pass fixes the shared fixture's stale completion callback, preserves historical results, and publishes a real game-component repair plus a fresh four-session comparison. Both short and full-skill conditions repaired the selection task and preserved the normal celebration; no added accuracy advantage was demonstrated. The original game project was not edited. Human/device/network tests and the dedicated U/V/handoff sets remain unrun.
+See the [earlier repair and evidence record](evals/practical-validation-2026-11-05.md). That pass fixed the shared fixture's stale completion callback, preserved historical results, and published a real game-component repair plus a fresh four-session comparison. Both short and full-skill conditions repaired the selection task and preserved the normal celebration; no added accuracy advantage was demonstrated. Those results predate the gameplay-coherence instruction revision. The original game project was not edited. Human/device/network tests and the dedicated U/V/handoff sets remain unrun.
 
 The installable folder now includes the same MIT LICENSE as the repository root.
+
+## Gameplay-coherence instruction revision
+
+The current revision adds the criteria above, a conditional reference, calibration examples and an [evaluation packet of twelve cases](evals/gameplay-coherence-2026-11-05/README.md) with a separate maintainer key. Scope and evidence principles remain: audit requests do not authorize edits; intended rules stay intact; an implementation that violates an established rule is not protected merely because it already exists. Broader rule changes remain design proposals unless authorized.
+
+Static package checks are recorded separately from behavior. **The new case evaluation and before/after agent comparison are NOT RUN.** No improved accuracy, player preference, native engine compatibility or speed gain is claimed. Earlier comparisons and actual-game records remain historical. The installed runtime contains no evaluation answers or mandatory engine/scanner dependency.

@@ -2,6 +2,28 @@
 
 These are illustrative design cases, not measured project results or engine compatibility tests.
 
+## Moving attack: separate the symptom from the cause
+
+**Intent/evidence:** Moving attacks are required. A runtime sequence shows a stance foot translating relative to stationary ground while the intended expression calls for grounded steps; input, damage and movement still work.
+
+**Decision:** Record the expression mismatch, with its interval and reference basis. Trace clip/layer, speed and transform ownership before attributing the cause. Preserve movement permission and hit timing. Forcing the actor to stop would change the rule and conceal the symptom.
+
+**Check:** Replay entry, travel, direction change and exit at the relevant speed; compare observed contact and gameplay state separately. Do not claim a player enjoyment improvement from a corrected foot trace.
+
+## Deliberate skating: preserve the motion vocabulary
+
+**Intent/evidence:** The design specifies gliding characters with fixed lower-body poses; movement and attack coexist, and the observed sequence respects that rule and accurately signals contact.
+
+**Decision:** Preserve. Sliding and sparse animation alone are not defects. Extra walk cycles or realism are optional redesign proposals, not required repairs.
+
+## Interrupted action: distinguish pending contact from released objects
+
+**Intent/evidence:** A melee wind-up is cancelled before its hit window, but its old callback still emits contact feedback. A separate already-released projectile is specified to continue after interruption.
+
+**Decision:** Repair the stale melee event's lifetime without cancelling the independent projectile or changing the cancel window. Confirm which event actually happened; cue scheduling alone does not prove audio playback or authoritative damage.
+
+**Check:** Cancellation before/at/after the relevant boundary, replacement action and owner exit follow the actual policy. Keep unseen timing and sound conditions unverified.
+
 ## Competitive arena: keep the signal
 
 **Request:** “Clean up this shooter HUD. Keep our neon team identity.”

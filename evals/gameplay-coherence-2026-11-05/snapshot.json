@@ -1,0 +1,32 @@
+{
+  "date": "2026-11-05",
+  "base_commit": "a580638952d7aec63b0a5f1697c085ea8e9fcdfe",
+  "identity": "Content snapshot of the instruction revision after the base commit; not a completed behavior evaluation or final Git commit.",
+  "hash_algorithm": "SHA-256 of raw bytes and UTF-8 text normalized to LF",
+  "runtime_files": {
+    "agents/openai.yaml": "b8cd446400565b5b3d227e2c193f4da944aac7aec62c5a3d0f6d784d78843d74",
+    "LICENSE": "886b58ffefbe10accb31eed8b494969cb5ac89fd983d634ecba542b69f018396",
+    "references/editor-specs.md": "ebd734c7358ff52e31f70a2267a3a7852a9cb566529483598154f7fc24a65314",
+    "references/examples.md": "ac520e01d730a8835eab092c3c9dbd6581dca1b0ab96ef961586113dafd7d3c4",
+    "references/gameplay-coherence.md": "de48266e8cfd0704ec73cc3b89bacad0af1cd5c657b67f3bda57c8ceedd5a349",
+    "references/presentation-checks.md": "adfb78ba6c7eafac6fd4c1c8bc0effe3d6947a9a032e8ec174aed17a0ac99bc8",
+    "references/runtime-checks.md": "2ae82a5efd7846ce8150397f8e1fad4fd14d830a027ed93e5c54c49631d49a3a",
+    "references/skill-handoff.md": "2f9f4afbd6c88bb0d2d0ebd52a7b1adb8f5206eaecc43c2308d60d2676e47377",
+    "SKILL.md": "f200a6aae8ed0f01b28295a3a46c76b1ec86da474776375ddfd0c5aac67b6a12"
+  },
+  "runtime_sha256_lf": {
+    "agents/openai.yaml": "b8cd446400565b5b3d227e2c193f4da944aac7aec62c5a3d0f6d784d78843d74",
+    "LICENSE": "70bdc0ae8b62c13933d0fe19bfb87892d44f17d1ad84ae66c29ee906f228c0d6",
+    "references/editor-specs.md": "ba7a53f85c84f6781f7ba4547b5a4665d4dedede20c6052b192d71b9c26bb9d5",
+    "references/examples.md": "2ca7bc89ae8ddf9c563f995618347ad3b1113c52fd9c82b25804fe1bdf85bb8b",
+    "references/gameplay-coherence.md": "de48266e8cfd0704ec73cc3b89bacad0af1cd5c657b67f3bda57c8ceedd5a349",
+    "references/presentation-checks.md": "f604d356dee884488027ea20495bf8be1360a6fb6e174baee952d5d8744ac549",
+    "references/runtime-checks.md": "2ae82a5efd7846ce8150397f8e1fad4fd14d830a027ed93e5c54c49631d49a3a",
+    "references/skill-handoff.md": "2f9f4afbd6c88bb0d2d0ebd52a7b1adb8f5206eaecc43c2308d60d2676e47377",
+    "SKILL.md": "f200a6aae8ed0f01b28295a3a46c76b1ec86da474776375ddfd0c5aac67b6a12"
+  },
+  "evaluation_inputs": {
+    "inputs/cases.md": "16380dff6954c037b525a2f078956ab0609c32651067778061af79633229dbcc",
+    "judge/rubric.md": "513f56e6f7fe1f42aa53a9e1dfd22c97bccb4d669a6ae743eadbe8d693242266"
+  }
+}

@@ -1,6 +1,6 @@
 # Evidence and presentation checks
 
-Use the cases relevant to the requested flow. These are hypotheses and illustrative examples, not measured thresholds or a list to clear in every game.
+Use the cases relevant to the requested flow. These are hypotheses and illustrative examples, not measured thresholds or a list to clear in every game. For interacting actions, transitions or motion/logic alignment, use [gameplay-coherence.md](gameplay-coherence.md). A visible expression mismatch against established intent can be a defect even when individual functions work.
 
 ## From symptom to a justified change
 
@@ -56,7 +56,7 @@ Use one record per decision, scaled to the evidence. Do not create separate repo
 | ID / scene / judgment | Stable ID, state, and confirmed defect / hypothesis / optional proposal / preserve |
 | Evidence / provenance | Screenshot path + frame; video + time interval; runtime + steps; source + symbol/revision; or attributed user report. Include a moment ID and reproduction path when relevant. List multiple sources separately |
 | Observed scope / unknowns | Viewport, language, input, accessibility mode, relevant state and exactly what was observed; normal play, scripted input or state injection; missing conditions, uncertain causes and unverified reachability |
-| Player impact | Action or information affected. Separate an observed loss from its inferred consequence; for proposals, state expected benefit |
+| Player impact / expression mismatch | Action/information affected, or the observed discontinuity and intended relationship it violates. Separate observation from inferred consequences; no fabricated human error, enjoyment or retention claim. For proposals, state expected benefit |
 | Correction / disposition | Proposed or applied smallest change, or preserved/deferred/rejected with reason |
 | Preserve / tradeoff | Identity, accessible channels, state truth, timing and meaningful effects that must remain; expected losses if a proposal is adopted |
 | Success condition | Observable task outcome under specified conditions, plus the preservation check; name the next check if evidence is missing |
@@ -72,7 +72,7 @@ Evidence limits:
 
 Example record (illustrative): `F01 / combat / confirmed static overlap`: supplied `fight.png` at 1280×720 shows a reward banner over the wind-up marker. Repetition is separately user-reported; animation and other resolutions are unverified. Player may lose the cue needed to dodge. Propose moving the banner outside that region; preserve reward count and milestone emphasis. Success: both cue and count visible during the same encounter and repeated pickups. Verification: not run; runtime required for the repeated sequence.
 
-Prioritize blocked actions and false state messages before optional cosmetics. If no cost is demonstrated, say **no confirmed problems in the reviewed conditions**, preserve the element and list only material uncertainties. An optional proposal does not become a failed QA check merely because it was not adopted.
+Prioritize by consequence and recurrence: false hit/state cues and lost control can matter more than a brief pose discontinuity; a pervasive expression defect is not automatically trivial because input still works. If no supported functional or expression mismatch is found, say **no confirmed problems in the reviewed conditions**, preserve the element and list material uncertainties. An optional proposal does not become a failed QA check merely because it was not adopted.
 
 ## Real application record
 

@@ -1,0 +1,47 @@
+{
+  "date": "2026-11-05",
+  "base_commit": "a580638952d7aec63b0a5f1697c085ea8e9fcdfe",
+  "behavior_evaluation": {
+    "status": "NOT RUN",
+    "cases": {
+      "C01": "NOT RUN",
+      "C02": "NOT RUN",
+      "C03": "NOT RUN",
+      "C04": "NOT RUN",
+      "C05": "NOT RUN",
+      "C06": "NOT RUN",
+      "C07": "NOT RUN",
+      "C08": "NOT RUN",
+      "C09": "NOT RUN",
+      "C10": "NOT RUN",
+      "C11": "NOT RUN",
+      "C12": "NOT RUN"
+    },
+    "limits": "No fresh agent comparison, native game playback, audio/device test or human playtest. Authored synthetic cases are not held-out evidence."
+  },
+  "static_checks": {
+    "yaml_and_existing_skill_validator": "PASS",
+    "markdown_file_targets": {
+      "checked": 110,
+      "missing": 0,
+      "limits": "File existence only; no external URL or Markdown anchor-rendering audit."
+    },
+    "git_diff_check": "PASS",
+    "new_text_whitespace": "PASS",
+    "runtime_license_and_evaluation_separation": "PASS",
+    "input_judge_case_ids": "12 unique matching IDs; behavior NOT RUN"
+  },
+  "package_scope": "Only skills/kill-game-slop is installed; evals and judge keys remain outside runtime.",
+  "document_review": {
+    "method": "Maintaining agent review; no independent evaluator",
+    "checks": [
+      "English/Korean new criteria, example scope and evidence limits agree",
+      "Moving attacks and intentional abstraction are not automatic defects",
+      "Cancelled action and independently released projectile lifetimes differ",
+      "Visible symptom, intended contract and cause are recorded separately",
+      "Existing implementation does not override established intent",
+      "Old comparison and fixture results remain historical"
+    ],
+    "limits": "Editorial consistency review, not empirical instruction-following validation."
+  }
+}

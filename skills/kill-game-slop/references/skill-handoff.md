@@ -12,6 +12,8 @@ For broader requested UI/control design, `bettermakegame` can compare techniques
 
 Carry **review-only** scope unchanged: proposed design or effect work stays a proposal. An optional style alternative cannot become a required bug fix in transit. Preserve evidence limits: an attributed report is not a reproduction, a source finding is not a viewed render, and a still cannot prove sound masking or repeated distraction.
 
+For action coherence, carry the allowed combination, movement/control ownership, relevant event timing and cancellation policy. Distinguish a confirmed visual mismatch from a suspected controller/animation cause. A producer must not stop permitted movement or shift damage timing to make an asset appear correct. A rule change needs its own design basis and authorization; repair of an established-rule violation is assessed against that rule.
+
 Example, not a reported game defect:
 
 > F07 / confirmed source-state mismatch in the inspected handler: a local pending request triggers the success cue before server acknowledgement. Repair that cue path only. Preserve the authored bright impact style, actual collision/turn rules and input acknowledgement. Check pending, confirmed, denied, duplicate and previous-round responses. Rendering and sound are still unverified.

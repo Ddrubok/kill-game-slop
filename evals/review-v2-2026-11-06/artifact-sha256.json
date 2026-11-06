@@ -39,7 +39,9 @@
   "evidence/selection/360-strike.png": "0b83277f45faa56be750690ba460d2507bb73d21612d4aadf9866d28650889c0",
   "evidence/selection/360-unselected.png": "b85ad4e7477616456833f3f045167c5ed48c7610651258aab0aebb1a9b5b3c87",
   "evidence/selection/results.json": "f261c398e8b6ce48c1f7e85b3945f9780985912d2aa9cc46df85133926e9468b",
-  "report.md": "c2b86b3e966abca8b70f240c12c23db755ca8103d96211a94ed024a7fb4f8132",
   "snapshot.json": "ca4c1f2cbe51a2e35c9634f3e94ce85a68708f6c8274ab8c35a9d366ffe01dce",
-  "tests.tap": "4d480fdb0e19843d607dc95a354c87d220fc74fd7802d179ee76472f13b6cecd"
+  "tests.tap": "4d480fdb0e19843d607dc95a354c87d220fc74fd7802d179ee76472f13b6cecd",
+  "report.original.ko.md": "c2b86b3e966abca8b70f240c12c23db755ca8103d96211a94ed024a7fb4f8132",
+  "report.md": "53cac9ffc0a9dd1c1f89d30f11ddf8dec444fc7bb977fba1c20b975250b93dcc",
+  "report.ko.md": "cdc1131d08924c6cb46bce6365c12b77850810113ca6c0bfda3d70c03e2f31e2"
 }

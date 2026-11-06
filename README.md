@@ -8,6 +8,8 @@ An agent skill for awkward action combinations, broken transitions, motion/hit/f
 
 Use it with Unity, Unreal, Godot, Roblox, web games, or a custom engine. These are review workflows, not tested engine integrations. There is no scanner or AI detector to install.
 
+For the update rationale and usage examples, see the [plain-language update guide](docs/update-guide-2026-10-14.md).
+
 | Before | After |
 | --- | --- |
 | “Locked!” before the server accepts a choice | “Sending choice…” while pending; “Choice received” only after acknowledgement; “Locked” only after an authoritative lock |
@@ -121,7 +123,9 @@ Invoke the skill using `$kill-game-slop` alongside context about your game, scen
 
 ## Examples
 
-For illustrative before-and-after design breakdowns and scenario walkthroughs, refer to [docs/examples.md](docs/examples.md).
+For illustrative before-and-after design breakdowns and scenario walkthroughs, refer to [docs/examples.md](docs/examples.md). The [earlier proposal review](docs/review-2026-09-14.md) records adopted and deferred changes.
+
+Reader-facing guides and reports use English `.md` and Korean `.ko.md`, with matching-language links. The [evaluation language policy](evals/README.md#document-languages-and-original-records) explains preserved experiment originals. Installed agent instructions remain shared English references with Korean invocation phrases.
 
 For evaluation inputs, the separate judge key and three-condition protocol, see [evals/README.md](evals/README.md). The [first comparison](evals/runs/2026-10-14/report.md) uses 12 synthetic text cases and provisional AI scoring; it does not establish superiority over a short prompt. The [ChessAlkkkaegi application](evals/real/chess-selection-2026-10-14/report.md) records actual local runtime checks and their limits. Human comprehension and preference are not inferred from automation.
 
@@ -138,6 +142,8 @@ Automatic discovery uses the skill description; invocation support depends on th
 
 ## This update
 
+The [actual repair comparison](evals/runs/2026-11-06-repair-comparison/report.md) ran four conditions three times each. Functional repairs passed 3/3 in every condition after one disclosed visual adjudication. Current versus previous full-skill median total tokens fell 51.6% and time fell 33.2%, while uncached input rose 21.2%. Current-skill function plus observed write-scope compliance was 2/3. One known component and three repeats do not establish monetary savings or superior quality. The [v2 review response](evals/review-v2-2026-11-06/report.md) records the preceding checker fixes.
+
 The requested [2026-11-06 comparison](evals/runs/2026-11-06-comparison-utf8/report.md) ran generic, brief and full-skill review on the same 26 synthetic C/U/V/safety cases. All three met the criteria; the full skill used 2.42× the brief condition's cumulative input tokens. This one-run AI-scored result does not establish real repair effectiveness or a stable performance ranking.
 
 The 2026-11-06 security/quality follow-up adds review-data trust boundaries, scoped evidence collection, shared browser request policies, exclusive evidence writes and repeatable maintainer commands. See the [results and remaining gaps](evals/security-quality-2026-11-06/report.md) and [rerun guide](evals/MAINTENANCE.md). Checker tests do not establish an accuracy advantage for the skill; the installed package still has no executable dependencies.
@@ -145,7 +151,7 @@ The 2026-11-06 security/quality follow-up adds review-data trust boundaries, sco
 The 2026-11-05 update adds a [scoped handoff](skills/kill-game-slop/references/skill-handoff.md) to bettermakegame and game-vfx. It preserves the finding's judgment, provenance, review/edit scope and success condition, then reconciles returned evidence into that finding. It does not require another skill or a second audit. The [update record](evals/handoff-2026-11-05.md) separates document checks and synthetic fixture evidence from unrun model/human evaluations.
 
 
-The [feedback repairs](evals/feedback-repair-2026-11-05.md) make review examples neutral, add Korean discovery phrases and optional Codex display metadata, move conditional runtime details out of the entrypoint, and remove the chess script's private `.orca` dependency. The changed chess launcher has only been syntax-checked, not rerun against the game. Shared fixture evidence now points to the repaired version; old hashes/results remain historical. New handoff behavior and U/V cases remain NOT RUN.
+The [feedback repairs](evals/feedback-repair-2026-11-05.md) make review examples neutral, add Korean discovery phrases and optional Codex display metadata, move conditional runtime details out of the entrypoint, and remove the chess script's private `.orca` dependency. At that historical stage the changed chess launcher had only been syntax-checked; later game reruns are linked above. Shared fixture evidence now points to the repaired version; old hashes/results remain historical. Dedicated handoff behavior and U/V before/after-version evaluations remain NOT RUN.
 
 ## License
 
@@ -153,7 +159,7 @@ This project is licensed under the [MIT License](LICENSE). Inspired by the clean
 
 ## Practical follow-up — 2026-11-05
 
-See the [earlier repair and evidence record](evals/practical-validation-2026-11-05.md). That pass fixed the shared fixture's stale completion callback, preserved historical results, and published a real game-component repair plus a fresh four-session comparison. Both short and full-skill conditions repaired the selection task and preserved the normal celebration; no added accuracy advantage was demonstrated. Those results predate the gameplay-coherence instruction revision. The original game project was not edited. Human/device/network tests and the dedicated U/V/handoff sets remain unrun.
+See the [earlier repair and evidence record](evals/practical-validation-2026-11-05.md). That pass fixed the shared fixture's stale completion callback, preserved historical results, and published a real game-component repair plus a fresh four-session comparison. Both short and full-skill conditions repaired the selection task and preserved the normal celebration; no added accuracy advantage was demonstrated. Those results predate the gameplay-coherence instruction revision. The original game project was not edited. Human/device/network tests and dedicated U/V before/after-version and handoff evaluations remain unrun.
 
 The installable folder now includes the same MIT LICENSE as the repository root.
 
@@ -161,4 +167,4 @@ The installable folder now includes the same MIT LICENSE as the repository root.
 
 The current revision adds the criteria above, a conditional reference, calibration examples and an [evaluation packet of twelve cases](evals/gameplay-coherence-2026-11-05/README.md) with a separate maintainer key. Scope and evidence principles remain: audit requests do not authorize edits; intended rules stay intact; an implementation that violates an established rule is not protected merely because it already exists. Broader rule changes remain design proposals unless authorized.
 
-Static package checks are recorded separately from behavior. The [2026-11-06 synthetic case comparison](evals/runs/2026-11-06-comparison-utf8/report.md) is complete; **before/after instruction-version comparisons and human evaluation remain NOT RUN**. No improved accuracy, player preference, native engine compatibility or speed gain is claimed. Earlier comparisons and actual-game records remain historical. The installed runtime contains no evaluation answers or mandatory engine/scanner dependency.
+Static package checks are recorded separately from behavior. The [2026-11-06 synthetic case comparison](evals/runs/2026-11-06-comparison-utf8/report.md) is complete. The separate actual repair comparison above measures previous/current instructions on one promotion task; **before/after-version evaluations on the C/U/V sets and human evaluation remain NOT RUN**. No general accuracy, preference, native-engine compatibility or speed advantage is claimed. Earlier comparisons and actual-game records remain historical. The installed runtime contains no evaluation answers or mandatory engine/scanner dependency.

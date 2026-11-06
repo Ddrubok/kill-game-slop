@@ -1,24 +1,28 @@
-# 재검토 v2 반영 — 2026-11-06
+# Review v2 response — 2026-11-06
 
-기준 커밋: `41d1d8ae1ceaed515851143ffb66f312e550f6a4`. 전달받은 재검토 문서의 R1~R3을 수정했다. 의존성 추가 없이 기존 검사기와 Node·브라우저 기본 기능을 사용했다. 과거 비교 원문·채점표·74개 파일 해시와 기존 증거는 변경하지 않았다.
+[한국어](report.ko.md)
 
-| 항목 | 반영 및 확인 | 상태 |
+Base commit: `41d1d8ae1ceaed515851143ffb66f312e550f6a4`. R1–R3 from the supplied follow-up review were repaired using the existing checkers and native Node/browser features, without new dependencies. The earlier comparison responses, score sheets, 74 file hashes and existing evidence were unchanged at this stage.
+
+| Item | Change and verification | Status |
 | --- | --- | --- |
-| R1 아카이브 검사 | 기본 검사에 비교 74개와 이번 기록 43개 해시를 연결. 별도 복사본에서 답변·결과·JSONL 로그·CSV 점수표를 각각 변경/삭제한 8개 경우 모두 실패하도록 검증 | 수정·검증 |
-| R2 표시 판정 | 레이아웃 존재, CSS 표시, 화면 경계 교차, 부모 클리핑을 반영한 교차 비율을 별도 기록. 정상·투명·화면 밖·부모 투명/숨김/레이아웃 없음·부분/전체 클리핑·다른 요소의 가림을 실제 브라우저에서 검사 | 수정·검증 |
-| R3 예상 결함 | 360·960px 각각 중복 Queen, 오래된 Knight, 현재 Rook 콜백의 값·개수를 판정. reduced-motion도 독립 항목. 콜백 소실·다른 선택·한 화면만 실패·화면 누락·reduced-motion 변경을 거부 | 수정·검증 |
-| R4 실제 수정 효과 | 기존 게임 검사기를 재실행했으나, 정답을 모르는 에이전트의 소스 탐색·수리 비교, 공격적 도구 사용 시험, 사람 평가·handoff 평가는 새로 실행하지 않음 | 미측정 유지 |
-| R5 읽기 비용 | 단순 문구/배치와 동작 전환의 참조 선택을 명확히 하고, 독립 읽기 묶기와 이미 읽은 지침 재사용을 본문에 명시. 설치본에도 동일하게 적용 | 지침 반영, 비용 재측정 안 함 |
+| R1 Archive checks | Connected the 74 comparison hashes and 43 hashes for this record to the default checker. In separate copies, verified rejection of all eight cases that changed or deleted a response, result, JSONL log or CSV score sheet | Fixed and verified |
+| R2 Presentation measurements | Recorded layout presence, CSS visibility, viewport intersection and intersection ratio after ancestor clipping separately. Browser cases covered normal, transparent, offscreen, transparent/hidden/no-layout ancestors, partial/full clipping and occlusion by another element | Fixed and verified |
+| R3 Expected defects | Checked values and counts for duplicate Queen, stale Knight and current Rook callbacks separately at 360 and 960 px. Reduced motion has its own criterion. Rejected missing callbacks, different choices, failure at only one width, missing widths and altered reduced-motion behavior | Fixed and verified |
+| R4 Actual repair effectiveness | Reran existing game checkers, but did not run new agent source-discovery/repair comparisons without the answer, adversarial tool-use tests, human evaluation or handoff evaluation | Still unmeasured at this stage |
+| R5 Reading cost | Clarified reference selection for simple copy/layout versus action transitions, grouping independent reads and reusing instructions already read. Applied the same text to the installation | Instructions updated; cost not remeasured at this stage |
 
-## 검증 기록
+## Verification record
 
-- Node `22.18.0`, Playwright `1.62.1`, Chromium `151.0.7922.34`, Windows. 게임은 기존에 고정한 `974cb39…`의 격리 복사본과 기존 수리 패치를 사용했다.
-- `npm test --prefix evals`: **9/9 통과**. [실행 로그](tests.tap).
-- 승급: [원본](evidence/promotion-before/results.json)과 [수리본](evidence/promotion-after/results.json) 각각 **17/17 판정 통과**. 원본은 알려진 결함 재현, 수리본은 정상 동작을 의미한다. 모달 단위 실행이며 실제 대국 전체의 승급 경로는 미검증이다.
-- 선택: [320·360·1280px 모두 통과](evidence/selection/results.json), 터치/마우스로 선택·타점·조준 복귀·재선택·해제·메뉴 재진입, 화면 캡처 21장. [320px 선택](evidence/selection/320-selected.png), [360px 타점](evidence/selection/360-strike.png), [승급 선택 표시](evidence/promotion-after/360-selected-reduced.png)를 직접 열어 확인했다.
-- 표시 판정: [9개 브라우저 사례](evidence/presentation/results.json), 사례마다 실제 캡처의 두 픽셀도 검사. 다른 요소가 덮으면 CSS·교차 값은 통과해도 화면에는 보이지 않는다는 한계를 함께 확인했다. 해당 픽셀 검사는 이 단색 테스트 화면에만 적용한다.
-- `node evals/check.mjs`: 현재 설치 파일 9개, 기존 증거 34개, 과거 자료 71개, 비교 74개, 이번 기록 43개의 무결성을 검사한다. [현재 스킬 스냅샷](snapshot.json), [이번 기록 해시](artifact-sha256.json).
+- Node `22.18.0`, Playwright `1.62.1`, Chromium `151.0.7922.34`, Windows. Used an isolated copy of the previously pinned game revision `974cb39…` and the existing repair patch.
+- `npm test --prefix evals`: **9/9 passed**. [Run log](tests.tap).
+- Promotion: both the [original](evidence/promotion-before/results.json) and [repaired version](evidence/promotion-after/results.json) passed **17/17 criteria**. For the original, passing means reproducing the known defects; for the repair, it means correct behavior. This is a modal-level run; promotion through a complete match remains unverified.
+- Selection: [320, 360 and 1280 px all passed](evidence/selection/results.json), with touch/mouse selection, strike-point mode, return to aiming, reselection, clearing and menu re-entry; 21 captures. The [320 px selection](evidence/selection/320-selected.png), [360 px strike-point mode](evidence/selection/360-strike.png) and [promotion selection cue](evidence/promotion-after/360-selected-reduced.png) were opened for visual inspection.
+- Presentation: [nine browser cases](evidence/presentation/results.json), each also checking two pixels in an actual capture. Confirmed that CSS/intersection measurements can pass while another element hides the target. These pixel checks apply only to the solid-color test fixture.
+- At publication, `node evals/check.mjs` checked nine installed files, 34 existing evidence files, 71 historical artifacts, 74 comparison records and 43 records from this review. [Current skill snapshot](snapshot.json), [archive hashes](artifact-sha256.json).
 
-해시 검사는 실수·손상·누락 감지이며, 파일과 해시를 함께 바꿀 수 있는 주체를 인증하지 않는다. 해시 생성과 검증은 분리했다. 원문과 JSONL 사이의 의미적 일관성을 새로 파싱하는 도구는 추가하지 않았다.
+Hashes detect accidental changes, corruption and loss; they do not authenticate an actor who can change both files and hashes. Hash generation and checking are separate. No new parser was added to establish semantic consistency between responses and JSONL traces.
 
-일반·짧은 지시·전체 스킬의 기존 **26/26 동점**은 그대로다. 이번 변경으로 실제 수정 성공률이나 토큰 효율이 좋아졌다는 주장은 하지 않는다. R4·R5의 효과 측정은 별도의 실제 소스 수정 과제와 반복 비교가 필요하다.
+The existing generic/brief/full **26/26 tie** is unchanged. This review does not claim improved actual repair success or token efficiency. Measuring R4 and R5 requires a separate real-source repair task and repeated comparisons.
+
+This is a translation of the historical review. The Korean original is preserved byte-for-byte as [report.original.ko.md](report.original.ko.md); the archive now also includes English and Korean editions with language navigation. Later measurements are indexed in the [evaluation overview](../README.md).

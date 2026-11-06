@@ -1,5 +1,7 @@
 # Practical follow-up — 2026-11-05
 
+[한국어](practical-validation-2026-11-05.ko.md)
+
 Base: `2db4ae0ccfc95ad148650471762b162860b0695b`. [Current source snapshot](practical-validation-2026-11-05-snapshot.json) includes the copied installation LICENSE and the new shared-fixture hashes. The LICENSE in `skills/kill-game-slop` is byte-identical to the root license; copying the documented runtime folder now carries it.
 
 The [promotion repair case](real/promotion-2026-11-05/README.md) uses actual ChessAlkkkaegi source in an isolated component harness. At 360 and 960 px the original double-click called Queen twice and a replaced modal later called Knight. The repair delivers one choice and cancels the old owner's callback. Reduced-motion closing now uses static selection feedback. Initial opening captures remain byte-identical. This adds an actual repair to the earlier valid-design preservation case. The original game checkout was not edited.

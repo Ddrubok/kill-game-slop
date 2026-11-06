@@ -1,5 +1,7 @@
 # Maintainer checks
 
+[한국어](MAINTENANCE.ko.md)
+
 The installed `skills/kill-game-slop/` remains nine text/metadata/license files. Node dependencies, TLS test fixtures and browser automation live only in `evals/`. Run commands from the repository root with Node 22 or later.
 
 ```sh

@@ -1,5 +1,7 @@
 # Comparison evaluation
 
+[한국어](README.ko.md)
+
 For repeatable static/checker tests, pinned game preflight and frozen comparison input preparation, see [MAINTENANCE.md](MAINTENANCE.md). The [2026-11-06 report](security-quality-2026-11-06/report.md) separates actual browser/checker runs from unrun agent comparisons. Preparing packets does not run a reviewer.
 
 The [v2 review response](review-v2-2026-11-06/report.md) repairs archive validation, presentation measurements and expected-defect signatures, with new browser/game reruns. It does not add a new agent-effectiveness comparison.
@@ -7,6 +9,12 @@ The [v2 review response](review-v2-2026-11-06/report.md) repairs archive validat
 The [gameplay coherence set](gameplay-coherence-2026-11-05/README.md) adds action combinations, intended motion, interruption and contextual meaning. A [2026-11-06 three-condition comparison](runs/2026-11-06-comparison-utf8/report.md) reviews its C cases plus U/V and safety cases: all conditions met the 26 authored case criteria in one run each. The full skill used more tokens; no accuracy advantage was demonstrated. Earlier NOT RUN records remain historical.
 
 The [actual repair comparison](runs/2026-11-06-repair-comparison/report.md) measures four conditions × three fresh sessions on one real promotion component. All functional repairs passed after one disclosed visual adjudication; one current-skill trial wrote a temporary file outside its assigned directory before cleaning it up. Current-versus-previous full-skill total-token median fell 51.6%, while uncached-input median rose 21.2%. These are descriptive results, not proof of lower monetary cost, broad effectiveness or human preference.
+
+## Document languages and original records
+
+Reader-facing guides and reports use English `.md` and Korean `.ko.md`. Each language's README and guide links point to that language. The installed `skills/kill-game-slop/` contains shared English agent instructions, including Korean invocation phrases.
+
+Experiment inputs, delivered prompts, model answers, judge keys, logs, CSV/JSON and source snapshots retain the actual evaluation language and content. Translations are not new experiment results. Three previously hashed reports retain their exact original bytes and hashes as `report.original.ko.md`; English and Korean editions with language navigation are additional entries. Their archive counts therefore change from 74 to 76, 43 to 45 and 551 to 553. Counts and NOT RUN statements inside historical reports describe their original stage.
 
 ## Protocol
 

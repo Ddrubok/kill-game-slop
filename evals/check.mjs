@@ -51,7 +51,8 @@ for(const [file,expected] of Object.entries(historical.files)) {
   assert.equal(createHash('sha256').update(bytes).digest('hex'),expected,`Historical evidence changed: ${file}`);
 }
 const archives={};
-for(const [name,directory,count] of [['Comparison','runs/2026-11-06-comparison-utf8/',74],['Review v2','review-v2-2026-11-06/',43],['Repair comparison','runs/2026-11-06-repair-comparison/',551]]) {
+// Original report hashes follow report.original.ko.md; translated editions add two entries.
+for(const [name,directory,count] of [['Comparison','runs/2026-11-06-comparison-utf8/',76],['Review v2','review-v2-2026-11-06/',45],['Repair comparison','runs/2026-11-06-repair-comparison/',553]]) {
   const base=new URL(directory,import.meta.url);
   const hashes=JSON.parse(await readFile(new URL('artifact-sha256.json',base),'utf8'));
   assert.equal(Object.keys(hashes).length,count,`${name} archive must retain all ${count} entries`);

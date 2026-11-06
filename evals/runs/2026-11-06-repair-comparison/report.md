@@ -1,58 +1,62 @@
-# 실제 수정 성능·토큰 비교 — 2026-11-06
+# Actual repair performance and token comparison — 2026-11-06
 
-**기능 수정은 네 조건 모두 3/3 성공했다. 현재 스킬은 개선 전 스킬보다 누적 총 토큰 중앙값이 51.6%, 시간이 33.2% 낮았다. 그러나 캐시 제외 입력은 21.2% 높았고, 파일 쓰기 범위 준수까지 포함하면 현재 스킬은 2/3이었다. 이번 결과를 비용 절감이나 품질 우위로 일반화할 수 없다.**
+[한국어](report.ko.md)
 
-실제 ChessAlkkkaegi 소스의 승급 UI를 네 조건에서 각각 3회, 총 12회 독립적으로 수정했다. 요청 모델은 `gpt-6-sol`, reasoning `medium`, Codex CLI `0.167.0`이다. 조건당 한 세션씩 네 세션을 동시에 실행하고, 반복별 시작 순서는 고정 seed로 섞었다. 모든 원문·오류·실패 명령을 보존했고 유리한 결과만 골라 재실행하지 않았다. [사전 계획](protocol.md), [입력·조건 해시](manifest.json), [실행 시점의 코드 해시](execution-inputs.json).
+**Functional repairs succeeded in 3/3 trials for every condition. Compared with the previous skill, the current skill's median cumulative total tokens fell 51.6% and median elapsed time fell 33.2%. However, median uncached input rose 21.2%, and including observed file-write scope compliance reduced the current skill to 2/3. These results cannot be generalized into monetary savings or superior quality.**
 
-## 결과
+The real ChessAlkkkaegi promotion UI was repaired independently under four conditions, three times each: 12 trials total. Requested model: `gpt-6-sol`, reasoning `medium`, Codex CLI `0.167.0`. Each repeat ran four concurrent sessions, one per condition, with start order shuffled using a fixed seed. All raw records, errors and failed commands were retained; favorable results were not selected for reruns. [Predefined plan](protocol.md), [input/condition hashes](manifest.json), [execution-time code hashes](execution-inputs.json).
 
-수치는 **조건당 3회 중앙값**이다. 총 토큰은 CLI 누적 입력(캐시 포함)+출력이고, 캐시 제외 입력은 각 실행의 입력−캐시 입력이다. 열별 중앙값을 독립적으로 구하므로 열 사이의 단순 차감과 일치하지 않을 수 있다.
+## Results
 
-| 조건 | 기능 성공¹ | 기능+관측된 쓰기 범위 준수² | 총 토큰 | 캐시 제외 입력 | 시간 | 셸 명령 |
+Metrics are **medians of three trials per condition**. Total tokens are CLI cumulative input, including cache, plus output. Uncached input is input minus cached input for each trial. Each column's median is calculated independently, so subtracting column medians need not reproduce another column.
+
+| Condition | Functional success¹ | Function + observed write-scope compliance² | Total tokens | Uncached input | Time | Shell commands |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: |
-| 일반 지시 | 3/3 | 3/3 | 444,838 | 22,487 | 160.9초 | 15 |
-| 짧은 지시 | 3/3 | 3/3 | 539,215 | 20,097 | 171.6초 | 15 |
-| 개선 전 전체 스킬 | 3/3 | 3/3 | 1,068,415 | 31,427 | 240.4초 | 23 |
-| 현재 전체 스킬 | 3/3 | 2/3 | 517,019 | 38,105 | 160.6초 | 19 |
+| Generic | 3/3 | 3/3 | 444,838 | 22,487 | 160.9 s | 15 |
+| Brief | 3/3 | 3/3 | 539,215 | 20,097 | 171.6 s | 15 |
+| Previous full skill | 3/3 | 3/3 | 1,068,415 | 31,427 | 240.4 s | 23 |
+| Current full skill | 3/3 | 2/3 | 517,019 | 38,105 | 160.6 s | 19 |
 
-¹ 고정한 자동 검사는 767/768 통과했다. 개선 전 스킬 2회차의 체크마크를 CSS 수치 검사가 놓친 1건은 실제 캡처와 생성 콘텐츠를 확인해 별도 보정했다. 자동 원점수와 보정 점수를 함께 공개한다. 사람 또는 독립적인 블라인드 판정은 아니다.
+¹ Frozen automated checks passed 767/768. One CSS measurement missed the previous skill's checkmark in repeat 2; a separate adjudication inspected the capture and generated content. Both raw automatic and adjudicated scores are published. This was neither human nor independently blinded adjudication.
 
-² 현재 스킬 3회차는 임시 검사 파일을 잘못된 `.orca/.orca/…` 경로에 만들었다가 직접 삭제하고 빈 디렉터리를 정리했다. 복구했어도 쓰기 범위 실패로 집계했다. 이 열은 기록에서 확인한 파일 쓰기 기준이며, 아래 Git 메타데이터 노출 때문에 엄격한 전체 접근 격리·준수를 입증하는 수치는 아니다.
+² Current skill repeat 3 created a temporary check file at the wrong `.orca/.orca/…` path, then deleted it and cleaned up empty directories. It counts as a write-scope failure despite recovery. This column concerns file writes observed in the record; the Git metadata exposure below prevents treating it as proof of strict overall access isolation or compliance.
 
-[실행별 수치 12행](trials.csv) · [검사별 채점표 768행](case-scores.csv) · [평균·중앙값·증감률](results.json) · [시각 보정 근거](adjudication.json)
+[12-row trial metrics](trials.csv) · [768-row check scores](case-scores.csv) · [Means, medians and changes](results.json) · [Visual adjudication evidence](adjudication.json)
 
-## 토큰 절감의 해석
+## Interpreting token savings
 
-현재 스킬과 개선 전 스킬은 참조 선택 문단 하나만 다르다. 같은 과제에서 다음 차이가 관측됐다.
+The current and previous skills differ in one reference-selection paragraph. This task produced the following observations.
 
-- 누적 입력 중앙값: **1,059,139 → 510,096, 51.8% 감소**.
-- 총 토큰 중앙값: **1,068,415 → 517,019, 51.6% 감소**. 평균도 **1,016,822 → 581,738, 약 42.8% 감소**했다.
-- 캐시 제외 입력 중앙값: **31,427 → 38,105, 21.2% 증가**. 캐시 포함 토큰과 실제 과금 비용은 같은 지표가 아니다. 요금은 측정하지 않았다.
-- 시간 중앙값: **240.4 → 160.6초, 33.2% 감소**. 동시 실행·시작 지연·도구 작업·호스트 부하를 포함하며, 준비와 채점 시간은 제외했다.
-- 스킬 문서 읽기 시도는 중앙값 **3 → 4회**, 읽은 문서는 **4 → 4개**였다. 읽기 묶기 지침이 안정적으로 호출 수를 줄였다는 증거는 없다. 일반 셸 명령 수와 답변 길이 등도 달라졌으므로 토큰 변화 전체를 문단 수정의 인과 효과로 단정하지 않는다.
+- Median cumulative input: **1,059,139 → 510,096, down 51.8%**.
+- Median total tokens: **1,068,415 → 517,019, down 51.6%**. Mean total also fell **1,016,822 → 581,738, approximately 42.8%**.
+- Median uncached input: **31,427 → 38,105, up 21.2%**. Tokens including cache and monetary charges are different measures. Fees were not measured.
+- Median time: **240.4 → 160.6 s, down 33.2%**. Includes concurrency, startup delays, tool work and host load; excludes preparation and scoring.
+- Median skill-document read attempts were **3 → 4**, with **4 → 4** files read. There is no evidence that the instruction to group reads reliably reduced call count. General shell-command counts and answer lengths also differed, so the entire token change cannot be attributed causally to that paragraph.
 
-짧은 지시 대비 현재 스킬의 총 토큰은 **중앙값 4.1% 감소, 평균 약 8.7% 증가**로 방향이 다르다. 일반 지시보다 현재 스킬의 총 토큰 중앙값은 **16.2% 높다**. 이 과제에서 전체 스킬이 더 잘 수정했거나 일반/짧은 지시보다 안정적으로 효율적이었다는 결론은 나오지 않았다.
+Compared with brief, current full-skill total tokens were **4.1% lower by median but approximately 8.7% higher by mean**. Compared with generic, the current skill's median total was **16.2% higher**. This task does not establish that full repaired better or was consistently more efficient than generic/brief.
 
-## 실제로 검증한 것
+## What was actually verified
 
-제공된 게임 export의 기준은 `974cb39bcc716815aee79117f4f710b367454050`이다. 전체 클라이언트 소스 511개 파일을 동일하게 복사하고, 실제 승급 모듈·번역·CSS·모션 설정을 로컬 브라우저에서 실행했다. 공통 요청에는 연속 입력, 창 교체/닫힘, 모션 줄이기와 보존 조건을 명시했다. 원인이나 정답 패치는 제공하지 않았지만, 이미 알려진 좁은 모듈 과제이며 일반 지시에도 충분한 작업 조건이 있다. [입력 소스 목록](game-input.json).
+The game export was based on `974cb39bcc716815aee79117f4f710b367454050`. All 511 client source files were copied identically, and the real promotion module, translations, CSS and motion settings ran in a local browser. The common request specified repeated input, window replacement/closing, reduced motion and preservation conditions. It did not supply the cause or answer patch, but this was a narrow, previously known component task, and even generic received substantial task requirements. [Source inventory](game-input.json).
 
-작업 시작 전 검사기를 고정하고, 원본 **41/64**, 기존 수리본 **64/64**로 교정했다. [원본 교정](calibration/before/score.json), [수리본 교정](calibration/after/score.json). 이후 검사기 코드는 바꾸지 않았다. 360·960px 연속 입력, 오래된/제거된 창의 콜백, 교체 후 선택, 120ms 시점, 키보드, 9개 언어 선택 문구, 320px 배치·포인터, 선택 대기 표시, 일반·시스템·로컬 모션 설정을 검사했다. 실제 포인터/키보드와 명시적인 수명주기 호출, 정지한 브라우저 시계를 함께 썼다.
+Before workers started, the checker was frozen and calibrated at **41/64 for the original** and **64/64 for the existing repair**. [Original calibration](calibration/before/score.json), [repair calibration](calibration/after/score.json). The checker code was not changed afterward. Checks covered rapid input at 360/960 px, callbacks from stale/removed windows, selection after replacement, 120 ms timing, keyboard, selection copy in nine languages, 320 px layout/pointer behavior, pending-selection cues and normal/system/local motion settings. They combined actual pointer/keyboard input, explicit lifecycle calls and a paused browser clock.
 
-12개 결과의 최종 게임 소스 변경은 모두 승급 모듈과 관련 CSS 두 파일에 한정됐다. 입력 프롬프트·도구·스킬은 변경되지 않았다. 원본·최종 바이트를 직접 대조했고, 공개한 12개 패치 모두 원본에 적용 가능한지 확인했다. 실제 게임 원본이나 설치된 스킬을 이번 결과에 맞춰 수정하지 않았다.
+All 12 final game-source changes were limited to the promotion module and its related CSS: two files. Input prompts, tools and skills were unchanged. Original/final bytes were compared directly, and all 12 published patches were checked for applicability to the original. Neither the original game nor the installed skill was changed to match these outcomes.
 
-## 판정 보정과 통제 한계
+## Adjudication and control limits
 
-`r2-full_previous`의 일반 모드에서는 선택한 비숍에 `::after` 체크마크가 실제로 보인다. 고정 검사가 배경·테두리·그림자·외곽선만 관측해 이를 놓쳤다. 소스 검토 중 이 한계를 발견한 뒤, 모든 12개 결과에 동일한 별도 시각 관측을 수행했다. 원래 자동 점수는 유지했다. [보정 계획](adjudication-plan.md), [실제 화면](r2-full_previous/visual-review/normal-pending.png), [생성 콘텐츠 관측](r2-full_previous/visual-review/observations.json). 다른 검사 항목은 보정하지 않았다.
+In normal mode, `r2-full_previous` visibly shows a `::after` checkmark on the selected Bishop. The frozen checker missed it because it measured only background, border, shadow and outline. After source review revealed this limitation, the same separate visual observation was performed for all 12 outcomes. Original automatic scores were retained. [Adjudication plan](adjudication-plan.md), [actual capture](r2-full_previous/visual-review/normal-pending.png), [generated-content observations](r2-full_previous/visual-review/observations.json). No other criterion was overridden.
 
-작업 공간이 별도 Git 루트가 아니어서 작업자들의 `git status`/`git diff`가 상위 저장소의 파일 이름을 노출하거나 무의미한 빈 diff를 반환했다. 명령 기록에서 채점기·정답 패치·다른 작업자의 응답 본문을 읽은 호출은 확인하지 못했지만, 파일시스템 격리를 보장하지 않는다. 작업자의 Git 검사 주장을 보존의 근거로 사용하지 않고 최종 소스 해시와 독립 실행으로 검증했다. 현재 스킬 3회차의 잘못된 임시 파일 쓰기는 [명령 기록](r3-full_current/tool-commands.json)과 [범위 감사](r3-full_current/trace-audit.json)에 남아 있다. 이를 제외하고 좋은 실행만 다시 집계하지 않았다.
+Workspaces were not separate Git roots, so workers' `git status`/`git diff` exposed parent-repository filenames or returned uninformative empty diffs. Command records showed no calls reading the judge, answer patch or other workers' response contents, but filesystem isolation is not guaranteed. Preservation was verified using final source hashes and independent execution, not workers' Git-check claims. Current skill repeat 3's misplaced temporary write remains in its [command record](r3-full_current/tool-commands.json) and [scope audit](r3-full_current/trace-audit.json). It was not excluded to report only favorable runs.
 
-조건당 3회, 한 게임의 알려진 컴포넌트 과제다. 전체 대국, 새로운 게임에서의 탐색 능력, 사람의 이해·선호, 공격적인 프롬프트 인젝션, 별도 handoff는 측정하지 않았다. 캐시 상태를 동일하게 강제하지 않았고 호스트 지침 전체도 관측할 수 없으므로 통계적 유의성이나 광범위한 성능 순위는 주장하지 않는다.
+There were three repeats per condition on one known component in one game. Full matches, discovery in new games, human comprehension/preference, adversarial prompt injection and separate handoffs were not measured. Cache state was not forced equal, and complete host instructions were not observable. No statistical significance or broad performance ranking is claimed.
 
-## 기록 확인
+## Inspecting the record
 
-각 `r1-…`~`r3-…` 폴더에는 정확한 작업 지시·입력 스냅샷, 원문 JSONL, 최종 답변, 사용량·시간, 코드 패치·변경 소스, 작업자가 남긴 검사와 캡처, 숨겨진 검사 결과가 있다. [대표 현재 스킬 결과](r1-full_current/metrics.json), [원문](r1-full_current/final-response.md), [수정 패치](r1-full_current/repair.patch), [최종 검사](r1-full_current/judge/score.json).
+Each `r1-…` through `r3-…` directory contains exact instructions/input snapshots, raw JSONL, final answer, usage/time, patch/changed source, surviving worker checks/captures and hidden-check results. [Representative current-skill metrics](r1-full_current/metrics.json), [raw answer](r1-full_current/final-response.md), [patch](r1-full_current/repair.patch), [final checks](r1-full_current/judge/score.json).
 
-작업자가 지웠거나 덮어쓴 중간 캡처는 복원하지 않았다. 남은 `work/` 자료의 원래 이름과 해시는 각 `work-artifacts.json`에 있다. 보관된 검사 스크립트에는 `.txt`를 붙여 유지보수 코드로 자동 실행되지 않도록 했다. 전체 게임 복제본·연결된 의존성·캐시·인증 설정은 공개 자료에서 제외했다. 공개 입력 별칭은 manifest에 기록했다.
+Intermediate captures deleted or overwritten by workers were not reconstructed. Each `work-artifacts.json` records original names/hashes of surviving `work/` artifacts. Archived check scripts have a `.txt` suffix so they are not automatically executed as maintainer code. Full game copies, linked dependencies, caches and authentication configuration are excluded from the public archive. Published input aliases are recorded in the manifest.
 
-실험 스크립트는 [prepare.py](../../repair-comparison/prepare.py), [공유 runner 호출](../../repair-comparison/run.py), [원문 수집](../../repair-comparison/collect.py), [채점](../../repair-comparison/grade.py), [집계](../../repair-comparison/analyze.py)에 있다. 날짜별 경로에 고정된 일회성 실행 기록이다. 새 실험은 새 경로와 새 입력 해시를 먼저 정해야 한다. 실행 후 준비 스크립트에 기존 공개 아카이브 덮어쓰기 거부 조건 하나를 추가했다. 실제 실행 당시 버전은 [원본 보관본](implementation/prepare-executed.py.txt)으로 남겼다.
+Experiment scripts: [prepare.py](../../repair-comparison/prepare.py), [shared-runner invocation](../../repair-comparison/run.py), [raw collection](../../repair-comparison/collect.py), [grading](../../repair-comparison/grade.py), [aggregation](../../repair-comparison/analyze.py). This is a one-time execution record with dated paths. New experiments require fresh paths and new input hashes first. After execution, one guard was added to the preparation script to refuse overwriting an existing public archive. The [executed original](implementation/prepare-executed.py.txt) is retained.
+
+The Korean original is preserved byte-for-byte as [report.original.ko.md](report.original.ko.md). Its original archive hash now follows that path; the English and Korean editions with language navigation are additional archive entries. Later measurements are indexed in the [evaluation overview](../../README.md).

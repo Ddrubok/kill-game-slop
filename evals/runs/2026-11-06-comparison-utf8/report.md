@@ -1,46 +1,50 @@
-# 일반 지시·짧은 지시·전체 스킬 비교 — 2026-11-06
+# Generic, brief and full-skill comparison — 2026-11-06
 
-**이번 26개 합성 사례에서는 세 조건의 판단 결과가 동점이었다. 전체 스킬의 정확도 우위는 확인되지 않았고, 누적 입력 토큰과 실행 시간은 더 컸다.** 전체 스킬은 일부 보존 조건·검증 경로를 더 명시적으로 기술했지만, 이를 실제 수정 성공이나 사람의 이해도 향상으로 해석할 수 없다.
+[한국어](report.ko.md)
 
-## 결과
+**All three conditions tied on these 26 synthetic cases. The full skill showed no accuracy advantage and used more cumulative input tokens and elapsed time.** It described some preservation conditions and verification paths more explicitly, but that does not establish actual repair success or improved human comprehension.
 
-| 조건 | 기준 충족 | 해로운 수정 제안 | 근거 없는 단정 | 누적 입력 토큰 | 출력 토큰 | 실행 시간 |
+## Results
+
+| Condition | Criteria met | Harmful repair proposals | Unsupported claims | Cumulative input tokens | Output tokens | Elapsed time |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: |
-| 일반 지시 | 26/26 | 0 | 0 | 25,135 | 3,031 | 61.28초 |
-| 짧은 지시 | 26/26 | 0 | 0 | 25,511 | 2,994 | 59.98초 |
-| 전체 스킬 | 26/26 | 0 | 0 | 61,752 | 3,883 | 79.30초 |
+| Generic | 26/26 | 0 | 0 | 25,135 | 3,031 | 61.28 s |
+| Brief | 26/26 | 0 | 0 | 25,511 | 2,994 | 59.98 s |
+| Full skill | 26/26 | 0 | 0 | 61,752 | 3,883 | 79.30 s |
 
-동작 정합성 C 12개, UI/HUD U·V 8개, 안전 S 6개가 모든 조건에서 기준을 충족했다. 범위를 벗어난 제안, 불필요한 재승인 질문, 검토 자료 밖의 읽기·설치·전송·파일 수정은 관찰되지 않았다. 실제 수정 작업공간을 제공하지 않았으므로 **실제 수정 성공률은 미측정**이다. `26/26`은 작성된 판정 기준을 충족한 사례 수이며, 일반적인 게임 결함 탐지 정확도 100%라는 뜻이 아니다.
+All conditions met the criteria for 12 coherence C cases, eight UI/HUD U/V cases and six safety S cases. No out-of-scope proposals, unnecessary reauthorization questions, reads outside the review packet, installations, transmissions or file edits were observed. No actual repair workspace was supplied, so **actual repair success was not measured**. `26/26` counts cases meeting authored criteria; it does not mean 100% accuracy at detecting game defects generally.
 
-전체 스킬의 누적 입력은 짧은 지시의 **2.42배**, 입력+출력 합계는 **2.30배**, 한 번의 실행 시간은 **1.32배**였다. 일반 지시와 짧은 지시의 약 1.3초 차이로 안정적인 속도 순위를 정할 수는 없다.
+Full used **2.42×** brief's cumulative input, **2.30×** its input-plus-output total and **1.32×** its single-run elapsed time. The approximately 1.3-second difference between generic and brief does not establish a stable speed ranking.
 
-토큰은 Codex CLI `turn.completed`의 보고값이다. 입력에는 캐시 입력이 포함되며, 각각 일반 0 / 짧은 18,688 / 전체 41,472토큰이었다. 캐시를 제외한 입력은 25,135 / 6,823 / 20,280토큰이다. 이 차이와 실행 순서·동시 실행·서버 상태 때문에 토큰 합계를 요금이나 순수 추론 속도로 환산하지 않았다. 실행 시간에는 프로세스 시작, 도구 작업, 통신 대기가 포함된다. 총 3조건의 유효 비교만 표에 넣었으며 사전 점검·인코딩 예비 실행·채점 비용은 포함하지 않았다.
+Tokens come from Codex CLI `turn.completed`. Input includes cached input: generic 0, brief 18,688 and full 41,472 tokens. Uncached input was 25,135 / 6,823 / 20,280. These differences, run order, concurrent execution and server state prevent converting token totals into fees or pure inference speed. Elapsed time includes process startup, tool work and network waits. The table includes only the three valid condition runs, excluding preflight, the encoding pilot and scoring costs.
 
-## 답변에서 확인한 차이
+## Differences in the answers
 
-- C01~C04의 표현·소유권·위치·결과 문구 오류를 세 조건 모두 지적했다. C05~C08의 이동 사격, 부유 캐릭터, 발사된 투사체, 반복 제작은 모두 유지했다.
-- 모든 조건이 정지 이미지·무음 기록·서버 자료 부족에서 원인을 확정하지 않았다. U/V에서는 의도된 겹침과 주입 상태를 실제 플레이 결함으로 단정하지 않았다. S에서는 자료 속 외부 전송·설치 명령을 따르지 않고 검토를 계속했다.
-- 전체 스킬은 C12에서 종이 오리기/낮은 프레임의 전환 방향을 조금 더 구체화했다. U08에서 기존 버튼 탐색까지, S06에서 재진입 경로까지 명시했다. 일반 지시도 U08의 포커스 복귀를, 짧은 지시도 S06의 반복 입력과 닫기를 언급했다. 전체 스킬만 성공한 핵심 판단은 없었다.
-- 자료 읽기는 일반·짧은 조건이 각각 입력 파일 2개, 전체 스킬이 입력 2개와 스킬/참조 5개였다. 셸 호출은 1 / 2 / 8회, 실패는 모두 0회였다. 추가 참조 읽기는 관찰된 비용이지만, 이 설계로 각 참조의 필요성이나 기여도를 분리 측정할 수는 없다.
+- All three identified the expression, ownership, position and outcome-copy problems in C01–C04. All preserved moving fire, the floating character, released projectiles and repeated crafting in C05–C08.
+- All avoided claiming causes from still images, silent records or insufficient server evidence. In U/V, they did not treat intentional overlap or injected states as demonstrated play defects. In S, they continued the review without following embedded transmission/installation instructions.
+- Full specified the paper-cut/low-frame transition direction somewhat more concretely in C12, existing-button navigation in U08 and re-entry in S06. Generic also mentioned focus restoration in U08; brief mentioned repeated input and closing in S06. No essential judgment succeeded only under full.
+- Generic and brief each read two input files; full read two inputs and five skill/reference files. Shell calls were 1 / 2 / 8, with zero failures. Extra reference reading is an observed cost, but this design cannot isolate each reference's necessity or contribution.
 
-이처럼 명확한 규칙과 관찰이 이미 주어진 검토에서는 일반 또는 짧은 지시로도 충분한 결과가 나왔다. 전체 스킬을 선택할 이유가 있다면, 이번에 입증된 정확도 우위보다 여러 담당자 사이의 기록 형식·보존 조건·인계 절차를 일관되게 유지할 필요에 가깝다. 그 실무상 이득은 실제 소스 수정이나 복잡한 전달 과제에서 별도로 비교해야 한다.
+For a review whose rules and observations were already explicit, generic or brief instructions produced sufficient results. A reason to choose full might be consistent records, preservation conditions and handoff procedures across contributors; this comparison demonstrated no accuracy advantage. That practical benefit needs separate comparison on real source repairs or complex handoffs.
 
-## 실행과 채점
+## Execution and scoring
 
-사용자가 앞서 보류했던 비교를 요청하여, 이번 평가에 한해 독립 세션을 실행했다. 저장소의 영구 단독 작업 설정은 바꾸지 않았다. 공유 Astra-team runner를 통해 `gpt-6-sol`, reasoning `medium`을 요청한 새 임시 세션 3개를 동시에 실행했다. Codex CLI 0.167.0, Node 22.18.0, Windows를 사용했다. 내부 서비스 모델의 추가 빌드 식별자는 노출되지 않았다.
+The user requested the previously deferred comparison, authorizing independent sessions for this evaluation. The repository's permanent solo-work setting was unchanged. The shared Astra-team runner launched three fresh temporary sessions concurrently, requesting `gpt-6-sol` with `medium` reasoning. Environment: Codex CLI 0.167.0, Node 22.18.0, Windows. No further internal model-build identifier was exposed.
 
-조건별 작업 폴더, 입력, 원문 답변과 도구 기록을 분리했다. 일반 조건에도 근거·검토 범위·사례별 보고를 요구하는 공통 지시가 있었고, 짧은 조건은 보존·판단 구분 문장을 추가했다. 전체 조건만 스킬 스냅샷을 받았다. 자동 스킬 목록은 실행별 설정으로 제외하고 별도 [점검 응답](catalog-probe/response.md)으로 확인했다. 전체 스킬은 원본과 동일한 바이트의 사본이며 평가 중 수정하지 않았다.
+Each condition had separate work folders, inputs, raw answers and tool traces. Generic also received a common request requiring evidence, review scope and reporting by case; brief added preservation and judgment distinctions. Only full received the skill snapshot. Automatic skill catalogs were excluded through per-run configuration and checked with a separate [probe response](catalog-probe/response.md). The supplied full skill was byte-identical to its source and unchanged during evaluation.
 
-초기 [예비 실행](../2026-11-06-comparison/pilot-status.json)에서는 PowerShell 기본 인코딩 때문에 한국어 사례 복구 시도가 발생했다. 결과를 선별하지 않고 세 조건 모두 새 세션으로 다시 실행했다. 유효 비교에서는 동일한 UTF-8 읽기 지침과 BOM이 있는 사례 파일을 제공했다. 예비 실행의 응답·사용량은 그대로 보관하고 주 비교 수치에서 제외했다.
+The initial [pilot](../2026-11-06-comparison/pilot-status.json) triggered attempts to recover Korean cases because of PowerShell's default encoding. All three conditions were rerun in fresh sessions, without selecting favorable results. Valid runs received identical UTF-8 reading instructions and BOM-prefixed case files. Pilot answers and usage remain archived and are excluded from the main comparison.
 
-답변을 고정한 후 조건명을 A/B/C로 가린 별도 Sol 채점자가 [사전 기준](criteria.json)에 따라 78개 사례별 판단을 기록했다. 작성 담당자도 모든 답변을 읽고 별도로 채점했다. 두 AI의 판정은 모두 통과였고 의견 차이는 0건이다. 조건명은 가렸지만 답변의 길이·형식에서 조건을 추측할 가능성은 남는다. **독립 사람 채점은 하지 않았다.**
+After answers were frozen, a separate Sol judge saw anonymized conditions A/B/C and scored 78 case judgments against [predefined criteria](criteria.json). The coordinating author also read and scored every answer separately. Both AI scorers marked all cases as passing, with zero disagreements. Labels were hidden, but answer length/format could reveal conditions. **No independent human scoring was performed.**
 
-## 원문과 재현 자료
+## Raw records and reproduction material
 
-- 원문 답변: [일반](generic/final-response.md), [짧은](brief/final-response.md), [전체](full/final-response.md).
-- [사례별 78행 채점표](case-scores.csv), [독립 AI 채점](blind-judge/scores.json), [작성자 채점](author-scores.json), [종합 수치](results.json).
-- [입력·스킬 해시와 실행 기록](manifest.json), [프로토콜](protocol.md), [실행기 식별](runner-identity.json), [아카이브 해시](artifact-sha256.json).
-- 각 조건 폴더의 `delivered-prompt.txt`는 저장된 task와 공유 실행기의 고정 머리말로 정확히 재구성한 사용자 프롬프트다. `worker-stdout.jsonl`은 실제 도구 이벤트·사용량 원문이다. 서버/호스트의 비공개 전체 지시 내용까지 저장하거나 통제했다고 주장하지 않는다.
-- 공개용 `dispatch-task.json`은 당시 실행 지시 파일의 바이트가 동일한 사본이다. manifest의 `publishedFileAliases`는 로컬 `.orca/tasks/task.json`을 이 공개 파일에 대응시킨다. 원래 입력 해시는 유지하며 임시 실행 폴더는 게시하지 않는다.
+- Raw answers: [generic](generic/final-response.md), [brief](brief/final-response.md), [full](full/final-response.md).
+- [78-row case scores](case-scores.csv), [independent AI scores](blind-judge/scores.json), [author scores](author-scores.json), [aggregate metrics](results.json).
+- [Input/skill hashes and run record](manifest.json), [protocol](protocol.md), [runner identity](runner-identity.json), [archive hashes](artifact-sha256.json).
+- Each condition's `delivered-prompt.txt` reconstructs the exact user prompt from the saved task and the shared runner's fixed prefix. `worker-stdout.jsonl` contains actual raw tool events and usage. The full private server/host instructions were neither stored nor claimed to be controlled.
+- Published `dispatch-task.json` is a byte-identical copy of the original dispatch file. The manifest's `publishedFileAliases` maps local `.orca/tasks/task.json` to it. Original input hashes remain intact; temporary execution directories are not published.
 
-조건별 반복은 **1회**다. 사례는 지침과 함께 작성되어 의도·규칙·관찰이 명시되어 있고, 공통 요청도 근거를 구분하도록 요구한다. 따라서 동점이 스킬의 무용함을 증명하거나 모든 실제 프로젝트에서 같은 결과를 보장하지 않는다. 새로운 소스·영상의 미지 과제, 실제 수정 안전성·성공률, 네이티브 엔진, 사람의 이해·선호는 이번 비교 범위 밖이다. 별도 handoff 묶음의 비교도 이번 26개에 포함하지 않았다.
+Each condition ran **once**. Cases were written alongside the instructions and explicitly provide intent, rules and observations; the common request also requires evidence distinctions. A tie therefore proves neither that the skill is useless nor that all real projects would produce the same outcome. Unseen source/video tasks, actual repair safety/success, native engines and human comprehension/preference are outside scope. The separate handoff set is not among these 26 cases.
+
+The Korean original is preserved byte-for-byte as [report.original.ko.md](report.original.ko.md). Its original archive hash now follows that path; the English and Korean editions with language navigation are additional archive entries. Later measurements are indexed in the [evaluation overview](../../README.md).

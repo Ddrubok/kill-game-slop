@@ -1,52 +1,54 @@
-# ChessAlkkkaegi 선택 상태 안내 — 실제 적용
+# ChessAlkkkaegi selection-state guidance — real application
 
-2026-10-14, 사용자가 지정한 장면에 보강한 kill-game-slop을 적용했다. **확인한 조건에서는 선택 안내 결함이 발견되지 않아 기존 UI를 유지했다.** 변경을 만들어내기 위한 시각 수정은 채택하지 않았다. 아래 ‘전후’는 수정 전후가 아니라 최초 관찰과 유지 결정 후 재확인이며, 개선 효과를 주장하지 않는다.
+[한국어](report.ko.md)
 
-## 게임 의도와 범위
+On 2026-10-14, the revised kill-game-slop was applied to the scene specified by the user. **No selection-guidance defect was found under the checked conditions, so the existing UI was preserved.** No visual change was adopted merely to produce a change. “Before/after” below means initial observation and rechecking after the preservation decision, not before/after a repair; no improvement effect is claimed.
 
-- 대상: 웹판 로컬 게스트 → 2인 대전 → 기본 체스판 → 당구식 조작. 현재 차례의 말을 선택하고 조준/타점을 고른 뒤 발사를 준비하는 장면.
-- 의도 근거: 실제 메뉴·입력 코드·선택 표시. 정밀한 조준을 돕는 명료함을 임시 판단 기준으로 삼았다. 게임 전체의 감정 목표는 사용자에게 별도 확인하지 않았으므로 공식 기획으로 단정하지 않는다.
-- 보존: 체스 말/보드, 황색 선택 링과 방향 화살표, 조준·타점 버튼, 파워/피치/고도, 차례 표시, 카메라 전환 및 턴 규칙.
-- 실행 기준: 게임 Git HEAD `5829cd9f8096383a6a3aee834c408a113b82ca45`. 기존 작업 파일이 있는 로컬 트리에서 실행했다. 앱 코드와 기존 수정 파일은 변경하지 않았다. QA 캡처·검사 스크립트만 추가했다.
-- 조건: 360×800 및 320×568의 브라우저 터치 에뮬레이션, 1280×800 마우스, 한국어, DPR 1. Edge 버전과 실행 시각은 결과 JSON 참조. 물리적 모바일 기기 검증은 아니다.
-- 원격 통신을 차단한 로컬 Vite 실행. Playwright가 **브라우저에 전달되는 응답에만** 런타임 관찰용 getter를 삽입했다. 게임 상태, 타이머, 선택 결과를 강제로 설정하지 않았고 실제 pointer/touch 경로를 사용했다. 실제 화면도 캡처했다.
+## Game intent and scope
 
-## 판단 기록
+- Target: web local guest → two-player match → default chessboard → billiard controls. Select a piece on the current turn, choose aiming/strike point and prepare to shoot.
+- Intent evidence: actual menus, input code and selection cues. Clarity for precise aiming was the provisional criterion. The game's overall emotional goal was not separately confirmed with the user and is not presented as an official design specification.
+- Preserve: pieces/board, yellow selection ring/direction arrow, aim/strike-point buttons, power/pitch/elevation, turn display, camera transitions and turn rules.
+- Execution base: game Git HEAD `5829cd9f8096383a6a3aee834c408a113b82ca45`, using a local tree with existing work. App code and existing modifications were unchanged. Only QA captures/check scripts were added.
+- Conditions: browser touch emulation at 360×800 and 320×568; mouse at 1280×800; Korean; DPR 1. See result JSON for Edge version and timestamps. This is not physical-mobile verification.
+- Local Vite execution with remote traffic blocked. Playwright inserted observation getters **only into responses delivered to the browser**. It did not force game state, timers or selection outcomes; actual pointer/touch paths were used and screens captured.
 
-| ID / 판단 | 근거와 확인 범위 | 처리 / 보존 | 성공 조건과 결과 |
+## Judgment record
+
+| ID / decision | Evidence and checked scope | Action / preservation | Success condition and result |
 | --- | --- | --- | --- |
-| S01 유지 | 실행: 미선택에는 조준값과 동작 바가 숨겨지고, c2 폰 선택 후 selected ID·빨간 점·조준값·동작 바가 함께 표시됨. 캡처에서 링/방향 화살표 확인 | 선택 링과 화살표, 수치와 버튼 유지. 선택 확정·서버 접수를 암시하는 문구를 새로 넣지 않음 | 선택 ID와 표시 상태 일치; 3조건, 두 관찰에서 통과 |
-| S02 유지 | 실행: 타점 선택 버튼의 aria-pressed가 true가 되고 타점 패널이 나타남. 조준으로 돌아가면 상태와 패널이 함께 복구 | 버튼의 텍스트, 색 강조와 눌림 상태 유지 | 두 버튼의 상태와 패널이 실제 모드에 맞음; 모두 통과 |
-| S03 유지 | 실행: 카메라 전환 완료 후 f2 폰을 클릭/탭하면 선택 ID가 f2로 바뀜. 빈 공간 클릭/탭 후 ID·표식·미리보기·동작 바가 정리됨 | 기존 선택/해제 동작 유지 | 이전 말의 UI가 남지 않음; 모두 통과 |
-| S04 유지 | 실행: 메뉴 복귀 후 새 2인 대전에 들어가면 미선택이며 조준값과 동작 바 숨김 | 장면 수명과 초기 상태 유지 | 재진입 시 이전 선택 안내가 남지 않음; 모두 통과 |
-| S05 가설 / 미확인 | 작은 화면에서도 링은 캡처에 보이지만, 사람이 어떤 말이 선택됐는지 얼마나 빨리 이해하는지는 측정하지 않음 | 명칭 안내 추가는 이번에 채택하지 않음. 기존 신호의 부족이 입증되지 않음 | 실제 사용자에게 선택한 말과 다음 버튼을 찾게 하는 확인 필요 |
+| S01 Preserve | Runtime: aiming values/action bar hidden when unselected; selecting the c2 pawn shows selected ID, red dot, aiming values and action bar together. Captures show ring/direction arrow | Retain ring, arrow, values and buttons. Add no copy implying an authoritative lock or server receipt | Selection ID and display agree; passed all three conditions in both observations |
+| S02 Preserve | Runtime: strike-point button has aria-pressed=true and shows its panel; returning to aim restores state and panel together | Retain button text, color emphasis and pressed state | Both buttons/panel match the actual mode; all passed |
+| S03 Preserve | Runtime: after camera transition completes, clicking/tapping f2 changes selected ID to f2. Empty-space input clears ID, markers, preview and action bar | Retain existing selection/clearing behavior | No old-piece UI remains; all passed |
+| S04 Preserve | Runtime: returning to the menu and starting another two-player match begins unselected, with aiming values/action bar hidden | Retain scene lifecycle and initial state | No stale selection guidance on re-entry; all passed |
+| S05 Hypothesis / unverified | Ring is visible in small-screen captures, but human speed at identifying the selected piece was not measured | No new name label adopted; insufficiency of existing cues was not established | Ask actual users to identify the selected piece and next button |
 
-초기 탐색에서 타점 → 조준 전환 직후 f2 탭이 기존 c2 선택을 바꾸지 않은 기록이 있다([exploration.json](exploration.json)). 탐색에서는 전환 완료를 기다리지 않았다. 소스 `input.ts`의 포인터 처리에는 `cameraTransition !== null`일 때 입력을 받지 않는 조건이 있다. 원래 탐색에서 전환 상태를 계측하지 않았으므로 원인을 확정하지 않는다. 본 검증은 전환 완료를 기다린 조건이며, 그 조건에서 선택 변경이 통과했다. 전환 도중 입력을 받아야 하는지와 사용자 혼란 여부는 별도 평가 사항으로 남긴다.
+An initial [exploration](exploration.json) recorded an f2 tap immediately after switching strike point → aim that did not replace the c2 selection. That exploration did not wait for the transition to finish. The pointer handler in source `input.ts` ignores input while `cameraTransition !== null`. Because transition state was not instrumented during that attempt, the cause is not confirmed. The main verification waited for completion and passed reselection under that condition. Whether transition-time input should be accepted, and whether users are confused, remains a separate evaluation.
 
-## 전후 증거
+## Before/after evidence
 
-| 조건 | 최초 관찰 | 유지 결정 후 재확인 |
+| Condition | Initial observation | Recheck after preservation decision |
 | --- | --- | --- |
-| 360×800 선택 | [화면](before/360-selected.png) | [화면](after-preserve/360-selected.png) |
-| 320×568 선택 | [화면](before/320-selected.png) | [화면](after-preserve/320-selected.png) |
-| 1280×800 선택 | [화면](before/1280-selected.png) | [화면](after-preserve/1280-selected.png) |
-| 360×800 타점 | [화면](before/360-strike.png) | [화면](after-preserve/360-strike.png) |
-| 360×800 해제 | [화면](before/360-cleared.png) | [화면](after-preserve/360-cleared.png) |
+| 360×800 selection | [Capture](before/360-selected.png) | [Capture](after-preserve/360-selected.png) |
+| 320×568 selection | [Capture](before/320-selected.png) | [Capture](after-preserve/320-selected.png) |
+| 1280×800 selection | [Capture](before/1280-selected.png) | [Capture](after-preserve/1280-selected.png) |
+| 360×800 strike point | [Capture](before/360-strike.png) | [Capture](after-preserve/360-strike.png) |
+| 360×800 cleared | [Capture](before/360-cleared.png) | [Capture](after-preserve/360-cleared.png) |
 
-각 폴더에는 미선택·선택·타점·조준 복귀·다른 말 선택·해제·재진입의 7상태 × 3화면, 총 21장씩 저장했다. 동일한 입력 순서, 뷰포트, 언어와 게임 코드를 사용했으나 실제 타이머와 물리는 정지시키지 않았다. 따라서 픽셀 단위 동일 프레임 비교가 아니라 같은 상태/조건의 비교다. 모든 캡처를 사람이 검토한 것은 아니다. AI가 선택 화면 3크기와 360px 타점 화면 및 대표 재확인 화면을 시각적으로 확인했고, 나머지 상태는 실행 단언과 캡처 기록을 남겼다.
+Each directory contains seven states × three sizes: unselected, selected, strike point, return to aim, another piece selected, cleared and re-entered, totaling 21 captures. Input sequence, viewport, language and game code were the same, but real timers/physics were not paused. These compare matching states/conditions, not pixel-identical frames. Not every capture was reviewed by a human. AI visually inspected selection at three sizes, the 360 px strike-point screen and representative rechecks; other states have runtime assertions and capture records.
 
-원시 결과: [최초 관찰](before/results.json), [재확인](after-preserve/results.json). 각 실행에서 3조건 모두 passed, pageerror 0. 버튼의 화면 경계와 표시 상태를 검사했으며, 이것만으로 가독성·접근성 전체 통과를 주장하지 않는다.
+Raw results: [initial observation](before/results.json), [recheck](after-preserve/results.json). All three conditions passed in each run with zero pageerrors. Button viewport boundaries and visibility were checked; this alone does not establish complete readability/accessibility compliance.
 
-게임의 기존 `node src/tools/selection-check.mjs`도 통과했다. 숨겨진 말의 가림, 마우스/터치, 터치 근접 선택, 킹 교환 대상, 보이는 말의 가림, 움직이는 턴의 선택 제한을 확인하는 기존 검사다. 소리·온라인 서버 상태·발사 이후 물리·클래식 모드·다른 언어는 이번 실제 적용의 검증 범위에 포함하지 않았다.
+The game's existing `node src/tools/selection-check.mjs` also passed. It checks hidden-piece occlusion, mouse/touch, touch proximity selection, king-swap targets, visible-piece occlusion and selection restrictions during moving turns. Audio, online server state, post-shot physics, classic mode and other languages were outside this application.
 
-## 재현 및 사람 확인
+## Reproduction and human checks
 
-아래 실행 경로와 포트는 2026-10-14 당시의 기록입니다. 현재 검사기는 독립 로컬 서버·소스 해시 점검·공통 통신 정책을 사용하므로 [현재 재실행 안내](../../MAINTENANCE.md)를 따르세요. [2026-11-06 기록](../../security-quality-2026-11-06/report.md)은 새 실행과 과거 결과를 구분합니다.
+Paths and ports below are historical records from 2026-10-14. The current checker uses its own local server, source hashes and shared communication policy; follow the [current rerun guide](../../MAINTENANCE.md). The [2026-11-06 record](../../security-quality-2026-11-06/report.md) separates new execution from historical results.
 
-[검사 스크립트](verify-in-game.mjs)는 게임 저장소의 `qa/selection-presentation-2026-10-14/verify.mjs`에 두고 실행한 사본이다. 기존 `.orca/ui-check/node_modules/playwright`와 설치된 Edge를 사용한다. 독립적인 스킬 실행 의존성이 아니다.
+The [checker](verify-in-game.mjs) is a copy of the script run as `qa/selection-presentation-2026-10-14/verify.mjs` in the game repository. At that time it used existing `.orca/ui-check/node_modules/playwright` and installed Edge; those were not standalone skill dependencies.
 
-1. 게임 `web/`에서 `node node_modules/vite/bin/vite.js --host 127.0.0.1 --port 5236 --strictPort` 실행.
-2. 게임 루트에서 `node qa/selection-presentation-2026-10-14/verify.mjs before` 실행. 재확인은 다른 출력 이름을 주어 원래 증거를 덮어쓰지 않는다.
-3. 사람에게 선택 화면만 보여주고 “어떤 말이 선택되어 있나요?”, “타점을 바꾸려면 어디를 누르나요?”, 해제 화면에서 “현재 선택이 남아 있나요?”를 묻는다. 답, 소요 시간, 화면 제시 순서를 기록한다.
+1. In game `web/`, run `node node_modules/vite/bin/vite.js --host 127.0.0.1 --port 5236 --strictPort`.
+2. From the game root, run `node qa/selection-presentation-2026-10-14/verify.mjs before`. Use a different output name for rechecks to avoid overwriting evidence.
+3. Show a person only the selection screen and ask “Which piece is selected?” and “Where would you press to change the strike point?” On the cleared screen, ask “Is anything still selected?” Record answers, elapsed time and presentation order.
 
-사람의 이해도 확인은 **아직 수행하지 않았다**. 현재 결과는 자동 동작 검사와 제한된 시각 검토를 갖춘 유지 사례 한 건이며, 수정 효과·게임 전체 품질·재미·유지율 개선의 증거가 아니다.
+Human comprehension checks were **not performed**. This is one preservation case with automated behavior checks and limited visual review, not evidence of repair effectiveness, whole-game quality, enjoyment or retention gains.

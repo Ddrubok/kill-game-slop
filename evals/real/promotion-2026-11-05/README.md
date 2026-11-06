@@ -1,5 +1,7 @@
 # Real promotion-modal repair — 2026-11-05
 
+[한국어](README.ko.md)
+
 The source is ChessAlkkkaegi commit `974cb39bcc716815aee79117f4f710b367454050`, `web/src/promotion-modal.ts` and its actual stylesheet. The original game checkout was **not edited**. The patch was applied only to an isolated copy. This is a real game component in a controlled browser harness, not a full match or a shipped release.
 
 The existing code scheduled a 120 ms completion for every click. Opening a replacement removed the previous DOM but left its timer alive. The actual callers in `main.ts` use this modal for promotion; the harness invokes opening/replacement directly. It does not establish how often replacement occurs during natural play or prove duplicate rewards/server changes.

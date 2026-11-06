@@ -1,6 +1,8 @@
 # Gameplay coherence evaluation — 2026-11-05
 
-Follow-up on 2026-11-06: the [generic/brief/full comparison](../runs/2026-11-06-comparison-utf8/report.md) now includes all twelve C cases and records one fresh output per condition. All met the authored criteria; no accuracy advantage was shown. The NOT RUN statements below describe the 2026-11-05 publication, not this later comparison. Before/after instruction-version trials, actual repairs and human evaluation remain unrun.
+[한국어](README.ko.md)
+
+Follow-up on 2026-11-06: the [generic/brief/full comparison](../runs/2026-11-06-comparison-utf8/report.md) now includes all twelve C cases and records one fresh output per condition. All met the authored criteria; no accuracy advantage was shown. The NOT RUN statements below describe the 2026-11-05 publication, not this later comparison. The later [actual repair comparison](../runs/2026-11-06-repair-comparison/report.md) measures previous/current instructions on a separate promotion task. Before/after instruction-version trials on this C set and human evaluation remain unrun.
 
 **Behavior evaluation status: NOT RUN.** The twelve new cases and separate key are maintainer material outside the installed runtime. Preparing them and validating Markdown does not mean an agent passed them. No new agent sessions, native game experiments or playtests were run for this instruction revision.
 

@@ -1,5 +1,7 @@
 # What changes, and what stays
 
+[한국어](examples.ko.md)
+
 These are illustrative examples, not before/after measurements from shipped games.
 
 | Game | Before | After | Keep |

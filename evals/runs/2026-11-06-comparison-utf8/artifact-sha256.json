@@ -70,7 +70,9 @@
   "judge-label-map.json": "76db680b4561a85c81151448c3967bfce42a3ac3f7eaf50251dbf82c4d299499",
   "manifest.json": "4edb17205c6cf1d8cae9ff8437a26dbb2a7298af46be3a735c031de09a64b24e",
   "protocol.md": "d14a79bf2163bd4259f170421f9967bbd7389425d2fb824c689cd68f553ae9e4",
-  "report.md": "d9ead015cb2898635aa47c4b828f9f6afeb04ca5ad33026b4824aed5d001ebbe",
   "results.json": "b6e4eb7344be5887af86d5959d9ad733270605a667afbb38f36bae4ee711fba3",
-  "runner-identity.json": "933c51052d0143bf0abad95ce39c3310e793016f875d5ec9fb88bd6d32c8511c"
+  "runner-identity.json": "933c51052d0143bf0abad95ce39c3310e793016f875d5ec9fb88bd6d32c8511c",
+  "report.original.ko.md": "d9ead015cb2898635aa47c4b828f9f6afeb04ca5ad33026b4824aed5d001ebbe",
+  "report.md": "cb42b205ba4b3986f0229b361646ffec47a0965a32c95ac62e65a07003a45a8f",
+  "report.ko.md": "00a3a1cd312773635a3af94651a985825d07511465a04a3f21d0736ac6a22181"
 }

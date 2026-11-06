@@ -547,7 +547,9 @@
   "r3-generic/worker-stderr.log": "1aa26269eb1cc57f86b235a03cda53c004edb5b1e9fc99d4da4f00843293d721",
   "r3-generic/worker-stdout.jsonl": "15954a528617c2d882e0ecbcfd13567fee12925941340aebca226fb6bf2155d3",
   "r3-generic/worker-task.json": "0f1cd2684955e8ca085922373ddd5bd17e3de21c432f92cbee3ea5defea9cbf6",
-  "report.md": "13ff51fd3d8c20269adf0af20697f21fe35141e677ab9da38d24f84b30ffaf38",
   "results.json": "90d50545df624b8e090dd498d4f47ff8fac2569d3e8b4eb5a0401770b669d102",
-  "trials.csv": "bd4964b54b256c87c892b9f975ca88dbc1bdf0f92cccd38431f143c1d9fdb5dd"
+  "trials.csv": "bd4964b54b256c87c892b9f975ca88dbc1bdf0f92cccd38431f143c1d9fdb5dd",
+  "report.original.ko.md": "13ff51fd3d8c20269adf0af20697f21fe35141e677ab9da38d24f84b30ffaf38",
+  "report.md": "64687fce554f2dec7d780c7f2a1406e6941a25219d9604c8b61c1ebdb485003b",
+  "report.ko.md": "fd2b4470bca7d49e05e0f721e9f403082912f046ab784b96ac82550b1853c725"
 }

@@ -1,0 +1,84 @@
+{
+  "created": "2026-11-06T04:17:29.084Z",
+  "set": "supplemental",
+  "source": "evals/ui-hud/supplemental-cases.md",
+  "status": "PREPARED_NOT_RUN",
+  "conditions": {
+    "generic": {
+      "status": "NOT_RUN",
+      "files": {
+        "cases.md": "b9cf0fba1aa52384312db1b1dac910d7c7d0f8ff1040395b18a14cadfd93a868",
+        "prompt.txt": "43559302590e082e34a62138e5eb66b90041f646d54c7c87a79ee2bf4f9b6dd9"
+      },
+      "model": null,
+      "settings": null,
+      "hostContext": null,
+      "started": null,
+      "finished": null,
+      "inputTokens": null,
+      "outputTokens": null,
+      "unnecessaryQuestions": null,
+      "unnecessaryReads": null,
+      "harmfulRepairs": null,
+      "missedDefects": null,
+      "actualRepairSuccess": null,
+      "rawResponse": null,
+      "toolTrace": null,
+      "scorer": null
+    },
+    "brief": {
+      "status": "NOT_RUN",
+      "files": {
+        "cases.md": "b9cf0fba1aa52384312db1b1dac910d7c7d0f8ff1040395b18a14cadfd93a868",
+        "prompt.txt": "5229b6f39ff1d3c3a0711707794588c0a035a4c279a11448860dc2fa4ff0dcbe"
+      },
+      "model": null,
+      "settings": null,
+      "hostContext": null,
+      "started": null,
+      "finished": null,
+      "inputTokens": null,
+      "outputTokens": null,
+      "unnecessaryQuestions": null,
+      "unnecessaryReads": null,
+      "harmfulRepairs": null,
+      "missedDefects": null,
+      "actualRepairSuccess": null,
+      "rawResponse": null,
+      "toolTrace": null,
+      "scorer": null
+    },
+    "full": {
+      "status": "NOT_RUN",
+      "files": {
+        "cases.md": "b9cf0fba1aa52384312db1b1dac910d7c7d0f8ff1040395b18a14cadfd93a868",
+        "prompt.txt": "f4c845e31e1cf232e2b286bd738b24c6db1508c99e918c1f6bccf6be46048643",
+        "skill/agents/openai.yaml": "b8cd446400565b5b3d227e2c193f4da944aac7aec62c5a3d0f6d784d78843d74",
+        "skill/LICENSE": "886b58ffefbe10accb31eed8b494969cb5ac89fd983d634ecba542b69f018396",
+        "skill/references/editor-specs.md": "ebd734c7358ff52e31f70a2267a3a7852a9cb566529483598154f7fc24a65314",
+        "skill/references/examples.md": "ac520e01d730a8835eab092c3c9dbd6581dca1b0ab96ef961586113dafd7d3c4",
+        "skill/references/gameplay-coherence.md": "de48266e8cfd0704ec73cc3b89bacad0af1cd5c657b67f3bda57c8ceedd5a349",
+        "skill/references/presentation-checks.md": "0eaa929cd7842ca977ba869583fa7122751b0f5aee332882ef5f2fd5e11c1f26",
+        "skill/references/runtime-checks.md": "eba5a2fa88acbf6aaa156c9f982c9d6e3e89986a51ef9c308ff76676e345cb6e",
+        "skill/references/skill-handoff.md": "2f9f4afbd6c88bb0d2d0ebd52a7b1adb8f5206eaecc43c2308d60d2676e47377",
+        "skill/SKILL.md": "9287da7b6074bd34f7c69724de351a57e99de161d0c90beb960d3e787518e9ac"
+      },
+      "model": null,
+      "settings": null,
+      "hostContext": null,
+      "started": null,
+      "finished": null,
+      "inputTokens": null,
+      "outputTokens": null,
+      "unnecessaryQuestions": null,
+      "unnecessaryReads": null,
+      "harmfulRepairs": null,
+      "missedDefects": null,
+      "actualRepairSuccess": null,
+      "rawResponse": null,
+      "toolTrace": null,
+      "scorer": null
+    }
+  },
+  "limits": "Packet preparation is not an agent evaluation. Use fresh conversations under the host permissions; do not launch workers when the project requires solo work."
+}

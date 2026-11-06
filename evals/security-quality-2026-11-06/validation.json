@@ -1,0 +1,54 @@
+{
+  "date": "2026-11-06",
+  "runtime": {
+    "node": "v22.18.0",
+    "playwright": "1.62.1",
+    "browser": "151.0.7922.34",
+    "vite": "8.1.5",
+    "platform": "win32"
+  },
+  "checkerTests": {
+    "command": "npm test --prefix evals",
+    "exitCode": 0,
+    "passed": 6,
+    "failed": 0
+  },
+  "skillQuickValidate": "passed",
+  "promotionBefore": {
+    "exitCode": 0,
+    "expectedBroken": true,
+    "fixed": false
+  },
+  "promotionAfter": {
+    "exitCode": 0,
+    "fixed": true
+  },
+  "selection": {
+    "exitCode": 0,
+    "passedConditions": 3,
+    "captures": 21
+  },
+  "historicalArtifactsUnchanged": 71,
+  "independentAgentComparisons": "NOT_RUN: project requires solo work",
+  "humanEvaluation": "NOT_RUN",
+  "efficacyClaim": "No claim of improved agent accuracy, speed, cost or human preference",
+  "staticChecks": {
+    "command": "node evals/check.mjs",
+    "exitCode": 0,
+    "json": 32,
+    "localLinks": 142,
+    "scripts": 11,
+    "runtimeFiles": 9,
+    "evidenceFiles": 34,
+    "historicalFiles": 71
+  },
+  "installedSkill": {
+    "matchesSourceFiles": 9,
+    "updatedFiles": [
+      "SKILL.md",
+      "references/presentation-checks.md",
+      "references/runtime-checks.md"
+    ],
+    "previousContentsBackedUp": true
+  }
+}

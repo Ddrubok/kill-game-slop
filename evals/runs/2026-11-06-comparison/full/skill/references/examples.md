@@ -1,0 +1,149 @@
+# Calibration cases
+
+These are illustrative design cases, not measured project results or engine compatibility tests.
+
+## Moving attack: separate the symptom from the cause
+
+**Intent/evidence:** Moving attacks are required. A runtime sequence shows a stance foot translating relative to stationary ground while the intended expression calls for grounded steps; input, damage and movement still work.
+
+**Decision:** Record the expression mismatch, with its interval and reference basis. Trace clip/layer, speed and transform ownership before attributing the cause. Preserve movement permission and hit timing. Forcing the actor to stop would change the rule and conceal the symptom.
+
+**Check:** Replay entry, travel, direction change and exit at the relevant speed; compare observed contact and gameplay state separately. Do not claim a player enjoyment improvement from a corrected foot trace.
+
+## Deliberate skating: preserve the motion vocabulary
+
+**Intent/evidence:** The design specifies gliding characters with fixed lower-body poses; movement and attack coexist, and the observed sequence respects that rule and accurately signals contact.
+
+**Decision:** Preserve. Sliding and sparse animation alone are not defects. Extra walk cycles or realism are optional redesign proposals, not required repairs.
+
+## Interrupted action: distinguish pending contact from released objects
+
+**Intent/evidence:** A melee wind-up is cancelled before its hit window, but its old callback still emits contact feedback. A separate already-released projectile is specified to continue after interruption.
+
+**Decision:** Repair the stale melee event's lifetime without cancelling the independent projectile or changing the cancel window. Confirm which event actually happened; cue scheduling alone does not prove audio playback or authoritative damage.
+
+**Check:** Cancellation before/at/after the relevant boundary, replacement action and owner exit follow the actual policy. Keep unseen timing and sound conditions unverified.
+
+## Competitive arena: keep the signal
+
+**Request:** “Clean up this shooter HUD. Keep our neon team identity.”
+
+**Before:** Every frame has a cyan glow, low health triggers continuous camera shake, and a neon outline identifies the opposing team.
+
+**Decision:** Preserve the team outline. Reduce decorative panel glow that competes with it. Bound the health effect and honor motion settings; keep a persistent readable health indicator.
+
+**Check:** Recognize friend/enemy and low health in the same combat scene, including with reduced motion enabled. Do not reduce the enemy outline simply because it is neon.
+
+## Cozy mobile game: keep the voice
+
+**Request:** “Make the harvest screen less generic without losing its warmth.”
+
+**Before:** “INCREDIBLE! YOU'VE UNLOCKED UNLIMITED POSSIBILITIES!” appears for every carrot, and three animated panels interrupt planting.
+
+**After:** “6 carrots harvested” next to the existing carrot illustration. Keep the character's small celebratory animation for the first harvest if it supports the intended tone. Reuse the ordinary receipt for repeat harvests.
+
+**Check:** The real count appears once, the next planting action remains reachable, and localized text fits. Do not replace the illustrated world with a monochrome dashboard.
+
+## Pixel-art roguelike: do less
+
+**Request:** “Remove slop from my deliberately ornate inventory.”
+
+**Evidence:** The ornate borders match the game, items remain readable, and controller focus is clear. Only two item descriptions contain placeholder text.
+
+**Decision:** Fix those descriptions. Leave the borders and pixel font alone. If the evidence does not support a visual change, say so.
+
+**Check:** Descriptions match actual item behavior, and wrapping preserves the comparison layout. No new UI system is needed.
+
+## Multiplayer card game: make state honest
+
+**Before:** Clicking a card immediately displays “Locked!” even though the server has not accepted it and the rules allow changes until the deadline.
+
+**After:** Distinguish selected, sending, accepted, and locked. While waiting, use “Sending choice…”; only after server acknowledgement use “Choice received · change it before the timer ends”, and only if the rules still permit changes. Use a locked message only after the authoritative lock. Preserve retry/rejection states; never replace a premature lock with premature acceptance.
+
+**Check:** Delayed acceptance, rejection, disconnect, and a late response from the previous round do not display a false lock. Do not expose the opponent's private card to make the screen more informative.
+
+## Engine unavailable: do not pretend
+
+**Request:** “Fix this Unreal menu,” with screenshots and a binary asset but no working editor.
+
+**Decision:** Identify the exact widget/layout edits supported by the screenshots. Edit accessible source only if the change can be made reliably. List the editor steps still needed; do not hex-edit the asset or claim a successful playtest.
+
+**Check:** The edit specification identifies known targets and unresolved properties, the intended scope and runtime checks. A screenshot cannot establish whether a Blueprint compiles or whether controller focus reaches the button.
+
+## Normal signals: reject the false positive
+
+**Request:** “Find slop in this mobile game's loading screen.”
+
+**Evidence:** A progress bar advances during an actual background download. “Tap to continue” appears after completion on a touch device. A nested UI hierarchy supports safe-area layout without demonstrated clipping or input problems.
+
+**Decision:** Keep these elements. Neither an idle player, a familiar phrase nor node depth establishes a defect. Investigate only if the displayed progress misrepresents the actual operation or the instruction is wrong for the active input device.
+
+**Check:** Verify the operation driving progress and the completion/input state. Do not replace an accurate indicator with a fake percentage or remove a useful instruction to avoid a keyword.
+
+## Combat celebration: preserve the peak
+
+**Request:** “Reduce distracting combat effects while keeping our boss-finisher impact.”
+
+**Evidence:** The player reports that routine pickup notifications repeatedly cover attack telegraphs and identifies the finisher celebration as deliberate. Only a still image showing one overlap is available; repetition is reported, not independently verified.
+
+**Decision:** Report the visible overlap and trace the notification layout. Preserve the finisher and gameplay hit-stop. Request or use available runtime evidence before asserting repeated shake duration or audio masking; proceed with independently supported layout work when fixes are requested.
+
+**Check:** Compare the same encounter and inspect the pickup sequence and reduced-motion path when runtime access becomes available. Mark those dynamic checks unverified until exercised.
+
+## Ornate menu: no confirmed problems
+
+**Intent/evidence:** A supplied capture shows a theatrical fantasy collection screen. The request identifies the gilded frame as a signature; labels and focus in the supplied navigation recording remain visible.
+
+**Judgment:** Preserve the frame and icon-plus-text labels. No confirmed problems in those conditions. No need to replace the palette, font or layout to make the review look productive. Other languages remain untested, not failed.
+
+## Missing sound: bound the conclusion
+
+**Evidence:** A silent recording shows three reward animations; a player reports that a warning is difficult to hear.
+
+**Judgment:** Hypothesis: reward audio may mask the warning. No independent audio verification and no established mixing cause. Inspect the audible sequence and category settings before a sound change. Visible animations alone neither confirm nor refute the player's report.
+
+**Success check:** In the reported sequence, the warning remains identifiable with the relevant settings while the reward cue retains its role. Until that sequence is heard, report the check as not run.
+
+## Crafting cards: optional identity proposal
+
+**Request/intent:** “Explore a more handmade feel.” Existing cards are readable and accurate; there is no confirmed defect.
+
+**Proposal:** Compare the current card with (A) a material-specific silhouette, improving recognition but consuming space, or (B) a restrained stamped texture, supporting the crafting theme but potentially reducing small-text contrast. Preserve rarity labels, values and controller focus. Neither option is a required repair.
+
+**Trial:** Use one card at its target size, compare recognition and the intended handmade feeling, including a plain baseline. Record the actual feedback and any readability loss. Do not claim improved retention or player preference without that evidence.
+
+## Distinctive controls with no demonstrated cost
+
+**Intent/evidence:** A supplied capture and navigation recording show slanted buttons matching the game's authored style. Labels and focus remain visible, and the demonstrated task is completed without assistance.
+
+**Decision:** Preserve in the reviewed conditions. Do not round the buttons or relocate them to a conventional corner solely for familiarity. Other devices and first-time users remain untested.
+
+## Hit regions trigger the neighboring action
+
+**Evidence:** Source and a reproduced touch sequence show that a transparent hit region extends over a neighboring control. Touching the visibly labeled target triggers the wrong action at the recorded coordinates.
+
+**Decision:** Confirm the routing/geometry defect; do not invent a population mistap rate. Correct the responsible bounds or event route, preserving labels, action semantics, accessibility and supported target size. Verify both controls, boundaries and cancellation at the affected viewport.
+
+## Suspected search burden from a still image
+
+**Evidence:** A player reports difficulty locating a stylized action button; only a still capture is available. The button is visible and unobstructed in that image.
+
+**Decision:** Record the attributed report and a search/affordance hypothesis. Do not dismiss it because the button is visible, or claim a reproduced failure. Check the actual input state and ask first-time viewers to find and use the action. Keep style changes optional until their basis is clear.
+
+## Coinciding notices with a reproduced obstruction
+
+**Evidence:** A recorded reachable sequence shows a reward notice covering an actionable turn instruction at the stated viewport. Each notice is readable when shown alone.
+
+**Decision:** Confirm the captured obstruction, not a population error rate. Adjust the responsible placement or scheduling without delaying the underlying turn or losing the reward. Reproduce the same overlap and verify both messages and the next action.
+
+## A geometry warning with purposeful containment
+
+**Evidence:** A bounds check reports a title intersecting its containing panel. The captured rendering shows the title drawn legibly over the panel, and input follows the intended routing.
+
+**Decision:** Preserve for this reported condition. Containment is expected; do not relocate the title to satisfy a rectangle-only rule. Other sizes remain unverified.
+
+## A counter whose meaning is uncertain to an AI reader
+
+**Evidence:** An AI reader cannot explain a counter from one frame. No first-time player observation or reproduced state transition is supplied.
+
+**Decision:** Record an interpretation hypothesis. Inspect the counter's actual cause and existing explanation, then give a concrete task to an appropriate viewer when available. Do not delete the counter or claim human confusion solely from this answer.

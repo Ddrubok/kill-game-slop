@@ -24,10 +24,10 @@ This is a same-author application of three roles: **kill-game-slop** ties each f
 
 ## Reproduce
 
-Use a separate compatible checkout at the source commit, with the project's existing Vite dependencies. Set `GAME_WEB_ROOT` to its `web` directory, `VFX_TOOL_ROOT` to an existing Node tool directory containing Playwright, and optionally `VFX_BROWSER_PATH` to Chromium. The checker starts a temporary localhost server and uses an output-local Vite cache. From this skill repository:
+Use a separate compatible checkout at the source commit with the project's existing Vite dependencies. Follow the [maintainer preflight](../../MAINTENANCE.md) to install pinned test tooling and create a source manifest. Set `GAME_WEB_ROOT`, `GAME_SOURCE_MANIFEST` and optionally `BROWSER_PATH`. The checker starts its own loopback server and uses an output-local Vite cache. Its current network/output guards are covered by the [2026-11-06 rerun](../../security-quality-2026-11-06/report.md); the results above remain historical. From this skill repository:
 
 ```sh
-node evals/real/promotion-2026-11-05/verify.mjs /path/to/before --expect-broken
+node evals/real/promotion-2026-11-05/verify.mjs evals/real/promotion-2026-11-05/rechecks/new-before --expect-broken
 ```
 
 In the isolated **game repository root**, first check and then apply this repository's `repair.patch` using `git apply --check /path/to/repair.patch` and `git apply /path/to/repair.patch`. Run the same checker to a new output folder without `--expect-broken`. No dependency installation or mutation of the original game is required by the checker. The source commit must be available to reproduce; the game source/dependencies are not vendored in this skill package.

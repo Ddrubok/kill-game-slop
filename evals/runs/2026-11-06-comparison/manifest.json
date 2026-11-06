@@ -1,0 +1,61 @@
+{
+  "date": "2026-11-06",
+  "base_commit": "4301ce7341c9e816578bc627eca97fb3372bbd9a",
+  "modelRequested": "gpt-6-sol",
+  "reasoningEffort": "medium",
+  "caseCount": 26,
+  "replicatesPerCondition": 1,
+  "scope": "Authored synthetic text review only. No executable game, media or actual repair task is supplied.",
+  "authorization": "The user requested the previously deferred comparison; independent evaluator sessions are authorized for this task. Persistent project/team settings are unchanged.",
+  "sourcePacketHashes": {
+    "evals/gameplay-coherence-2026-11-05/inputs/cases.md": "16380dff6954c037b525a2f078956ab0609c32651067778061af79633229dbcc",
+    "evals/ui-hud/cases.md": "471d4305551ae5fc8c6a8cc9f448677d57b7652370046979123709771086619f",
+    "evals/ui-hud/supplemental-cases.md": "b9cf0fba1aa52384312db1b1dac910d7c7d0f8ff1040395b18a14cadfd93a868",
+    "evals/security-quality-2026-11-06/inputs.md": "edbb082de2ffc9d263fdbc9e9050c0692588c21a23e9cc9d22ef132e993d6725"
+  },
+  "conditions": {
+    "generic": {
+      "status": "COMPLETED_EXCLUDED_PILOT",
+      "files": {
+        "cases.md": "8a5c0b28836fad663b83dc68daa87040e4bf9db9d00d55ab3a9179b0834715b9",
+        "prompt.txt": "605e42c629d9e54e954b7efb672344843ae282585c42879f1fdaa9b1424285f5",
+        ".orca/tasks/task.json": "80a04be01b0cb7eb67f99fb3309f20436747d94359758ea61fbe50d9d596f86e"
+      },
+      "publishedFileAliases": {
+        ".orca/tasks/task.json": "dispatch-task.json"
+      }
+    },
+    "brief": {
+      "status": "COMPLETED_EXCLUDED_PILOT",
+      "files": {
+        "cases.md": "8a5c0b28836fad663b83dc68daa87040e4bf9db9d00d55ab3a9179b0834715b9",
+        "prompt.txt": "a2572241c47c783ddfd8e62da86e4553e1250041a4112654edb0b66b61d8ce6d",
+        ".orca/tasks/task.json": "80a04be01b0cb7eb67f99fb3309f20436747d94359758ea61fbe50d9d596f86e"
+      },
+      "publishedFileAliases": {
+        ".orca/tasks/task.json": "dispatch-task.json"
+      }
+    },
+    "full": {
+      "status": "COMPLETED_EXCLUDED_PILOT",
+      "files": {
+        "cases.md": "8a5c0b28836fad663b83dc68daa87040e4bf9db9d00d55ab3a9179b0834715b9",
+        "prompt.txt": "529d2db2ffbdfdbddcdd8e0f63a798fe6adbf6e08caa006c9178c204df9af953",
+        "skill/LICENSE": "886b58ffefbe10accb31eed8b494969cb5ac89fd983d634ecba542b69f018396",
+        "skill/SKILL.md": "9287da7b6074bd34f7c69724de351a57e99de161d0c90beb960d3e787518e9ac",
+        ".orca/tasks/task.json": "72ed2eb5ac09f8085b7af1c9716dc8b23afc70792d06578c3b85e2a841fabc7f",
+        "skill/agents/openai.yaml": "b8cd446400565b5b3d227e2c193f4da944aac7aec62c5a3d0f6d784d78843d74",
+        "skill/references/editor-specs.md": "ebd734c7358ff52e31f70a2267a3a7852a9cb566529483598154f7fc24a65314",
+        "skill/references/examples.md": "ac520e01d730a8835eab092c3c9dbd6581dca1b0ab96ef961586113dafd7d3c4",
+        "skill/references/gameplay-coherence.md": "de48266e8cfd0704ec73cc3b89bacad0af1cd5c657b67f3bda57c8ceedd5a349",
+        "skill/references/presentation-checks.md": "0eaa929cd7842ca977ba869583fa7122751b0f5aee332882ef5f2fd5e11c1f26",
+        "skill/references/runtime-checks.md": "eba5a2fa88acbf6aaa156c9f982c9d6e3e89986a51ef9c308ff76676e345cb6e",
+        "skill/references/skill-handoff.md": "2f9f4afbd6c88bb0d2d0ebd52a7b1adb8f5206eaecc43c2308d60d2676e47377"
+      },
+      "publishedFileAliases": {
+        ".orca/tasks/task.json": "dispatch-task.json"
+      }
+    }
+  },
+  "publicationNote": "Original input paths and hashes are preserved. publishedFileAliases maps ignored local task paths to byte-identical public copies; runtime scratch directories are not published."
+}

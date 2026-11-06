@@ -3,3 +3,5 @@ __pycache__/
 .DS_Store
 Thumbs.db
 evals/real/chess-selection-2026-10-14/rechecks/
+evals/real/promotion-2026-11-05/rechecks/
+evals/node_modules/

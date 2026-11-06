@@ -138,6 +138,10 @@ Automatic discovery uses the skill description; invocation support depends on th
 
 ## This update
 
+The requested [2026-11-06 comparison](evals/runs/2026-11-06-comparison-utf8/report.md) ran generic, brief and full-skill review on the same 26 synthetic C/U/V/safety cases. All three met the criteria; the full skill used 2.42× the brief condition's cumulative input tokens. This one-run AI-scored result does not establish real repair effectiveness or a stable performance ranking.
+
+The 2026-11-06 security/quality follow-up adds review-data trust boundaries, scoped evidence collection, shared browser request policies, exclusive evidence writes and repeatable maintainer commands. See the [results and remaining gaps](evals/security-quality-2026-11-06/report.md) and [rerun guide](evals/MAINTENANCE.md). Checker tests do not establish an accuracy advantage for the skill; the installed package still has no executable dependencies.
+
 The 2026-11-05 update adds a [scoped handoff](skills/kill-game-slop/references/skill-handoff.md) to bettermakegame and game-vfx. It preserves the finding's judgment, provenance, review/edit scope and success condition, then reconciles returned evidence into that finding. It does not require another skill or a second audit. The [update record](evals/handoff-2026-11-05.md) separates document checks and synthetic fixture evidence from unrun model/human evaluations.
 
 
@@ -157,4 +161,4 @@ The installable folder now includes the same MIT LICENSE as the repository root.
 
 The current revision adds the criteria above, a conditional reference, calibration examples and an [evaluation packet of twelve cases](evals/gameplay-coherence-2026-11-05/README.md) with a separate maintainer key. Scope and evidence principles remain: audit requests do not authorize edits; intended rules stay intact; an implementation that violates an established rule is not protected merely because it already exists. Broader rule changes remain design proposals unless authorized.
 
-Static package checks are recorded separately from behavior. **The new case evaluation and before/after agent comparison are NOT RUN.** No improved accuracy, player preference, native engine compatibility or speed gain is claimed. Earlier comparisons and actual-game records remain historical. The installed runtime contains no evaluation answers or mandatory engine/scanner dependency.
+Static package checks are recorded separately from behavior. The [2026-11-06 synthetic case comparison](evals/runs/2026-11-06-comparison-utf8/report.md) is complete; **before/after instruction-version comparisons and human evaluation remain NOT RUN**. No improved accuracy, player preference, native engine compatibility or speed gain is claimed. Earlier comparisons and actual-game records remain historical. The installed runtime contains no evaluation answers or mandatory engine/scanner dependency.

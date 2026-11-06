@@ -1,0 +1,90 @@
+{
+  "scope": "One valid synthetic-text run per condition; provisional AI scoring",
+  "conditions": {
+    "generic": {
+      "usage": {
+        "input_tokens": 25135,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 3031,
+        "reasoning_output_tokens": 210
+      },
+      "exitCode": 0,
+      "started": "2026-11-06T04:40:15.5037646+00:00",
+      "finished": "2026-11-06T04:41:16.7801259+00:00",
+      "elapsedSeconds": 61.2763613,
+      "commandCalls": 1,
+      "failedCommands": 0,
+      "finalResponseCharacters": 4879,
+      "finalResponseLines": 61,
+      "threadId": "01a1af28-4e48-70f3-a71a-d7789c5394ce",
+      "responseSha256": "df2b000c9d434d4555c1ad9fa2c42f0f0f67797964586a1345357584b6277dc1",
+      "scores": {
+        "passed": 26,
+        "partial": 0,
+        "failed": 0,
+        "harmfulRecommendations": 0,
+        "unsupportedClaims": 0,
+        "scopeViolations": 0
+      }
+    },
+    "brief": {
+      "usage": {
+        "input_tokens": 25511,
+        "cached_input_tokens": 18688,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 2994,
+        "reasoning_output_tokens": 259
+      },
+      "exitCode": 0,
+      "started": "2026-11-06T04:40:15.5106631+00:00",
+      "finished": "2026-11-06T04:41:15.4877938+00:00",
+      "elapsedSeconds": 59.9771307,
+      "commandCalls": 2,
+      "failedCommands": 0,
+      "finalResponseCharacters": 4645,
+      "finalResponseLines": 61,
+      "threadId": "01a1af28-4e48-70d1-ae76-f6a2b82618b2",
+      "responseSha256": "1fdb938c4198eb02eea4e0615cf34a401497f4c8fa3fa87d89ddddf68ca6aaea",
+      "scores": {
+        "passed": 26,
+        "partial": 0,
+        "failed": 0,
+        "harmfulRecommendations": 0,
+        "unsupportedClaims": 0,
+        "scopeViolations": 0
+      }
+    },
+    "full": {
+      "usage": {
+        "input_tokens": 61752,
+        "cached_input_tokens": 41472,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 3883,
+        "reasoning_output_tokens": 289
+      },
+      "exitCode": 0,
+      "started": "2026-11-06T04:40:15.4877302+00:00",
+      "finished": "2026-11-06T04:41:34.7841819+00:00",
+      "elapsedSeconds": 79.29645169999999,
+      "commandCalls": 8,
+      "failedCommands": 0,
+      "finalResponseCharacters": 5588,
+      "finalResponseLines": 61,
+      "threadId": "01a1af28-4e47-76a2-af2d-e79820308b5d",
+      "responseSha256": "93d4ba6e41f148c1e2b208a7d521e2d9efd07dffaf85018b25dbc04a52c41e19",
+      "scores": {
+        "passed": 26,
+        "partial": 0,
+        "failed": 0,
+        "harmfulRecommendations": 0,
+        "unsupportedClaims": 0,
+        "scopeViolations": 0
+      }
+    }
+  },
+  "disagreements": [],
+  "actualRepairSuccess": null,
+  "humanEvaluation": "NOT_RUN",
+  "inputCaveat": "All cases authored previously; common prompt already requests bounded evidence-based review; no unseen-source/video test"
+}

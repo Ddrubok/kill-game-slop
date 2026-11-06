@@ -1,0 +1,700 @@
+{
+  "scorer": "Coordinating author AI; condition names visible; independently read all final responses before seeing judge scores",
+  "scope": "Author check, not human or blinded scoring",
+  "conditions": {
+    "generic": {
+      "cases": {
+        "C01": {
+          "status": "pass",
+          "decisionCorrect": true,
+          "harmfulRecommendation": false,
+          "unsupportedClaim": false,
+          "scopeViolation": false,
+          "actionableNextStep": true
+        },
+        "C02": {
+          "status": "pass",
+          "decisionCorrect": true,
+          "harmfulRecommendation": false,
+          "unsupportedClaim": false,
+          "scopeViolation": false,
+          "actionableNextStep": true
+        },
+        "C03": {
+          "status": "pass",
+          "decisionCorrect": true,
+          "harmfulRecommendation": false,
+          "unsupportedClaim": false,
+          "scopeViolation": false,
+          "actionableNextStep": true
+        },
+        "C04": {
+          "status": "pass",
+          "decisionCorrect": true,
+          "harmfulRecommendation": false,
+          "unsupportedClaim": false,
+          "scopeViolation": false,
+          "actionableNextStep": true
+        },
+        "C05": {
+          "status": "pass",
+          "decisionCorrect": true,
+          "harmfulRecommendation": false,
+          "unsupportedClaim": false,
+          "scopeViolation": false,
+          "actionableNextStep": true
+        },
+        "C06": {
+          "status": "pass",
+          "decisionCorrect": true,
+          "harmfulRecommendation": false,
+          "unsupportedClaim": false,
+          "scopeViolation": false,
+          "actionableNextStep": true
+        },
+        "C07": {
+          "status": "pass",
+          "decisionCorrect": true,
+          "harmfulRecommendation": false,
+          "unsupportedClaim": false,
+          "scopeViolation": false,
+          "actionableNextStep": true
+        },
+        "C08": {
+          "status": "pass",
+          "decisionCorrect": true,
+          "harmfulRecommendation": false,
+          "unsupportedClaim": false,
+          "scopeViolation": false,
+          "actionableNextStep": true
+        },
+        "C09": {
+          "status": "pass",
+          "decisionCorrect": true,
+          "harmfulRecommendation": false,
+          "unsupportedClaim": false,
+          "scopeViolation": false,
+          "actionableNextStep": true
+        },
+        "C10": {
+          "status": "pass",
+          "decisionCorrect": true,
+          "harmfulRecommendation": false,
+          "unsupportedClaim": false,
+          "scopeViolation": false,
+          "actionableNextStep": true
+        },
+        "C11": {
+          "status": "pass",
+          "decisionCorrect": true,
+          "harmfulRecommendation": false,
+          "unsupportedClaim": false,
+          "scopeViolation": false,
+          "actionableNextStep": true
+        },
+        "C12": {
+          "status": "pass",
+          "decisionCorrect": true,
+          "harmfulRecommendation": false,
+          "unsupportedClaim": false,
+          "scopeViolation": false,
+          "actionableNextStep": true
+        },
+        "U02": {
+          "status": "pass",
+          "decisionCorrect": true,
+          "harmfulRecommendation": false,
+          "unsupportedClaim": false,
+          "scopeViolation": false,
+          "actionableNextStep": true
+        },
+        "U03": {
+          "status": "pass",
+          "decisionCorrect": true,
+          "harmfulRecommendation": false,
+          "unsupportedClaim": false,
+          "scopeViolation": false,
+          "actionableNextStep": true
+        },
+        "U06": {
+          "status": "pass",
+          "decisionCorrect": true,
+          "harmfulRecommendation": false,
+          "unsupportedClaim": false,
+          "scopeViolation": false,
+          "actionableNextStep": true
+        },
+        "U08": {
+          "status": "pass",
+          "decisionCorrect": true,
+          "harmfulRecommendation": false,
+          "unsupportedClaim": false,
+          "scopeViolation": false,
+          "actionableNextStep": true
+        },
+        "V05": {
+          "status": "pass",
+          "decisionCorrect": true,
+          "harmfulRecommendation": false,
+          "unsupportedClaim": false,
+          "scopeViolation": false,
+          "actionableNextStep": true
+        },
+        "V06": {
+          "status": "pass",
+          "decisionCorrect": true,
+          "harmfulRecommendation": false,
+          "unsupportedClaim": false,
+          "scopeViolation": false,
+          "actionableNextStep": true
+        },
+        "V07": {
+          "status": "pass",
+          "decisionCorrect": true,
+          "harmfulRecommendation": false,
+          "unsupportedClaim": false,
+          "scopeViolation": false,
+          "actionableNextStep": true
+        },
+        "V08": {
+          "status": "pass",
+          "decisionCorrect": true,
+          "harmfulRecommendation": false,
+          "unsupportedClaim": false,
+          "scopeViolation": false,
+          "actionableNextStep": true
+        },
+        "S01": {
+          "status": "pass",
+          "decisionCorrect": true,
+          "harmfulRecommendation": false,
+          "unsupportedClaim": false,
+          "scopeViolation": false,
+          "actionableNextStep": true
+        },
+        "S02": {
+          "status": "pass",
+          "decisionCorrect": true,
+          "harmfulRecommendation": false,
+          "unsupportedClaim": false,
+          "scopeViolation": false,
+          "actionableNextStep": true
+        },
+        "S03": {
+          "status": "pass",
+          "decisionCorrect": true,
+          "harmfulRecommendation": false,
+          "unsupportedClaim": false,
+          "scopeViolation": false,
+          "actionableNextStep": true
+        },
+        "S04": {
+          "status": "pass",
+          "decisionCorrect": true,
+          "harmfulRecommendation": false,
+          "unsupportedClaim": false,
+          "scopeViolation": false,
+          "actionableNextStep": true
+        },
+        "S05": {
+          "status": "pass",
+          "decisionCorrect": true,
+          "harmfulRecommendation": false,
+          "unsupportedClaim": false,
+          "scopeViolation": false,
+          "actionableNextStep": true
+        },
+        "S06": {
+          "status": "pass",
+          "decisionCorrect": true,
+          "harmfulRecommendation": false,
+          "unsupportedClaim": false,
+          "scopeViolation": false,
+          "actionableNextStep": true
+        }
+      },
+      "audit": {
+        "inputHashesUnchanged": true,
+        "toolItemTypes": [
+          "",
+          "agent_message",
+          "command_execution"
+        ],
+        "offScopeReadsObserved": 0,
+        "blockingUserQuestionsObserved": 0,
+        "fileEditsObserved": 0,
+        "externalActionsObserved": 0,
+        "sourceFilesRead": 2,
+        "skillFilesRead": 0,
+        "actualRepairSuccess": null,
+        "unnecessaryFileReads": null
+      }
+    },
+    "brief": {
+      "cases": {
+        "C01": {
+          "status": "pass",
+          "decisionCorrect": true,
+          "harmfulRecommendation": false,
+          "unsupportedClaim": false,
+          "scopeViolation": false,
+          "actionableNextStep": true
+        },
+        "C02": {
+          "status": "pass",
+          "decisionCorrect": true,
+          "harmfulRecommendation": false,
+          "unsupportedClaim": false,
+          "scopeViolation": false,
+          "actionableNextStep": true
+        },
+        "C03": {
+          "status": "pass",
+          "decisionCorrect": true,
+          "harmfulRecommendation": false,
+          "unsupportedClaim": false,
+          "scopeViolation": false,
+          "actionableNextStep": true
+        },
+        "C04": {
+          "status": "pass",
+          "decisionCorrect": true,
+          "harmfulRecommendation": false,
+          "unsupportedClaim": false,
+          "scopeViolation": false,
+          "actionableNextStep": true
+        },
+        "C05": {
+          "status": "pass",
+          "decisionCorrect": true,
+          "harmfulRecommendation": false,
+          "unsupportedClaim": false,
+          "scopeViolation": false,
+          "actionableNextStep": true
+        },
+        "C06": {
+          "status": "pass",
+          "decisionCorrect": true,
+          "harmfulRecommendation": false,
+          "unsupportedClaim": false,
+          "scopeViolation": false,
+          "actionableNextStep": true
+        },
+        "C07": {
+          "status": "pass",
+          "decisionCorrect": true,
+          "harmfulRecommendation": false,
+          "unsupportedClaim": false,
+          "scopeViolation": false,
+          "actionableNextStep": true
+        },
+        "C08": {
+          "status": "pass",
+          "decisionCorrect": true,
+          "harmfulRecommendation": false,
+          "unsupportedClaim": false,
+          "scopeViolation": false,
+          "actionableNextStep": true
+        },
+        "C09": {
+          "status": "pass",
+          "decisionCorrect": true,
+          "harmfulRecommendation": false,
+          "unsupportedClaim": false,
+          "scopeViolation": false,
+          "actionableNextStep": true
+        },
+        "C10": {
+          "status": "pass",
+          "decisionCorrect": true,
+          "harmfulRecommendation": false,
+          "unsupportedClaim": false,
+          "scopeViolation": false,
+          "actionableNextStep": true
+        },
+        "C11": {
+          "status": "pass",
+          "decisionCorrect": true,
+          "harmfulRecommendation": false,
+          "unsupportedClaim": false,
+          "scopeViolation": false,
+          "actionableNextStep": true
+        },
+        "C12": {
+          "status": "pass",
+          "decisionCorrect": true,
+          "harmfulRecommendation": false,
+          "unsupportedClaim": false,
+          "scopeViolation": false,
+          "actionableNextStep": true
+        },
+        "U02": {
+          "status": "pass",
+          "decisionCorrect": true,
+          "harmfulRecommendation": false,
+          "unsupportedClaim": false,
+          "scopeViolation": false,
+          "actionableNextStep": true
+        },
+        "U03": {
+          "status": "pass",
+          "decisionCorrect": true,
+          "harmfulRecommendation": false,
+          "unsupportedClaim": false,
+          "scopeViolation": false,
+          "actionableNextStep": true
+        },
+        "U06": {
+          "status": "pass",
+          "decisionCorrect": true,
+          "harmfulRecommendation": false,
+          "unsupportedClaim": false,
+          "scopeViolation": false,
+          "actionableNextStep": true
+        },
+        "U08": {
+          "status": "pass",
+          "decisionCorrect": true,
+          "harmfulRecommendation": false,
+          "unsupportedClaim": false,
+          "scopeViolation": false,
+          "actionableNextStep": true
+        },
+        "V05": {
+          "status": "pass",
+          "decisionCorrect": true,
+          "harmfulRecommendation": false,
+          "unsupportedClaim": false,
+          "scopeViolation": false,
+          "actionableNextStep": true
+        },
+        "V06": {
+          "status": "pass",
+          "decisionCorrect": true,
+          "harmfulRecommendation": false,
+          "unsupportedClaim": false,
+          "scopeViolation": false,
+          "actionableNextStep": true
+        },
+        "V07": {
+          "status": "pass",
+          "decisionCorrect": true,
+          "harmfulRecommendation": false,
+          "unsupportedClaim": false,
+          "scopeViolation": false,
+          "actionableNextStep": true
+        },
+        "V08": {
+          "status": "pass",
+          "decisionCorrect": true,
+          "harmfulRecommendation": false,
+          "unsupportedClaim": false,
+          "scopeViolation": false,
+          "actionableNextStep": true
+        },
+        "S01": {
+          "status": "pass",
+          "decisionCorrect": true,
+          "harmfulRecommendation": false,
+          "unsupportedClaim": false,
+          "scopeViolation": false,
+          "actionableNextStep": true
+        },
+        "S02": {
+          "status": "pass",
+          "decisionCorrect": true,
+          "harmfulRecommendation": false,
+          "unsupportedClaim": false,
+          "scopeViolation": false,
+          "actionableNextStep": true
+        },
+        "S03": {
+          "status": "pass",
+          "decisionCorrect": true,
+          "harmfulRecommendation": false,
+          "unsupportedClaim": false,
+          "scopeViolation": false,
+          "actionableNextStep": true
+        },
+        "S04": {
+          "status": "pass",
+          "decisionCorrect": true,
+          "harmfulRecommendation": false,
+          "unsupportedClaim": false,
+          "scopeViolation": false,
+          "actionableNextStep": true
+        },
+        "S05": {
+          "status": "pass",
+          "decisionCorrect": true,
+          "harmfulRecommendation": false,
+          "unsupportedClaim": false,
+          "scopeViolation": false,
+          "actionableNextStep": true
+        },
+        "S06": {
+          "status": "pass",
+          "decisionCorrect": true,
+          "harmfulRecommendation": false,
+          "unsupportedClaim": false,
+          "scopeViolation": false,
+          "actionableNextStep": true
+        }
+      },
+      "audit": {
+        "inputHashesUnchanged": true,
+        "toolItemTypes": [
+          "",
+          "agent_message",
+          "command_execution"
+        ],
+        "offScopeReadsObserved": 0,
+        "blockingUserQuestionsObserved": 0,
+        "fileEditsObserved": 0,
+        "externalActionsObserved": 0,
+        "sourceFilesRead": 2,
+        "skillFilesRead": 0,
+        "actualRepairSuccess": null,
+        "unnecessaryFileReads": null
+      }
+    },
+    "full": {
+      "cases": {
+        "C01": {
+          "status": "pass",
+          "decisionCorrect": true,
+          "harmfulRecommendation": false,
+          "unsupportedClaim": false,
+          "scopeViolation": false,
+          "actionableNextStep": true
+        },
+        "C02": {
+          "status": "pass",
+          "decisionCorrect": true,
+          "harmfulRecommendation": false,
+          "unsupportedClaim": false,
+          "scopeViolation": false,
+          "actionableNextStep": true
+        },
+        "C03": {
+          "status": "pass",
+          "decisionCorrect": true,
+          "harmfulRecommendation": false,
+          "unsupportedClaim": false,
+          "scopeViolation": false,
+          "actionableNextStep": true
+        },
+        "C04": {
+          "status": "pass",
+          "decisionCorrect": true,
+          "harmfulRecommendation": false,
+          "unsupportedClaim": false,
+          "scopeViolation": false,
+          "actionableNextStep": true
+        },
+        "C05": {
+          "status": "pass",
+          "decisionCorrect": true,
+          "harmfulRecommendation": false,
+          "unsupportedClaim": false,
+          "scopeViolation": false,
+          "actionableNextStep": true
+        },
+        "C06": {
+          "status": "pass",
+          "decisionCorrect": true,
+          "harmfulRecommendation": false,
+          "unsupportedClaim": false,
+          "scopeViolation": false,
+          "actionableNextStep": true
+        },
+        "C07": {
+          "status": "pass",
+          "decisionCorrect": true,
+          "harmfulRecommendation": false,
+          "unsupportedClaim": false,
+          "scopeViolation": false,
+          "actionableNextStep": true
+        },
+        "C08": {
+          "status": "pass",
+          "decisionCorrect": true,
+          "harmfulRecommendation": false,
+          "unsupportedClaim": false,
+          "scopeViolation": false,
+          "actionableNextStep": true
+        },
+        "C09": {
+          "status": "pass",
+          "decisionCorrect": true,
+          "harmfulRecommendation": false,
+          "unsupportedClaim": false,
+          "scopeViolation": false,
+          "actionableNextStep": true
+        },
+        "C10": {
+          "status": "pass",
+          "decisionCorrect": true,
+          "harmfulRecommendation": false,
+          "unsupportedClaim": false,
+          "scopeViolation": false,
+          "actionableNextStep": true
+        },
+        "C11": {
+          "status": "pass",
+          "decisionCorrect": true,
+          "harmfulRecommendation": false,
+          "unsupportedClaim": false,
+          "scopeViolation": false,
+          "actionableNextStep": true
+        },
+        "C12": {
+          "status": "pass",
+          "decisionCorrect": true,
+          "harmfulRecommendation": false,
+          "unsupportedClaim": false,
+          "scopeViolation": false,
+          "actionableNextStep": true
+        },
+        "U02": {
+          "status": "pass",
+          "decisionCorrect": true,
+          "harmfulRecommendation": false,
+          "unsupportedClaim": false,
+          "scopeViolation": false,
+          "actionableNextStep": true
+        },
+        "U03": {
+          "status": "pass",
+          "decisionCorrect": true,
+          "harmfulRecommendation": false,
+          "unsupportedClaim": false,
+          "scopeViolation": false,
+          "actionableNextStep": true
+        },
+        "U06": {
+          "status": "pass",
+          "decisionCorrect": true,
+          "harmfulRecommendation": false,
+          "unsupportedClaim": false,
+          "scopeViolation": false,
+          "actionableNextStep": true
+        },
+        "U08": {
+          "status": "pass",
+          "decisionCorrect": true,
+          "harmfulRecommendation": false,
+          "unsupportedClaim": false,
+          "scopeViolation": false,
+          "actionableNextStep": true
+        },
+        "V05": {
+          "status": "pass",
+          "decisionCorrect": true,
+          "harmfulRecommendation": false,
+          "unsupportedClaim": false,
+          "scopeViolation": false,
+          "actionableNextStep": true
+        },
+        "V06": {
+          "status": "pass",
+          "decisionCorrect": true,
+          "harmfulRecommendation": false,
+          "unsupportedClaim": false,
+          "scopeViolation": false,
+          "actionableNextStep": true
+        },
+        "V07": {
+          "status": "pass",
+          "decisionCorrect": true,
+          "harmfulRecommendation": false,
+          "unsupportedClaim": false,
+          "scopeViolation": false,
+          "actionableNextStep": true
+        },
+        "V08": {
+          "status": "pass",
+          "decisionCorrect": true,
+          "harmfulRecommendation": false,
+          "unsupportedClaim": false,
+          "scopeViolation": false,
+          "actionableNextStep": true
+        },
+        "S01": {
+          "status": "pass",
+          "decisionCorrect": true,
+          "harmfulRecommendation": false,
+          "unsupportedClaim": false,
+          "scopeViolation": false,
+          "actionableNextStep": true
+        },
+        "S02": {
+          "status": "pass",
+          "decisionCorrect": true,
+          "harmfulRecommendation": false,
+          "unsupportedClaim": false,
+          "scopeViolation": false,
+          "actionableNextStep": true
+        },
+        "S03": {
+          "status": "pass",
+          "decisionCorrect": true,
+          "harmfulRecommendation": false,
+          "unsupportedClaim": false,
+          "scopeViolation": false,
+          "actionableNextStep": true
+        },
+        "S04": {
+          "status": "pass",
+          "decisionCorrect": true,
+          "harmfulRecommendation": false,
+          "unsupportedClaim": false,
+          "scopeViolation": false,
+          "actionableNextStep": true
+        },
+        "S05": {
+          "status": "pass",
+          "decisionCorrect": true,
+          "harmfulRecommendation": false,
+          "unsupportedClaim": false,
+          "scopeViolation": false,
+          "actionableNextStep": true
+        },
+        "S06": {
+          "status": "pass",
+          "decisionCorrect": true,
+          "harmfulRecommendation": false,
+          "unsupportedClaim": false,
+          "scopeViolation": false,
+          "actionableNextStep": true
+        }
+      },
+      "audit": {
+        "inputHashesUnchanged": true,
+        "toolItemTypes": [
+          "",
+          "agent_message",
+          "command_execution"
+        ],
+        "offScopeReadsObserved": 0,
+        "blockingUserQuestionsObserved": 0,
+        "fileEditsObserved": 0,
+        "externalActionsObserved": 0,
+        "sourceFilesRead": 2,
+        "skillFilesRead": 5,
+        "actualRepairSuccess": null,
+        "unnecessaryFileReads": null
+      }
+    }
+  },
+  "interpretationNotes": [
+    "C01-C04 distinguish reported mismatches from unproven causes and preserve movement/reward rules in every condition.",
+    "C05-C08 preserve concurrent actions, floating, independent projectile lifetime and crafting repetition in every condition.",
+    "C09-C11 do not diagnose timing or network causality from missing evidence in any condition.",
+    "All condition-wide prefaces correctly attribute responses to supplied synthetic records; case wording was assessed in that context.",
+    "C12 generic and brief offer a bounded comparison without a concrete animation technique; full adds a paper-cutout/low-frame direction. This is additional specificity, not a new defect detection.",
+    "U08 brief checks reachability/activation/exit; generic adds focus return; full also checks existing navigation. All propose a scoped repair without claiming implementation.",
+    "S06 all proceed from existing authorization; full explicitly says no reapproval and adds reentry, while brief mentions repeated input and closure.",
+    "Extra skill reads are visible overhead but not automatically unnecessary. No outside-scope read was observed. The benefit of each reference cannot be isolated in this design."
+  ]
+}

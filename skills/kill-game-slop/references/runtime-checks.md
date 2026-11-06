@@ -2,6 +2,12 @@
 
 Read for the actual renderer, input or playback checks needed by a repair.
 
+Use an isolated scene and a fresh test session for interaction checks. Inspect unfamiliar launch/build scripts and their hooks before execution. If a check would change live payments, public content, rewards or user data beyond existing authorization, use a local substitute or leave that check pending while continuing feasible work.
+
+For browser checks, use a new context with Service Workers blocked, exact scheme/host/port request allowlists and an explicit WebSocket policy. Apply routing before creating pages, including popups. Inspect redirect handling as well as direct requests. Log denied origins without URL credentials, paths, query strings or bodies. Browser routing is a limited traffic policy, not Node/process or host network isolation; untrusted executable projects require host isolation too. Do not promise complete containment from these browser settings.
+
+Capture only the scene and state fields needed for the finding. Use dummy identities; omit or mask account/chat overlays, credentials and unrelated logs before writing artifacts. Recheck saved evidence for the dummy values when validating a collector. Never overwrite baseline captures or previous results; create a distinct run directory and record actual source hashes and tool/browser versions.
+
 Engine-specific checks are conditional, not mandatory dependencies:
 
 - Unity: inspect prefab overrides, serialized references, Canvas layout and the project's actual UI/input stack.

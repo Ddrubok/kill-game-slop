@@ -41,6 +41,8 @@
 
 ## 재현 및 사람 확인
 
+아래 실행 경로와 포트는 2026-10-14 당시의 기록입니다. 현재 검사기는 독립 로컬 서버·소스 해시 점검·공통 통신 정책을 사용하므로 [현재 재실행 안내](../../MAINTENANCE.md)를 따르세요. [2026-11-06 기록](../../security-quality-2026-11-06/report.md)은 새 실행과 과거 결과를 구분합니다.
+
 [검사 스크립트](verify-in-game.mjs)는 게임 저장소의 `qa/selection-presentation-2026-10-14/verify.mjs`에 두고 실행한 사본이다. 기존 `.orca/ui-check/node_modules/playwright`와 설치된 Edge를 사용한다. 독립적인 스킬 실행 의존성이 아니다.
 
 1. 게임 `web/`에서 `node node_modules/vite/bin/vite.js --host 127.0.0.1 --port 5236 --strictPort` 실행.

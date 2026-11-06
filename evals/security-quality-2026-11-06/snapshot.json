@@ -1,0 +1,16 @@
+{
+  "date": "2026-11-06",
+  "base_commit": "4301ce7341c9e816578bc627eca97fb3372bbd9a",
+  "identity": "Uncommitted local revision identified by content hashes; not an agent evaluation",
+  "runtime_sha256_lf": {
+    "agents/openai.yaml": "b8cd446400565b5b3d227e2c193f4da944aac7aec62c5a3d0f6d784d78843d74",
+    "LICENSE": "70bdc0ae8b62c13933d0fe19bfb87892d44f17d1ad84ae66c29ee906f228c0d6",
+    "references/editor-specs.md": "ba7a53f85c84f6781f7ba4547b5a4665d4dedede20c6052b192d71b9c26bb9d5",
+    "references/examples.md": "2ca7bc89ae8ddf9c563f995618347ad3b1113c52fd9c82b25804fe1bdf85bb8b",
+    "references/gameplay-coherence.md": "de48266e8cfd0704ec73cc3b89bacad0af1cd5c657b67f3bda57c8ceedd5a349",
+    "references/presentation-checks.md": "a60ef2492dfc805a7d366562a47881563d4ec3a7599cc95f88ab20ff13346034",
+    "references/runtime-checks.md": "eba5a2fa88acbf6aaa156c9f982c9d6e3e89986a51ef9c308ff76676e345cb6e",
+    "references/skill-handoff.md": "2f9f4afbd6c88bb0d2d0ebd52a7b1adb8f5206eaecc43c2308d60d2676e47377",
+    "SKILL.md": "9287da7b6074bd34f7c69724de351a57e99de161d0c90beb960d3e787518e9ac"
+  }
+}

@@ -1,0 +1,1 @@
+No skill catalog was supplied in my context.

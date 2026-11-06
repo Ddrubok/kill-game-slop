@@ -1,0 +1,10 @@
+[
+  {
+    "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command \"Get-Content -LiteralPath 'cases.md' -Encoding UTF8 -Raw\"",
+    "exitCode": 0
+  },
+  {
+    "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command \"Get-Content -LiteralPath 'prompt.txt' -Encoding UTF8 -Raw\"",
+    "exitCode": 0
+  }
+]

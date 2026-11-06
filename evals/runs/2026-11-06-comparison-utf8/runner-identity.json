@@ -1,0 +1,7 @@
+{
+  "path": "C:\\Users\\DooBokWie\\.agents\\skills\\astra-team\\scripts\\orchestration.mjs",
+  "sha256": "ae9062ab9b107b65b97c98490c14c809456536860800834c36e6830460a23ea5",
+  "cliVersion": "0.167.0",
+  "nodeVersion": "v22.18.0",
+  "deliveredPromptMethod": "Reconstructed exactly from frozen worker-task.json and unchanged shared runner prefix; host/system context is not included or fully exposed."
+}

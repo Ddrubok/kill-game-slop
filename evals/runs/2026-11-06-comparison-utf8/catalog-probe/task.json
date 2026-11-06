@@ -1,0 +1,6 @@
+{
+  "prompt": "The user explicitly authorized isolated independent evaluation sessions for this comparison. Do not use tools or read files. Report only whether any skill catalog is supplied in your context and list its skill names if present. Do not infer skill availability from general knowledge. No file edits.",
+  "worker": "sol",
+  "model": "gpt-6-sol",
+  "cwd": "C:\\Users\\DooBokWie\\orca\\projects\\Default\\skill-releases\\github-sync-20261102\\kill-game-slop\\.orca\\evaluation-tools\\probe"
+}

@@ -1,0 +1,4 @@
+{
+  "status": "EXCLUDED_PILOT",
+  "reason": "Windows default UTF-8 decoding mismatch caused Korean-input recovery attempts; all three conditions were rerun with common explicit encoding instruction. No pilot result was used for the primary comparison."
+}

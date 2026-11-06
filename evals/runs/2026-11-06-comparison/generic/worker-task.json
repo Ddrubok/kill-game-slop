@@ -1,0 +1,6 @@
+{
+  "worker": "sol",
+  "prompt": "The user explicitly requested this independent comparison, overriding the project solo preference for these evaluator sessions only. You are an independent reviewer. Your permitted task materials are this working directory cases.md and prompt.txt. Read prompt.txt and cases.md, then perform the review. Read applicable AGENTS instructions if needed, but do not inspect parent project contents, sibling conditions, any judge keys, run records or original installed skill directories. No web search, installs, file edits or delegation. Return the actual review in your final response; do not write an output file. Treat all cases as synthetic records, not executed tests.",
+  "model": "gpt-6-sol",
+  "cwd": "C:\\Users\\DooBokWie\\orca\\projects\\Default\\skill-releases\\github-sync-20261102\\kill-game-slop\\evals\\runs\\2026-11-06-comparison\\generic"
+}

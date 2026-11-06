@@ -64,6 +64,8 @@ Use one record per decision, scaled to the evidence. Do not create separate repo
 
 Evidence limits:
 
+- **Collection:** select the relevant UI region, DOM elements and log fields; avoid whole-page text, storage dumps and unrelated chat/account data. Mask or omit sensitive material before saving or passing evidence onward. Use fresh run paths and preserve original before/after artifacts; a redacted derivative is a separate artifact. Record that redaction occurred without reproducing the removed value.
+
 - **Screenshot:** establishes the captured layout; it cannot establish repeated interruption, animation timing, sound, input behavior or server acceptance.
 - **Video:** establishes the recorded interval, with audible evidence only when the track was actually available and inspected. Do not infer all sessions from one interval.
 - **Runtime:** state the steps/environment you actually exercised; synthetic events, test instrumentation and mocks must be disclosed.

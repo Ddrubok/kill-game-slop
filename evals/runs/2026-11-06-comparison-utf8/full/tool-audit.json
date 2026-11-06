@@ -1,0 +1,34 @@
+[
+  {
+    "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command \"Get-Location; rg --files -g 'prompt.txt' -g 'cases.md' -g 'skill/**' -g 'AGENTS.md'\"",
+    "exitCode": 0
+  },
+  {
+    "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command \"Get-Content -LiteralPath 'cases.md' -Encoding UTF8 -Raw\"",
+    "exitCode": 0
+  },
+  {
+    "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command \"Get-Content -LiteralPath 'skill/SKILL.md' -Encoding UTF8 -Raw\"",
+    "exitCode": 0
+  },
+  {
+    "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command \"Get-Content -LiteralPath 'prompt.txt' -Encoding UTF8 -Raw\"",
+    "exitCode": 0
+  },
+  {
+    "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command \"Get-Content -LiteralPath 'skill/references/presentation-checks.md' -Encoding UTF8 -Raw\"",
+    "exitCode": 0
+  },
+  {
+    "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command \"Get-Content -LiteralPath 'skill/references/runtime-checks.md' -Encoding UTF8 -Raw\"",
+    "exitCode": 0
+  },
+  {
+    "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command \"Get-Content -LiteralPath 'skill/references/gameplay-coherence.md' -Encoding UTF8 -Raw\"",
+    "exitCode": 0
+  },
+  {
+    "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command \"Get-Content -LiteralPath 'skill/references/examples.md' -Encoding UTF8 -Raw\"",
+    "exitCode": 0
+  }
+]

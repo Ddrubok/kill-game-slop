@@ -1,0 +1,6 @@
+[
+  {
+    "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command \"Get-Location; Get-Content -Encoding UTF8 -LiteralPath .\\\\prompt.txt; Get-Content -Encoding UTF8 -LiteralPath .\\\\cases.md\"",
+    "exitCode": 0
+  }
+]

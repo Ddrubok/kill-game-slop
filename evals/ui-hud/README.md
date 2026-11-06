@@ -1,5 +1,7 @@
 # UI/HUD regression evaluation
 
+Follow-up: the [2026-11-06 generic/brief/full comparison](../runs/2026-11-06-comparison-utf8/report.md) includes these U and V cases as synthetic-record reviews. All conditions met the criteria. This is a current-version comparison across prompt conditions; the historical before/after-version and runtime/human columns below remain NOT RUN.
+
 Prepared on 2026-10-28 from the user's UI/HUD patch guide v1.0. This is maintainer material, not an ordinary skill reference. The companion bettermakegame repository contains U01, U04, U05, and U07; neither skill requires the other to run. Existing evaluation inputs and results remain unchanged.
 
 ## Comparison protocol

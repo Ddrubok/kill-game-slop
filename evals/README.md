@@ -1,6 +1,8 @@
 # Comparison evaluation
 
-The [gameplay coherence set](gameplay-coherence-2026-11-05/README.md) adds action combinations, intended motion, interruption and contextual meaning. Its fresh-agent evaluation is **NOT RUN**; earlier comparisons do not validate the revised instructions.
+For repeatable static/checker tests, pinned game preflight and frozen comparison input preparation, see [MAINTENANCE.md](MAINTENANCE.md). The [2026-11-06 report](security-quality-2026-11-06/report.md) separates actual browser/checker runs from unrun agent comparisons. Preparing packets does not run a reviewer.
+
+The [gameplay coherence set](gameplay-coherence-2026-11-05/README.md) adds action combinations, intended motion, interruption and contextual meaning. A [2026-11-06 three-condition comparison](runs/2026-11-06-comparison-utf8/report.md) now reviews its C cases plus U/V and safety cases: all conditions met the 26 authored case criteria in one run each. The full skill used more tokens; no accuracy advantage was demonstrated. Earlier NOT RUN records remain historical, and actual repair/human efficacy is still unmeasured.
 
 ## Protocol
 

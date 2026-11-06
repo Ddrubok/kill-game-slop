@@ -1,46 +1,50 @@
-// Run against a local Vite dev server. This observes real runtime objects without changing game state.
+// Runs only a pinned local game copy, with a fresh guest context per condition.
 import { createRequire } from 'node:module';
 import path from 'node:path';
-const require = process.env.PLAYWRIGHT_ROOT
-  ? createRequire(path.join(path.resolve(process.env.PLAYWRIGHT_ROOT), 'package.json'))
-  : createRequire(import.meta.url);
-const { chromium } = require('playwright');
-import fs from 'node:fs/promises';
 import assert from 'node:assert/strict';
-import { fileURLToPath } from 'node:url';
+import { fileURLToPath, pathToFileURL } from 'node:url';
+import { restrictedContext } from '../../lib/browser-policy.mjs';
+import { freshDirectory, writeJSON, screenshot, selectionState } from '../../lib/evidence.mjs';
+import { requireTool, checkGame } from '../../lib/environment.mjs';
 const pass = process.argv[2] ?? ('recheck-' + Date.now());
 assert.match(pass, /^[a-z0-9-]+$/);
-const out = new URL(`./rechecks/${pass}/`, import.meta.url);
-await fs.mkdir(new URL('./rechecks/', import.meta.url), {recursive:true});
-await fs.mkdir(out); // Refuse to overwrite a previous result or historical evidence.
-const browser = await chromium.launch({...(process.env.BROWSER_PATH ? {executablePath:process.env.BROWSER_PATH} : {channel:'msedge'}),headless:true});
-const results = {pass,started:new Date().toISOString(),browser:browser.version(),externalNetwork:'blocked',instrumentation:'Playwright response interception adds a getter for actual runtime objects; no game state or clock mutation',conditions:[]};
+const out = await freshDirectory(fileURLToPath(new URL(`./rechecks/${pass}/`, import.meta.url)));
+const environment = await checkGame(process.env.GAME_WEB_ROOT, process.env.GAME_SOURCE_MANIFEST);
+const web = path.resolve(process.env.GAME_WEB_ROOT);
+const gameRequire = createRequire(path.join(web, 'package.json'));
+const { createServer } = await import(pathToFileURL(gameRequire.resolve('vite')).href);
+const { chromium } = requireTool('playwright');
+const server = await createServer({ root: web, configFile: false, cacheDir: path.join(out, 'vite-cache'), logLevel: 'error',
+  server: { host: '127.0.0.1', port: 0, hmr: false, fs: { allow: [web, path.dirname(gameRequire.resolve('vite'))] } },
+  define: { __POKI_BUILD__: 'false', __CRAZYGAMES_BUILD__: 'false', __PORTABLE_BUILD__: 'false' } });
+let browser;
+const results = {pass,started:new Date().toISOString(),environment,networkPolicies:[],instrumentation:'Response transformation adds runtime getters; pointer/touch input in a fresh local guest session; no state or clock injection',conditions:[]};
 try {
+ await server.listen();
+ const origin = `http://127.0.0.1:${server.httpServer.address().port}`;
+ browser = await chromium.launch({...(process.env.BROWSER_PATH ? {executablePath:process.env.BROWSER_PATH} : {}),headless:true});
+ results.browser = browser.version();
  for (const [width,height,touch] of [[360,800,true],[320,568,true],[1280,800,false]]) {
   const row={width,height,input:touch?'emulated touch':'mouse',language:'ko',captures:[],errors:[]};results.conditions.push(row);
-  const context=await browser.newContext({viewport:{width,height},hasTouch:touch,isMobile:touch,deviceScaleFactor:1,locale:'ko-KR'});
-  await context.route('**/*',async route=>{
-   const url=new URL(route.request().url());
-   if(url.hostname!=='127.0.0.1')return route.abort();
+  const {context,policy}=await restrictedContext(browser,origin,{viewport:{width,height},hasTouch:touch,isMobile:touch,deviceScaleFactor:1,locale:'ko-KR'},async(url,response)=>{
    if(url.pathname==='/src/main.ts'){
-    const response=await route.fetch();const source=await response.text();const marker='setMainMenuReady(menuRuntime, true);';
+    const source=await response.text();const marker='setMainMenuReady(menuRuntime, true);';
     assert.ok(source.includes(marker),'observation point exists');
-    return route.fulfill({response,body:source.replace(marker,'globalThis.__presentationQA = () => ({sceneRuntime, inputRuntime, aimRuntime, aimParametersRuntime, turnRuntime});'+marker)});
+    return source.replace(marker,'globalThis.__presentationQA = () => ({sceneRuntime, inputRuntime, aimRuntime, aimParametersRuntime, turnRuntime});'+marker);
    }
-   return route.continue();
   });
-  const page=await context.newPage();page.setDefaultTimeout(15000);page.on('pageerror',e=>row.errors.push(e.message));
+  results.networkPolicies.push(policy);
+  const page=await context.newPage();page.setDefaultTimeout(15000);page.on('pageerror',()=>row.errors.push('pageerror; message omitted'));
   const act=async locator=>touch?locator.tap():locator.click();
   const settle=async()=>{
    await page.waitForFunction(()=>globalThis.__presentationQA?.().inputRuntime.cameraTransition===null);
    await page.waitForTimeout(180);
   };
-  const state=()=>page.evaluate(()=>{
-   const r=globalThis.__presentationQA();
-   const visible=e=>{const box=e.getBoundingClientRect();return !!box.width&&!!box.height&&getComputedStyle(e).visibility!=='hidden';};
-   return {selected:r.aimRuntime.selectedPieceId,phase:r.turnRuntime.phase,side:r.turnRuntime.currentSide,mode:r.inputRuntime.mode,previewVisible:visible(r.aimParametersRuntime.root),redDot:r.aimParametersRuntime.redDot.visible,feedback:r.aimParametersRuntime.feedback.textContent,actionBarVisible:visible(document.querySelector('.strike-action-bar')),strikePanelVisible:!!document.querySelector('.strike-point-panel')&&visible(document.querySelector('.strike-point-panel')),buttons:[...document.querySelectorAll('.strike-action-bar button')].filter(visible).map(e=>({text:e.innerText,action:e.dataset.action,pressed:e.getAttribute('aria-pressed'),bounds:e.getBoundingClientRect().toJSON()})),text:document.body.innerText};
-  });
-  const cap=async name=>{await settle();const s=await state();const path=`${width}-${name}.png`;await page.screenshot({path:fileURLToPath(new URL(path,out))});row.captures.push({name,path,...s});return s;};
+  const state=()=>page.evaluate(selectionState);
+  let stage='startup';
+  const cap=async name=>{stage=name;await settle();const s=await state();const file=`${width}-${name}.png`;
+   await screenshot(page,path.join(out,file),{mask:[page.locator('#menu-profile-btn, #menu-account-btn, #guest-nickname-input, [data-private], [data-chat], .chat-panel')]});
+   row.captures.push({name,path:file,...s});return s;};
   const select=async id=>{
    await settle();
    const point=await page.evaluate(id=>{const r=globalThis.__presentationQA(),m=r.sceneRuntime.pieceMeshes.get(id);m.geometry.computeBoundingBox();const p=m.geometry.boundingBox.getCenter(m.position.clone()).applyMatrix4(m.matrixWorld).project(r.sceneRuntime.camera);const rect=r.sceneRuntime.renderer.domElement.getBoundingClientRect();return{x:rect.x+(p.x+1)*rect.width/2,y:rect.y+(1-p.y)*rect.height/2,visible:m.visible};},id);
@@ -50,8 +54,19 @@ try {
    assert.equal((await state()).selected,id,'selection follows the actual pointer input');
   };
   try {
-   await page.goto('http://127.0.0.1:5236/');await page.locator('#btn-guest-submit').waitFor({timeout:30000});
-   await page.locator('#guest-nickname-input').fill('SelectionQA');await act(page.locator('#btn-guest-submit'));await page.locator('#menu-profile-btn').waitFor();
+   await page.goto(origin);
+   const skipPractice=page.getByRole('button',{name:'연습 건너뛰기',exact:true});
+   const localMatch=page.getByRole('button',{name:/^2인 대전/});
+   await page.locator('#btn-guest-submit:visible').or(localMatch).or(skipPractice).first().waitFor({timeout:30000});
+   if(await skipPractice.isVisible()){
+    await act(skipPractice);row.onboarding='Skipped first-run practice through its visible control';
+   }
+   await page.locator('#btn-guest-submit:visible').or(localMatch).first().waitFor({timeout:15000});
+   if(await page.locator('#btn-guest-submit').isVisible()){
+    row.entryRoute='local guest form';
+    await page.locator('#guest-nickname-input').fill('SelectionQA');await act(page.locator('#btn-guest-submit'));
+   }else row.entryRoute='automatic local guest menu in this source version';
+   await localMatch.waitFor();stage='start match';
    await act(page.getByRole('button',{name:/^2인 대전/}));await act(page.getByRole('button',{name:'대전 시작',exact:true}));
    await page.waitForFunction(()=>globalThis.__presentationQA?.().turnRuntime.phase==='ready');
    let s=await cap('unselected');assert.equal(s.selected,null);assert.equal(s.previewVisible,false);assert.equal(s.actionBarVisible,false);
@@ -64,13 +79,17 @@ try {
    s=await cap('cleared');assert.equal(s.selected,null);assert.equal(s.previewVisible,false);assert.equal(s.redDot,false);assert.equal(s.actionBarVisible,false);
    await act(page.getByRole('button',{name:'메뉴로',exact:true}));
    const confirm=page.locator('[data-menu-confirm]');if(await confirm.isVisible())await act(confirm);
-   await page.locator('#menu-profile-btn').waitFor();
+   await localMatch.waitFor();
    await act(page.getByRole('button',{name:/^2인 대전/}));await act(page.getByRole('button',{name:'대전 시작',exact:true}));
    await page.waitForFunction(()=>globalThis.__presentationQA?.().turnRuntime.phase==='ready');
    s=await cap('reentry');assert.equal(s.selected,null);assert.equal(s.actionBarVisible,false);assert.equal(s.previewVisible,false);
    for(const c of row.captures)for(const b of c.buttons){assert.ok(b.bounds.x>=0&&b.bounds.y>=0&&b.bounds.right<=width+1&&b.bounds.bottom<=height+1,'visible action buttons fit viewport');}
-   assert.deepEqual(row.errors,[]);row.status='passed';
-  }catch(e){row.status='failed';row.error=e.stack;await page.screenshot({path:fileURLToPath(new URL(`${width}-failure.png`,out))}).catch(()=>{});process.exitCode=1;}
-  await context.close();console.log(width,row.status,row.error?.split('\n')[0]??'');
+   assert.deepEqual(row.errors,[]);assert.equal(policy.failures,0,'No routing failures');row.status='passed';
+  }catch(e){row.status='failed';row.error={name:e.name,stage};process.exitCode=1;}
+  await context.close();console.log(width,row.status,row.error?.stage??'');
  }
-}finally{results.finished=new Date().toISOString();await fs.writeFile(new URL('results.json',out),JSON.stringify(results,null,2));await browser.close();}
+}finally{
+ results.finished=new Date().toISOString();
+ try{await writeJSON(path.join(out,'results.json'),results);}
+ finally{try{await browser?.close();}finally{await server.close();}}
+}

@@ -1,0 +1,78 @@
+import assert from 'node:assert/strict';
+import path from 'node:path';
+import { writeFile } from 'node:fs/promises';
+import { withScene } from '../tools/scene.mjs';
+
+await withScene(path.resolve('web'), { viewport: { width: 360, height: 800 } }, async ({ page, errors }) => {
+  await page.evaluate(() => __case.open('double'));
+  const dialog = page.locator('.promotion-modal-overlay');
+  assert.equal(await dialog.getAttribute('role'), 'dialog');
+  assert.equal(await dialog.getAttribute('aria-modal'), 'true');
+  assert.equal(await page.locator(':focus').getAttribute('data-piece-type'), 'Queen');
+  await page.evaluate(() => {
+    const button = document.querySelector('[data-piece-type="Rook"]');
+    button.click();
+    button.click();
+    document.querySelector('[data-piece-type="Queen"]').click();
+  });
+  assert.equal(await dialog.getAttribute('aria-busy'), 'true');
+  assert.equal(await page.locator('[data-piece-type="Rook"]').getAttribute('aria-pressed'), 'true');
+  assert.equal(await page.locator('[data-piece-type="Rook"]').getAttribute('aria-disabled'), 'true');
+  assert.equal(await page.locator('[data-piece-type="Queen"]').isDisabled(), true);
+  assert.deepEqual(await page.evaluate(() => __case.calls), []);
+  await page.waitForTimeout(150);
+  assert.deepEqual(await page.evaluate(() => __case.calls), [{ owner: 'double', type: 'Rook' }]);
+
+  await page.evaluate(() => {
+    __case.open('old');
+    document.querySelector('[data-piece-type="Bishop"]').click();
+    __case.open('new');
+    document.querySelector('[data-piece-type="Knight"]').click();
+  });
+  await page.waitForTimeout(150);
+  assert.deepEqual(await page.evaluate(() => __case.calls), [
+    { owner: 'double', type: 'Rook' },
+    { owner: 'new', type: 'Knight' },
+  ]);
+
+  await page.evaluate(() => {
+    __case.open('removed');
+    document.querySelector('[data-piece-type="Queen"]').click();
+    document.querySelector('.promotion-modal-overlay').remove();
+  });
+  await page.waitForTimeout(150);
+  assert.equal((await page.evaluate(() => __case.calls)).length, 2);
+
+  await page.evaluate(() => { __case.motion(true); __case.open('reduced'); });
+  assert.equal(await page.locator('.promotion-modal-overlay').evaluate(el => getComputedStyle(el).animationName), 'none');
+  assert.equal(await page.locator('.promotion-piece-card').first().evaluate(el => getComputedStyle(el).transitionDuration), '0s');
+  await page.locator('[data-piece-type="Queen"]').click();
+  assert.equal(await page.locator('.promotion-modal-overlay').evaluate(el => getComputedStyle(el).animationName), 'none');
+  await page.waitForTimeout(150);
+  assert.deepEqual((await page.evaluate(() => __case.calls)).at(-1), { owner: 'reduced', type: 'Queen' });
+  assert.deepEqual(errors, []);
+});
+
+await withScene(path.resolve('web'), {}, async ({ page, errors }) => {
+  await page.evaluate(() => {
+    const schedule = window.setTimeout;
+    window.setTimeout = (callback, delay, ...args) => {
+      if (delay === 120) { window.__pendingCompletion = () => callback(...args); return 0; }
+      return schedule(callback, delay, ...args);
+    };
+    __case.open('capture');
+    document.querySelector('[data-piece-type="Rook"]').click();
+    document.querySelector('.promotion-modal-overlay').style.animation = 'none';
+  });
+  await writeFile(path.resolve('work/promotion-pending.png'), await page.screenshot());
+  assert.deepEqual(await page.evaluate(() => __case.calls), []);
+  assert.deepEqual(errors, []);
+});
+
+await withScene(path.resolve('web'), { reducedMotion: 'reduce' }, async ({ page, errors }) => {
+  await page.click('#open');
+  assert.equal(await page.locator('.promotion-modal-overlay').evaluate(el => getComputedStyle(el).animationName), 'none');
+  assert.deepEqual(errors, []);
+});
+
+console.log('promotion modal checks passed');

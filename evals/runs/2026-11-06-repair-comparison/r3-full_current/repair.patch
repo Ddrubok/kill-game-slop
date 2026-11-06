@@ -1,0 +1,117 @@
+--- a/web/src/promotion-modal.ts
++++ b/web/src/promotion-modal.ts
+@@ -42,6 +42,8 @@
+   },
+ ];
+ 
++let currentModal: { overlay: HTMLElement; timer?: ReturnType<typeof setTimeout> } | undefined;
++
+ /**
+  * 폰 승급 모달을 띄우고 선택 결과를 콜백으로 전달한다.
+  */
+@@ -52,13 +54,19 @@
+   parentContainer?: HTMLElement,
+ ): void {
+   const container = parentContainer ?? document.body;
+-  const existing = document.querySelector(".promotion-modal-overlay");
+-  if (existing) {
+-    existing.remove();
++  if (currentModal) {
++    clearTimeout(currentModal.timer);
++    currentModal.overlay.remove();
++    currentModal = undefined;
+   }
+ 
+   const overlay = document.createElement("div");
+   overlay.className = "promotion-modal-overlay";
++  overlay.setAttribute("role", "dialog");
++  overlay.setAttribute("aria-modal", "true");
++  overlay.setAttribute("aria-labelledby", "promotion-modal-title");
++  const modal = { overlay, timer: undefined as ReturnType<typeof setTimeout> | undefined };
++  currentModal = modal;
+ 
+   const card = document.createElement("div");
+   card.className = "promotion-modal-card";
+@@ -67,7 +75,7 @@
+ 
+   card.innerHTML = `
+     <div class="promotion-modal-header">
+-      <h2 class="promotion-title">${uiText("promotionTitle")}</h2>
++      <h2 class="promotion-title" id="promotion-modal-title">${uiText("promotionTitle")}</h2>
+       <p class="promotion-subtitle">
+         ${sideLabel} · ${uiText("promotionHint")}
+       </p>
+@@ -75,7 +83,7 @@
+     <div class="promotion-piece-grid">
+       ${PROMOTION_PIECE_OPTIONS.map(
+         (opt) => `
+-        <button class="promotion-piece-card" data-piece-type="${opt.type}">
++        <button type="button" class="promotion-piece-card" data-piece-type="${opt.type}" aria-pressed="false">
+           <span class="promotion-piece-symbol">${opt.symbol}</span>
+           <div class="promotion-piece-info">
+             <span class="promotion-piece-name">${opt.name}</span>
+@@ -95,12 +103,20 @@
+   );
+   for (const btn of buttons) {
+     btn.addEventListener("click", () => {
++      if (currentModal !== modal || !overlay.isConnected || overlay.classList.contains("promotion-closing")) return;
+       const chosenType = btn.dataset.pieceType as PieceType;
++      for (const option of buttons) {
++        option.setAttribute("aria-disabled", "true");
++        option.setAttribute("aria-pressed", String(option === btn));
++      }
+       overlay.classList.add("promotion-closing");
+-      setTimeout(() => {
++      modal.timer = setTimeout(() => {
++        if (currentModal !== modal || !overlay.isConnected) return;
++        currentModal = undefined;
+         overlay.remove();
+         onSelect(chosenType);
+       }, 120);
+     });
+   }
++  buttons[0]?.focus();
+ }
+--- a/web/src/style.css
++++ b/web/src/style.css
+@@ -1740,6 +1740,40 @@
+   background: #162032;
+ }
+ 
++.promotion-piece-card:focus-visible {
++  outline: 2px solid #f8fafc;
++  outline-offset: 2px;
++}
++
++.promotion-piece-card[aria-pressed="true"] {
++  background: #16425c;
++  border-color: #7dd3fc;
++  box-shadow: inset 4px 0 #7dd3fc;
++}
++
++.promotion-piece-card[aria-disabled="true"] {
++  cursor: default;
++}
++
++.promotion-piece-card[aria-disabled="true"]:not([aria-pressed="true"]):hover {
++  background: #0f172a;
++  border-color: #334155;
++}
++
++.ui-motion-reduced .promotion-modal-overlay,
++.ui-motion-reduced .promotion-piece-card {
++  animation: none;
++  transition: none;
++}
++
++@media (prefers-reduced-motion: reduce) {
++  .promotion-modal-overlay,
++  .promotion-piece-card {
++    animation: none;
++    transition: none;
++  }
++}
++
+ .promotion-piece-symbol {
+   font-size: 26px;
+   line-height: 1;

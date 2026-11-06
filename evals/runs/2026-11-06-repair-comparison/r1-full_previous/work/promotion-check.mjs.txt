@@ -1,0 +1,60 @@
+import assert from 'node:assert/strict';
+import path from 'node:path';
+import { withScene } from '../tools/scene.mjs';
+
+await withScene(path.resolve('web'), { viewport: { width: 360, height: 800 } }, async ({ page, errors }) => {
+  await page.evaluate(() => __case.open('repeat', 'white'));
+  const dialog = page.locator('.promotion-modal-overlay');
+  assert.equal(await dialog.getAttribute('role'), 'dialog');
+  assert.equal(await dialog.getAttribute('aria-modal'), 'true');
+  assert.equal(await page.locator('.promotion-piece-card').count(), 4);
+  assert.equal(await page.evaluate(() => document.activeElement?.dataset.pieceType), 'Queen');
+  await page.evaluate(() => { window.finishedChoice = document.querySelector('.promotion-piece-card'); });
+
+  await page.evaluate(() => {
+    const buttons = document.querySelectorAll('.promotion-piece-card');
+    buttons[0].click(); buttons[1].click(); buttons[0].click();
+  });
+  assert.equal(await page.locator('.promotion-piece-card[aria-disabled="true"]').count(), 4);
+  assert.equal(await page.locator('.promotion-selected').getAttribute('aria-pressed'), 'true');
+  assert.equal(await page.locator('.promotion-selected').getAttribute('data-piece-type'), 'Queen');
+  assert.equal(await page.evaluate(() => document.activeElement?.dataset.pieceType), 'Queen');
+  assert.deepEqual(await page.evaluate(() => __case.calls), []);
+  await page.waitForTimeout(160);
+  assert.deepEqual(await page.evaluate(() => __case.calls), [{ owner: 'repeat', type: 'Queen' }]);
+  await page.evaluate(() => __case.open('finished'));
+  await page.locator('[data-piece-type="Queen"]').click();
+  await page.waitForTimeout(160);
+  await page.evaluate(() => window.finishedChoice.click());
+  assert.deepEqual(await page.evaluate(() => __case.calls), [{ owner: 'repeat', type: 'Queen' }, { owner: 'finished', type: 'Queen' }]);
+
+  await page.evaluate(() => { __case.open('old', 'white'); document.querySelector('[data-piece-type="Rook"]').click(); __case.open('new', 'black'); });
+  await page.waitForTimeout(160);
+  assert.deepEqual(await page.evaluate(() => __case.calls), [{ owner: 'repeat', type: 'Queen' }, { owner: 'finished', type: 'Queen' }]);
+  assert.equal(await dialog.count(), 1);
+  await page.locator('[data-piece-type="Knight"]').click();
+  await page.waitForTimeout(160);
+  assert.deepEqual(await page.evaluate(() => __case.calls), [{ owner: 'repeat', type: 'Queen' }, { owner: 'finished', type: 'Queen' }, { owner: 'new', type: 'Knight' }]);
+
+  await page.evaluate(() => { __case.open('closed'); document.querySelector('[data-piece-type="Bishop"]').click(); document.querySelector('.promotion-modal-overlay').remove(); });
+  await page.waitForTimeout(160);
+  assert.equal(await page.evaluate(() => __case.calls.length), 3);
+
+  await page.evaluate(() => { __case.open('motion'); __case.motion(true); });
+  assert.equal(await dialog.evaluate(el => getComputedStyle(el).animationName), 'none');
+  assert.equal(await page.locator('.promotion-piece-card').first().evaluate(el => getComputedStyle(el).transitionDuration), '0s');
+  await page.locator('[data-piece-type="Queen"]').click();
+  assert.equal(await dialog.evaluate(el => getComputedStyle(el).animationName), 'none');
+  await page.waitForTimeout(160);
+  assert.equal(await page.evaluate(() => __case.calls.at(-1).owner), 'motion');
+
+  const languages = ['ko', 'en', 'ja', 'zh-CN', 'de', 'fr', 'es', 'ru', 'pt-BR'];
+  for (const language of languages) {
+    await page.evaluate(lang => { __case.language.setLanguage(lang); __case.open('language'); }, language);
+    assert.equal(await page.locator('.promotion-piece-card').count(), 4, language);
+    assert.ok((await page.locator('.promotion-title').textContent()).trim(), language);
+    assert.ok((await page.locator('.promotion-piece-desc').first().textContent()).trim(), language);
+  }
+  assert.deepEqual(errors, []);
+  console.log('promotion component checks passed: repeat, replacement, removal, motion, 9 languages');
+});

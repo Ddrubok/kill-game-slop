@@ -1,0 +1,3 @@
+승급 선택창을 수리했습니다. 연속 입력은 첫 선택만 받아들이고, 닫히거나 교체된 창의 지연 콜백은 전달하지 않습니다. 선택 후 120ms 동안 선택 카드가 시각적으로 표시되고 접근성 상태에도 반영됩니다. 모션 줄이기 설정에서는 등장·퇴장 애니메이션을 끕니다. 기물·능력·번역 문구와 일반 모드 연출은 유지했습니다.
+
+로컬 실행 화면에서 연속 클릭, 창 교체·제거, 키보드 초점, 9개 언어, 모션 설정을 확인했고 TypeScript 검사도 통과했습니다. [선택 상태 캡처](<C:\Users\DooBokWie\orca\projects\Default\skill-releases\github-sync-20261102\kill-game-slop\.orca\repair-comparison-20261106\r2-full_previous\work\promotion-selected-verified.png>). 전체 경기 흐름과 실제 기기 입력은 확인하지 못했습니다.

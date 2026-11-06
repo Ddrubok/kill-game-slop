@@ -2,3 +2,4 @@
 evals/** -text
 # Unified diffs require a space prefix even on empty context lines.
 evals/real/promotion-2026-11-05/repair.patch -whitespace
+evals/runs/2026-11-06-repair-comparison/*/repair.patch -whitespace

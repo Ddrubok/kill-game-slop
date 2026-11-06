@@ -19,7 +19,9 @@ let json=0, links=0, scripts=0;
 for(const file of files) {
   if(file.endsWith('.json')) { JSON.parse(await readFile(file,'utf8')); json++; }
   if(file.endsWith('.mjs')) { execFileSync(process.execPath,['--check',file],{stdio:'pipe'}); scripts++; }
-  if(file.endsWith('.md')) {
+  // Raw worker answers retain session-local paths; validate their frozen bytes, not those links.
+  const archivedAnswer=file.startsWith(path.join(root,'evals','runs')+path.sep)&&['final-response.md','worker-response.md'].includes(path.basename(file));
+  if(file.endsWith('.md')&&!archivedAnswer) {
     const text=await readFile(file,'utf8');
     for(const match of text.matchAll(/\]\(([^\s)]+)(?:\s+"[^"]*")?\)/g)) {
       const target=match[1].replace(/^<|>$/g,'').split('#')[0];
@@ -49,7 +51,7 @@ for(const [file,expected] of Object.entries(historical.files)) {
   assert.equal(createHash('sha256').update(bytes).digest('hex'),expected,`Historical evidence changed: ${file}`);
 }
 const archives={};
-for(const [name,directory,count] of [['Comparison','runs/2026-11-06-comparison-utf8/',74],['Review v2','review-v2-2026-11-06/',43]]) {
+for(const [name,directory,count] of [['Comparison','runs/2026-11-06-comparison-utf8/',74],['Review v2','review-v2-2026-11-06/',43],['Repair comparison','runs/2026-11-06-repair-comparison/',551]]) {
   const base=new URL(directory,import.meta.url);
   const hashes=JSON.parse(await readFile(new URL('artifact-sha256.json',base),'utf8'));
   assert.equal(Object.keys(hashes).length,count,`${name} archive must retain all ${count} entries`);

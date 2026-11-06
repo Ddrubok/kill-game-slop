@@ -1,0 +1,21 @@
+{
+  "protectedInputChanges": [],
+  "sourceChangesOutsideSrc": [],
+  "reportedFileChangesOutsideWorkspace": [],
+  "parentGitMetadataCommands": [
+    "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command 'Get-Content -LiteralPath tools/README.md -Encoding utf8; Get-Content -LiteralPath web/package.json -Encoding utf8; git status --short'",
+    "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command 'Get-Content -LiteralPath web/src/promotion-modal.ts -Encoding utf8 | Select-Object -Skip 45 -First 85; git diff -- web/src/promotion-modal.ts web/src/style.css'"
+  ],
+  "skillReadCalls": [
+    "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command 'Get-Content -LiteralPath skill/SKILL.md -Encoding utf8; rg --files web tools work | Select-Object -First 160'",
+    "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command 'Get-Content -LiteralPath skill/references/presentation-checks.md -Encoding utf8; Get-Content -LiteralPath skill/references/runtime-checks.md -Encoding utf8'",
+    "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command \"Get-Content -LiteralPath skill/references/gameplay-coherence.md -Encoding utf8 | Select-Object -First 125; rg -n 'promotion-modal|__case|scene' web/scene* web/src | Select-Object -First 90\""
+  ],
+  "skillReadFiles": [
+    "skill/SKILL.md",
+    "skill/references/gameplay-coherence.md",
+    "skill/references/presentation-checks.md",
+    "skill/references/runtime-checks.md"
+  ],
+  "limits": "Command-string read extraction; parent Git metadata was accessible because workspaces were not separate Git roots. Review complete traces for content access. This is not a filesystem isolation or security claim."
+}

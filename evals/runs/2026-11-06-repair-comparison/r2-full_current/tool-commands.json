@@ -1,0 +1,135 @@
+[
+  {
+    "id": "item_1",
+    "type": "command_execution",
+    "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command \"Get-Location; rg --files -g AGENTS.md -g prompt.txt -g package.json -g 'web/**' -g 'tools/**' -g 'work/**' | Select-Object -First 100\"",
+    "exit_code": 1,
+    "status": "failed"
+  },
+  {
+    "id": "item_2",
+    "type": "command_execution",
+    "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command '$p = Get-Content -LiteralPath '\"'prompt.txt' -Encoding UTF8 -Raw; \"'$p; rg --files -g AGENTS.md -g '\"'RTK.md' .; git status --short\"",
+    "exit_code": 0,
+    "status": "completed"
+  },
+  {
+    "id": "item_3",
+    "type": "command_execution",
+    "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command \"rg --files skill web/src | rg '(\"'^skill/|promotion|modal|main|style|test)'\"'; Get-Content -LiteralPath 'tools/README.md' -Encoding UTF8 -Raw; if (Test-Path -LiteralPath 'skill/SKILL.md') { Get-Content -LiteralPath 'skill/SKILL.md' -Encoding UTF8 -Raw }\"",
+    "exit_code": 0,
+    "status": "completed"
+  },
+  {
+    "id": "item_6",
+    "type": "command_execution",
+    "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command \"Get-Content -LiteralPath 'skill/references/runtime-checks.md' -Encoding UTF8 -Raw\"",
+    "exit_code": 0,
+    "status": "completed"
+  },
+  {
+    "id": "item_5",
+    "type": "command_execution",
+    "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command \"Get-Content -LiteralPath 'skill/references/presentation-checks.md' -Encoding UTF8 -Raw\"",
+    "exit_code": 0,
+    "status": "completed"
+  },
+  {
+    "id": "item_8",
+    "type": "command_execution",
+    "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command \"Get-Content -LiteralPath 'web/src/promotion-modal.ts' -Encoding UTF8 -Raw\"",
+    "exit_code": 0,
+    "status": "completed"
+  },
+  {
+    "id": "item_9",
+    "type": "command_execution",
+    "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command \"Get-Content -LiteralPath 'web/package.json' -Encoding UTF8 -Raw\"",
+    "exit_code": 0,
+    "status": "completed"
+  },
+  {
+    "id": "item_7",
+    "type": "command_execution",
+    "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command \"Get-Content -LiteralPath 'web/src/style.css' -Encoding UTF8 -Raw\"",
+    "exit_code": 0,
+    "status": "completed"
+  },
+  {
+    "id": "item_10",
+    "type": "command_execution",
+    "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command \"Get-Content -LiteralPath 'tools/scene.mjs' -Encoding UTF8 -Raw\"",
+    "exit_code": 0,
+    "status": "completed"
+  },
+  {
+    "id": "item_11",
+    "type": "command_execution",
+    "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command \"Get-Content -LiteralPath 'skill/references/gameplay-coherence.md' -Encoding UTF8 -Raw\"",
+    "exit_code": 0,
+    "status": "completed"
+  },
+  {
+    "id": "item_12",
+    "type": "command_execution",
+    "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command \"Get-Content -LiteralPath 'web/src/ui-motion.ts' -Encoding UTF8 -Raw\"",
+    "exit_code": 0,
+    "status": "completed"
+  },
+  {
+    "id": "item_13",
+    "type": "command_execution",
+    "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command \"rg -n 'promotion-modal|openPromotionModal|ui-motion-reduced|setMotionReduced' web/src -g '*.ts' -g '*.css' | Select-Object -First 120\"",
+    "exit_code": 0,
+    "status": "completed"
+  },
+  {
+    "id": "item_14",
+    "type": "command_execution",
+    "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command \"Get-Content -LiteralPath 'tools/preview.mjs' -Encoding UTF8 -Raw; Get-Content -LiteralPath 'web/src/main.ts' -Encoding UTF8 | Select-Object -Skip 1060 -First 28; Get-Content -LiteralPath 'web/src/ui-motion.css' -Encoding UTF8 -Raw\"",
+    "exit_code": 0,
+    "status": "completed"
+  },
+  {
+    "id": "item_17",
+    "type": "command_execution",
+    "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command 'node work/promotion-check.mjs before'",
+    "exit_code": 0,
+    "status": "completed"
+  },
+  {
+    "id": "item_21",
+    "type": "command_execution",
+    "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command './node_modules/.bin/tsc --noEmit'",
+    "exit_code": 0,
+    "status": "completed"
+  },
+  {
+    "id": "item_20",
+    "type": "command_execution",
+    "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command 'node work/promotion-check.mjs after'",
+    "exit_code": 0,
+    "status": "completed"
+  },
+  {
+    "id": "item_25",
+    "type": "command_execution",
+    "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command './node_modules/.bin/tsc --noEmit'",
+    "exit_code": 0,
+    "status": "completed"
+  },
+  {
+    "id": "item_24",
+    "type": "command_execution",
+    "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command 'node work/promotion-check.mjs after'",
+    "exit_code": 0,
+    "status": "completed"
+  },
+  {
+    "id": "item_27",
+    "type": "command_execution",
+    "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command 'git diff --check -- web/src/promotion-modal.ts web/src/style.css; git diff -- web/src/promotion-modal.ts web/src/style.css; git status --short -- web/src/promotion-modal.ts web/src/style.css work'",
+    "exit_code": 0,
+    "status": "completed"
+  }
+]

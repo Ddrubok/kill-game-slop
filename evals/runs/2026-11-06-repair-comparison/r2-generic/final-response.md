@@ -1,0 +1,3 @@
+승급 선택창의 연속 클릭을 막고, 전달 대기 중인 선택을 색상과 `aria-pressed` 상태로 표시했습니다. 창이 교체되거나 닫히면 이전 창의 120ms 지연 콜백은 실행되지 않습니다. 모션 줄이기 설정에는 등장·퇴장 애니메이션을 끄되, 일반 모드의 연출은 유지했습니다.
+
+실제 모달을 띄운 브라우저 검사와 TypeScript 검사가 통과했습니다. [대기 상태 캡처](<C:\Users\DooBokWie\orca\projects\Default\skill-releases\github-sync-20261102\kill-game-slop\.orca\repair-comparison-20261106\r2-generic\work\promotion-pending.png>)도 확인했습니다. 전체 경기 흐름은 실행해 확인하지 않았습니다.

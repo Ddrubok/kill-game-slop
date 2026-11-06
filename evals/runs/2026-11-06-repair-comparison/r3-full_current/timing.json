@@ -1,0 +1,9 @@
+{
+  "id": "r3-full_current",
+  "condition": "full_current",
+  "repeat": 3,
+  "exitCode": 0,
+  "started": "2026-11-06T05:36:39.638664+00:00",
+  "finished": "2026-11-06T05:39:51.478270+00:00",
+  "elapsedSeconds": 191.875
+}

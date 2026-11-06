@@ -1,0 +1,99 @@
+--- a/web/src/promotion-modal.ts
++++ b/web/src/promotion-modal.ts
+@@ -59,6 +59,9 @@
+ 
+   const overlay = document.createElement("div");
+   overlay.className = "promotion-modal-overlay";
++  overlay.setAttribute("role", "dialog");
++  overlay.setAttribute("aria-modal", "true");
++  overlay.setAttribute("aria-labelledby", "promotion-modal-title");
+ 
+   const card = document.createElement("div");
+   card.className = "promotion-modal-card";
+@@ -67,7 +70,7 @@
+ 
+   card.innerHTML = `
+     <div class="promotion-modal-header">
+-      <h2 class="promotion-title">${uiText("promotionTitle")}</h2>
++      <h2 class="promotion-title" id="promotion-modal-title">${uiText("promotionTitle")}</h2>
+       <p class="promotion-subtitle">
+         ${sideLabel} · ${uiText("promotionHint")}
+       </p>
+@@ -75,7 +78,7 @@
+     <div class="promotion-piece-grid">
+       ${PROMOTION_PIECE_OPTIONS.map(
+         (opt) => `
+-        <button class="promotion-piece-card" data-piece-type="${opt.type}">
++        <button type="button" class="promotion-piece-card" data-piece-type="${opt.type}" aria-pressed="false">
+           <span class="promotion-piece-symbol">${opt.symbol}</span>
+           <div class="promotion-piece-info">
+             <span class="promotion-piece-name">${opt.name}</span>
+@@ -93,14 +96,24 @@
+   const buttons = card.querySelectorAll<HTMLButtonElement>(
+     ".promotion-piece-card",
+   );
++  let selectionPending = false;
+   for (const btn of buttons) {
+     btn.addEventListener("click", () => {
++      if (selectionPending || !overlay.isConnected || document.querySelector(".promotion-modal-overlay") !== overlay) return;
++      selectionPending = true;
+       const chosenType = btn.dataset.pieceType as PieceType;
++      for (const option of buttons) {
++        option.disabled = true;
++      }
++      btn.classList.add("promotion-selected");
++      btn.setAttribute("aria-pressed", "true");
+       overlay.classList.add("promotion-closing");
+       setTimeout(() => {
++        if (!overlay.isConnected || document.querySelector(".promotion-modal-overlay") !== overlay) return;
+         overlay.remove();
+         onSelect(chosenType);
+       }, 120);
+     });
+   }
++  buttons[0]?.focus();
+ }
+--- a/web/src/style.css
++++ b/web/src/style.css
+@@ -1731,13 +1731,39 @@
+   color: #f8fafc;
+ }
+ 
+-.promotion-piece-card:hover {
++.promotion-piece-card:enabled:hover {
+   background: #1e293b;
+   border-color: #38bdf8;
+ }
+ 
+-.promotion-piece-card:active {
++.promotion-piece-card:enabled:active {
+   background: #162032;
++}
++
++.promotion-piece-card.promotion-selected,
++.promotion-piece-card.promotion-selected:disabled {
++  background: #12334b;
++  border-color: #38bdf8;
++  box-shadow: inset 0 0 0 1px #38bdf8;
++}
++
++.promotion-piece-card:disabled {
++  cursor: default;
++}
++
++.ui-motion-reduced .promotion-modal-overlay,
++.ui-motion-reduced .promotion-modal-overlay.promotion-closing {
++  animation: none;
++}
++
++.ui-motion-reduced .promotion-piece-card {
++  transition: none;
++}
++
++@media (prefers-reduced-motion: reduce) {
++  .promotion-modal-overlay,
++  .promotion-modal-overlay.promotion-closing { animation: none; }
++  .promotion-piece-card { transition: none; }
+ }
+ 
+ .promotion-piece-symbol {

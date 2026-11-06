@@ -1,0 +1,107 @@
+[
+  {
+    "id": "item_1",
+    "type": "command_execution",
+    "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command \"Get-Location; rg --files -g AGENTS.md -g prompt.txt -g RTK.md -g package.json -g 'web/**' -g 'tools/**' -g 'work/**' -g 'skill/**'\"",
+    "exit_code": 0,
+    "status": "completed"
+  },
+  {
+    "id": "item_2",
+    "type": "command_execution",
+    "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command \"[System.IO.File]::ReadAllText((Join-Path (Get-Location) 'prompt.txt'), [System.Text.Encoding]::UTF8)\"",
+    "exit_code": 0,
+    "status": "completed"
+  },
+  {
+    "id": "item_4",
+    "type": "command_execution",
+    "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command 'rg -n \"promotion|promote|승급|reduced-motion|prefers-reduced-motion\" web/src/main.ts web/src/style.css web/src/*.ts web/src/*.css'",
+    "exit_code": 1,
+    "status": "failed"
+  },
+  {
+    "id": "item_3",
+    "type": "command_execution",
+    "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command 'Get-Content web/src/promotion-modal.ts -Encoding UTF8; Get-Content web/src/ui-motion.ts -Encoding UTF8; Get-Content web/src/ui-motion.css -Encoding UTF8'",
+    "exit_code": 0,
+    "status": "completed"
+  },
+  {
+    "id": "item_5",
+    "type": "command_execution",
+    "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command 'Get-Content tools/README.md -Encoding UTF8; Get-Content web/package.json -Encoding UTF8; git status --short'",
+    "exit_code": 0,
+    "status": "completed"
+  },
+  {
+    "id": "item_8",
+    "type": "command_execution",
+    "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command 'Get-Content tools/preview.mjs -Encoding UTF8; Get-Content tools/scene.mjs -Encoding UTF8'",
+    "exit_code": 0,
+    "status": "completed"
+  },
+  {
+    "id": "item_6",
+    "type": "command_execution",
+    "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command '$f=Get-Content web/src/style.css -Encoding UTF8; $f[1620..1790]; $f[1835..1870]'",
+    "exit_code": 0,
+    "status": "completed"
+  },
+  {
+    "id": "item_7",
+    "type": "command_execution",
+    "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command '$f=Get-Content web/src/main.ts -Encoding UTF8; $f[1050..1115]; rg -n '\"'openPromotionModal|promotion-modal-overlay|isMotionReduced' web/src\"",
+    "exit_code": 0,
+    "status": "completed"
+  },
+  {
+    "id": "item_10",
+    "type": "command_execution",
+    "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command 'node tools/preview.mjs'",
+    "exit_code": 0,
+    "status": "completed"
+  },
+  {
+    "id": "item_16",
+    "type": "command_execution",
+    "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command './node_modules/.bin/tsc --noEmit'",
+    "exit_code": 0,
+    "status": "completed"
+  },
+  {
+    "id": "item_15",
+    "type": "command_execution",
+    "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command 'node work/promotion-check.mjs'",
+    "exit_code": 1,
+    "status": "failed"
+  },
+  {
+    "id": "item_18",
+    "type": "command_execution",
+    "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command 'node work/promotion-check.mjs'",
+    "exit_code": 0,
+    "status": "completed"
+  },
+  {
+    "id": "item_21",
+    "type": "command_execution",
+    "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command 'node work/promotion-check.mjs'",
+    "exit_code": 0,
+    "status": "completed"
+  },
+  {
+    "id": "item_23",
+    "type": "command_execution",
+    "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command 'git diff -- web/src/promotion-modal.ts web/src/style.css'",
+    "exit_code": 0,
+    "status": "completed"
+  },
+  {
+    "id": "item_24",
+    "type": "command_execution",
+    "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command './node_modules/.bin/tsc --noEmit'",
+    "exit_code": 0,
+    "status": "completed"
+  }
+]

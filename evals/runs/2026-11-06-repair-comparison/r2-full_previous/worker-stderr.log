@@ -1,0 +1,3 @@
+Reading additional input from stdin...
+2026-11-06T05:35:32.498323Z ERROR codex_core::tools::router: error=apply_patch verification failed: Failed to find expected lines in C:\Users\DooBokWie\orca\projects\Default\skill-releases\github-sync-20261102\kill-game-slop\.orca\repair-comparison-20261106\r2-full_previous\web\src\style.css:
+  content: "\\\\2713";

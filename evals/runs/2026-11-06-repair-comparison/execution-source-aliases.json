@@ -1,0 +1,6 @@
+{
+  "aliases": {
+    "evals/repair-comparison/prepare.py": "implementation/prepare-executed.py.txt"
+  },
+  "postRunChange": "Added a refusal to overwrite an existing public manifest; execution-time source is preserved byte-for-byte."
+}

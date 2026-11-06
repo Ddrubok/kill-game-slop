@@ -1,0 +1,9 @@
+{
+  "id": "r3-full_previous",
+  "condition": "full_previous",
+  "repeat": 3,
+  "exitCode": 0,
+  "started": "2026-11-06T05:36:39.638163+00:00",
+  "finished": "2026-11-06T05:40:59.587134+00:00",
+  "elapsedSeconds": 259.98399999999856
+}

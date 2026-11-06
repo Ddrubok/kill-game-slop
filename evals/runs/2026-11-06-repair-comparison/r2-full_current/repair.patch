@@ -1,0 +1,90 @@
+--- a/web/src/promotion-modal.ts
++++ b/web/src/promotion-modal.ts
+@@ -59,6 +59,9 @@
+ 
+   const overlay = document.createElement("div");
+   overlay.className = "promotion-modal-overlay";
++  overlay.setAttribute("role", "dialog");
++  overlay.setAttribute("aria-modal", "true");
++  overlay.setAttribute("aria-labelledby", "promotion-modal-title");
+ 
+   const card = document.createElement("div");
+   card.className = "promotion-modal-card";
+@@ -67,7 +70,7 @@
+ 
+   card.innerHTML = `
+     <div class="promotion-modal-header">
+-      <h2 class="promotion-title">${uiText("promotionTitle")}</h2>
++      <h2 class="promotion-title" id="promotion-modal-title">${uiText("promotionTitle")}</h2>
+       <p class="promotion-subtitle">
+         ${sideLabel} · ${uiText("promotionHint")}
+       </p>
+@@ -93,11 +96,21 @@
+   const buttons = card.querySelectorAll<HTMLButtonElement>(
+     ".promotion-piece-card",
+   );
++  buttons[0]?.focus();
++  let selectionPending = false;
+   for (const btn of buttons) {
+     btn.addEventListener("click", () => {
++      if (selectionPending || !overlay.isConnected || document.querySelector(".promotion-modal-overlay") !== overlay) return;
++      selectionPending = true;
+       const chosenType = btn.dataset.pieceType as PieceType;
++      for (const button of buttons) {
++        button.setAttribute("aria-pressed", String(button === btn));
++        button.disabled = true;
++      }
++      btn.classList.add("promotion-selected");
+       overlay.classList.add("promotion-closing");
+       setTimeout(() => {
++        if (!overlay.isConnected || document.querySelector(".promotion-modal-overlay") !== overlay) return;
+         overlay.remove();
+         onSelect(chosenType);
+       }, 120);
+--- a/web/src/style.css
++++ b/web/src/style.css
+@@ -1731,14 +1731,42 @@
+   color: #f8fafc;
+ }
+ 
+-.promotion-piece-card:hover {
++.promotion-piece-card:hover:not(:disabled) {
+   background: #1e293b;
+   border-color: #38bdf8;
+ }
+ 
+-.promotion-piece-card:active {
++.promotion-piece-card:active:not(:disabled) {
+   background: #162032;
+ }
++
++.promotion-piece-card:focus-visible {
++  outline: 2px solid #7dd3fc;
++  outline-offset: 2px;
++}
++
++.promotion-piece-card.promotion-selected:disabled {
++  background: #123047;
++  border-color: #7dd3fc;
++  box-shadow: inset 3px 0 #7dd3fc;
++  color: #f8fafc;
++}
++
++.promotion-piece-card:disabled:not(.promotion-selected) {
++  opacity: 0.55;
++  cursor: default;
++}
++
++.ui-motion-reduced .promotion-modal-overlay {
++  animation: none;
++}
++
++@media (prefers-reduced-motion: reduce) {
++  .promotion-modal-overlay { animation: none; }
++  .promotion-piece-card { transition: none; }
++}
++
++.ui-motion-reduced .promotion-piece-card { transition: none; }
+ 
+ .promotion-piece-symbol {
+   font-size: 26px;

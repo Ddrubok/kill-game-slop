@@ -1,0 +1,129 @@
+--- a/web/src/promotion-modal.ts
++++ b/web/src/promotion-modal.ts
+@@ -42,6 +42,8 @@
+   },
+ ];
+ 
++let currentOverlay: HTMLElement | null = null;
++
+ /**
+  * 폰 승급 모달을 띄우고 선택 결과를 콜백으로 전달한다.
+  */
+@@ -52,13 +54,18 @@
+   parentContainer?: HTMLElement,
+ ): void {
+   const container = parentContainer ?? document.body;
+-  const existing = document.querySelector(".promotion-modal-overlay");
+-  if (existing) {
+-    existing.remove();
+-  }
++  currentOverlay?.remove();
++  // Also discard an overlay created before this module took ownership of it.
++  document.querySelector(".promotion-modal-overlay")?.remove();
++
++  const previouslyFocused = document.activeElement;
+ 
+   const overlay = document.createElement("div");
+   overlay.className = "promotion-modal-overlay";
++  overlay.setAttribute("role", "dialog");
++  overlay.setAttribute("aria-modal", "true");
++  overlay.setAttribute("aria-labelledby", "promotion-modal-title");
++  overlay.setAttribute("aria-describedby", "promotion-modal-hint");
+ 
+   const card = document.createElement("div");
+   card.className = "promotion-modal-card";
+@@ -67,15 +74,15 @@
+ 
+   card.innerHTML = `
+     <div class="promotion-modal-header">
+-      <h2 class="promotion-title">${uiText("promotionTitle")}</h2>
+-      <p class="promotion-subtitle">
++      <h2 class="promotion-title" id="promotion-modal-title">${uiText("promotionTitle")}</h2>
++      <p class="promotion-subtitle" id="promotion-modal-hint">
+         ${sideLabel} · ${uiText("promotionHint")}
+       </p>
+     </div>
+     <div class="promotion-piece-grid">
+       ${PROMOTION_PIECE_OPTIONS.map(
+         (opt) => `
+-        <button class="promotion-piece-card" data-piece-type="${opt.type}">
++        <button type="button" class="promotion-piece-card" data-piece-type="${opt.type}" aria-pressed="false">
+           <span class="promotion-piece-symbol">${opt.symbol}</span>
+           <div class="promotion-piece-info">
+             <span class="promotion-piece-name">${opt.name}</span>
+@@ -89,16 +96,31 @@
+ 
+   overlay.appendChild(card);
+   container.appendChild(overlay);
++  currentOverlay = overlay;
+ 
+   const buttons = card.querySelectorAll<HTMLButtonElement>(
+     ".promotion-piece-card",
+   );
++  buttons[0]?.focus();
++  let pending = false;
+   for (const btn of buttons) {
+     btn.addEventListener("click", () => {
++      if (pending || currentOverlay !== overlay || !overlay.isConnected) return;
++      pending = true;
+       const chosenType = btn.dataset.pieceType as PieceType;
++      overlay.setAttribute("aria-busy", "true");
++      for (const option of buttons) {
++        option.setAttribute("aria-disabled", "true");
++        option.setAttribute("aria-pressed", option === btn ? "true" : "false");
++        option.classList.toggle("promotion-selected", option === btn);
++        if (option !== btn) option.disabled = true;
++      }
+       overlay.classList.add("promotion-closing");
+       setTimeout(() => {
++        if (currentOverlay !== overlay || !overlay.isConnected) return;
++        currentOverlay = null;
+         overlay.remove();
++        if (previouslyFocused instanceof HTMLElement && previouslyFocused.isConnected) previouslyFocused.focus();
+         onSelect(chosenType);
+       }, 120);
+     });
+--- a/web/src/style.css
++++ b/web/src/style.css
+@@ -1740,6 +1740,41 @@
+   background: #162032;
+ }
+ 
++.promotion-piece-card:focus-visible {
++  outline: 2px solid #7dd3fc;
++  outline-offset: 2px;
++}
++
++.promotion-piece-card.promotion-selected,
++.promotion-piece-card.promotion-selected:hover {
++  background: #12364a;
++  border-color: #7dd3fc;
++  box-shadow: inset 3px 0 #7dd3fc;
++}
++
++.promotion-piece-card[aria-disabled="true"] {
++  cursor: default;
++}
++
++.promotion-piece-card:disabled:not(.promotion-selected) {
++  opacity: 0.62;
++}
++
++.ui-motion-reduced .promotion-modal-overlay,
++.ui-motion-reduced .promotion-modal-overlay.promotion-closing {
++  animation: none;
++}
++
++.ui-motion-reduced .promotion-piece-card {
++  transition: none;
++}
++
++@media (prefers-reduced-motion: reduce) {
++  .promotion-modal-overlay,
++  .promotion-modal-overlay.promotion-closing { animation: none; }
++  .promotion-piece-card { transition: none; }
++}
++
+ .promotion-piece-symbol {
+   font-size: 26px;
+   line-height: 1;

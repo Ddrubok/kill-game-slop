@@ -1,0 +1,86 @@
+[
+  {
+    "id": "item_1",
+    "type": "command_execution",
+    "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command '$p=(Get-Location).Path; Write-Output $p; rg --files -g AGENTS.md -g prompt.txt -g '\"'\"'!node_modules'\"' -g '\"'!dist'\"' .; Get-Content -LiteralPath prompt.txt -Encoding UTF8\"",
+    "exit_code": 0,
+    "status": "completed"
+  },
+  {
+    "id": "item_2",
+    "type": "command_execution",
+    "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command 'rg --files web tools work | Select-Object -First 120; Get-Content -LiteralPath tools/README.md -Encoding UTF8'",
+    "exit_code": 0,
+    "status": "completed"
+  },
+  {
+    "id": "item_3",
+    "type": "command_execution",
+    "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command \"rg -n \\\"promotion|promot|승급|upgradeModal\\\" web/src --glob '*.ts' --glob '*.css' | Select-Object -First 180; Get-Content -LiteralPath tools/scene.mjs -Encoding UTF8\"",
+    "exit_code": 0,
+    "status": "completed"
+  },
+  {
+    "id": "item_4",
+    "type": "command_execution",
+    "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command 'Get-Content -LiteralPath web/src/promotion-modal.ts -Encoding UTF8; Get-Content -LiteralPath web/src/ui-motion.ts -Encoding UTF8; $s=Get-Content -LiteralPath web/src/style.css -Encoding UTF8; $s[1625..1795]; Get-Content -LiteralPath tools/preview.mjs -Encoding UTF8'",
+    "exit_code": 0,
+    "status": "completed"
+  },
+  {
+    "id": "item_5",
+    "type": "command_execution",
+    "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command 'node tools/preview.mjs'",
+    "exit_code": 0,
+    "status": "completed"
+  },
+  {
+    "id": "item_7",
+    "type": "command_execution",
+    "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command \"Get-Content -LiteralPath web/src/ui-motion.css -Encoding UTF8; Get-Content -LiteralPath web/package.json -Encoding UTF8; rg -n \\\"openPromotionModal\\\\(\\\" web/src/main.ts web/src/turn.ts; rg -n \\\"promotion-modal|ui-motion-reduced\\\" web/src/style.css web/src/ui-motion.css\"",
+    "exit_code": 0,
+    "status": "completed"
+  },
+  {
+    "id": "item_12",
+    "type": "command_execution",
+    "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command './node_modules/.bin/tsc --noEmit'",
+    "exit_code": 0,
+    "status": "completed"
+  },
+  {
+    "id": "item_11",
+    "type": "command_execution",
+    "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command 'node work/promotion-check.mjs'",
+    "exit_code": 1,
+    "status": "failed"
+  },
+  {
+    "id": "item_14",
+    "type": "command_execution",
+    "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command 'node work/promotion-check.mjs'",
+    "exit_code": 0,
+    "status": "completed"
+  },
+  {
+    "id": "item_17",
+    "type": "command_execution",
+    "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command 'node work/promotion-check.mjs'",
+    "exit_code": 0,
+    "status": "completed"
+  },
+  {
+    "id": "item_18",
+    "type": "command_execution",
+    "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command 'git status --short; git diff -- web/src/promotion-modal.ts web/src/style.css; git diff --check'",
+    "exit_code": 0,
+    "status": "completed"
+  },
+  {
+    "id": "item_20",
+    "type": "command_execution",
+    "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command 'node work/promotion-check.mjs'",
+    "exit_code": 0,
+    "status": "completed"
+  }
+]

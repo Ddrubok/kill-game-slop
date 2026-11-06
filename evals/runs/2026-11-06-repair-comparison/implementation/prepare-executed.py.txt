@@ -1,0 +1,69 @@
+"""Prepare this frozen, local repair experiment; does not start workers."""
+from pathlib import Path
+import hashlib, json, shutil, subprocess
+
+ROOT = Path(__file__).resolve().parents[2]
+PRIVATE = ROOT / '.orca/repair-comparison-20261106'
+PUBLIC = ROOT / 'evals/runs/2026-11-06-repair-comparison'
+SOURCE = ROOT / '.orca/validation/chess-full/web'
+
+def sha(p): return hashlib.sha256(p.read_bytes()).hexdigest()
+def write(p, value):
+    p.parent.mkdir(parents=True, exist_ok=True)
+    p.write_text(json.dumps(value, ensure_ascii=False, indent=2)+'\n', encoding='utf-8')
+def junction(p, target):
+    subprocess.run(['powershell','-NoProfile','-Command',f"New-Item -ItemType Junction -Path '{p}' -Target '{target}' | Out-Null"], check=True)
+
+assert not PRIVATE.exists(), 'Use a fresh experiment directory'
+PRIVATE.mkdir(parents=True)
+PUBLIC.mkdir(parents=True, exist_ok=True)
+base = PRIVATE/'baseline/web'
+shutil.copytree(SOURCE, base, ignore=shutil.ignore_patterns('node_modules','.git','.orca','dist','.vite'))
+directory=(base.parent.relative_to(ROOT)).as_posix()
+subprocess.run(['git','apply','--reverse','--directory='+directory,'evals/real/promotion-2026-11-05/repair.patch'],cwd=ROOT,check=True)
+expected=json.loads((ROOT/'.orca/validation/chess-full-source.json').read_text(encoding='utf-8'))['files']
+assert {p.relative_to(base).as_posix():sha(p) for p in base.rglob('*') if p.is_file()}==expected
+junction(base/'node_modules', SOURCE/'node_modules')
+write(PUBLIC/'game-input.json', {'repository':'Ddrubok/ChessAlkkkaegi','commit':'974cb39bcc716815aee79117f4f710b367454050','files':expected})
+
+common = '''승급 선택 UI를 실제 소스와 실행 화면에서 검토하고, 연속 입력·선택창 교체/닫힘·모션 줄이기에서 발견되는 상태와 피드백 문제를 수정해주세요.
+이 작업은 실제 게임에서 추출한 모달의 수리입니다. 기물 종류·능력·9개 언어 문구, 선택 후 기존 120ms 전달 시점, 일반 모드의 의도된 등장/퇴장 연출을 보존하세요. 대기 중 선택이 시각적으로나 접근성 상태로나 명확해야 하며, 이미 끝났거나 교체된 창의 선택이 현재 진행을 바꾸면 안 됩니다. 게임 규칙과 다른 화면은 바꾸지 마세요.
+web/에는 전체 실제 클라이언트 소스가 있습니다. tools/README.md의 로컬 실행 도구로 화면을 확인할 수 있습니다. 필요한 web/src/ 코드와 스타일을 수정하고, 임시 검사와 캡처는 work/에 저장하세요. tools/, package.json, 의존성, 번역 데이터는 수정하지 마세요. 새 의존성·인터넷·계정·배포·다른 에이전트는 사용하지 마세요. 마지막에는 수정한 문제, 실제 확인한 검사, 미확인 범위를 한국어로 간단히 보고하세요.
+'''
+brief = 'Judge demonstrated player costs, preserve the game\'s art direction, gameplay and accessible signals. Distinguish observed facts from hypotheses and optional taste proposals. No confirmed problems is valid; state what to preserve and what you would verify.'
+tools_readme='''# Local component scene
+Read UTF-8 files with explicit UTF-8 decoding. Dependencies are already installed; do not run install scripts.
+From the workspace root, `node tools/preview.mjs` captures the real promotion module and closes its browser/server.
+For your own checks in work/, import `withScene` from `../tools/scene.mjs` and call `await withScene(path.resolve('web'), {viewport:{width:360,height:800},reducedMotion:'reduce'}, async ({page,context,origin,policy,errors}) => { /* Playwright operations */ });`.
+The helper opens /scene. Click #open, or use page.evaluate(() => __case.open('owner', 'white')). __case.calls contains callback owner/type pairs; __case.language and __case.motion expose the actual game's language/motion controls. The helper closes its server/browser on return. This is a component harness, not natural full-match play. Its routing blocks other HTTP(S) origins, redirects, WebSockets and service workers; it is not a host/process sandbox.
+Playwright is available from tools/node_modules; Vite from web/node_modules. Do not modify linked dependencies. You can inspect your screenshots with the available image-viewing tool.
+'''
+dispatch='''The user explicitly requested independent repair-performance/token comparisons; this authorizes this evaluator session despite the parent project's solo default. Work only in this directory. Read prompt.txt with explicit UTF-8 decoding, then carry out the actual repair. You may read web/, tools/, work/ and the supplied skill/ if present. You may edit relevant web/src/ code/styles and write checks/captures under work/. Do not inspect parent project files, sibling workspaces, evaluator records, judge code or installed skill folders. Applicable AGENTS instructions remain in effect. No delegation, commits or publishing. Do not treat this as a prose-only review.'''
+rows=[]
+for repeat in range(1,4):
+    for condition in ['generic','brief','full_previous','full_current']:
+        name=f'r{repeat}-{condition}'
+        workspace=PRIVATE/name
+        shutil.copytree(base,workspace/'web',ignore=shutil.ignore_patterns('node_modules'))
+        junction(workspace/'web/node_modules',SOURCE/'node_modules')
+        (workspace/'tools').mkdir();(workspace/'work').mkdir()
+        junction(workspace/'tools/node_modules',ROOT/'evals/node_modules')
+        for filename in ['scene.mjs','preview.mjs']:
+            s=(ROOT/'evals/repair-comparison'/filename).read_text(encoding='utf-8')
+            (workspace/'tools'/filename).write_text(s.replace("'../lib/browser-policy.mjs'","'./browser-policy.mjs'"),encoding='utf-8')
+        shutil.copyfile(ROOT/'evals/lib/browser-policy.mjs',workspace/'tools/browser-policy.mjs')
+        (workspace/'tools/README.md').write_text(tools_readme,encoding='utf-8')
+        prompt=common
+        if condition=='brief': prompt+='\n'+brief+'\n'
+        if condition.startswith('full_'):
+            source=ROOT/('skills/kill-game-slop' if condition=='full_current' else 'evals/runs/2026-11-06-comparison-utf8/full/skill')
+            shutil.copytree(source,workspace/'skill')
+            prompt+='\nApply the supplied skill/SKILL.md and relevant linked references.\n'
+        (workspace/'prompt.txt').write_text(prompt,encoding='utf-8')
+        write(workspace/'.orca/tasks/task.json',[{'worker':'sol','prompt':dispatch}])
+        inputs={p.relative_to(workspace).as_posix():sha(p) for folder in ['tools','skill'] if (workspace/folder).exists() for p in (workspace/folder).rglob('*') if p.is_file() and 'node_modules' not in p.relative_to(workspace).parts}
+        inputs['prompt.txt']=sha(workspace/'prompt.txt')
+        inputs['.orca/tasks/task.json']=sha(workspace/'.orca/tasks/task.json')
+        rows.append({'id':name,'repeat':repeat,'condition':condition,'workspace':str(workspace),'inputs':inputs})
+write(PUBLIC/'manifest.json',{'status':'PREPARED_NOT_RUN','model':'gpt-6-sol','reasoning':'medium','repeats':3,'conditions':4,'runs':rows})
+print('Prepared 12 disjoint workspaces; original source and runtime are unchanged')

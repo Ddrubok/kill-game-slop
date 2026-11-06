@@ -1,0 +1,101 @@
+--- a/web/src/promotion-modal.ts
++++ b/web/src/promotion-modal.ts
+@@ -7,6 +7,8 @@
+ 
+ import type { PieceType } from "./config";
+ import type { PieceSide } from "./layout";
++
++let cancelCurrentModal: (() => void) | undefined;
+ 
+ export interface PromotionPieceOption {
+   type: PieceType;
+@@ -52,6 +54,7 @@
+   parentContainer?: HTMLElement,
+ ): void {
+   const container = parentContainer ?? document.body;
++  cancelCurrentModal?.();
+   const existing = document.querySelector(".promotion-modal-overlay");
+   if (existing) {
+     existing.remove();
+@@ -75,7 +78,7 @@
+     <div class="promotion-piece-grid">
+       ${PROMOTION_PIECE_OPTIONS.map(
+         (opt) => `
+-        <button class="promotion-piece-card" data-piece-type="${opt.type}">
++        <button type="button" class="promotion-piece-card" data-piece-type="${opt.type}" aria-pressed="false">
+           <span class="promotion-piece-symbol">${opt.symbol}</span>
+           <div class="promotion-piece-info">
+             <span class="promotion-piece-name">${opt.name}</span>
+@@ -93,12 +96,30 @@
+   const buttons = card.querySelectorAll<HTMLButtonElement>(
+     ".promotion-piece-card",
+   );
++  let selected = false;
++  let deliveryTimer: ReturnType<typeof setTimeout> | undefined;
++  const cancel = () => {
++    selected = true;
++    if (deliveryTimer !== undefined) clearTimeout(deliveryTimer);
++    overlay.remove();
++    if (cancelCurrentModal === cancel) cancelCurrentModal = undefined;
++  };
++  cancelCurrentModal = cancel;
+   for (const btn of buttons) {
+     btn.addEventListener("click", () => {
++      if (selected || !overlay.isConnected || cancelCurrentModal !== cancel) return;
++      selected = true;
+       const chosenType = btn.dataset.pieceType as PieceType;
++      for (const option of buttons) {
++        option.setAttribute("aria-disabled", "true");
++        option.setAttribute("aria-pressed", String(option === btn));
++        option.classList.toggle("promotion-selected", option === btn);
++      }
+       overlay.classList.add("promotion-closing");
+-      setTimeout(() => {
++      deliveryTimer = setTimeout(() => {
++        if (!overlay.isConnected || cancelCurrentModal !== cancel) return;
+         overlay.remove();
++        cancelCurrentModal = undefined;
+         onSelect(chosenType);
+       }, 120);
+     });
+--- a/web/src/style.css
++++ b/web/src/style.css
+@@ -1740,6 +1740,38 @@
+   background: #162032;
+ }
+ 
++.promotion-piece-card.promotion-selected,
++.promotion-piece-card.promotion-selected:hover {
++  background: #123047;
++  border-color: #38bdf8;
++  box-shadow: inset 0 0 0 1px #38bdf8;
++  transition: none;
++}
++
++.promotion-closing .promotion-piece-card:not(.promotion-selected) {
++  opacity: 0.55;
++}
++
++.ui-motion-reduced .promotion-modal-overlay,
++.ui-motion-reduced .promotion-modal-overlay.promotion-closing {
++  animation: none;
++}
++
++.ui-motion-reduced .promotion-piece-card {
++  transition: none;
++}
++
++@media (prefers-reduced-motion: reduce) {
++  .promotion-modal-overlay,
++  .promotion-modal-overlay.promotion-closing {
++    animation: none;
++  }
++
++  .promotion-piece-card {
++    transition: none;
++  }
++}
++
+ .promotion-piece-symbol {
+   font-size: 26px;
+   line-height: 1;

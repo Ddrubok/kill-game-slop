@@ -1,0 +1,6 @@
+{
+  "worker": "sol",
+  "prompt": "The user explicitly requested independent repair-performance/token comparisons; this authorizes this evaluator session despite the parent project's solo default. Work only in this directory. Read prompt.txt with explicit UTF-8 decoding, then carry out the actual repair. You may read web/, tools/, work/ and the supplied skill/ if present. You may edit relevant web/src/ code/styles and write checks/captures under work/. Do not inspect parent project files, sibling workspaces, evaluator records, judge code or installed skill folders. Applicable AGENTS instructions remain in effect. No delegation, commits or publishing. Do not treat this as a prose-only review.",
+  "model": "gpt-6-sol",
+  "cwd": "C:\\Users\\DooBokWie\\orca\\projects\\Default\\skill-releases\\github-sync-20261102\\kill-game-slop\\.orca\\repair-comparison-20261106\\r3-full_current"
+}

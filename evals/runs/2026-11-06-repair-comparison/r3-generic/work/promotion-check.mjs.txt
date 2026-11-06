@@ -1,0 +1,71 @@
+import assert from 'node:assert/strict';
+import path from 'node:path';
+import { writeFile } from 'node:fs/promises';
+import { withScene } from '../tools/scene.mjs';
+
+const web = path.resolve('web');
+
+await withScene(web, {}, async ({ page, errors }) => {
+  await page.evaluate(() => __case.open('first', 'white'));
+  assert.equal(await page.locator('.promotion-piece-card').count(), 4);
+  assert.equal(await page.locator('[role="dialog"][aria-modal="true"]').count(), 1);
+  assert.notEqual(await page.locator('.promotion-modal-overlay').evaluate((el) => getComputedStyle(el).animationName), 'none');
+
+  await page.evaluate(() => {
+    const buttons = document.querySelectorAll('.promotion-piece-card');
+    buttons[0].dispatchEvent(new MouseEvent('click', { bubbles: true }));
+    buttons[1].dispatchEvent(new MouseEvent('click', { bubbles: true }));
+  });
+  assert.equal(await page.locator('.promotion-selected').count(), 1);
+  assert.equal(await page.locator('[aria-pressed="true"]').count(), 1);
+  assert.equal(await page.locator('.promotion-piece-card:disabled').count(), 4);
+  await page.waitForTimeout(160);
+  assert.deepEqual(await page.evaluate(() => __case.calls), [{ owner: 'first', type: 'Queen' }]);
+  assert.equal(await page.locator('.promotion-modal-overlay').count(), 0);
+
+  await page.evaluate(() => {
+    __case.open('old', 'white');
+    document.querySelector('.promotion-piece-card').click();
+    __case.open('new', 'black');
+  });
+  await page.waitForTimeout(160);
+  assert.deepEqual(await page.evaluate(() => __case.calls), [{ owner: 'first', type: 'Queen' }]);
+  assert.equal(await page.locator('.promotion-modal-overlay').count(), 1);
+  await page.locator('[data-piece-type="Knight"]').click();
+  await page.waitForTimeout(160);
+  assert.deepEqual(await page.evaluate(() => __case.calls), [
+    { owner: 'first', type: 'Queen' }, { owner: 'new', type: 'Knight' },
+  ]);
+
+  await page.evaluate(() => {
+    __case.open('closed');
+    document.querySelector('.promotion-piece-card').click();
+    document.querySelector('.promotion-modal-overlay').remove();
+  });
+  await page.waitForTimeout(160);
+  assert.equal((await page.evaluate(() => __case.calls)).length, 2);
+  assert.deepEqual(errors, []);
+});
+
+await withScene(web, { reducedMotion: 'reduce' }, async ({ page, errors }) => {
+  await page.evaluate(() => __case.open('reduced'));
+  assert.equal(await page.locator('.promotion-modal-overlay').evaluate((el) => getComputedStyle(el).animationName), 'none');
+  await page.clock.pauseAt(new Date());
+  await page.locator('[data-piece-type="Rook"]').click();
+  assert.equal(await page.locator('.promotion-selected').count(), 1);
+  assert.equal(await page.locator('.promotion-modal-overlay').evaluate((el) => getComputedStyle(el).animationName), 'none');
+  await writeFile(path.resolve('work/promotion-pending.png'), await page.screenshot());
+  await page.clock.runFor(119);
+  assert.deepEqual(await page.evaluate(() => __case.calls), []);
+  await page.clock.runFor(1);
+  assert.deepEqual(await page.evaluate(() => __case.calls), [{ owner: 'reduced', type: 'Rook' }]);
+  assert.deepEqual(errors, []);
+});
+
+await withScene(web, {}, async ({ page }) => {
+  await page.evaluate(() => { __case.motion(true); __case.open('setting'); });
+  assert.equal(await page.locator('.promotion-modal-overlay').evaluate((el) => getComputedStyle(el).animationName), 'none');
+  await page.evaluate(() => __case.motion(false));
+});
+
+console.log('promotion scene checks passed');

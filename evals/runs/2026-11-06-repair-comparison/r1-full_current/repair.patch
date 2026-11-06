@@ -1,0 +1,123 @@
+--- a/web/src/promotion-modal.ts
++++ b/web/src/promotion-modal.ts
+@@ -42,6 +42,8 @@
+   },
+ ];
+ 
++let activePromotionOverlay: HTMLElement | null = null;
++
+ /**
+  * 폰 승급 모달을 띄우고 선택 결과를 콜백으로 전달한다.
+  */
+@@ -52,22 +54,23 @@
+   parentContainer?: HTMLElement,
+ ): void {
+   const container = parentContainer ?? document.body;
+-  const existing = document.querySelector(".promotion-modal-overlay");
+-  if (existing) {
+-    existing.remove();
+-  }
++  activePromotionOverlay?.remove();
++  document.querySelector(".promotion-modal-overlay")?.remove();
+ 
+   const overlay = document.createElement("div");
+   overlay.className = "promotion-modal-overlay";
+ 
+   const card = document.createElement("div");
+   card.className = "promotion-modal-card";
++  card.setAttribute("role", "dialog");
++  card.setAttribute("aria-modal", "true");
++  card.setAttribute("aria-labelledby", "promotion-modal-title");
+ 
+   const sideLabel = I18nManager.t(side === "white" ? "ingame.turn_white" : "ingame.turn_black");
+ 
+   card.innerHTML = `
+     <div class="promotion-modal-header">
+-      <h2 class="promotion-title">${uiText("promotionTitle")}</h2>
++      <h2 class="promotion-title" id="promotion-modal-title">${uiText("promotionTitle")}</h2>
+       <p class="promotion-subtitle">
+         ${sideLabel} · ${uiText("promotionHint")}
+       </p>
+@@ -89,18 +92,31 @@
+ 
+   overlay.appendChild(card);
+   container.appendChild(overlay);
++  activePromotionOverlay = overlay;
+ 
+   const buttons = card.querySelectorAll<HTMLButtonElement>(
+     ".promotion-piece-card",
+   );
++  let pending = false;
+   for (const btn of buttons) {
+     btn.addEventListener("click", () => {
++      if (pending || activePromotionOverlay !== overlay || !overlay.isConnected) return;
++      pending = true;
+       const chosenType = btn.dataset.pieceType as PieceType;
++      for (const choice of buttons) {
++        if (choice === btn) choice.setAttribute("aria-disabled", "true");
++        else choice.disabled = true;
++        choice.setAttribute("aria-pressed", String(choice === btn));
++        choice.classList.toggle("promotion-selected", choice === btn);
++      }
+       overlay.classList.add("promotion-closing");
+       setTimeout(() => {
++        if (activePromotionOverlay !== overlay || !overlay.isConnected) return;
++        activePromotionOverlay = null;
+         overlay.remove();
+         onSelect(chosenType);
+       }, 120);
+     });
+   }
++  buttons[0]?.focus();
+ }
+--- a/web/src/style.css
++++ b/web/src/style.css
+@@ -1731,13 +1731,46 @@
+   color: #f8fafc;
+ }
+ 
+-.promotion-piece-card:hover {
++.promotion-piece-card:hover:not(:disabled):not([aria-disabled="true"]) {
+   background: #1e293b;
+   border-color: #38bdf8;
+ }
+ 
+-.promotion-piece-card:active {
++.promotion-piece-card:active:not(:disabled):not([aria-disabled="true"]) {
+   background: #162032;
++}
++
++.promotion-piece-card.promotion-selected,
++.promotion-piece-card.promotion-selected:disabled {
++  background: #18344a;
++  border-color: #38bdf8;
++  box-shadow: inset 3px 0 0 #38bdf8;
++  opacity: 1;
++}
++
++.promotion-piece-card:disabled:not(.promotion-selected) {
++  cursor: default;
++  opacity: 0.55;
++}
++
++.promotion-piece-card:focus-visible {
++  outline: 2px solid #f8fafc;
++  outline-offset: 2px;
++}
++
++.ui-motion-reduced .promotion-modal-overlay,
++.ui-motion-reduced .promotion-modal-overlay.promotion-closing {
++  animation: none;
++}
++
++.ui-motion-reduced .promotion-piece-card {
++  transition: none;
++}
++
++@media (prefers-reduced-motion: reduce) {
++  .promotion-modal-overlay,
++  .promotion-modal-overlay.promotion-closing { animation: none; }
++  .promotion-piece-card { transition: none; }
+ }
+ 
+ .promotion-piece-symbol {

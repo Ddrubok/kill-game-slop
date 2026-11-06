@@ -1,0 +1,4 @@
+interface:
+  display_name: "Kill Game Slop"
+  short_description: "Review game actions, motion and presentation coherence"
+  default_prompt: "Use $kill-game-slop to review this scene's action transitions, motion, feedback and usability; distinguish defects from deliberate style and report evidence without editing."

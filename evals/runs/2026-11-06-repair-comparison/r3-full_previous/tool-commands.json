@@ -1,0 +1,191 @@
+[
+  {
+    "id": "item_1",
+    "type": "command_execution",
+    "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command \"Get-Location; rg --files -g 'AGENTS.md' -g 'prompt.txt' -g 'web/src/**' -g 'work/**' -g 'skill/**'\"",
+    "exit_code": 0,
+    "status": "completed"
+  },
+  {
+    "id": "item_3",
+    "type": "command_execution",
+    "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command \"[System.IO.File]::ReadAllText((Join-Path (Get-Location) 'prompt.txt'), [System.Text.Encoding]::UTF8)\"",
+    "exit_code": 0,
+    "status": "completed"
+  },
+  {
+    "id": "item_4",
+    "type": "command_execution",
+    "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command \"[System.IO.File]::ReadAllText((Join-Path (Get-Location) 'skill/SKILL.md'), [System.Text.Encoding]::UTF8)\"",
+    "exit_code": 0,
+    "status": "completed"
+  },
+  {
+    "id": "item_2",
+    "type": "command_execution",
+    "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command \"git status --short; rg --files -g AGENTS.md -g '\"'!node_modules'\"' . web work skill\"",
+    "exit_code": 1,
+    "status": "failed"
+  },
+  {
+    "id": "item_6",
+    "type": "command_execution",
+    "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command 'Get-Content -Raw -Encoding UTF8 skill/references/presentation-checks.md; Get-Content -Raw -Encoding UTF8 skill/references/runtime-checks.md'",
+    "exit_code": 0,
+    "status": "completed"
+  },
+  {
+    "id": "item_8",
+    "type": "command_execution",
+    "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command 'Get-Content -Raw -Encoding UTF8 tools/README.md; Get-Content -Raw -Encoding UTF8 web/package.json'",
+    "exit_code": 0,
+    "status": "completed"
+  },
+  {
+    "id": "item_7",
+    "type": "command_execution",
+    "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command \"Get-Content -Raw -Encoding UTF8 web/src/promotion-modal.ts; rg -n 'promotion|promot|승급' web/src/main.ts web/src/style.css web/src/*.css web/src/*.ts\"",
+    "exit_code": 1,
+    "status": "failed"
+  },
+  {
+    "id": "item_9",
+    "type": "command_execution",
+    "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command 'Get-Content -Raw -Encoding UTF8 skill/references/gameplay-coherence.md'",
+    "exit_code": 0,
+    "status": "completed"
+  },
+  {
+    "id": "item_10",
+    "type": "command_execution",
+    "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command '$s=Get-Content -Encoding UTF8 web/src/style.css; $s[1625..1790]; rg -n -C 8 '\"'openPromotionModal|promotionModal' web/src/main.ts web/src/style.css\"",
+    "exit_code": 0,
+    "status": "completed"
+  },
+  {
+    "id": "item_11",
+    "type": "command_execution",
+    "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command \"Get-Content -Raw -Encoding UTF8 tools/preview.mjs; Get-Content -Raw -Encoding UTF8 tools/scene.mjs; rg -n 'promotion-modal|__case' tools web/src -g '*.mjs' -g '*.html' -g '*.ts'\"",
+    "exit_code": 0,
+    "status": "completed"
+  },
+  {
+    "id": "item_12",
+    "type": "command_execution",
+    "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command 'node tools/preview.mjs'",
+    "exit_code": 0,
+    "status": "completed"
+  },
+  {
+    "id": "item_15",
+    "type": "command_execution",
+    "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command 'node work/promotion-check.mjs baseline'",
+    "exit_code": 0,
+    "status": "completed"
+  },
+  {
+    "id": "item_16",
+    "type": "command_execution",
+    "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command \"Get-Content -Raw -Encoding UTF8 web/src/ui-motion.ts; rg -n -C 2 'prefers-reduced-motion|motion-reduced|reduce-motion|reduced-motion' web/src/style.css web/src/ui-motion.css web/src/*.ts\"",
+    "exit_code": 1,
+    "status": "failed"
+  },
+  {
+    "id": "item_20",
+    "type": "command_execution",
+    "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command './node_modules/.bin/tsc --noEmit'",
+    "exit_code": 0,
+    "status": "completed"
+  },
+  {
+    "id": "item_19",
+    "type": "command_execution",
+    "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command 'node work/promotion-check.mjs repaired'",
+    "exit_code": 0,
+    "status": "completed"
+  },
+  {
+    "id": "item_22",
+    "type": "command_execution",
+    "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command 'node work/promotion-visual.mjs'",
+    "exit_code": 1,
+    "status": "failed"
+  },
+  {
+    "id": "item_24",
+    "type": "command_execution",
+    "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command 'node work/promotion-visual.mjs'",
+    "exit_code": 0,
+    "status": "completed"
+  },
+  {
+    "id": "item_29",
+    "type": "command_execution",
+    "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command './node_modules/.bin/tsc --noEmit'",
+    "exit_code": 0,
+    "status": "completed"
+  },
+  {
+    "id": "item_27",
+    "type": "command_execution",
+    "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command 'node work/promotion-visual.mjs'",
+    "exit_code": 0,
+    "status": "completed"
+  },
+  {
+    "id": "item_28",
+    "type": "command_execution",
+    "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command 'node work/promotion-check.mjs final'",
+    "exit_code": 0,
+    "status": "completed"
+  },
+  {
+    "id": "item_30",
+    "type": "command_execution",
+    "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command 'Get-Content -Raw -Encoding UTF8 web/src/tools/i18n-check.mjs; git diff -- web/src/promotion-modal.ts web/src/style.css; git status --short -- web/src/promotion-modal.ts web/src/style.css work'",
+    "exit_code": 0,
+    "status": "completed"
+  },
+  {
+    "id": "item_35",
+    "type": "command_execution",
+    "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command './node_modules/.bin/tsc --noEmit'",
+    "exit_code": 0,
+    "status": "completed"
+  },
+  {
+    "id": "item_34",
+    "type": "command_execution",
+    "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command 'node src/tools/i18n-check.mjs'",
+    "exit_code": 0,
+    "status": "completed"
+  },
+  {
+    "id": "item_33",
+    "type": "command_execution",
+    "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command 'node work/promotion-visual.mjs'",
+    "exit_code": 1,
+    "status": "failed"
+  },
+  {
+    "id": "item_37",
+    "type": "command_execution",
+    "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command 'node work/promotion-visual.mjs'",
+    "exit_code": 0,
+    "status": "completed"
+  },
+  {
+    "id": "item_41",
+    "type": "command_execution",
+    "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command 'node work/promotion-visual.mjs'",
+    "exit_code": 0,
+    "status": "completed"
+  },
+  {
+    "id": "item_42",
+    "type": "command_execution",
+    "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command \"rg -n 'let activeOverlay|aria-labelledby|selectionPending|promotion-selected|ui-motion-reduced .promotion-modal-overlay' web/src/promotion-modal.ts web/src/style.css; Get-ChildItem work -File | Select-Object -ExpandProperty Name\"",
+    "exit_code": 0,
+    "status": "completed"
+  }
+]

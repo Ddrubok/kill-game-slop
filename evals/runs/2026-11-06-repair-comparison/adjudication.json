@@ -1,0 +1,20 @@
+{
+  "reviewer": "coordinating AI; not blinded or independent human scoring",
+  "machineScoresUnchanged": true,
+  "overrides": [
+    {
+      "trial": "r2-full_previous",
+      "check": "normal: visible pending cue",
+      "machinePassed": false,
+      "adjudicatedPassed": true,
+      "reason": "The selected Bishop visibly gains a CSS ::after checkmark while other choices are dimmed. The frozen checker sampled only the element background/border/shadow/outline at the start of a transition and missed generated content.",
+      "evidence": [
+        "r2-full_previous/visual-review/normal-pending.png",
+        "r2-full_previous/visual-review/observations.json",
+        "r2-full_previous/edited/web/src/style.css",
+        "r2-full_previous/judge/normal-pending.png"
+      ]
+    }
+  ],
+  "scopeNotes": "All 12 final game-source changes were limited to the promotion TypeScript module and its CSS; supplied prompts/tools/skills were unchanged. r3-full_current also mistakenly created a temporary check outside its assigned workspace, then removed the file and empty directories; count that trial as a write-scope failure despite successful cleanup and functional checks. Parent Git metadata access is disclosed separately and prevents claiming strict workspace isolation. No callback, timing, locale, hit-target or motion-preference check was overridden."
+}

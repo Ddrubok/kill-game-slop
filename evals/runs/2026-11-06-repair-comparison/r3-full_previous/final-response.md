@@ -1,0 +1,3 @@
+승급 선택창의 연속 입력으로 콜백이 중복 실행되고, 교체되거나 닫힌 창의 선택이 뒤늦게 전달되던 문제를 수정했습니다. 선택 후 120ms 동안 선택한 기물을 체크 표시와 접근성 상태로 보여주며, 모션 줄이기 설정에서는 등장·퇴장 애니메이션을 끕니다. 일반 모드의 연출과 기존 문구는 유지했습니다.
+
+[브라우저 검사](/C:/Users/DooBokWie/orca/projects/Default/skill-releases/github-sync-20261102/kill-game-slop/.orca/repair-comparison-20261106/r3-full_previous/work/promotion-check.mjs)에서 연속 입력·창 교체·닫힘을 확인했고, TypeScript 검사와 9개 언어 검사도 통과했습니다. 실제 전체 경기 흐름은 확인하지 못했으며, 로컬 승급창 장면에서 검증했습니다.

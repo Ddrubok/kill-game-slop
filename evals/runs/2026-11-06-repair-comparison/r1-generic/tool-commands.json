@@ -1,0 +1,156 @@
+[
+  {
+    "id": "item_2",
+    "type": "command_execution",
+    "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command \"[Console]::OutputEncoding = [System.Text.UTF8Encoding]::new(); Get-Content -LiteralPath 'prompt.txt' -Encoding UTF8 -Raw\"",
+    "exit_code": 0,
+    "status": "completed"
+  },
+  {
+    "id": "item_1",
+    "type": "command_execution",
+    "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command \"Get-Location; rg --files -g AGENTS.md -g prompt.txt -g package.json -g 'web/**' -g 'tools/**' -g 'work/**'\"",
+    "exit_code": 0,
+    "status": "completed"
+  },
+  {
+    "id": "item_3",
+    "type": "command_execution",
+    "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command \"Get-Content -LiteralPath 'tools/README.md' -Encoding UTF8 -Raw\"",
+    "exit_code": 0,
+    "status": "completed"
+  },
+  {
+    "id": "item_7",
+    "type": "command_execution",
+    "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command \"rg --files -g AGENTS.md -g '\"'!web/node_modules/**'\"'\"",
+    "exit_code": 1,
+    "status": "failed"
+  },
+  {
+    "id": "item_5",
+    "type": "command_execution",
+    "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command \"Get-Content -LiteralPath 'web/src/promotion-modal.ts' -Encoding UTF8 -Raw\"",
+    "exit_code": 0,
+    "status": "completed"
+  },
+  {
+    "id": "item_4",
+    "type": "command_execution",
+    "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command 'git status --short'",
+    "exit_code": 0,
+    "status": "completed"
+  },
+  {
+    "id": "item_6",
+    "type": "command_execution",
+    "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command \"rg -n 'promotion|승급|promot' web/src/style.css web/src/main.ts web/src/*.css web/src/*.ts | Select-Object -First 120\"",
+    "exit_code": 1,
+    "status": "failed"
+  },
+  {
+    "id": "item_8",
+    "type": "command_execution",
+    "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command \"Get-Content -LiteralPath 'tools/scene.mjs' -Encoding UTF8 -Raw\"",
+    "exit_code": 0,
+    "status": "completed"
+  },
+  {
+    "id": "item_9",
+    "type": "command_execution",
+    "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command \"Get-Content -LiteralPath 'tools/preview.mjs' -Encoding UTF8 -Raw\"",
+    "exit_code": 0,
+    "status": "completed"
+  },
+  {
+    "id": "item_12",
+    "type": "command_execution",
+    "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command \"Get-Content -LiteralPath 'web/package.json' -Encoding UTF8 -Raw\"",
+    "exit_code": 0,
+    "status": "completed"
+  },
+  {
+    "id": "item_10",
+    "type": "command_execution",
+    "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command '$lines=Get-Content -LiteralPath '\"'web/src/style.css' -Encoding UTF8; \"'$lines[1625..1790]'",
+    "exit_code": 0,
+    "status": "completed"
+  },
+  {
+    "id": "item_11",
+    "type": "command_execution",
+    "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command \"rg -n 'prefers-reduced-motion|promotion-modal|openPromotionModal|__case' web/src web/scene.html tools -g '\"'!*.map'\"'\"",
+    "exit_code": 1,
+    "status": "failed"
+  },
+  {
+    "id": "item_13",
+    "type": "command_execution",
+    "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command \"Get-Content -LiteralPath 'web/src/ui-motion.ts' -Encoding UTF8 -Raw\"",
+    "exit_code": 0,
+    "status": "completed"
+  },
+  {
+    "id": "item_15",
+    "type": "command_execution",
+    "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command '$lines=Get-Content -LiteralPath '\"'web/src/style.css' -Encoding UTF8; \"'$lines[1835..1875]'",
+    "exit_code": 0,
+    "status": "completed"
+  },
+  {
+    "id": "item_14",
+    "type": "command_execution",
+    "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command \"rg -n 'motion-reduced|reduce-motion|motionReduced|isMotionReduced|setMotionReduced' web/src -g '*.ts' -g '*.css' | Select-Object -First 100\"",
+    "exit_code": 0,
+    "status": "completed"
+  },
+  {
+    "id": "item_17",
+    "type": "command_execution",
+    "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command 'node tools/preview.mjs'",
+    "exit_code": 0,
+    "status": "completed"
+  },
+  {
+    "id": "item_24",
+    "type": "command_execution",
+    "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command 'node src/tools/i18n-check.mjs'",
+    "exit_code": 0,
+    "status": "completed"
+  },
+  {
+    "id": "item_23",
+    "type": "command_execution",
+    "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command 'node work/promotion-repair-check.mjs'",
+    "exit_code": 0,
+    "status": "completed"
+  },
+  {
+    "id": "item_22",
+    "type": "command_execution",
+    "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command 'npx tsc --noEmit'",
+    "exit_code": 0,
+    "status": "completed"
+  },
+  {
+    "id": "item_27",
+    "type": "command_execution",
+    "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command 'git diff -- web/src/promotion-modal.ts web/src/style.css'",
+    "exit_code": 0,
+    "status": "completed"
+  },
+  {
+    "id": "item_26",
+    "type": "command_execution",
+    "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command \"rg -n 'activeOverlay|promotion-selected|ui-motion-reduced .promotion-modal|aria-pressed|role\\\"' web/src/promotion-modal.ts web/src/style.css\"",
+    "exit_code": 0,
+    "status": "completed"
+  },
+  {
+    "id": "item_28",
+    "type": "command_execution",
+    "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command 'node work/promotion-repair-check.mjs'",
+    "exit_code": 0,
+    "status": "completed"
+  }
+]

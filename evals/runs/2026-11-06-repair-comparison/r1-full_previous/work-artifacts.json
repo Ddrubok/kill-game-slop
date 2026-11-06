@@ -1,0 +1,22 @@
+{
+  "work/preview-1793942990691.png": {
+    "archivedAs": "work/preview-1793942990691.png",
+    "sha256": "5e6650defef6475b3ba44c4a0996592a3522b8a9e2aba66b2a729d475f8c5312"
+  },
+  "work/promotion-after-no-preference-1793943118952.png": {
+    "archivedAs": "work/promotion-after-no-preference-1793943118952.png",
+    "sha256": "614621672270081d27a86ea12df60ae37f6322db57462da5c93998edcb2ed4fd"
+  },
+  "work/promotion-after-reduce-1793943120499.png": {
+    "archivedAs": "work/promotion-after-reduce-1793943120499.png",
+    "sha256": "7bf3930d72c10d4f0676ef34821d4efc2ab42d34072db32edf1a92ec5d6f4be1"
+  },
+  "work/promotion-capture.mjs": {
+    "archivedAs": "work/promotion-capture.mjs.txt",
+    "sha256": "e6d5183e0632442e2ac0a8498c14a30eed2b2bac7fbf728125e10518c712eda8"
+  },
+  "work/promotion-check.mjs": {
+    "archivedAs": "work/promotion-check.mjs.txt",
+    "sha256": "b388d9e831891daf0d4c869705c5bad48f5b51b63a97ceaf5cbaf15582e7fe70"
+  }
+}

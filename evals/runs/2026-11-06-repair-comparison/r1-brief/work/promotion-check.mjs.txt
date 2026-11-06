@@ -1,0 +1,63 @@
+import assert from 'node:assert/strict';
+import { writeFile } from 'node:fs/promises';
+import path from 'node:path';
+import { withScene } from '../tools/scene.mjs';
+
+const web = path.resolve('web');
+
+await withScene(web, { viewport: { width: 360, height: 800 } }, async ({ page, errors }) => {
+  await page.evaluate(() => __case.open('first', 'white'));
+  assert.equal(await page.locator('.promotion-modal-overlay').evaluate(el => getComputedStyle(el).animationName), 'promotionModalIn');
+  const cards = page.locator('.promotion-piece-card');
+  assert.equal(await cards.count(), 4);
+  await cards.nth(1).click();
+  assert.equal(await page.locator('.promotion-modal-overlay').evaluate(el => getComputedStyle(el).animationName), 'promotionModalOut');
+  await cards.nth(2).dispatchEvent('click');
+  assert.equal(await cards.nth(1).getAttribute('aria-pressed'), 'true');
+  assert.equal(await cards.nth(2).getAttribute('aria-disabled'), 'true');
+  assert.equal(await cards.nth(1).evaluate(el => getComputedStyle(el).borderColor), 'rgb(56, 189, 248)');
+  await writeFile(path.resolve('work/promotion-pending.png'), await page.screenshot());
+  assert.deepEqual(await page.evaluate(() => __case.calls), []);
+  await page.waitForTimeout(150);
+  assert.deepEqual(await page.evaluate(() => __case.calls), [{ owner: 'first', type: 'Rook' }]);
+  assert.equal(await page.locator('.promotion-modal-overlay').count(), 0);
+
+  await page.evaluate(() => __case.open('old', 'white'));
+  await page.locator('.promotion-piece-card').first().click();
+  await page.evaluate(() => __case.open('new', 'black'));
+  await page.waitForTimeout(150);
+  assert.deepEqual(await page.evaluate(() => __case.calls), [{ owner: 'first', type: 'Rook' }]);
+  assert.equal(await page.locator('.promotion-modal-overlay').count(), 1);
+  await page.locator('.promotion-piece-card').nth(3).click();
+  await page.waitForTimeout(150);
+  assert.deepEqual(await page.evaluate(() => __case.calls), [
+    { owner: 'first', type: 'Rook' }, { owner: 'new', type: 'Knight' },
+  ]);
+
+  await page.evaluate(() => __case.open('detached', 'white'));
+  await page.locator('.promotion-piece-card').first().click();
+  await page.locator('.promotion-modal-overlay').evaluate(el => el.remove());
+  await page.waitForTimeout(150);
+  assert.equal(await page.evaluate(() => __case.calls.length), 2);
+  assert.deepEqual(errors, []);
+});
+
+await withScene(web, { reducedMotion: 'reduce' }, async ({ page, errors }) => {
+  await page.click('#open');
+  const overlay = page.locator('.promotion-modal-overlay');
+  assert.equal(await overlay.evaluate(el => getComputedStyle(el).animationName), 'none');
+  await page.locator('.promotion-piece-card').first().click();
+  assert.equal(await overlay.evaluate(el => getComputedStyle(el).animationName), 'none');
+  assert.deepEqual(await page.evaluate(() => __case.calls), []);
+  await page.waitForTimeout(150);
+  assert.equal(await page.evaluate(() => __case.calls.length), 1);
+  assert.deepEqual(errors, []);
+});
+
+await withScene(web, {}, async ({ page }) => {
+  await page.evaluate(() => __case.motion(true));
+  await page.click('#open');
+  assert.equal(await page.locator('.promotion-modal-overlay').evaluate(el => getComputedStyle(el).animationName), 'none');
+});
+
+console.log('promotion scene checks passed');

@@ -1,0 +1,11 @@
+{
+  "protectedInputChanges": [],
+  "sourceChangesOutsideSrc": [],
+  "reportedFileChangesOutsideWorkspace": [],
+  "parentGitMetadataCommands": [
+    "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command 'git status --short; git diff -- web/src/promotion-modal.ts web/src/style.css; git diff --check'"
+  ],
+  "skillReadCalls": [],
+  "skillReadFiles": [],
+  "limits": "Command-string read extraction; parent Git metadata was accessible because workspaces were not separate Git roots. Review complete traces for content access. This is not a filesystem isolation or security claim."
+}

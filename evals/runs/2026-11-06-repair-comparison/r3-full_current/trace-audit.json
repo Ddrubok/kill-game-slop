@@ -1,0 +1,28 @@
+{
+  "protectedInputChanges": [],
+  "sourceChangesOutsideSrc": [],
+  "reportedFileChangesOutsideWorkspace": [
+    {
+      "item": "item_19",
+      "path": "C:\\Users\\DooBokWie\\orca\\projects\\Default\\skill-releases\\github-sync-20261102\\kill-game-slop\\.orca\\.orca\\repair-comparison-20261106\\r3-full_current\\work\\promotion-check.mjs",
+      "kind": "add"
+    }
+  ],
+  "parentGitMetadataCommands": [
+    "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command \"Test-Path -LiteralPath work/promotion-check.mjs; Test-Path -LiteralPath ..\\\\.orca\\\\repair-comparison-20261106\\\\r3-full_current\\\\work\\\\promotion-check.mjs; git status --short\"",
+    "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command 'git diff -- web/src/promotion-modal.ts web/src/style.css; git status --short -- web/src/promotion-modal.ts web/src/style.css work'"
+  ],
+  "skillReadCalls": [
+    "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command \"Get-Content -LiteralPath 'skill/SKILL.md' -Encoding utf8 -Raw\"",
+    "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command \"Get-Content -LiteralPath 'skill/references/presentation-checks.md' -Encoding utf8 -Raw\"",
+    "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command \"Get-Content -LiteralPath 'skill/references/runtime-checks.md' -Encoding utf8 -Raw\"",
+    "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command \"Get-Content -LiteralPath 'skill/references/gameplay-coherence.md' -Encoding utf8 -Raw\""
+  ],
+  "skillReadFiles": [
+    "skill/SKILL.md",
+    "skill/references/gameplay-coherence.md",
+    "skill/references/presentation-checks.md",
+    "skill/references/runtime-checks.md"
+  ],
+  "limits": "Command-string read extraction; parent Git metadata was accessible because workspaces were not separate Git roots. Review complete traces for content access. This is not a filesystem isolation or security claim."
+}

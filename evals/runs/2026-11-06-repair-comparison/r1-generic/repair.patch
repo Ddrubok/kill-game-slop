@@ -1,0 +1,113 @@
+--- a/web/src/promotion-modal.ts
++++ b/web/src/promotion-modal.ts
+@@ -7,6 +7,8 @@
+ 
+ import type { PieceType } from "./config";
+ import type { PieceSide } from "./layout";
++
++let activeOverlay: HTMLElement | null = null;
+ 
+ export interface PromotionPieceOption {
+   type: PieceType;
+@@ -62,12 +64,15 @@
+ 
+   const card = document.createElement("div");
+   card.className = "promotion-modal-card";
++  card.setAttribute("role", "dialog");
++  card.setAttribute("aria-modal", "true");
++  card.setAttribute("aria-labelledby", "promotion-modal-title");
+ 
+   const sideLabel = I18nManager.t(side === "white" ? "ingame.turn_white" : "ingame.turn_black");
+ 
+   card.innerHTML = `
+     <div class="promotion-modal-header">
+-      <h2 class="promotion-title">${uiText("promotionTitle")}</h2>
++      <h2 class="promotion-title" id="promotion-modal-title">${uiText("promotionTitle")}</h2>
+       <p class="promotion-subtitle">
+         ${sideLabel} · ${uiText("promotionHint")}
+       </p>
+@@ -75,7 +80,7 @@
+     <div class="promotion-piece-grid">
+       ${PROMOTION_PIECE_OPTIONS.map(
+         (opt) => `
+-        <button class="promotion-piece-card" data-piece-type="${opt.type}">
++        <button type="button" class="promotion-piece-card" data-piece-type="${opt.type}" aria-pressed="false">
+           <span class="promotion-piece-symbol">${opt.symbol}</span>
+           <div class="promotion-piece-info">
+             <span class="promotion-piece-name">${opt.name}</span>
+@@ -89,15 +94,26 @@
+ 
+   overlay.appendChild(card);
+   container.appendChild(overlay);
++  activeOverlay = overlay;
+ 
+   const buttons = card.querySelectorAll<HTMLButtonElement>(
+     ".promotion-piece-card",
+   );
++  let selected = false;
+   for (const btn of buttons) {
+     btn.addEventListener("click", () => {
++      if (selected || activeOverlay !== overlay || !overlay.isConnected) return;
++      selected = true;
+       const chosenType = btn.dataset.pieceType as PieceType;
++      for (const option of buttons) {
++        option.disabled = true;
++      }
++      btn.setAttribute("aria-pressed", "true");
++      btn.classList.add("promotion-selected");
+       overlay.classList.add("promotion-closing");
+       setTimeout(() => {
++        if (activeOverlay !== overlay || !overlay.isConnected) return;
++        activeOverlay = null;
+         overlay.remove();
+         onSelect(chosenType);
+       }, 120);
+--- a/web/src/style.css
++++ b/web/src/style.css
+@@ -1740,6 +1740,46 @@
+   background: #162032;
+ }
+ 
++.promotion-piece-card.promotion-selected,
++.promotion-piece-card.promotion-selected:hover {
++  background: #16405a;
++  border-color: #7dd3fc;
++  box-shadow: inset 0 0 0 1px #7dd3fc;
++}
++
++.promotion-piece-card:disabled {
++  cursor: default;
++}
++
++.promotion-piece-card:disabled:not(.promotion-selected) {
++  opacity: 0.55;
++}
++
++.promotion-piece-card:focus-visible {
++  outline: 2px solid #7dd3fc;
++  outline-offset: 2px;
++}
++
++.ui-motion-reduced .promotion-modal-overlay,
++.ui-motion-reduced .promotion-modal-overlay.promotion-closing {
++  animation: none;
++}
++
++.ui-motion-reduced .promotion-piece-card {
++  transition: none;
++}
++
++@media (prefers-reduced-motion: reduce) {
++  .promotion-modal-overlay,
++  .promotion-modal-overlay.promotion-closing {
++    animation: none;
++  }
++
++  .promotion-piece-card {
++    transition: none;
++  }
++}
++
+ .promotion-piece-symbol {
+   font-size: 26px;
+   line-height: 1;

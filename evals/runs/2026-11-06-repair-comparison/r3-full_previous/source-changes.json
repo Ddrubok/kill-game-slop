@@ -1,0 +1,12 @@
+[
+  {
+    "path": "web/src/promotion-modal.ts",
+    "before": "89ea44d0875f3c6c300c7edd8cbfaec96a87f26c2df863a8696d487e182d7711",
+    "after": "1cc1d6b169a9e8f0cd2ae3eed7226a73af166f26a94b350904ebdd9306750a6e"
+  },
+  {
+    "path": "web/src/style.css",
+    "before": "f9838fd1c75ccdfca5ae483862211578b8fd53ba8122bd2113de772a1f28aa4b",
+    "after": "6e9fc37d1695d167610611330977e28ef8a67818cbab3607cbbb178b71dda384"
+  }
+]

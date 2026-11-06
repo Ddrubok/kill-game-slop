@@ -1,0 +1,5 @@
+{
+  "exitCode": 1,
+  "stdout": "{\"passed\":false,\"passedChecks\":63,\"totalChecks\":64,\"failed\":[\"normal: visible pending cue\"],\"output\":\"C:\\\\Users\\\\DooBokWie\\\\orca\\\\projects\\\\Default\\\\skill-releases\\\\github-sync-20261102\\\\kill-game-slop\\\\evals\\\\runs\\\\2026-11-06-repair-comparison\\\\r2-full_previous\\\\judge\"}\n",
+  "stderr": ""
+}

@@ -1,0 +1,156 @@
+[
+  {
+    "id": "item_1",
+    "type": "command_execution",
+    "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command \"Get-Location; rg --files -g AGENTS.md -g prompt.txt -g RTK.md -g '\"'!node_modules'\"' -g '\"'!dist'\"'\"",
+    "exit_code": 0,
+    "status": "completed"
+  },
+  {
+    "id": "item_3",
+    "type": "command_execution",
+    "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command 'rg --files web tools work skill 2>$null'",
+    "exit_code": 0,
+    "status": "completed"
+  },
+  {
+    "id": "item_2",
+    "type": "command_execution",
+    "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command 'Get-Content -LiteralPath prompt.txt -Encoding utf8 -Raw'",
+    "exit_code": 0,
+    "status": "completed"
+  },
+  {
+    "id": "item_5",
+    "type": "command_execution",
+    "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command \"Get-Content -LiteralPath 'tools/README.md' -Encoding utf8 -Raw\"",
+    "exit_code": 0,
+    "status": "completed"
+  },
+  {
+    "id": "item_4",
+    "type": "command_execution",
+    "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command \"Get-Content -LiteralPath 'web/src/promotion-modal.ts' -Encoding utf8 -Raw\"",
+    "exit_code": 0,
+    "status": "completed"
+  },
+  {
+    "id": "item_6",
+    "type": "command_execution",
+    "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command \"Get-Content -LiteralPath 'skill/SKILL.md' -Encoding utf8 -Raw\"",
+    "exit_code": 0,
+    "status": "completed"
+  },
+  {
+    "id": "item_8",
+    "type": "command_execution",
+    "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command \"Get-Content -LiteralPath 'skill/references/presentation-checks.md' -Encoding utf8 -Raw\"",
+    "exit_code": 0,
+    "status": "completed"
+  },
+  {
+    "id": "item_9",
+    "type": "command_execution",
+    "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command \"Get-Content -LiteralPath 'skill/references/runtime-checks.md' -Encoding utf8 -Raw\"",
+    "exit_code": 0,
+    "status": "completed"
+  },
+  {
+    "id": "item_11",
+    "type": "command_execution",
+    "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command \"Get-Content -LiteralPath 'skill/references/gameplay-coherence.md' -Encoding utf8 -Raw\"",
+    "exit_code": 0,
+    "status": "completed"
+  },
+  {
+    "id": "item_12",
+    "type": "command_execution",
+    "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command \"Get-Content -LiteralPath 'tools/scene.mjs' -Encoding utf8 -Raw\"",
+    "exit_code": 0,
+    "status": "completed"
+  },
+  {
+    "id": "item_10",
+    "type": "command_execution",
+    "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command \"rg -n -C 8 'promotion-modal|promotion-piece-card|openPromotionModal' web/src web/scene.html tools\"",
+    "exit_code": 1,
+    "status": "failed"
+  },
+  {
+    "id": "item_13",
+    "type": "command_execution",
+    "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command \"Get-Content -LiteralPath web/src/style.css -Encoding utf8 | Select-Object -Skip 1630 -First 155; rg -n -C 3 'prefers-reduced-motion|motion-reduced|data-reduced' web/src/style.css web/src/ui-motion.ts web/src/ui-motion.css; Get-Content -LiteralPath web/package.json -Encoding utf8 -Raw; Get-Content -LiteralPath tools/preview.mjs -Encoding utf8 -Raw\"",
+    "exit_code": 0,
+    "status": "completed"
+  },
+  {
+    "id": "item_14",
+    "type": "command_execution",
+    "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command 'node tools/preview.mjs'",
+    "exit_code": 0,
+    "status": "completed"
+  },
+  {
+    "id": "item_20",
+    "type": "command_execution",
+    "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command \"Test-Path -LiteralPath work/promotion-check.mjs; Test-Path -LiteralPath ..\\\\.orca\\\\repair-comparison-20261106\\\\r3-full_current\\\\work\\\\promotion-check.mjs; git status --short\"",
+    "exit_code": 0,
+    "status": "completed"
+  },
+  {
+    "id": "item_21",
+    "type": "command_execution",
+    "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command \"rg -n 'currentModal|aria-pressed=\\\"true\\\"' web/src/promotion-modal.ts web/src/style.css; Get-ChildItem -LiteralPath work | Select-Object -Last 5 -ExpandProperty Name\"",
+    "exit_code": 0,
+    "status": "completed"
+  },
+  {
+    "id": "item_22",
+    "type": "command_execution",
+    "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command '$bad='\"'C:\\\\Users\\\\DooBokWie\\\\orca\\\\projects\\\\Default\\\\skill-releases\\\\github-sync-20261102\\\\kill-game-slop\\\\.orca\\\\.orca\\\\repair-comparison-20261106\\\\r3-full_current\\\\work\\\\promotion-check.mjs'; Test-Path -LiteralPath \"'$bad; if (Test-Path -LiteralPath $bad) { Remove-Item -LiteralPath $bad }'",
+    "exit_code": 0,
+    "status": "completed"
+  },
+  {
+    "id": "item_25",
+    "type": "command_execution",
+    "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command \".\\\\node_modules\\\\.bin\\\\tsc.cmd --noEmit\"",
+    "exit_code": 0,
+    "status": "completed"
+  },
+  {
+    "id": "item_27",
+    "type": "command_execution",
+    "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command 'node src/tools/i18n-check.mjs'",
+    "exit_code": 0,
+    "status": "completed"
+  },
+  {
+    "id": "item_26",
+    "type": "command_execution",
+    "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command 'node work/promotion-check.mjs'",
+    "exit_code": 0,
+    "status": "completed"
+  },
+  {
+    "id": "item_28",
+    "type": "command_execution",
+    "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command 'git diff -- web/src/promotion-modal.ts web/src/style.css; git status --short -- web/src/promotion-modal.ts web/src/style.css work'",
+    "exit_code": 0,
+    "status": "completed"
+  },
+  {
+    "id": "item_30",
+    "type": "command_execution",
+    "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command 'node work/promotion-check.mjs'",
+    "exit_code": 0,
+    "status": "completed"
+  },
+  {
+    "id": "item_31",
+    "type": "command_execution",
+    "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command '$root='\"'C:\\\\Users\\\\DooBokWie\\\\orca\\\\projects\\\\Default\\\\skill-releases\\\\github-sync-20261102\\\\kill-game-slop\\\\.orca\\\\.orca'; \"'$dirs=@(\"$root'\"\\\\repair-comparison-20261106\\\\r3-full_current\\\\work\\\",\\\"\"'$root'\"\\\\repair-comparison-20261106\\\\r3-full_current\\\",\\\"\"'$root'\"\\\\repair-comparison-20261106\\\",\"'$root); foreach($dir in $dirs){ if((Test-Path -LiteralPath $dir) -and -not (Get-ChildItem -LiteralPath $dir -Force | Select-Object -First 1)){ Remove-Item -LiteralPath $dir } }; Test-Path -LiteralPath $root'",
+    "exit_code": 0,
+    "status": "completed"
+  }
+]

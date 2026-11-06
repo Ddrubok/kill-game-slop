@@ -1,0 +1,212 @@
+{
+  "rows": [
+    {
+      "mode": "normal",
+      "before": {
+        "cssVisible": false,
+        "bounds": {
+          "x": 40.00000762939453,
+          "y": 442.41998291015625,
+          "width": 240,
+          "height": 57.600006103515625,
+          "top": 442.41998291015625,
+          "right": 280.00000762939453,
+          "bottom": 500.0199890136719,
+          "left": 40.00000762939453
+        },
+        "pseudo": [
+          {
+            "pseudo": "::before",
+            "content": "none",
+            "display": "block",
+            "visibility": "visible",
+            "opacity": "1",
+            "color": "rgb(248, 250, 252)",
+            "fontSize": "13.3333px"
+          },
+          {
+            "pseudo": "::after",
+            "content": "none",
+            "display": "block",
+            "visibility": "visible",
+            "opacity": "1",
+            "color": "rgb(248, 250, 252)",
+            "fontSize": "13.3333px"
+          }
+        ]
+      },
+      "after": {
+        "cssVisible": true,
+        "bounds": {
+          "x": 35,
+          "y": 437,
+          "width": 250,
+          "height": 74.375,
+          "top": 437,
+          "right": 285,
+          "bottom": 511.375,
+          "left": 35
+        },
+        "pseudo": [
+          {
+            "pseudo": "::before",
+            "content": "none",
+            "display": "block",
+            "visibility": "visible",
+            "opacity": "1",
+            "color": "rgb(248, 250, 252)",
+            "fontSize": "13.3333px"
+          },
+          {
+            "pseudo": "::after",
+            "content": "\"✓\"",
+            "display": "block",
+            "visibility": "visible",
+            "opacity": "1",
+            "color": "rgb(165, 243, 252)",
+            "fontSize": "20px"
+          }
+        ]
+      }
+    },
+    {
+      "mode": "system",
+      "before": {
+        "cssVisible": true,
+        "bounds": {
+          "x": 35,
+          "y": 444.1875,
+          "width": 250,
+          "height": 60,
+          "top": 444.1875,
+          "right": 285,
+          "bottom": 504.1875,
+          "left": 35
+        },
+        "pseudo": [
+          {
+            "pseudo": "::before",
+            "content": "none",
+            "display": "block",
+            "visibility": "visible",
+            "opacity": "1",
+            "color": "rgb(248, 250, 252)",
+            "fontSize": "13.3333px"
+          },
+          {
+            "pseudo": "::after",
+            "content": "none",
+            "display": "block",
+            "visibility": "visible",
+            "opacity": "1",
+            "color": "rgb(248, 250, 252)",
+            "fontSize": "13.3333px"
+          }
+        ]
+      },
+      "after": {
+        "cssVisible": true,
+        "bounds": {
+          "x": 35,
+          "y": 437,
+          "width": 250,
+          "height": 74.375,
+          "top": 437,
+          "right": 285,
+          "bottom": 511.375,
+          "left": 35
+        },
+        "pseudo": [
+          {
+            "pseudo": "::before",
+            "content": "none",
+            "display": "block",
+            "visibility": "visible",
+            "opacity": "1",
+            "color": "rgb(248, 250, 252)",
+            "fontSize": "13.3333px"
+          },
+          {
+            "pseudo": "::after",
+            "content": "\"✓\"",
+            "display": "block",
+            "visibility": "visible",
+            "opacity": "1",
+            "color": "rgb(165, 243, 252)",
+            "fontSize": "20px"
+          }
+        ]
+      }
+    },
+    {
+      "mode": "local",
+      "before": {
+        "cssVisible": true,
+        "bounds": {
+          "x": 35,
+          "y": 444.1875,
+          "width": 250,
+          "height": 60,
+          "top": 444.1875,
+          "right": 285,
+          "bottom": 504.1875,
+          "left": 35
+        },
+        "pseudo": [
+          {
+            "pseudo": "::before",
+            "content": "none",
+            "display": "block",
+            "visibility": "visible",
+            "opacity": "1",
+            "color": "rgb(248, 250, 252)",
+            "fontSize": "13.3333px"
+          },
+          {
+            "pseudo": "::after",
+            "content": "none",
+            "display": "block",
+            "visibility": "visible",
+            "opacity": "1",
+            "color": "rgb(248, 250, 252)",
+            "fontSize": "13.3333px"
+          }
+        ]
+      },
+      "after": {
+        "cssVisible": true,
+        "bounds": {
+          "x": 35,
+          "y": 437,
+          "width": 250,
+          "height": 74.375,
+          "top": 437,
+          "right": 285,
+          "bottom": 511.375,
+          "left": 35
+        },
+        "pseudo": [
+          {
+            "pseudo": "::before",
+            "content": "none",
+            "display": "block",
+            "visibility": "visible",
+            "opacity": "1",
+            "color": "rgb(248, 250, 252)",
+            "fontSize": "13.3333px"
+          },
+          {
+            "pseudo": "::after",
+            "content": "\"✓\"",
+            "display": "block",
+            "visibility": "visible",
+            "opacity": "1",
+            "color": "rgb(165, 243, 252)",
+            "fontSize": "20px"
+          }
+        ]
+      }
+    }
+  ],
+  "scope": "Supplemental generated-content evidence, not a replacement or automatic override of the frozen score."
+}

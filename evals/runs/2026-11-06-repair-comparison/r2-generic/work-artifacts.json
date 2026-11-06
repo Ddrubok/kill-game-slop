@@ -1,0 +1,14 @@
+{
+  "work/promotion-check.mjs": {
+    "archivedAs": "work/promotion-check.mjs.txt",
+    "sha256": "7022adfc0d8ff3f697cdd3364bbccbb8b54803b9f682e89b609b07c7e989afb4"
+  },
+  "work/promotion-open.png": {
+    "archivedAs": "work/promotion-open.png",
+    "sha256": "3fd3c4e7bae461d284d9f381cc1088d98699ed2a7e3cd84185ad9e230d19a8c9"
+  },
+  "work/promotion-pending.png": {
+    "archivedAs": "work/promotion-pending.png",
+    "sha256": "efc5db68c73ee6497527591336d6b2e2ca6c929c002fa60a3d7ea57cfaeaee90"
+  }
+}

@@ -1,0 +1,26 @@
+import assert from 'node:assert/strict';
+import { writeFile } from 'node:fs/promises';
+import path from 'node:path';
+import { withScene } from '../tools/scene.mjs';
+
+const web = path.resolve('web');
+for (const reducedMotion of ['no-preference', 'reduce']) {
+  await withScene(web, { viewport: { width: 360, height: 800 }, reducedMotion }, async ({ page, browserVersion, errors }) => {
+    await page.evaluate(() => __case.open('capture'));
+    const overlay = page.locator('.promotion-modal-overlay');
+    assert.equal(await overlay.evaluate(el => getComputedStyle(el).animationName === 'none'), reducedMotion === 'reduce');
+    await page.locator('[data-piece-type="Queen"]').click();
+    const state = await page.evaluate(() => ({
+      selected: document.querySelector('.promotion-selected')?.dataset.pieceType,
+      pressed: document.querySelector('.promotion-selected')?.getAttribute('aria-pressed'),
+      motion: getComputedStyle(document.querySelector('.promotion-modal-overlay')).animationName,
+    }));
+    assert.equal(state.selected, 'Queen');
+    assert.equal(state.pressed, 'true');
+    if (reducedMotion === 'reduce') assert.equal(state.motion, 'none');
+    const file = path.resolve('work', `promotion-after-${reducedMotion}-${Date.now()}.png`);
+    await writeFile(file, await page.screenshot(), { flag: 'wx' });
+    assert.deepEqual(errors, []);
+    console.log(JSON.stringify({ file, browserVersion, reducedMotion, state }));
+  });
+}

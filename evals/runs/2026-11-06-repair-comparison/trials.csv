@@ -1,0 +1,13 @@
+﻿id,condition,repeat,functionalPass,adjudicatedPass,observedWriteScopePass,qualifiedRepairPass,passedChecks,adjudicatedPassedChecks,totalChecks,input_tokens,cached_input_tokens,uncached_input_tokens,output_tokens,reasoning_output_tokens,total_tokens,elapsedSeconds,commandCount,skillReadCalls,skillReadFiles,addedLines,removedLines,parentGitMetadataCalls,outsideWorkspaceFileChanges,changedFiles,exitCode
+r1-generic,generic,1,True,True,True,True,64,64,64,387543,365056,22487,5294,1623,392837,138.36000000000058,22,0,0,58,2,2,0,2,0
+r1-brief,brief,1,True,True,True,True,64,64,64,481064,463232,17832,5477,1485,486541,157.73500000000058,12,0,0,55,2,1,0,2,0
+r1-full_previous,full_previous,1,True,True,True,True,64,64,64,789877,758912,30965,8067,2550,797944,210.32800000000134,21,3,4,51,3,2,0,2,0
+r1-full_current,full_current,1,True,True,True,True,64,64,64,510096,478208,31888,6923,2669,517019,160.5630000000001,15,2,4,56,7,2,0,2,0
+r2-generic,generic,2,True,True,True,True,64,64,64,438657,417024,21633,6181,1782,444838,160.85900000000038,12,0,0,43,4,2,0,2,0
+r2-brief,brief,2,True,True,True,True,64,64,64,572545,552448,20097,7712,2255,580257,201.34399999999914,20,0,0,57,9,2,0,2,0
+r2-full_previous,full_previous,2,False,True,True,True,63,64,64,1059139,1027712,31427,9276,2621,1068415,240.40599999999904,23,3,4,72,5,2,0,2,0
+r2-full_current,full_current,2,True,True,True,True,64,64,64,443313,395392,47921,6419,2172,449732,158.3119999999999,19,4,4,44,3,2,0,2,0
+r3-generic,generic,3,True,True,True,True,64,64,64,598764,567680,31084,7670,2430,606434,205.96899999999914,15,0,0,45,3,3,0,2,0
+r3-brief,brief,3,True,True,True,True,64,64,64,532471,511232,21239,6744,2081,539215,171.63999999999942,15,0,0,64,7,2,0,2,0
+r3-full_previous,full_previous,3,True,True,True,True,64,64,64,1174466,1141120,33346,9642,3623,1184108,259.98399999999856,27,3,4,72,3,2,0,2,0
+r3-full_current,full_current,3,True,True,False,False,64,64,64,770521,732416,38105,7941,1928,778462,191.875,22,4,4,56,6,2,1,2,0

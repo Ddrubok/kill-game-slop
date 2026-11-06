@@ -1,0 +1,77 @@
+import assert from 'node:assert/strict';
+import path from 'node:path';
+import { writeFile } from 'node:fs/promises';
+import { withScene } from '../tools/scene.mjs';
+
+const web = path.resolve('web');
+const types = ['Queen', 'Rook', 'Bishop', 'Knight'];
+const languages = ['ko', 'en', 'ja', 'zh-CN', 'de', 'fr', 'es', 'ru', 'pt-BR'];
+
+await withScene(web, { viewport: { width: 360, height: 800 } }, async ({ page, errors, browserVersion }) => {
+  await page.evaluate(() => __case.open('repeat'));
+  assert.equal(await page.locator('.promotion-piece-card').count(), 4);
+  assert.equal(await page.locator('.promotion-modal-card').getAttribute('role'), 'dialog');
+  assert.equal(await page.locator('.promotion-modal-overlay').evaluate(el => getComputedStyle(el).animationName), 'promotionModalIn');
+  await page.evaluate(() => {
+    document.querySelector('[data-piece-type="Queen"]').click();
+    document.querySelector('[data-piece-type="Rook"]').click();
+  });
+  assert.equal(await page.locator('.promotion-selected').getAttribute('data-piece-type'), 'Queen');
+  assert.equal(await page.locator('.promotion-selected').getAttribute('aria-pressed'), 'true');
+  assert.equal(await page.locator('.promotion-selected').getAttribute('aria-disabled'), 'true');
+  assert.equal(await page.locator('[data-piece-type="Rook"]').isDisabled(), true);
+  assert.equal(await page.locator('.promotion-modal-overlay').evaluate(el => getComputedStyle(el).animationName), 'promotionModalOut');
+  await page.waitForTimeout(80);
+  assert.deepEqual(await page.evaluate(() => __case.calls), []);
+  await page.waitForTimeout(80);
+  assert.deepEqual(await page.evaluate(() => __case.calls), [{ owner: 'repeat', type: 'Queen' }]);
+
+  await page.evaluate(() => {
+    __case.open('old');
+    document.querySelector('[data-piece-type="Bishop"]').click();
+    __case.open('new');
+  });
+  await page.waitForTimeout(150);
+  assert.deepEqual(await page.evaluate(() => __case.calls), [{ owner: 'repeat', type: 'Queen' }]);
+  await page.locator('[data-piece-type="Knight"]').click();
+  await page.waitForTimeout(150);
+  assert.deepEqual(await page.evaluate(() => __case.calls), [
+    { owner: 'repeat', type: 'Queen' }, { owner: 'new', type: 'Knight' },
+  ]);
+
+  await page.evaluate(() => {
+    __case.open('closed');
+    document.querySelector('[data-piece-type="Queen"]').click();
+    document.querySelector('.promotion-modal-overlay').remove();
+  });
+  await page.waitForTimeout(150);
+  assert.equal((await page.evaluate(() => __case.calls)).length, 2);
+
+  for (const language of languages) {
+    const result = await page.evaluate(lang => {
+      __case.language.setLanguage(lang);
+      __case.open('language');
+      return {
+        names: [...document.querySelectorAll('.promotion-piece-name')].map(el => el.textContent.trim()),
+        descriptions: [...document.querySelectorAll('.promotion-piece-desc')].map(el => el.textContent.trim()),
+      };
+    }, language);
+    assert.equal(result.names.length, 4);
+    assert.equal(result.descriptions.length, 4);
+    assert(result.names.every(Boolean));
+    assert(result.descriptions.every(Boolean));
+    assert.deepEqual(await page.locator('.promotion-piece-card').evaluateAll(els => els.map(el => el.dataset.pieceType)), types);
+  }
+
+  await page.evaluate(() => { __case.language.setLanguage('ko'); __case.motion(true); __case.open('reduced'); });
+  assert.equal(await page.locator('.promotion-modal-overlay').evaluate(el => getComputedStyle(el).animationName), 'none');
+  await page.locator('[data-piece-type="Queen"]').click();
+  assert.equal(await page.locator('.promotion-modal-overlay').evaluate(el => getComputedStyle(el).animationName), 'none');
+  assert.equal(await page.locator('.promotion-selected').evaluate(el => document.activeElement === el), true);
+  const shot = path.resolve('work', `promotion-pending-${Date.now()}.png`);
+  await writeFile(shot, await page.screenshot(), { flag: 'wx' });
+  await page.waitForTimeout(150);
+  assert.deepEqual((await page.evaluate(() => __case.calls)).at(-1), { owner: 'reduced', type: 'Queen' });
+  assert.deepEqual(errors, []);
+  console.log(JSON.stringify({ result: 'pass', browserVersion, languages: languages.length, shot }));
+});

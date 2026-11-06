@@ -1,0 +1,1154 @@
+{
+  "passed": true,
+  "passedChecks": 64,
+  "totalChecks": 64,
+  "checks": [
+    {
+      "name": "360: four choices",
+      "passed": true,
+      "actual": 4,
+      "expected": 4
+    },
+    {
+      "name": "360: normal entry animation retained",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "name": "360: rapid input dispatches once",
+      "passed": true,
+      "actual": [
+        {
+          "owner": "current",
+          "type": "Queen"
+        }
+      ],
+      "expected": [
+        {
+          "owner": "current",
+          "type": "Queen"
+        }
+      ]
+    },
+    {
+      "name": "360: replaced owner cancelled",
+      "passed": true,
+      "actual": [],
+      "expected": []
+    },
+    {
+      "name": "360: one replacement modal",
+      "passed": true,
+      "actual": 1,
+      "expected": 1
+    },
+    {
+      "name": "360: no callback before original delay",
+      "passed": true,
+      "actual": [],
+      "expected": []
+    },
+    {
+      "name": "360: replacement choice at original delay",
+      "passed": true,
+      "actual": [
+        {
+          "owner": "replacement",
+          "type": "Rook"
+        }
+      ],
+      "expected": [
+        {
+          "owner": "replacement",
+          "type": "Rook"
+        }
+      ]
+    },
+    {
+      "name": "360: removed owner cancelled",
+      "passed": true,
+      "actual": [],
+      "expected": []
+    },
+    {
+      "name": "360: keyboard selection retained",
+      "passed": true,
+      "actual": [
+        {
+          "owner": "keyboard",
+          "type": "Knight"
+        }
+      ],
+      "expected": [
+        {
+          "owner": "keyboard",
+          "type": "Knight"
+        }
+      ]
+    },
+    {
+      "name": "360: preserve ko choices/copy",
+      "passed": true,
+      "actual": [
+        {
+          "type": "Queen",
+          "text": "♕ 퀸 무회전 최대 150% 직선 발사와 스핀 2.2배 굴절."
+        },
+        {
+          "type": "Rook",
+          "text": "♖ 룩 무회전 직선 발사 최대 150%."
+        },
+        {
+          "type": "Bishop",
+          "text": "♗ 비숍 스핀 충돌 시 반사 각도 2.2배."
+        },
+        {
+          "type": "Knight",
+          "text": "♘ 나이트 65° 포물선으로 앞 기물을 뛰어넘습니다."
+        }
+      ],
+      "expected": [
+        {
+          "type": "Queen",
+          "text": "♕ 퀸 무회전 최대 150% 직선 발사와 스핀 2.2배 굴절."
+        },
+        {
+          "type": "Rook",
+          "text": "♖ 룩 무회전 직선 발사 최대 150%."
+        },
+        {
+          "type": "Bishop",
+          "text": "♗ 비숍 스핀 충돌 시 반사 각도 2.2배."
+        },
+        {
+          "type": "Knight",
+          "text": "♘ 나이트 65° 포물선으로 앞 기물을 뛰어넘습니다."
+        }
+      ]
+    },
+    {
+      "name": "360: preserve en choices/copy",
+      "passed": true,
+      "actual": [
+        {
+          "type": "Queen",
+          "text": "♕ Queen Up to 150% straight power without spin; 2.2× spin ricochet."
+        },
+        {
+          "type": "Rook",
+          "text": "♖ Rook Up to 150% straight power without spin."
+        },
+        {
+          "type": "Bishop",
+          "text": "♗ Bishop Spin collisions multiply the ricochet angle by 2.2."
+        },
+        {
+          "type": "Knight",
+          "text": "♘ Knight Jumps over pieces along a 65° arc."
+        }
+      ],
+      "expected": [
+        {
+          "type": "Queen",
+          "text": "♕ Queen Up to 150% straight power without spin; 2.2× spin ricochet."
+        },
+        {
+          "type": "Rook",
+          "text": "♖ Rook Up to 150% straight power without spin."
+        },
+        {
+          "type": "Bishop",
+          "text": "♗ Bishop Spin collisions multiply the ricochet angle by 2.2."
+        },
+        {
+          "type": "Knight",
+          "text": "♘ Knight Jumps over pieces along a 65° arc."
+        }
+      ]
+    },
+    {
+      "name": "360: preserve ja choices/copy",
+      "passed": true,
+      "actual": [
+        {
+          "type": "Queen",
+          "text": "♕ クイーン 無回転で最大150%の直線発射。スピン反射角は2.2倍。"
+        },
+        {
+          "type": "Rook",
+          "text": "♖ ルーク 無回転の直線発射は最大150%。"
+        },
+        {
+          "type": "Bishop",
+          "text": "♗ ビショップ スピン衝突時の反射角は2.2倍。"
+        },
+        {
+          "type": "Knight",
+          "text": "♘ ナイト 65°の放物線で前方の駒を飛び越えます。"
+        }
+      ],
+      "expected": [
+        {
+          "type": "Queen",
+          "text": "♕ クイーン 無回転で最大150%の直線発射。スピン反射角は2.2倍。"
+        },
+        {
+          "type": "Rook",
+          "text": "♖ ルーク 無回転の直線発射は最大150%。"
+        },
+        {
+          "type": "Bishop",
+          "text": "♗ ビショップ スピン衝突時の反射角は2.2倍。"
+        },
+        {
+          "type": "Knight",
+          "text": "♘ ナイト 65°の放物線で前方の駒を飛び越えます。"
+        }
+      ]
+    },
+    {
+      "name": "360: preserve zh-CN choices/copy",
+      "passed": true,
+      "actual": [
+        {
+          "type": "Queen",
+          "text": "♕ 后 (Queen) 无旋转直线发射最高150%，旋转反弹角度2.2倍。"
+        },
+        {
+          "type": "Rook",
+          "text": "♖ 车 (Rook) 无旋转直线发射最高150%。"
+        },
+        {
+          "type": "Bishop",
+          "text": "♗ 象 (Bishop) 旋转碰撞时反弹角度为2.2倍。"
+        },
+        {
+          "type": "Knight",
+          "text": "♘ 马 (Knight) 以65°抛物线跳过前方棋子。"
+        }
+      ],
+      "expected": [
+        {
+          "type": "Queen",
+          "text": "♕ 后 (Queen) 无旋转直线发射最高150%，旋转反弹角度2.2倍。"
+        },
+        {
+          "type": "Rook",
+          "text": "♖ 车 (Rook) 无旋转直线发射最高150%。"
+        },
+        {
+          "type": "Bishop",
+          "text": "♗ 象 (Bishop) 旋转碰撞时反弹角度为2.2倍。"
+        },
+        {
+          "type": "Knight",
+          "text": "♘ 马 (Knight) 以65°抛物线跳过前方棋子。"
+        }
+      ]
+    },
+    {
+      "name": "360: preserve de choices/copy",
+      "passed": true,
+      "actual": [
+        {
+          "type": "Queen",
+          "text": "♕ Dame Bis zu 150% geradlinige Kraft ohne Drall; 2,2-facher Drall-Abprallwinkel."
+        },
+        {
+          "type": "Rook",
+          "text": "♖ Turm Bis zu 150% geradlinige Kraft ohne Drall."
+        },
+        {
+          "type": "Bishop",
+          "text": "♗ Läufer Bei Drallkollisionen wird der Abprallwinkel mit 2,2 multipliziert."
+        },
+        {
+          "type": "Knight",
+          "text": "♘ Springer Springt in einem 65°-Bogen über Figuren."
+        }
+      ],
+      "expected": [
+        {
+          "type": "Queen",
+          "text": "♕ Dame Bis zu 150% geradlinige Kraft ohne Drall; 2,2-facher Drall-Abprallwinkel."
+        },
+        {
+          "type": "Rook",
+          "text": "♖ Turm Bis zu 150% geradlinige Kraft ohne Drall."
+        },
+        {
+          "type": "Bishop",
+          "text": "♗ Läufer Bei Drallkollisionen wird der Abprallwinkel mit 2,2 multipliziert."
+        },
+        {
+          "type": "Knight",
+          "text": "♘ Springer Springt in einem 65°-Bogen über Figuren."
+        }
+      ]
+    },
+    {
+      "name": "360: preserve fr choices/copy",
+      "passed": true,
+      "actual": [
+        {
+          "type": "Queen",
+          "text": "♕ Reine Puissance rectiligne jusqu’à 150% sans effet ; angle de ricochet avec effet ×2,2."
+        },
+        {
+          "type": "Rook",
+          "text": "♖ Tour Puissance rectiligne jusqu’à 150% sans effet."
+        },
+        {
+          "type": "Bishop",
+          "text": "♗ Fou Les collisions avec effet multiplient l’angle de ricochet par 2,2."
+        },
+        {
+          "type": "Knight",
+          "text": "♘ Cavalier Saute par-dessus les pièces selon un arc de 65°."
+        }
+      ],
+      "expected": [
+        {
+          "type": "Queen",
+          "text": "♕ Reine Puissance rectiligne jusqu’à 150% sans effet ; angle de ricochet avec effet ×2,2."
+        },
+        {
+          "type": "Rook",
+          "text": "♖ Tour Puissance rectiligne jusqu’à 150% sans effet."
+        },
+        {
+          "type": "Bishop",
+          "text": "♗ Fou Les collisions avec effet multiplient l’angle de ricochet par 2,2."
+        },
+        {
+          "type": "Knight",
+          "text": "♘ Cavalier Saute par-dessus les pièces selon un arc de 65°."
+        }
+      ]
+    },
+    {
+      "name": "360: preserve es choices/copy",
+      "passed": true,
+      "actual": [
+        {
+          "type": "Queen",
+          "text": "♕ Reina Potencia recta hasta 150% sin giro; ángulo de rebote con giro ×2,2."
+        },
+        {
+          "type": "Rook",
+          "text": "♖ Torre Potencia recta hasta 150% sin giro."
+        },
+        {
+          "type": "Bishop",
+          "text": "♗ Alfil Los choques con giro multiplican el ángulo de rebote por 2,2."
+        },
+        {
+          "type": "Knight",
+          "text": "♘ Caballo Salta sobre las piezas con un arco de 65°."
+        }
+      ],
+      "expected": [
+        {
+          "type": "Queen",
+          "text": "♕ Reina Potencia recta hasta 150% sin giro; ángulo de rebote con giro ×2,2."
+        },
+        {
+          "type": "Rook",
+          "text": "♖ Torre Potencia recta hasta 150% sin giro."
+        },
+        {
+          "type": "Bishop",
+          "text": "♗ Alfil Los choques con giro multiplican el ángulo de rebote por 2,2."
+        },
+        {
+          "type": "Knight",
+          "text": "♘ Caballo Salta sobre las piezas con un arco de 65°."
+        }
+      ]
+    },
+    {
+      "name": "360: preserve ru choices/copy",
+      "passed": true,
+      "actual": [
+        {
+          "type": "Queen",
+          "text": "♕ Ферзь Прямой удар до 150% без вращения; угол рикошета с вращением ×2,2."
+        },
+        {
+          "type": "Rook",
+          "text": "♖ Ладья Прямой удар до 150% без вращения."
+        },
+        {
+          "type": "Bishop",
+          "text": "♗ Слон При столкновении с вращением угол рикошета увеличивается в 2,2 раза."
+        },
+        {
+          "type": "Knight",
+          "text": "♘ Конь Перепрыгивает фигуры по дуге под углом 65°."
+        }
+      ],
+      "expected": [
+        {
+          "type": "Queen",
+          "text": "♕ Ферзь Прямой удар до 150% без вращения; угол рикошета с вращением ×2,2."
+        },
+        {
+          "type": "Rook",
+          "text": "♖ Ладья Прямой удар до 150% без вращения."
+        },
+        {
+          "type": "Bishop",
+          "text": "♗ Слон При столкновении с вращением угол рикошета увеличивается в 2,2 раза."
+        },
+        {
+          "type": "Knight",
+          "text": "♘ Конь Перепрыгивает фигуры по дуге под углом 65°."
+        }
+      ]
+    },
+    {
+      "name": "360: preserve pt-BR choices/copy",
+      "passed": true,
+      "actual": [
+        {
+          "type": "Queen",
+          "text": "♕ Dama Força reta de até 150% sem efeito; ângulo de ricochete com efeito ×2,2."
+        },
+        {
+          "type": "Rook",
+          "text": "♖ Torre Força reta de até 150% sem efeito."
+        },
+        {
+          "type": "Bishop",
+          "text": "♗ Bispo Colisões com efeito multiplicam o ângulo de ricochete por 2,2."
+        },
+        {
+          "type": "Knight",
+          "text": "♘ Cavalo Salta sobre peças em um arco de 65°."
+        }
+      ],
+      "expected": [
+        {
+          "type": "Queen",
+          "text": "♕ Dama Força reta de até 150% sem efeito; ângulo de ricochete com efeito ×2,2."
+        },
+        {
+          "type": "Rook",
+          "text": "♖ Torre Força reta de até 150% sem efeito."
+        },
+        {
+          "type": "Bishop",
+          "text": "♗ Bispo Colisões com efeito multiplicam o ângulo de ricochete por 2,2."
+        },
+        {
+          "type": "Knight",
+          "text": "♘ Cavalo Salta sobre peças em um arco de 65°."
+        }
+      ]
+    },
+    {
+      "name": "360: page/routing errors",
+      "passed": true,
+      "actual": 0,
+      "expected": 0
+    },
+    {
+      "name": "960: four choices",
+      "passed": true,
+      "actual": 4,
+      "expected": 4
+    },
+    {
+      "name": "960: normal entry animation retained",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "name": "960: rapid input dispatches once",
+      "passed": true,
+      "actual": [
+        {
+          "owner": "current",
+          "type": "Queen"
+        }
+      ],
+      "expected": [
+        {
+          "owner": "current",
+          "type": "Queen"
+        }
+      ]
+    },
+    {
+      "name": "960: replaced owner cancelled",
+      "passed": true,
+      "actual": [],
+      "expected": []
+    },
+    {
+      "name": "960: one replacement modal",
+      "passed": true,
+      "actual": 1,
+      "expected": 1
+    },
+    {
+      "name": "960: no callback before original delay",
+      "passed": true,
+      "actual": [],
+      "expected": []
+    },
+    {
+      "name": "960: replacement choice at original delay",
+      "passed": true,
+      "actual": [
+        {
+          "owner": "replacement",
+          "type": "Rook"
+        }
+      ],
+      "expected": [
+        {
+          "owner": "replacement",
+          "type": "Rook"
+        }
+      ]
+    },
+    {
+      "name": "960: removed owner cancelled",
+      "passed": true,
+      "actual": [],
+      "expected": []
+    },
+    {
+      "name": "960: keyboard selection retained",
+      "passed": true,
+      "actual": [
+        {
+          "owner": "keyboard",
+          "type": "Knight"
+        }
+      ],
+      "expected": [
+        {
+          "owner": "keyboard",
+          "type": "Knight"
+        }
+      ]
+    },
+    {
+      "name": "960: preserve ko choices/copy",
+      "passed": true,
+      "actual": [
+        {
+          "type": "Queen",
+          "text": "♕ 퀸 무회전 최대 150% 직선 발사와 스핀 2.2배 굴절."
+        },
+        {
+          "type": "Rook",
+          "text": "♖ 룩 무회전 직선 발사 최대 150%."
+        },
+        {
+          "type": "Bishop",
+          "text": "♗ 비숍 스핀 충돌 시 반사 각도 2.2배."
+        },
+        {
+          "type": "Knight",
+          "text": "♘ 나이트 65° 포물선으로 앞 기물을 뛰어넘습니다."
+        }
+      ],
+      "expected": [
+        {
+          "type": "Queen",
+          "text": "♕ 퀸 무회전 최대 150% 직선 발사와 스핀 2.2배 굴절."
+        },
+        {
+          "type": "Rook",
+          "text": "♖ 룩 무회전 직선 발사 최대 150%."
+        },
+        {
+          "type": "Bishop",
+          "text": "♗ 비숍 스핀 충돌 시 반사 각도 2.2배."
+        },
+        {
+          "type": "Knight",
+          "text": "♘ 나이트 65° 포물선으로 앞 기물을 뛰어넘습니다."
+        }
+      ]
+    },
+    {
+      "name": "960: preserve en choices/copy",
+      "passed": true,
+      "actual": [
+        {
+          "type": "Queen",
+          "text": "♕ Queen Up to 150% straight power without spin; 2.2× spin ricochet."
+        },
+        {
+          "type": "Rook",
+          "text": "♖ Rook Up to 150% straight power without spin."
+        },
+        {
+          "type": "Bishop",
+          "text": "♗ Bishop Spin collisions multiply the ricochet angle by 2.2."
+        },
+        {
+          "type": "Knight",
+          "text": "♘ Knight Jumps over pieces along a 65° arc."
+        }
+      ],
+      "expected": [
+        {
+          "type": "Queen",
+          "text": "♕ Queen Up to 150% straight power without spin; 2.2× spin ricochet."
+        },
+        {
+          "type": "Rook",
+          "text": "♖ Rook Up to 150% straight power without spin."
+        },
+        {
+          "type": "Bishop",
+          "text": "♗ Bishop Spin collisions multiply the ricochet angle by 2.2."
+        },
+        {
+          "type": "Knight",
+          "text": "♘ Knight Jumps over pieces along a 65° arc."
+        }
+      ]
+    },
+    {
+      "name": "960: preserve ja choices/copy",
+      "passed": true,
+      "actual": [
+        {
+          "type": "Queen",
+          "text": "♕ クイーン 無回転で最大150%の直線発射。スピン反射角は2.2倍。"
+        },
+        {
+          "type": "Rook",
+          "text": "♖ ルーク 無回転の直線発射は最大150%。"
+        },
+        {
+          "type": "Bishop",
+          "text": "♗ ビショップ スピン衝突時の反射角は2.2倍。"
+        },
+        {
+          "type": "Knight",
+          "text": "♘ ナイト 65°の放物線で前方の駒を飛び越えます。"
+        }
+      ],
+      "expected": [
+        {
+          "type": "Queen",
+          "text": "♕ クイーン 無回転で最大150%の直線発射。スピン反射角は2.2倍。"
+        },
+        {
+          "type": "Rook",
+          "text": "♖ ルーク 無回転の直線発射は最大150%。"
+        },
+        {
+          "type": "Bishop",
+          "text": "♗ ビショップ スピン衝突時の反射角は2.2倍。"
+        },
+        {
+          "type": "Knight",
+          "text": "♘ ナイト 65°の放物線で前方の駒を飛び越えます。"
+        }
+      ]
+    },
+    {
+      "name": "960: preserve zh-CN choices/copy",
+      "passed": true,
+      "actual": [
+        {
+          "type": "Queen",
+          "text": "♕ 后 (Queen) 无旋转直线发射最高150%，旋转反弹角度2.2倍。"
+        },
+        {
+          "type": "Rook",
+          "text": "♖ 车 (Rook) 无旋转直线发射最高150%。"
+        },
+        {
+          "type": "Bishop",
+          "text": "♗ 象 (Bishop) 旋转碰撞时反弹角度为2.2倍。"
+        },
+        {
+          "type": "Knight",
+          "text": "♘ 马 (Knight) 以65°抛物线跳过前方棋子。"
+        }
+      ],
+      "expected": [
+        {
+          "type": "Queen",
+          "text": "♕ 后 (Queen) 无旋转直线发射最高150%，旋转反弹角度2.2倍。"
+        },
+        {
+          "type": "Rook",
+          "text": "♖ 车 (Rook) 无旋转直线发射最高150%。"
+        },
+        {
+          "type": "Bishop",
+          "text": "♗ 象 (Bishop) 旋转碰撞时反弹角度为2.2倍。"
+        },
+        {
+          "type": "Knight",
+          "text": "♘ 马 (Knight) 以65°抛物线跳过前方棋子。"
+        }
+      ]
+    },
+    {
+      "name": "960: preserve de choices/copy",
+      "passed": true,
+      "actual": [
+        {
+          "type": "Queen",
+          "text": "♕ Dame Bis zu 150% geradlinige Kraft ohne Drall; 2,2-facher Drall-Abprallwinkel."
+        },
+        {
+          "type": "Rook",
+          "text": "♖ Turm Bis zu 150% geradlinige Kraft ohne Drall."
+        },
+        {
+          "type": "Bishop",
+          "text": "♗ Läufer Bei Drallkollisionen wird der Abprallwinkel mit 2,2 multipliziert."
+        },
+        {
+          "type": "Knight",
+          "text": "♘ Springer Springt in einem 65°-Bogen über Figuren."
+        }
+      ],
+      "expected": [
+        {
+          "type": "Queen",
+          "text": "♕ Dame Bis zu 150% geradlinige Kraft ohne Drall; 2,2-facher Drall-Abprallwinkel."
+        },
+        {
+          "type": "Rook",
+          "text": "♖ Turm Bis zu 150% geradlinige Kraft ohne Drall."
+        },
+        {
+          "type": "Bishop",
+          "text": "♗ Läufer Bei Drallkollisionen wird der Abprallwinkel mit 2,2 multipliziert."
+        },
+        {
+          "type": "Knight",
+          "text": "♘ Springer Springt in einem 65°-Bogen über Figuren."
+        }
+      ]
+    },
+    {
+      "name": "960: preserve fr choices/copy",
+      "passed": true,
+      "actual": [
+        {
+          "type": "Queen",
+          "text": "♕ Reine Puissance rectiligne jusqu’à 150% sans effet ; angle de ricochet avec effet ×2,2."
+        },
+        {
+          "type": "Rook",
+          "text": "♖ Tour Puissance rectiligne jusqu’à 150% sans effet."
+        },
+        {
+          "type": "Bishop",
+          "text": "♗ Fou Les collisions avec effet multiplient l’angle de ricochet par 2,2."
+        },
+        {
+          "type": "Knight",
+          "text": "♘ Cavalier Saute par-dessus les pièces selon un arc de 65°."
+        }
+      ],
+      "expected": [
+        {
+          "type": "Queen",
+          "text": "♕ Reine Puissance rectiligne jusqu’à 150% sans effet ; angle de ricochet avec effet ×2,2."
+        },
+        {
+          "type": "Rook",
+          "text": "♖ Tour Puissance rectiligne jusqu’à 150% sans effet."
+        },
+        {
+          "type": "Bishop",
+          "text": "♗ Fou Les collisions avec effet multiplient l’angle de ricochet par 2,2."
+        },
+        {
+          "type": "Knight",
+          "text": "♘ Cavalier Saute par-dessus les pièces selon un arc de 65°."
+        }
+      ]
+    },
+    {
+      "name": "960: preserve es choices/copy",
+      "passed": true,
+      "actual": [
+        {
+          "type": "Queen",
+          "text": "♕ Reina Potencia recta hasta 150% sin giro; ángulo de rebote con giro ×2,2."
+        },
+        {
+          "type": "Rook",
+          "text": "♖ Torre Potencia recta hasta 150% sin giro."
+        },
+        {
+          "type": "Bishop",
+          "text": "♗ Alfil Los choques con giro multiplican el ángulo de rebote por 2,2."
+        },
+        {
+          "type": "Knight",
+          "text": "♘ Caballo Salta sobre las piezas con un arco de 65°."
+        }
+      ],
+      "expected": [
+        {
+          "type": "Queen",
+          "text": "♕ Reina Potencia recta hasta 150% sin giro; ángulo de rebote con giro ×2,2."
+        },
+        {
+          "type": "Rook",
+          "text": "♖ Torre Potencia recta hasta 150% sin giro."
+        },
+        {
+          "type": "Bishop",
+          "text": "♗ Alfil Los choques con giro multiplican el ángulo de rebote por 2,2."
+        },
+        {
+          "type": "Knight",
+          "text": "♘ Caballo Salta sobre las piezas con un arco de 65°."
+        }
+      ]
+    },
+    {
+      "name": "960: preserve ru choices/copy",
+      "passed": true,
+      "actual": [
+        {
+          "type": "Queen",
+          "text": "♕ Ферзь Прямой удар до 150% без вращения; угол рикошета с вращением ×2,2."
+        },
+        {
+          "type": "Rook",
+          "text": "♖ Ладья Прямой удар до 150% без вращения."
+        },
+        {
+          "type": "Bishop",
+          "text": "♗ Слон При столкновении с вращением угол рикошета увеличивается в 2,2 раза."
+        },
+        {
+          "type": "Knight",
+          "text": "♘ Конь Перепрыгивает фигуры по дуге под углом 65°."
+        }
+      ],
+      "expected": [
+        {
+          "type": "Queen",
+          "text": "♕ Ферзь Прямой удар до 150% без вращения; угол рикошета с вращением ×2,2."
+        },
+        {
+          "type": "Rook",
+          "text": "♖ Ладья Прямой удар до 150% без вращения."
+        },
+        {
+          "type": "Bishop",
+          "text": "♗ Слон При столкновении с вращением угол рикошета увеличивается в 2,2 раза."
+        },
+        {
+          "type": "Knight",
+          "text": "♘ Конь Перепрыгивает фигуры по дуге под углом 65°."
+        }
+      ]
+    },
+    {
+      "name": "960: preserve pt-BR choices/copy",
+      "passed": true,
+      "actual": [
+        {
+          "type": "Queen",
+          "text": "♕ Dama Força reta de até 150% sem efeito; ângulo de ricochete com efeito ×2,2."
+        },
+        {
+          "type": "Rook",
+          "text": "♖ Torre Força reta de até 150% sem efeito."
+        },
+        {
+          "type": "Bishop",
+          "text": "♗ Bispo Colisões com efeito multiplicam o ângulo de ricochete por 2,2."
+        },
+        {
+          "type": "Knight",
+          "text": "♘ Cavalo Salta sobre peças em um arco de 65°."
+        }
+      ],
+      "expected": [
+        {
+          "type": "Queen",
+          "text": "♕ Dama Força reta de até 150% sem efeito; ângulo de ricochete com efeito ×2,2."
+        },
+        {
+          "type": "Rook",
+          "text": "♖ Torre Força reta de até 150% sem efeito."
+        },
+        {
+          "type": "Bishop",
+          "text": "♗ Bispo Colisões com efeito multiplicam o ângulo de ricochete por 2,2."
+        },
+        {
+          "type": "Knight",
+          "text": "♘ Cavalo Salta sobre peças em um arco de 65°."
+        }
+      ]
+    },
+    {
+      "name": "960: page/routing errors",
+      "passed": true,
+      "actual": 0,
+      "expected": 0
+    },
+    {
+      "name": "normal: 320px choices fit and receive pointer",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "name": "normal: accessible pending choice",
+      "passed": true,
+      "actual": [
+        "Bishop"
+      ],
+      "expected": [
+        "Bishop"
+      ]
+    },
+    {
+      "name": "normal: pending controls marked unavailable",
+      "passed": true,
+      "actual": 4,
+      "expected": 4
+    },
+    {
+      "name": "normal: visible pending cue",
+      "passed": true,
+      "actual": false,
+      "expected": false
+    },
+    {
+      "name": "normal: closing motion preference",
+      "passed": true,
+      "actual": false,
+      "expected": false
+    },
+    {
+      "name": "normal: delay preserved",
+      "passed": true,
+      "actual": [],
+      "expected": []
+    },
+    {
+      "name": "normal: one completed choice",
+      "passed": true,
+      "actual": [
+        {
+          "owner": "current",
+          "type": "Bishop"
+        }
+      ],
+      "expected": [
+        {
+          "owner": "current",
+          "type": "Bishop"
+        }
+      ]
+    },
+    {
+      "name": "normal: page/routing errors",
+      "passed": true,
+      "actual": 0,
+      "expected": 0
+    },
+    {
+      "name": "system: reduced entry",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "name": "system: 320px choices fit and receive pointer",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "name": "system: accessible pending choice",
+      "passed": true,
+      "actual": [
+        "Bishop"
+      ],
+      "expected": [
+        "Bishop"
+      ]
+    },
+    {
+      "name": "system: pending controls marked unavailable",
+      "passed": true,
+      "actual": 4,
+      "expected": 4
+    },
+    {
+      "name": "system: visible pending cue",
+      "passed": true,
+      "actual": false,
+      "expected": false
+    },
+    {
+      "name": "system: closing motion preference",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "name": "system: delay preserved",
+      "passed": true,
+      "actual": [],
+      "expected": []
+    },
+    {
+      "name": "system: one completed choice",
+      "passed": true,
+      "actual": [
+        {
+          "owner": "current",
+          "type": "Bishop"
+        }
+      ],
+      "expected": [
+        {
+          "owner": "current",
+          "type": "Bishop"
+        }
+      ]
+    },
+    {
+      "name": "system: page/routing errors",
+      "passed": true,
+      "actual": 0,
+      "expected": 0
+    },
+    {
+      "name": "local: reduced entry",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "name": "local: 320px choices fit and receive pointer",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "name": "local: accessible pending choice",
+      "passed": true,
+      "actual": [
+        "Bishop"
+      ],
+      "expected": [
+        "Bishop"
+      ]
+    },
+    {
+      "name": "local: pending controls marked unavailable",
+      "passed": true,
+      "actual": 4,
+      "expected": 4
+    },
+    {
+      "name": "local: visible pending cue",
+      "passed": true,
+      "actual": false,
+      "expected": false
+    },
+    {
+      "name": "local: closing motion preference",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "name": "local: delay preserved",
+      "passed": true,
+      "actual": [],
+      "expected": []
+    },
+    {
+      "name": "local: one completed choice",
+      "passed": true,
+      "actual": [
+        {
+          "owner": "current",
+          "type": "Bishop"
+        }
+      ],
+      "expected": [
+        {
+          "owner": "current",
+          "type": "Bishop"
+        }
+      ]
+    },
+    {
+      "name": "local: page/routing errors",
+      "passed": true,
+      "actual": 0,
+      "expected": 0
+    }
+  ],
+  "observations": [
+    {
+      "width": 360,
+      "browserVersion": "151.0.7922.34",
+      "policy": {
+        "scope": "Context HTTP(S) and WebSocket routing only; speculative TCP connections may occur; no Node/process/host isolation",
+        "allowedOrigin": "http://127.0.0.1:5174",
+        "serviceWorkers": "block",
+        "webSockets": "block-all",
+        "redirects": "block-all",
+        "denied": [
+          {
+            "kind": "websocket",
+            "origin": "ws://127.0.0.1:5174"
+          },
+          {
+            "kind": "websocket",
+            "origin": "ws://127.0.0.1:0"
+          }
+        ],
+        "failures": 0,
+        "droppedRecords": 0
+      }
+    },
+    {
+      "width": 960,
+      "browserVersion": "151.0.7922.34",
+      "policy": {
+        "scope": "Context HTTP(S) and WebSocket routing only; speculative TCP connections may occur; no Node/process/host isolation",
+        "allowedOrigin": "http://127.0.0.1:5174",
+        "serviceWorkers": "block",
+        "webSockets": "block-all",
+        "redirects": "block-all",
+        "denied": [
+          {
+            "kind": "websocket",
+            "origin": "ws://127.0.0.1:5174"
+          },
+          {
+            "kind": "websocket",
+            "origin": "ws://127.0.0.1:0"
+          }
+        ],
+        "failures": 0,
+        "droppedRecords": 0
+      }
+    }
+  ],
+  "scope": "Real source/component repair, mouse/keyboard plus explicit lifecycle calls and paused-clock timing. Not full-match play, independent human quality or a security attack benchmark."
+}

@@ -1,0 +1,110 @@
+[
+  {
+    "id": "r1-generic",
+    "condition": "generic",
+    "repeat": 1,
+    "exitCode": 0,
+    "started": "2026-11-06T05:29:08.942353+00:00",
+    "finished": "2026-11-06T05:31:27.282050+00:00",
+    "elapsedSeconds": 138.36000000000058
+  },
+  {
+    "id": "r1-brief",
+    "condition": "brief",
+    "repeat": 1,
+    "exitCode": 0,
+    "started": "2026-11-06T05:29:08.941790+00:00",
+    "finished": "2026-11-06T05:31:46.664296+00:00",
+    "elapsedSeconds": 157.73500000000058
+  },
+  {
+    "id": "r1-full_current",
+    "condition": "full_current",
+    "repeat": 1,
+    "exitCode": 0,
+    "started": "2026-11-06T05:29:08.944053+00:00",
+    "finished": "2026-11-06T05:31:49.489720+00:00",
+    "elapsedSeconds": 160.5630000000001
+  },
+  {
+    "id": "r1-full_previous",
+    "condition": "full_previous",
+    "repeat": 1,
+    "exitCode": 0,
+    "started": "2026-11-06T05:29:08.943865+00:00",
+    "finished": "2026-11-06T05:32:39.251812+00:00",
+    "elapsedSeconds": 210.32800000000134
+  },
+  {
+    "id": "r2-full_current",
+    "condition": "full_current",
+    "repeat": 2,
+    "exitCode": 0,
+    "started": "2026-11-06T05:32:39.258449+00:00",
+    "finished": "2026-11-06T05:35:17.541867+00:00",
+    "elapsedSeconds": 158.3119999999999
+  },
+  {
+    "id": "r2-generic",
+    "condition": "generic",
+    "repeat": 2,
+    "exitCode": 0,
+    "started": "2026-11-06T05:32:39.256185+00:00",
+    "finished": "2026-11-06T05:35:20.091013+00:00",
+    "elapsedSeconds": 160.85900000000038
+  },
+  {
+    "id": "r2-brief",
+    "condition": "brief",
+    "repeat": 2,
+    "exitCode": 0,
+    "started": "2026-11-06T05:32:39.256347+00:00",
+    "finished": "2026-11-06T05:36:00.572027+00:00",
+    "elapsedSeconds": 201.34399999999914
+  },
+  {
+    "id": "r2-full_previous",
+    "condition": "full_previous",
+    "repeat": 2,
+    "exitCode": 0,
+    "started": "2026-11-06T05:32:39.258449+00:00",
+    "finished": "2026-11-06T05:36:39.631438+00:00",
+    "elapsedSeconds": 240.40599999999904
+  },
+  {
+    "id": "r3-brief",
+    "condition": "brief",
+    "repeat": 3,
+    "exitCode": 0,
+    "started": "2026-11-06T05:36:39.636047+00:00",
+    "finished": "2026-11-06T05:39:31.257256+00:00",
+    "elapsedSeconds": 171.63999999999942
+  },
+  {
+    "id": "r3-full_current",
+    "condition": "full_current",
+    "repeat": 3,
+    "exitCode": 0,
+    "started": "2026-11-06T05:36:39.638664+00:00",
+    "finished": "2026-11-06T05:39:51.478270+00:00",
+    "elapsedSeconds": 191.875
+  },
+  {
+    "id": "r3-generic",
+    "condition": "generic",
+    "repeat": 3,
+    "exitCode": 0,
+    "started": "2026-11-06T05:36:39.635831+00:00",
+    "finished": "2026-11-06T05:40:05.572260+00:00",
+    "elapsedSeconds": 205.96899999999914
+  },
+  {
+    "id": "r3-full_previous",
+    "condition": "full_previous",
+    "repeat": 3,
+    "exitCode": 0,
+    "started": "2026-11-06T05:36:39.638163+00:00",
+    "finished": "2026-11-06T05:40:59.587134+00:00",
+    "elapsedSeconds": 259.98399999999856
+  }
+]

@@ -1,0 +1,47 @@
+import path from 'node:path';
+import { writeFile } from 'node:fs/promises';
+import { withScene } from '../tools/scene.mjs';
+
+const label = process.argv[2] ?? 'check';
+await withScene(path.resolve('web'), { viewport: { width: 360, height: 800 }, reducedMotion: 'reduce' }, async ({ page, browserVersion, errors }) => {
+  const snapshot = async () => page.evaluate(() => ({
+    calls: [...window.__case.calls],
+    overlayCount: document.querySelectorAll('.promotion-modal-overlay').length,
+    buttons: [...document.querySelectorAll('.promotion-piece-card')].map(button => ({
+      type: button.dataset.pieceType,
+      selected: button.classList.contains('promotion-selected'),
+      pressed: button.getAttribute('aria-pressed'),
+      disabled: button.disabled,
+      ariaDisabled: button.getAttribute('aria-disabled'),
+    })),
+    animation: document.querySelector('.promotion-modal-overlay') &&
+      getComputedStyle(document.querySelector('.promotion-modal-overlay')).animationName,
+  }));
+
+  await page.evaluate(() => window.__case.open('double', 'white'));
+  await page.evaluate(() => {
+    const [queen, rook] = document.querySelectorAll('.promotion-piece-card');
+    queen.click(); rook.click();
+  });
+  const pending = await snapshot();
+  await writeFile(path.resolve('work', `${label}-pending.png`), await page.screenshot(), { flag: 'wx' });
+  await page.waitForTimeout(160);
+  const double = await snapshot();
+
+  await page.evaluate(() => window.__case.open('old', 'white'));
+  await page.locator('[data-piece-type="Bishop"]').click();
+  await page.evaluate(() => window.__case.open('new', 'black'));
+  await page.waitForTimeout(160);
+  const replaced = await snapshot();
+  await page.locator('[data-piece-type="Knight"]').click();
+  await page.waitForTimeout(160);
+  const final = await snapshot();
+
+  await page.evaluate(() => window.__case.open('closed', 'white'));
+  await page.locator('[data-piece-type="Queen"]').click();
+  await page.evaluate(() => document.querySelector('.promotion-modal-overlay').remove());
+  await page.waitForTimeout(160);
+  const closed = await snapshot();
+
+  console.log(JSON.stringify({ label, browserVersion, errors, pending, double, replaced, final, closed }, null, 2));
+});

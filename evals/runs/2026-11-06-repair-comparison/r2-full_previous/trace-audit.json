@@ -1,0 +1,21 @@
+{
+  "protectedInputChanges": [],
+  "sourceChangesOutsideSrc": [],
+  "reportedFileChangesOutsideWorkspace": [],
+  "parentGitMetadataCommands": [
+    "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command 'Get-Content -LiteralPath web/src/ui-motion.ts -Encoding UTF8; Get-Content -LiteralPath web/src/ui-motion.css -Encoding UTF8; Get-Content -LiteralPath web/src/turn.ts -Encoding UTF8 | Select-Object -Skip 1345 -First 35; git status --short'",
+    "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command 'rg -n \"activeOverlay|promotion-selected|ui-motion-reduced .promotion-modal\" web/src/promotion-modal.ts web/src/style.css; git diff -- web/src/promotion-modal.ts web/src/style.css'"
+  ],
+  "skillReadCalls": [
+    "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command 'Get-Content -LiteralPath skill/SKILL.md -Encoding UTF8'",
+    "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command 'Get-Content -LiteralPath skill/references/presentation-checks.md -Encoding UTF8; Get-Content -LiteralPath skill/references/runtime-checks.md -Encoding UTF8'",
+    "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command 'rg -n \"prefers-reduced-motion|data-reduced-motion|motionReduced|setMotionReduced|onPromotionReady\" web/src/ui-motion.ts web/src/ui-motion.css web/src/style.css web/src/turn.ts; Get-Content -LiteralPath skill/references/gameplay-coherence.md -Encoding UTF8'"
+  ],
+  "skillReadFiles": [
+    "skill/SKILL.md",
+    "skill/references/gameplay-coherence.md",
+    "skill/references/presentation-checks.md",
+    "skill/references/runtime-checks.md"
+  ],
+  "limits": "Command-string read extraction; parent Git metadata was accessible because workspaces were not separate Git roots. Review complete traces for content access. This is not a filesystem isolation or security claim."
+}

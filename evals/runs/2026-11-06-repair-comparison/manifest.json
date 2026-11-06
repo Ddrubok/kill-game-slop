@@ -1,0 +1,387 @@
+{
+  "status": "COMPLETED_WITH_DISCLOSED_LIMITATIONS",
+  "model": "gpt-6-sol",
+  "reasoning": "medium",
+  "repeats": 3,
+  "conditions": 4,
+  "runs": [
+    {
+      "id": "r1-generic",
+      "repeat": 1,
+      "condition": "generic",
+      "workspace": "C:\\Users\\DooBokWie\\orca\\projects\\Default\\skill-releases\\github-sync-20261102\\kill-game-slop\\.orca\\repair-comparison-20261106\\r1-generic",
+      "inputs": {
+        "tools/browser-policy.mjs": "748924c5ec977a4179608ad958b6bbd13fa0aa3a70875ff0bcbcb66d98c0a65f",
+        "tools/preview.mjs": "cf345788ceb869b282d3b2a1eaf7c0cdea0cd8d8648ef72b8a2652ee7d562558",
+        "tools/README.md": "bc2cea13087480e5aa8bd6a60033693701b64cc2dab5bad16e764623b75d6eed",
+        "tools/scene.mjs": "326974dc198fa769578e08e4c9d5b57bab7ec8337816c2bad52e8269aea332c3",
+        "prompt.txt": "65f8cadcc65b254f272d12d9476fde013fc13f3774efc70671ae10801b9833c3",
+        ".orca/tasks/task.json": "47eafa13d10e2803a632b9edde8777385b8e30a36601fd4e0a2c3dabe7af3438"
+      },
+      "publishedInputAliases": {
+        "tools/browser-policy.mjs": "r1-generic/inputs/tools/browser-policy.mjs",
+        "tools/preview.mjs": "r1-generic/inputs/tools/preview.mjs",
+        "tools/README.md": "r1-generic/inputs/tools/README.md",
+        "tools/scene.mjs": "r1-generic/inputs/tools/scene.mjs",
+        "prompt.txt": "r1-generic/prompt.txt",
+        ".orca/tasks/task.json": "r1-generic/dispatch-task.json"
+      }
+    },
+    {
+      "id": "r1-brief",
+      "repeat": 1,
+      "condition": "brief",
+      "workspace": "C:\\Users\\DooBokWie\\orca\\projects\\Default\\skill-releases\\github-sync-20261102\\kill-game-slop\\.orca\\repair-comparison-20261106\\r1-brief",
+      "inputs": {
+        "tools/browser-policy.mjs": "748924c5ec977a4179608ad958b6bbd13fa0aa3a70875ff0bcbcb66d98c0a65f",
+        "tools/preview.mjs": "cf345788ceb869b282d3b2a1eaf7c0cdea0cd8d8648ef72b8a2652ee7d562558",
+        "tools/README.md": "bc2cea13087480e5aa8bd6a60033693701b64cc2dab5bad16e764623b75d6eed",
+        "tools/scene.mjs": "326974dc198fa769578e08e4c9d5b57bab7ec8337816c2bad52e8269aea332c3",
+        "prompt.txt": "0dffcb5692ada7171e41f40c227eb57b43ee3afd0265751a8f40a2b4db90aa5f",
+        ".orca/tasks/task.json": "47eafa13d10e2803a632b9edde8777385b8e30a36601fd4e0a2c3dabe7af3438"
+      },
+      "publishedInputAliases": {
+        "tools/browser-policy.mjs": "r1-brief/inputs/tools/browser-policy.mjs",
+        "tools/preview.mjs": "r1-brief/inputs/tools/preview.mjs",
+        "tools/README.md": "r1-brief/inputs/tools/README.md",
+        "tools/scene.mjs": "r1-brief/inputs/tools/scene.mjs",
+        "prompt.txt": "r1-brief/prompt.txt",
+        ".orca/tasks/task.json": "r1-brief/dispatch-task.json"
+      }
+    },
+    {
+      "id": "r1-full_previous",
+      "repeat": 1,
+      "condition": "full_previous",
+      "workspace": "C:\\Users\\DooBokWie\\orca\\projects\\Default\\skill-releases\\github-sync-20261102\\kill-game-slop\\.orca\\repair-comparison-20261106\\r1-full_previous",
+      "inputs": {
+        "tools/browser-policy.mjs": "748924c5ec977a4179608ad958b6bbd13fa0aa3a70875ff0bcbcb66d98c0a65f",
+        "tools/preview.mjs": "cf345788ceb869b282d3b2a1eaf7c0cdea0cd8d8648ef72b8a2652ee7d562558",
+        "tools/README.md": "bc2cea13087480e5aa8bd6a60033693701b64cc2dab5bad16e764623b75d6eed",
+        "tools/scene.mjs": "326974dc198fa769578e08e4c9d5b57bab7ec8337816c2bad52e8269aea332c3",
+        "skill/LICENSE": "886b58ffefbe10accb31eed8b494969cb5ac89fd983d634ecba542b69f018396",
+        "skill/SKILL.md": "9287da7b6074bd34f7c69724de351a57e99de161d0c90beb960d3e787518e9ac",
+        "skill/agents/openai.yaml": "b8cd446400565b5b3d227e2c193f4da944aac7aec62c5a3d0f6d784d78843d74",
+        "skill/references/editor-specs.md": "ebd734c7358ff52e31f70a2267a3a7852a9cb566529483598154f7fc24a65314",
+        "skill/references/examples.md": "ac520e01d730a8835eab092c3c9dbd6581dca1b0ab96ef961586113dafd7d3c4",
+        "skill/references/gameplay-coherence.md": "de48266e8cfd0704ec73cc3b89bacad0af1cd5c657b67f3bda57c8ceedd5a349",
+        "skill/references/presentation-checks.md": "0eaa929cd7842ca977ba869583fa7122751b0f5aee332882ef5f2fd5e11c1f26",
+        "skill/references/runtime-checks.md": "eba5a2fa88acbf6aaa156c9f982c9d6e3e89986a51ef9c308ff76676e345cb6e",
+        "skill/references/skill-handoff.md": "2f9f4afbd6c88bb0d2d0ebd52a7b1adb8f5206eaecc43c2308d60d2676e47377",
+        "prompt.txt": "ea8bb8f06fd34ba8290b438f89e9229f59e7698c89b9302db3af6a8b498d41c1",
+        ".orca/tasks/task.json": "47eafa13d10e2803a632b9edde8777385b8e30a36601fd4e0a2c3dabe7af3438"
+      },
+      "publishedInputAliases": {
+        "tools/browser-policy.mjs": "r1-full_previous/inputs/tools/browser-policy.mjs",
+        "tools/preview.mjs": "r1-full_previous/inputs/tools/preview.mjs",
+        "tools/README.md": "r1-full_previous/inputs/tools/README.md",
+        "tools/scene.mjs": "r1-full_previous/inputs/tools/scene.mjs",
+        "skill/LICENSE": "r1-full_previous/inputs/skill/LICENSE",
+        "skill/SKILL.md": "r1-full_previous/inputs/skill/SKILL.md",
+        "skill/agents/openai.yaml": "r1-full_previous/inputs/skill/agents/openai.yaml",
+        "skill/references/editor-specs.md": "r1-full_previous/inputs/skill/references/editor-specs.md",
+        "skill/references/examples.md": "r1-full_previous/inputs/skill/references/examples.md",
+        "skill/references/gameplay-coherence.md": "r1-full_previous/inputs/skill/references/gameplay-coherence.md",
+        "skill/references/presentation-checks.md": "r1-full_previous/inputs/skill/references/presentation-checks.md",
+        "skill/references/runtime-checks.md": "r1-full_previous/inputs/skill/references/runtime-checks.md",
+        "skill/references/skill-handoff.md": "r1-full_previous/inputs/skill/references/skill-handoff.md",
+        "prompt.txt": "r1-full_previous/prompt.txt",
+        ".orca/tasks/task.json": "r1-full_previous/dispatch-task.json"
+      }
+    },
+    {
+      "id": "r1-full_current",
+      "repeat": 1,
+      "condition": "full_current",
+      "workspace": "C:\\Users\\DooBokWie\\orca\\projects\\Default\\skill-releases\\github-sync-20261102\\kill-game-slop\\.orca\\repair-comparison-20261106\\r1-full_current",
+      "inputs": {
+        "tools/browser-policy.mjs": "748924c5ec977a4179608ad958b6bbd13fa0aa3a70875ff0bcbcb66d98c0a65f",
+        "tools/preview.mjs": "cf345788ceb869b282d3b2a1eaf7c0cdea0cd8d8648ef72b8a2652ee7d562558",
+        "tools/README.md": "bc2cea13087480e5aa8bd6a60033693701b64cc2dab5bad16e764623b75d6eed",
+        "tools/scene.mjs": "326974dc198fa769578e08e4c9d5b57bab7ec8337816c2bad52e8269aea332c3",
+        "skill/LICENSE": "886b58ffefbe10accb31eed8b494969cb5ac89fd983d634ecba542b69f018396",
+        "skill/SKILL.md": "abf7e7f873e1a79139f388713709d368df9d9e15345a4bf55b00c4c066378563",
+        "skill/agents/openai.yaml": "b8cd446400565b5b3d227e2c193f4da944aac7aec62c5a3d0f6d784d78843d74",
+        "skill/references/editor-specs.md": "ebd734c7358ff52e31f70a2267a3a7852a9cb566529483598154f7fc24a65314",
+        "skill/references/examples.md": "ac520e01d730a8835eab092c3c9dbd6581dca1b0ab96ef961586113dafd7d3c4",
+        "skill/references/gameplay-coherence.md": "de48266e8cfd0704ec73cc3b89bacad0af1cd5c657b67f3bda57c8ceedd5a349",
+        "skill/references/presentation-checks.md": "0eaa929cd7842ca977ba869583fa7122751b0f5aee332882ef5f2fd5e11c1f26",
+        "skill/references/runtime-checks.md": "eba5a2fa88acbf6aaa156c9f982c9d6e3e89986a51ef9c308ff76676e345cb6e",
+        "skill/references/skill-handoff.md": "2f9f4afbd6c88bb0d2d0ebd52a7b1adb8f5206eaecc43c2308d60d2676e47377",
+        "prompt.txt": "ea8bb8f06fd34ba8290b438f89e9229f59e7698c89b9302db3af6a8b498d41c1",
+        ".orca/tasks/task.json": "47eafa13d10e2803a632b9edde8777385b8e30a36601fd4e0a2c3dabe7af3438"
+      },
+      "publishedInputAliases": {
+        "tools/browser-policy.mjs": "r1-full_current/inputs/tools/browser-policy.mjs",
+        "tools/preview.mjs": "r1-full_current/inputs/tools/preview.mjs",
+        "tools/README.md": "r1-full_current/inputs/tools/README.md",
+        "tools/scene.mjs": "r1-full_current/inputs/tools/scene.mjs",
+        "skill/LICENSE": "r1-full_current/inputs/skill/LICENSE",
+        "skill/SKILL.md": "r1-full_current/inputs/skill/SKILL.md",
+        "skill/agents/openai.yaml": "r1-full_current/inputs/skill/agents/openai.yaml",
+        "skill/references/editor-specs.md": "r1-full_current/inputs/skill/references/editor-specs.md",
+        "skill/references/examples.md": "r1-full_current/inputs/skill/references/examples.md",
+        "skill/references/gameplay-coherence.md": "r1-full_current/inputs/skill/references/gameplay-coherence.md",
+        "skill/references/presentation-checks.md": "r1-full_current/inputs/skill/references/presentation-checks.md",
+        "skill/references/runtime-checks.md": "r1-full_current/inputs/skill/references/runtime-checks.md",
+        "skill/references/skill-handoff.md": "r1-full_current/inputs/skill/references/skill-handoff.md",
+        "prompt.txt": "r1-full_current/prompt.txt",
+        ".orca/tasks/task.json": "r1-full_current/dispatch-task.json"
+      }
+    },
+    {
+      "id": "r2-generic",
+      "repeat": 2,
+      "condition": "generic",
+      "workspace": "C:\\Users\\DooBokWie\\orca\\projects\\Default\\skill-releases\\github-sync-20261102\\kill-game-slop\\.orca\\repair-comparison-20261106\\r2-generic",
+      "inputs": {
+        "tools/browser-policy.mjs": "748924c5ec977a4179608ad958b6bbd13fa0aa3a70875ff0bcbcb66d98c0a65f",
+        "tools/preview.mjs": "cf345788ceb869b282d3b2a1eaf7c0cdea0cd8d8648ef72b8a2652ee7d562558",
+        "tools/README.md": "bc2cea13087480e5aa8bd6a60033693701b64cc2dab5bad16e764623b75d6eed",
+        "tools/scene.mjs": "326974dc198fa769578e08e4c9d5b57bab7ec8337816c2bad52e8269aea332c3",
+        "prompt.txt": "65f8cadcc65b254f272d12d9476fde013fc13f3774efc70671ae10801b9833c3",
+        ".orca/tasks/task.json": "47eafa13d10e2803a632b9edde8777385b8e30a36601fd4e0a2c3dabe7af3438"
+      },
+      "publishedInputAliases": {
+        "tools/browser-policy.mjs": "r2-generic/inputs/tools/browser-policy.mjs",
+        "tools/preview.mjs": "r2-generic/inputs/tools/preview.mjs",
+        "tools/README.md": "r2-generic/inputs/tools/README.md",
+        "tools/scene.mjs": "r2-generic/inputs/tools/scene.mjs",
+        "prompt.txt": "r2-generic/prompt.txt",
+        ".orca/tasks/task.json": "r2-generic/dispatch-task.json"
+      }
+    },
+    {
+      "id": "r2-brief",
+      "repeat": 2,
+      "condition": "brief",
+      "workspace": "C:\\Users\\DooBokWie\\orca\\projects\\Default\\skill-releases\\github-sync-20261102\\kill-game-slop\\.orca\\repair-comparison-20261106\\r2-brief",
+      "inputs": {
+        "tools/browser-policy.mjs": "748924c5ec977a4179608ad958b6bbd13fa0aa3a70875ff0bcbcb66d98c0a65f",
+        "tools/preview.mjs": "cf345788ceb869b282d3b2a1eaf7c0cdea0cd8d8648ef72b8a2652ee7d562558",
+        "tools/README.md": "bc2cea13087480e5aa8bd6a60033693701b64cc2dab5bad16e764623b75d6eed",
+        "tools/scene.mjs": "326974dc198fa769578e08e4c9d5b57bab7ec8337816c2bad52e8269aea332c3",
+        "prompt.txt": "0dffcb5692ada7171e41f40c227eb57b43ee3afd0265751a8f40a2b4db90aa5f",
+        ".orca/tasks/task.json": "47eafa13d10e2803a632b9edde8777385b8e30a36601fd4e0a2c3dabe7af3438"
+      },
+      "publishedInputAliases": {
+        "tools/browser-policy.mjs": "r2-brief/inputs/tools/browser-policy.mjs",
+        "tools/preview.mjs": "r2-brief/inputs/tools/preview.mjs",
+        "tools/README.md": "r2-brief/inputs/tools/README.md",
+        "tools/scene.mjs": "r2-brief/inputs/tools/scene.mjs",
+        "prompt.txt": "r2-brief/prompt.txt",
+        ".orca/tasks/task.json": "r2-brief/dispatch-task.json"
+      }
+    },
+    {
+      "id": "r2-full_previous",
+      "repeat": 2,
+      "condition": "full_previous",
+      "workspace": "C:\\Users\\DooBokWie\\orca\\projects\\Default\\skill-releases\\github-sync-20261102\\kill-game-slop\\.orca\\repair-comparison-20261106\\r2-full_previous",
+      "inputs": {
+        "tools/browser-policy.mjs": "748924c5ec977a4179608ad958b6bbd13fa0aa3a70875ff0bcbcb66d98c0a65f",
+        "tools/preview.mjs": "cf345788ceb869b282d3b2a1eaf7c0cdea0cd8d8648ef72b8a2652ee7d562558",
+        "tools/README.md": "bc2cea13087480e5aa8bd6a60033693701b64cc2dab5bad16e764623b75d6eed",
+        "tools/scene.mjs": "326974dc198fa769578e08e4c9d5b57bab7ec8337816c2bad52e8269aea332c3",
+        "skill/LICENSE": "886b58ffefbe10accb31eed8b494969cb5ac89fd983d634ecba542b69f018396",
+        "skill/SKILL.md": "9287da7b6074bd34f7c69724de351a57e99de161d0c90beb960d3e787518e9ac",
+        "skill/agents/openai.yaml": "b8cd446400565b5b3d227e2c193f4da944aac7aec62c5a3d0f6d784d78843d74",
+        "skill/references/editor-specs.md": "ebd734c7358ff52e31f70a2267a3a7852a9cb566529483598154f7fc24a65314",
+        "skill/references/examples.md": "ac520e01d730a8835eab092c3c9dbd6581dca1b0ab96ef961586113dafd7d3c4",
+        "skill/references/gameplay-coherence.md": "de48266e8cfd0704ec73cc3b89bacad0af1cd5c657b67f3bda57c8ceedd5a349",
+        "skill/references/presentation-checks.md": "0eaa929cd7842ca977ba869583fa7122751b0f5aee332882ef5f2fd5e11c1f26",
+        "skill/references/runtime-checks.md": "eba5a2fa88acbf6aaa156c9f982c9d6e3e89986a51ef9c308ff76676e345cb6e",
+        "skill/references/skill-handoff.md": "2f9f4afbd6c88bb0d2d0ebd52a7b1adb8f5206eaecc43c2308d60d2676e47377",
+        "prompt.txt": "ea8bb8f06fd34ba8290b438f89e9229f59e7698c89b9302db3af6a8b498d41c1",
+        ".orca/tasks/task.json": "47eafa13d10e2803a632b9edde8777385b8e30a36601fd4e0a2c3dabe7af3438"
+      },
+      "publishedInputAliases": {
+        "tools/browser-policy.mjs": "r2-full_previous/inputs/tools/browser-policy.mjs",
+        "tools/preview.mjs": "r2-full_previous/inputs/tools/preview.mjs",
+        "tools/README.md": "r2-full_previous/inputs/tools/README.md",
+        "tools/scene.mjs": "r2-full_previous/inputs/tools/scene.mjs",
+        "skill/LICENSE": "r2-full_previous/inputs/skill/LICENSE",
+        "skill/SKILL.md": "r2-full_previous/inputs/skill/SKILL.md",
+        "skill/agents/openai.yaml": "r2-full_previous/inputs/skill/agents/openai.yaml",
+        "skill/references/editor-specs.md": "r2-full_previous/inputs/skill/references/editor-specs.md",
+        "skill/references/examples.md": "r2-full_previous/inputs/skill/references/examples.md",
+        "skill/references/gameplay-coherence.md": "r2-full_previous/inputs/skill/references/gameplay-coherence.md",
+        "skill/references/presentation-checks.md": "r2-full_previous/inputs/skill/references/presentation-checks.md",
+        "skill/references/runtime-checks.md": "r2-full_previous/inputs/skill/references/runtime-checks.md",
+        "skill/references/skill-handoff.md": "r2-full_previous/inputs/skill/references/skill-handoff.md",
+        "prompt.txt": "r2-full_previous/prompt.txt",
+        ".orca/tasks/task.json": "r2-full_previous/dispatch-task.json"
+      }
+    },
+    {
+      "id": "r2-full_current",
+      "repeat": 2,
+      "condition": "full_current",
+      "workspace": "C:\\Users\\DooBokWie\\orca\\projects\\Default\\skill-releases\\github-sync-20261102\\kill-game-slop\\.orca\\repair-comparison-20261106\\r2-full_current",
+      "inputs": {
+        "tools/browser-policy.mjs": "748924c5ec977a4179608ad958b6bbd13fa0aa3a70875ff0bcbcb66d98c0a65f",
+        "tools/preview.mjs": "cf345788ceb869b282d3b2a1eaf7c0cdea0cd8d8648ef72b8a2652ee7d562558",
+        "tools/README.md": "bc2cea13087480e5aa8bd6a60033693701b64cc2dab5bad16e764623b75d6eed",
+        "tools/scene.mjs": "326974dc198fa769578e08e4c9d5b57bab7ec8337816c2bad52e8269aea332c3",
+        "skill/LICENSE": "886b58ffefbe10accb31eed8b494969cb5ac89fd983d634ecba542b69f018396",
+        "skill/SKILL.md": "abf7e7f873e1a79139f388713709d368df9d9e15345a4bf55b00c4c066378563",
+        "skill/agents/openai.yaml": "b8cd446400565b5b3d227e2c193f4da944aac7aec62c5a3d0f6d784d78843d74",
+        "skill/references/editor-specs.md": "ebd734c7358ff52e31f70a2267a3a7852a9cb566529483598154f7fc24a65314",
+        "skill/references/examples.md": "ac520e01d730a8835eab092c3c9dbd6581dca1b0ab96ef961586113dafd7d3c4",
+        "skill/references/gameplay-coherence.md": "de48266e8cfd0704ec73cc3b89bacad0af1cd5c657b67f3bda57c8ceedd5a349",
+        "skill/references/presentation-checks.md": "0eaa929cd7842ca977ba869583fa7122751b0f5aee332882ef5f2fd5e11c1f26",
+        "skill/references/runtime-checks.md": "eba5a2fa88acbf6aaa156c9f982c9d6e3e89986a51ef9c308ff76676e345cb6e",
+        "skill/references/skill-handoff.md": "2f9f4afbd6c88bb0d2d0ebd52a7b1adb8f5206eaecc43c2308d60d2676e47377",
+        "prompt.txt": "ea8bb8f06fd34ba8290b438f89e9229f59e7698c89b9302db3af6a8b498d41c1",
+        ".orca/tasks/task.json": "47eafa13d10e2803a632b9edde8777385b8e30a36601fd4e0a2c3dabe7af3438"
+      },
+      "publishedInputAliases": {
+        "tools/browser-policy.mjs": "r2-full_current/inputs/tools/browser-policy.mjs",
+        "tools/preview.mjs": "r2-full_current/inputs/tools/preview.mjs",
+        "tools/README.md": "r2-full_current/inputs/tools/README.md",
+        "tools/scene.mjs": "r2-full_current/inputs/tools/scene.mjs",
+        "skill/LICENSE": "r2-full_current/inputs/skill/LICENSE",
+        "skill/SKILL.md": "r2-full_current/inputs/skill/SKILL.md",
+        "skill/agents/openai.yaml": "r2-full_current/inputs/skill/agents/openai.yaml",
+        "skill/references/editor-specs.md": "r2-full_current/inputs/skill/references/editor-specs.md",
+        "skill/references/examples.md": "r2-full_current/inputs/skill/references/examples.md",
+        "skill/references/gameplay-coherence.md": "r2-full_current/inputs/skill/references/gameplay-coherence.md",
+        "skill/references/presentation-checks.md": "r2-full_current/inputs/skill/references/presentation-checks.md",
+        "skill/references/runtime-checks.md": "r2-full_current/inputs/skill/references/runtime-checks.md",
+        "skill/references/skill-handoff.md": "r2-full_current/inputs/skill/references/skill-handoff.md",
+        "prompt.txt": "r2-full_current/prompt.txt",
+        ".orca/tasks/task.json": "r2-full_current/dispatch-task.json"
+      }
+    },
+    {
+      "id": "r3-generic",
+      "repeat": 3,
+      "condition": "generic",
+      "workspace": "C:\\Users\\DooBokWie\\orca\\projects\\Default\\skill-releases\\github-sync-20261102\\kill-game-slop\\.orca\\repair-comparison-20261106\\r3-generic",
+      "inputs": {
+        "tools/browser-policy.mjs": "748924c5ec977a4179608ad958b6bbd13fa0aa3a70875ff0bcbcb66d98c0a65f",
+        "tools/preview.mjs": "cf345788ceb869b282d3b2a1eaf7c0cdea0cd8d8648ef72b8a2652ee7d562558",
+        "tools/README.md": "bc2cea13087480e5aa8bd6a60033693701b64cc2dab5bad16e764623b75d6eed",
+        "tools/scene.mjs": "326974dc198fa769578e08e4c9d5b57bab7ec8337816c2bad52e8269aea332c3",
+        "prompt.txt": "65f8cadcc65b254f272d12d9476fde013fc13f3774efc70671ae10801b9833c3",
+        ".orca/tasks/task.json": "47eafa13d10e2803a632b9edde8777385b8e30a36601fd4e0a2c3dabe7af3438"
+      },
+      "publishedInputAliases": {
+        "tools/browser-policy.mjs": "r3-generic/inputs/tools/browser-policy.mjs",
+        "tools/preview.mjs": "r3-generic/inputs/tools/preview.mjs",
+        "tools/README.md": "r3-generic/inputs/tools/README.md",
+        "tools/scene.mjs": "r3-generic/inputs/tools/scene.mjs",
+        "prompt.txt": "r3-generic/prompt.txt",
+        ".orca/tasks/task.json": "r3-generic/dispatch-task.json"
+      }
+    },
+    {
+      "id": "r3-brief",
+      "repeat": 3,
+      "condition": "brief",
+      "workspace": "C:\\Users\\DooBokWie\\orca\\projects\\Default\\skill-releases\\github-sync-20261102\\kill-game-slop\\.orca\\repair-comparison-20261106\\r3-brief",
+      "inputs": {
+        "tools/browser-policy.mjs": "748924c5ec977a4179608ad958b6bbd13fa0aa3a70875ff0bcbcb66d98c0a65f",
+        "tools/preview.mjs": "cf345788ceb869b282d3b2a1eaf7c0cdea0cd8d8648ef72b8a2652ee7d562558",
+        "tools/README.md": "bc2cea13087480e5aa8bd6a60033693701b64cc2dab5bad16e764623b75d6eed",
+        "tools/scene.mjs": "326974dc198fa769578e08e4c9d5b57bab7ec8337816c2bad52e8269aea332c3",
+        "prompt.txt": "0dffcb5692ada7171e41f40c227eb57b43ee3afd0265751a8f40a2b4db90aa5f",
+        ".orca/tasks/task.json": "47eafa13d10e2803a632b9edde8777385b8e30a36601fd4e0a2c3dabe7af3438"
+      },
+      "publishedInputAliases": {
+        "tools/browser-policy.mjs": "r3-brief/inputs/tools/browser-policy.mjs",
+        "tools/preview.mjs": "r3-brief/inputs/tools/preview.mjs",
+        "tools/README.md": "r3-brief/inputs/tools/README.md",
+        "tools/scene.mjs": "r3-brief/inputs/tools/scene.mjs",
+        "prompt.txt": "r3-brief/prompt.txt",
+        ".orca/tasks/task.json": "r3-brief/dispatch-task.json"
+      }
+    },
+    {
+      "id": "r3-full_previous",
+      "repeat": 3,
+      "condition": "full_previous",
+      "workspace": "C:\\Users\\DooBokWie\\orca\\projects\\Default\\skill-releases\\github-sync-20261102\\kill-game-slop\\.orca\\repair-comparison-20261106\\r3-full_previous",
+      "inputs": {
+        "tools/browser-policy.mjs": "748924c5ec977a4179608ad958b6bbd13fa0aa3a70875ff0bcbcb66d98c0a65f",
+        "tools/preview.mjs": "cf345788ceb869b282d3b2a1eaf7c0cdea0cd8d8648ef72b8a2652ee7d562558",
+        "tools/README.md": "bc2cea13087480e5aa8bd6a60033693701b64cc2dab5bad16e764623b75d6eed",
+        "tools/scene.mjs": "326974dc198fa769578e08e4c9d5b57bab7ec8337816c2bad52e8269aea332c3",
+        "skill/LICENSE": "886b58ffefbe10accb31eed8b494969cb5ac89fd983d634ecba542b69f018396",
+        "skill/SKILL.md": "9287da7b6074bd34f7c69724de351a57e99de161d0c90beb960d3e787518e9ac",
+        "skill/agents/openai.yaml": "b8cd446400565b5b3d227e2c193f4da944aac7aec62c5a3d0f6d784d78843d74",
+        "skill/references/editor-specs.md": "ebd734c7358ff52e31f70a2267a3a7852a9cb566529483598154f7fc24a65314",
+        "skill/references/examples.md": "ac520e01d730a8835eab092c3c9dbd6581dca1b0ab96ef961586113dafd7d3c4",
+        "skill/references/gameplay-coherence.md": "de48266e8cfd0704ec73cc3b89bacad0af1cd5c657b67f3bda57c8ceedd5a349",
+        "skill/references/presentation-checks.md": "0eaa929cd7842ca977ba869583fa7122751b0f5aee332882ef5f2fd5e11c1f26",
+        "skill/references/runtime-checks.md": "eba5a2fa88acbf6aaa156c9f982c9d6e3e89986a51ef9c308ff76676e345cb6e",
+        "skill/references/skill-handoff.md": "2f9f4afbd6c88bb0d2d0ebd52a7b1adb8f5206eaecc43c2308d60d2676e47377",
+        "prompt.txt": "ea8bb8f06fd34ba8290b438f89e9229f59e7698c89b9302db3af6a8b498d41c1",
+        ".orca/tasks/task.json": "47eafa13d10e2803a632b9edde8777385b8e30a36601fd4e0a2c3dabe7af3438"
+      },
+      "publishedInputAliases": {
+        "tools/browser-policy.mjs": "r3-full_previous/inputs/tools/browser-policy.mjs",
+        "tools/preview.mjs": "r3-full_previous/inputs/tools/preview.mjs",
+        "tools/README.md": "r3-full_previous/inputs/tools/README.md",
+        "tools/scene.mjs": "r3-full_previous/inputs/tools/scene.mjs",
+        "skill/LICENSE": "r3-full_previous/inputs/skill/LICENSE",
+        "skill/SKILL.md": "r3-full_previous/inputs/skill/SKILL.md",
+        "skill/agents/openai.yaml": "r3-full_previous/inputs/skill/agents/openai.yaml",
+        "skill/references/editor-specs.md": "r3-full_previous/inputs/skill/references/editor-specs.md",
+        "skill/references/examples.md": "r3-full_previous/inputs/skill/references/examples.md",
+        "skill/references/gameplay-coherence.md": "r3-full_previous/inputs/skill/references/gameplay-coherence.md",
+        "skill/references/presentation-checks.md": "r3-full_previous/inputs/skill/references/presentation-checks.md",
+        "skill/references/runtime-checks.md": "r3-full_previous/inputs/skill/references/runtime-checks.md",
+        "skill/references/skill-handoff.md": "r3-full_previous/inputs/skill/references/skill-handoff.md",
+        "prompt.txt": "r3-full_previous/prompt.txt",
+        ".orca/tasks/task.json": "r3-full_previous/dispatch-task.json"
+      }
+    },
+    {
+      "id": "r3-full_current",
+      "repeat": 3,
+      "condition": "full_current",
+      "workspace": "C:\\Users\\DooBokWie\\orca\\projects\\Default\\skill-releases\\github-sync-20261102\\kill-game-slop\\.orca\\repair-comparison-20261106\\r3-full_current",
+      "inputs": {
+        "tools/browser-policy.mjs": "748924c5ec977a4179608ad958b6bbd13fa0aa3a70875ff0bcbcb66d98c0a65f",
+        "tools/preview.mjs": "cf345788ceb869b282d3b2a1eaf7c0cdea0cd8d8648ef72b8a2652ee7d562558",
+        "tools/README.md": "bc2cea13087480e5aa8bd6a60033693701b64cc2dab5bad16e764623b75d6eed",
+        "tools/scene.mjs": "326974dc198fa769578e08e4c9d5b57bab7ec8337816c2bad52e8269aea332c3",
+        "skill/LICENSE": "886b58ffefbe10accb31eed8b494969cb5ac89fd983d634ecba542b69f018396",
+        "skill/SKILL.md": "abf7e7f873e1a79139f388713709d368df9d9e15345a4bf55b00c4c066378563",
+        "skill/agents/openai.yaml": "b8cd446400565b5b3d227e2c193f4da944aac7aec62c5a3d0f6d784d78843d74",
+        "skill/references/editor-specs.md": "ebd734c7358ff52e31f70a2267a3a7852a9cb566529483598154f7fc24a65314",
+        "skill/references/examples.md": "ac520e01d730a8835eab092c3c9dbd6581dca1b0ab96ef961586113dafd7d3c4",
+        "skill/references/gameplay-coherence.md": "de48266e8cfd0704ec73cc3b89bacad0af1cd5c657b67f3bda57c8ceedd5a349",
+        "skill/references/presentation-checks.md": "0eaa929cd7842ca977ba869583fa7122751b0f5aee332882ef5f2fd5e11c1f26",
+        "skill/references/runtime-checks.md": "eba5a2fa88acbf6aaa156c9f982c9d6e3e89986a51ef9c308ff76676e345cb6e",
+        "skill/references/skill-handoff.md": "2f9f4afbd6c88bb0d2d0ebd52a7b1adb8f5206eaecc43c2308d60d2676e47377",
+        "prompt.txt": "ea8bb8f06fd34ba8290b438f89e9229f59e7698c89b9302db3af6a8b498d41c1",
+        ".orca/tasks/task.json": "47eafa13d10e2803a632b9edde8777385b8e30a36601fd4e0a2c3dabe7af3438"
+      },
+      "publishedInputAliases": {
+        "tools/browser-policy.mjs": "r3-full_current/inputs/tools/browser-policy.mjs",
+        "tools/preview.mjs": "r3-full_current/inputs/tools/preview.mjs",
+        "tools/README.md": "r3-full_current/inputs/tools/README.md",
+        "tools/scene.mjs": "r3-full_current/inputs/tools/scene.mjs",
+        "skill/LICENSE": "r3-full_current/inputs/skill/LICENSE",
+        "skill/SKILL.md": "r3-full_current/inputs/skill/SKILL.md",
+        "skill/agents/openai.yaml": "r3-full_current/inputs/skill/agents/openai.yaml",
+        "skill/references/editor-specs.md": "r3-full_current/inputs/skill/references/editor-specs.md",
+        "skill/references/examples.md": "r3-full_current/inputs/skill/references/examples.md",
+        "skill/references/gameplay-coherence.md": "r3-full_current/inputs/skill/references/gameplay-coherence.md",
+        "skill/references/presentation-checks.md": "r3-full_current/inputs/skill/references/presentation-checks.md",
+        "skill/references/runtime-checks.md": "r3-full_current/inputs/skill/references/runtime-checks.md",
+        "skill/references/skill-handoff.md": "r3-full_current/inputs/skill/references/skill-handoff.md",
+        "prompt.txt": "r3-full_current/prompt.txt",
+        ".orca/tasks/task.json": "r3-full_current/dispatch-task.json"
+      }
+    }
+  ],
+  "limitations": [
+    "One non-blind visual adjudication",
+    "Parent Git metadata access; not filesystem isolation",
+    "One current-skill trial created and cleaned a temporary file outside its assigned workspace",
+    "One known component task; three repeats per condition"
+  ]
+}

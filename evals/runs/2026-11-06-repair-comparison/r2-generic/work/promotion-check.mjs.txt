@@ -1,0 +1,48 @@
+import assert from 'node:assert/strict';
+import path from 'node:path';
+import { withScene } from '../tools/scene.mjs';
+
+await withScene(path.resolve('web'), { viewport: { width: 360, height: 800 }, reducedMotion: 'reduce' }, async ({ page, errors }) => {
+  await page.click('#open');
+  await page.screenshot({ path: path.resolve('work/promotion-open.png') });
+  assert.equal(await page.locator('.promotion-piece-card').count(), 4);
+  assert.equal(await page.locator('[role="dialog"][aria-modal="true"]').count(), 1);
+  assert.equal(await page.locator('.promotion-modal-overlay').evaluate(el => getComputedStyle(el).animationName), 'none');
+  await page.locator('[data-piece-type="Queen"]').click();
+  await page.screenshot({ path: path.resolve('work/promotion-pending.png') });
+  assert.equal(await page.locator('.promotion-modal-overlay.promotion-closing').evaluate(el => getComputedStyle(el).animationName), 'none');
+  assert.equal(await page.locator('.promotion-piece-card:disabled').count(), 4);
+  assert.equal(await page.locator('.promotion-selected[aria-pressed="true"]').count(), 1);
+  await page.locator('[data-piece-type="Rook"]').evaluate(el => el.click());
+  assert.deepEqual(await page.evaluate(() => __case.calls), []);
+  await page.waitForTimeout(150);
+  assert.deepEqual(await page.evaluate(() => __case.calls), [{ owner: 'current', type: 'Queen' }]);
+
+  await page.evaluate(() => __case.open('old', 'white'));
+  await page.locator('[data-piece-type="Rook"]').click();
+  await page.evaluate(() => __case.open('new', 'black'));
+  await page.waitForTimeout(150);
+  assert.deepEqual(await page.evaluate(() => __case.calls), [{ owner: 'current', type: 'Queen' }]);
+  await page.locator('[data-piece-type="Bishop"]').click();
+  await page.waitForTimeout(150);
+  assert.deepEqual(await page.evaluate(() => __case.calls), [{ owner: 'current', type: 'Queen' }, { owner: 'new', type: 'Bishop' }]);
+
+  await page.evaluate(() => __case.open('closed'));
+  await page.locator('[data-piece-type="Knight"]').click();
+  await page.locator('.promotion-modal-overlay').evaluate(el => el.remove());
+  await page.waitForTimeout(150);
+  assert.equal((await page.evaluate(() => __case.calls)).length, 2);
+  assert.deepEqual(errors, []);
+  console.log('PASS: single delivery, pending feedback, replacement/removal cancellation, reduced motion');
+});
+
+await withScene(path.resolve('web'), { viewport: { width: 360, height: 800 }, reducedMotion: 'no-preference' }, async ({ page, errors }) => {
+  await page.click('#open');
+  assert.equal(await page.locator('.promotion-modal-overlay').evaluate(el => getComputedStyle(el).animationName), 'promotionModalIn');
+  await page.locator('[data-piece-type="Queen"]').click();
+  assert.equal(await page.locator('.promotion-modal-overlay').evaluate(el => getComputedStyle(el).animationName), 'promotionModalOut');
+  await page.evaluate(() => __case.motion(true));
+  assert.equal(await page.locator('.promotion-modal-overlay').evaluate(el => getComputedStyle(el).animationName), 'none');
+  assert.deepEqual(errors, []);
+  console.log('PASS: normal entry animation and in-game motion preference');
+});

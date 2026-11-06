@@ -1,0 +1,27 @@
+import path from 'node:path';
+import { writeFile } from 'node:fs/promises';
+import { withScene } from '../tools/scene.mjs';
+
+await withScene(path.resolve('web'), { viewport: { width: 360, height: 800 }, reducedMotion: 'reduce' }, async ({ page }) => {
+  await page.clock.install();
+  await page.clock.pauseAt(new Date(Date.now() + 1000));
+  await page.evaluate(() => window.__case.open('visual', 'white'));
+  await page.keyboard.press('Shift+Tab');
+  const reverseWrap = await page.evaluate(() => document.activeElement?.getAttribute('data-piece-type'));
+  await page.keyboard.press('Tab');
+  const forwardWrap = await page.evaluate(() => document.activeElement?.getAttribute('data-piece-type'));
+  await page.locator('[data-piece-type="Queen"]').click();
+  const aria = await page.locator('.promotion-modal-overlay').ariaSnapshot();
+  const active = await page.evaluate(() => document.activeElement?.outerHTML.slice(0, 150));
+  await writeFile(path.resolve('work', `repaired-selected-${Date.now()}.png`), await page.screenshot(), { flag: 'wx' });
+  await page.evaluate(() => window.__case.motion(false));
+  await page.emulateMedia({ reducedMotion: 'no-preference' });
+  await page.evaluate(() => window.__case.open('normal', 'white'));
+  const normalAnimation = await page.locator('.promotion-modal-overlay').evaluate(el => getComputedStyle(el).animationName);
+  await page.locator('[data-piece-type="Rook"]').click();
+  const normalExit = await page.locator('.promotion-modal-overlay').evaluate(el => getComputedStyle(el).animationName);
+  await page.evaluate(() => window.__case.motion(true));
+  await page.evaluate(() => window.__case.open('local-reduced', 'white'));
+  const localReducedAnimation = await page.locator('.promotion-modal-overlay').evaluate(el => getComputedStyle(el).animationName);
+  console.log(JSON.stringify({ reverseWrap, forwardWrap, aria, active, normalAnimation, normalExit, localReducedAnimation }));
+});

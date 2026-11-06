@@ -1,0 +1,22 @@
+{
+  "work/promotion-after-open.png": {
+    "archivedAs": "work/promotion-after-open.png",
+    "sha256": "12ef39e2ee0a78ceff7350890421dc5c4848a5f3feb51bd73562594c37f63296"
+  },
+  "work/promotion-after-pending.png": {
+    "archivedAs": "work/promotion-after-pending.png",
+    "sha256": "294028793011d6d89857fa208333fc3be0015ab91f7e72f74442f9907f3213b1"
+  },
+  "work/promotion-before-open.png": {
+    "archivedAs": "work/promotion-before-open.png",
+    "sha256": "1186c410f8b99f598198a95f76725110ba049e85320c18a76cf986807c526327"
+  },
+  "work/promotion-before-pending.png": {
+    "archivedAs": "work/promotion-before-pending.png",
+    "sha256": "ed92f3f9d66e1649bf67f8668c6cf6314ea7ffcf40d937991581bc1228b34505"
+  },
+  "work/promotion-check.mjs": {
+    "archivedAs": "work/promotion-check.mjs.txt",
+    "sha256": "587b296b6af7a6f3dfdda2f0e9d97e540634479538dc2f7302bf34d0d53fb2ac"
+  }
+}

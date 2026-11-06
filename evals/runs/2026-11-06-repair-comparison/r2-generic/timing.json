@@ -1,0 +1,9 @@
+{
+  "id": "r2-generic",
+  "condition": "generic",
+  "repeat": 2,
+  "exitCode": 0,
+  "started": "2026-11-06T05:32:39.256185+00:00",
+  "finished": "2026-11-06T05:35:20.091013+00:00",
+  "elapsedSeconds": 160.85900000000038
+}

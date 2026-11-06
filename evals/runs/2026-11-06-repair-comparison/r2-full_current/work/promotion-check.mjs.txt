@@ -1,0 +1,65 @@
+import path from 'node:path';
+import assert from 'node:assert/strict';
+import { withScene } from '../tools/scene.mjs';
+
+const mode = process.argv[2] ?? 'check';
+const results = await withScene(path.resolve('web'), { viewport: { width: 360, height: 800 }, reducedMotion: 'reduce' }, async ({ page, errors, browserVersion }) => {
+  const snapshot = async () => page.locator('.promotion-modal-overlay').evaluate(el => ({
+    animation: getComputedStyle(el).animationName,
+    buttons: [...el.querySelectorAll('button')].map(button => ({ type: button.dataset.pieceType, disabled: button.disabled, pressed: button.getAttribute('aria-pressed'), selected: button.classList.contains('promotion-selected') })),
+  }));
+  await page.evaluate(() => __case.open('first', 'white'));
+  await page.screenshot({ path: path.resolve('work', `promotion-${mode}-open.png`) });
+  const open = await snapshot();
+  const focus = await page.evaluate(() => document.activeElement?.dataset.pieceType);
+  await page.locator('[data-piece-type="Queen"]').evaluate(button => { button.click(); button.click(); });
+  const pending = await snapshot();
+  await page.screenshot({ path: path.resolve('work', `promotion-${mode}-pending.png`) });
+  await page.waitForTimeout(160);
+  const repeated = await page.evaluate(() => __case.calls.slice());
+  await page.evaluate(() => __case.open('old', 'white'));
+  await page.locator('[data-piece-type="Rook"]').click();
+  await page.evaluate(() => __case.open('new', 'black'));
+  await page.locator('[data-piece-type="Bishop"]').click();
+  await page.waitForTimeout(160);
+  const replacement = await page.evaluate(() => __case.calls.slice());
+  await page.evaluate(() => __case.open('closed', 'white'));
+  await page.locator('[data-piece-type="Knight"]').click();
+  await page.locator('.promotion-modal-overlay').evaluate(el => el.remove());
+  await page.waitForTimeout(160);
+  const closed = await page.evaluate(() => __case.calls.slice());
+  await page.evaluate(() => __case.motion(true));
+  await page.evaluate(() => __case.open('reduced', 'white'));
+  const reduced = await snapshot();
+  return { browserVersion, open, focus, pending, repeated, replacement, closed, reduced, errors };
+});
+if (mode === 'after') {
+  assert.equal(results.focus, 'Queen');
+  assert.equal(results.open.animation, 'none');
+  assert.deepEqual(results.pending.buttons.map(({ disabled, pressed, selected }) => ({ disabled, pressed, selected })), [
+    { disabled: true, pressed: 'true', selected: true },
+    ...Array(3).fill({ disabled: true, pressed: 'false', selected: false }),
+  ]);
+  assert.deepEqual(results.repeated, [{ owner: 'first', type: 'Queen' }]);
+  assert.deepEqual(results.replacement, [{ owner: 'first', type: 'Queen' }, { owner: 'new', type: 'Bishop' }]);
+  assert.deepEqual(results.closed, results.replacement);
+  assert.equal(results.reduced.animation, 'none');
+  assert.deepEqual(results.errors, []);
+  const normal = await withScene(path.resolve('web'), { viewport: { width: 360, height: 800 }, reducedMotion: 'no-preference' }, async ({ page }) => {
+    await page.evaluate(() => __case.open('normal', 'white'));
+    const entry = await page.locator('.promotion-modal-overlay').evaluate(el => getComputedStyle(el).animationName);
+    await page.locator('[data-piece-type="Queen"]').click();
+    const exit = await page.locator('.promotion-modal-overlay').evaluate(el => getComputedStyle(el).animationName);
+    await page.waitForTimeout(50);
+    const early = await page.evaluate(() => __case.calls.slice());
+    await page.waitForTimeout(100);
+    const settled = await page.evaluate(() => __case.calls.slice());
+    return { entry, exit, early, settled };
+  });
+  assert.equal(normal.entry, 'promotionModalIn');
+  assert.equal(normal.exit, 'promotionModalOut');
+  assert.deepEqual(normal.early, []);
+  assert.deepEqual(normal.settled, [{ owner: 'normal', type: 'Queen' }]);
+  results.normal = normal;
+}
+console.log(JSON.stringify(results, null, 2));

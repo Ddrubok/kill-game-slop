@@ -1,0 +1,13 @@
+{
+  "protectedInputChanges": [],
+  "sourceChangesOutsideSrc": [],
+  "reportedFileChangesOutsideWorkspace": [],
+  "parentGitMetadataCommands": [
+    "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command \"Get-Content -LiteralPath 'tools/README.md' -Encoding UTF8; Get-Content -LiteralPath 'web/package.json' -Encoding UTF8; git status --short\"",
+    "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command 'node work/promotion-check.mjs; git diff -- web/src/promotion-modal.ts web/src/style.css; git status --short -- web/src/promotion-modal.ts web/src/style.css work'",
+    "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command \"rg -n 'selectionPending|promotion-selected|aria-pressed|ui-motion-reduced .promotion-modal-overlay' web/src/promotion-modal.ts web/src/style.css; Get-Item work/promotion-pending.png | Select-Object FullName,Length; git rev-parse --show-toplevel\""
+  ],
+  "skillReadCalls": [],
+  "skillReadFiles": [],
+  "limits": "Command-string read extraction; parent Git metadata was accessible because workspaces were not separate Git roots. Review complete traces for content access. This is not a filesystem isolation or security claim."
+}

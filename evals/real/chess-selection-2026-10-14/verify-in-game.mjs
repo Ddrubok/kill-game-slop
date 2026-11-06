@@ -19,6 +19,10 @@ const server = await createServer({ root: web, configFile: false, cacheDir: path
   define: { __POKI_BUILD__: 'false', __CRAZYGAMES_BUILD__: 'false', __PORTABLE_BUILD__: 'false' } });
 let browser;
 const results = {pass,started:new Date().toISOString(),environment,networkPolicies:[],instrumentation:'Response transformation adds runtime getters; pointer/touch input in a fresh local guest session; no state or clock injection',conditions:[]};
+results.presentationScope='Layout, CSS visibility and clipped viewport intersection are separate measurements. Occlusion/readability require capture review; operability is checked only by the actual pointer/touch sequences.';
+const assertPresented = p => {
+ assert.equal(p.cssVisible,true);assert.equal(p.intersectsViewport,true);assert.ok(p.clippedViewportRatio>0);
+};
 try {
  await server.listen();
  const origin = `http://127.0.0.1:${server.httpServer.address().port}`;
@@ -69,21 +73,21 @@ try {
    await localMatch.waitFor();stage='start match';
    await act(page.getByRole('button',{name:/^2인 대전/}));await act(page.getByRole('button',{name:'대전 시작',exact:true}));
    await page.waitForFunction(()=>globalThis.__presentationQA?.().turnRuntime.phase==='ready');
-   let s=await cap('unselected');assert.equal(s.selected,null);assert.equal(s.previewVisible,false);assert.equal(s.actionBarVisible,false);
-   await select('white-pawn-c2');s=await cap('selected');assert.equal(s.previewVisible,true);assert.equal(s.redDot,true);assert.equal(s.buttons.find(x=>x.action==='launch').pressed,'true');
-   await act(page.locator('[data-action="strike"]'));s=await cap('strike');assert.equal(s.selected,'white-pawn-c2');assert.equal(s.strikePanelVisible,true);assert.equal(s.buttons.find(x=>x.action==='strike').pressed,'true');
-   await act(page.locator('[data-action="launch"]'));s=await cap('aim');assert.equal(s.strikePanelVisible,false);assert.equal(s.buttons.find(x=>x.action==='launch').pressed,'true');
-   await select('white-pawn-f2');s=await cap('reselected');assert.equal(s.selected,'white-pawn-f2');assert.equal(s.previewVisible,true);
+   let s=await cap('unselected');assert.equal(s.selected,null);assert.equal(s.preview.cssVisible,false);assert.equal(s.actionBar.cssVisible,false);
+   await select('white-pawn-c2');s=await cap('selected');assertPresented(s.preview);assert.equal(s.redDot,true);assert.equal(s.buttons.find(x=>x.action==='launch').pressed,'true');
+   await act(page.locator('[data-action="strike"]'));s=await cap('strike');assert.equal(s.selected,'white-pawn-c2');assertPresented(s.strikePanel);assert.equal(s.buttons.find(x=>x.action==='strike').pressed,'true');
+   await act(page.locator('[data-action="launch"]'));s=await cap('aim');assert.equal(s.strikePanel.cssVisible,false);assert.equal(s.buttons.find(x=>x.action==='launch').pressed,'true');
+   await select('white-pawn-f2');s=await cap('reselected');assert.equal(s.selected,'white-pawn-f2');assertPresented(s.preview);
    const rect=await page.locator('.game-canvas').boundingBox();
    if(touch)await page.touchscreen.tap(rect.x+rect.width-12,rect.y+12);else await page.mouse.click(rect.x+rect.width-12,rect.y+12);
-   s=await cap('cleared');assert.equal(s.selected,null);assert.equal(s.previewVisible,false);assert.equal(s.redDot,false);assert.equal(s.actionBarVisible,false);
+   s=await cap('cleared');assert.equal(s.selected,null);assert.equal(s.preview.cssVisible,false);assert.equal(s.redDot,false);assert.equal(s.actionBar.cssVisible,false);
    await act(page.getByRole('button',{name:'메뉴로',exact:true}));
    const confirm=page.locator('[data-menu-confirm]');if(await confirm.isVisible())await act(confirm);
    await localMatch.waitFor();
    await act(page.getByRole('button',{name:/^2인 대전/}));await act(page.getByRole('button',{name:'대전 시작',exact:true}));
    await page.waitForFunction(()=>globalThis.__presentationQA?.().turnRuntime.phase==='ready');
-   s=await cap('reentry');assert.equal(s.selected,null);assert.equal(s.actionBarVisible,false);assert.equal(s.previewVisible,false);
-   for(const c of row.captures)for(const b of c.buttons){assert.ok(b.bounds.x>=0&&b.bounds.y>=0&&b.bounds.right<=width+1&&b.bounds.bottom<=height+1,'visible action buttons fit viewport');}
+   s=await cap('reentry');assert.equal(s.selected,null);assert.equal(s.actionBar.cssVisible,false);assert.equal(s.preview.cssVisible,false);
+   for(const c of row.captures)for(const b of c.buttons){assert.ok(b.bounds.x>=0&&b.bounds.y>=0&&b.bounds.right<=width+1&&b.bounds.bottom<=height+1,'action buttons fit viewport');assert.ok(b.presentation.clippedViewportRatio>=0.99,'action buttons are not clipped');}
    assert.deepEqual(row.errors,[]);assert.equal(policy.failures,0,'No routing failures');row.status='passed';
   }catch(e){row.status='failed';row.error={name:e.name,stage};process.exitCode=1;}
   await context.close();console.log(width,row.status,row.error?.stage??'');

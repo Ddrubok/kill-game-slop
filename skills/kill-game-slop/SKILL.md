@@ -41,7 +41,7 @@ Evidence type and judgment are separate fields, not confidence percentages. A vi
 
 ## Inspect the relevant route
 
-Read only what the task needs:
+For a simple text/layout correction, start with presentation checks; add gameplay coherence only for interacting actions or transitions. Choose needed references before reading, batch independent reads, and reuse already-loaded guidance. Open examples only for an unresolved classification and handoff only for requested downstream work.
 
 - [presentation-checks.md](references/presentation-checks.md): symptoms, legitimate counterexamples, UI usability, coinciding displays and the finding record. Use it when examining a suspected cost or reporting a finding.
 - [gameplay-coherence.md](references/gameplay-coherence.md): combined actions, transitions, spatial/timing alignment and repeated/contextual meaning. Read for gameplay or animation coherence, not a simple text/layout correction.

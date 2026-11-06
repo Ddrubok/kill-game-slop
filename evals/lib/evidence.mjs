@@ -24,21 +24,33 @@ export async function screenshot(page, file, options = {}) {
 }
 
 // Serialized into the page; deliberately no whole-page text or account fields.
-export function selectionState() {
+export async function selectionState() {
   const r = globalThis.__presentationQA();
-  const visible = e => {
-    if (!e) return false;
+  const presentation = async e => {
+    if (!e) return { hasLayoutBox: false, cssVisible: false, intersectsViewport: false, clippedViewportRatio: 0 };
     const box = e.getBoundingClientRect();
-    return !!box.width && !!box.height && getComputedStyle(e).visibility !== 'hidden';
+    const hasLayoutBox = box.width > 0 && box.height > 0;
+    // Native intersection accounts for ancestor clipping, but not occlusion by other elements.
+    const clippedViewportRatio = await new Promise(resolve => {
+      const observer = new IntersectionObserver(([entry]) => { observer.disconnect(); resolve(entry.intersectionRatio); });
+      observer.observe(e);
+    });
+    return { hasLayoutBox, cssVisible: e.checkVisibility({ checkOpacity: true, checkVisibilityCSS: true }),
+      intersectsViewport: hasLayoutBox && box.right > 0 && box.bottom > 0 && box.left < innerWidth && box.top < innerHeight,
+      clippedViewportRatio };
   };
+  const [preview, actionBar, strikePanel, buttons] = await Promise.all([
+    presentation(r.aimParametersRuntime.root), presentation(document.querySelector('.strike-action-bar')),
+    presentation(document.querySelector('.strike-point-panel')),
+    Promise.all([...document.querySelectorAll('.strike-action-bar button')].map(async e => ({
+      action: e.dataset.action, pressed: e.getAttribute('aria-pressed'), bounds: e.getBoundingClientRect().toJSON(),
+      presentation: await presentation(e),
+    }))),
+  ]);
   return {
     selected: r.aimRuntime.selectedPieceId, phase: r.turnRuntime.phase,
     side: r.turnRuntime.currentSide, mode: r.inputRuntime.mode,
-    previewVisible: visible(r.aimParametersRuntime.root), redDot: r.aimParametersRuntime.redDot.visible,
-    actionBarVisible: visible(document.querySelector('.strike-action-bar')),
-    strikePanelVisible: visible(document.querySelector('.strike-point-panel')),
-    buttons: [...document.querySelectorAll('.strike-action-bar button')].filter(visible).map(e => ({
-      action: e.dataset.action, pressed: e.getAttribute('aria-pressed'), bounds: e.getBoundingClientRect().toJSON(),
-    })),
+    preview, actionBar, strikePanel, redDot: r.aimParametersRuntime.redDot.visible,
+    buttons: buttons.filter(b => b.presentation.cssVisible),
   };
 }

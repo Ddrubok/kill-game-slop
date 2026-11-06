@@ -1,0 +1,177 @@
+{
+  "browser": "151.0.7922.34",
+  "rows": [
+    {
+      "name": "normal",
+      "hasLayoutBox": true,
+      "cssVisible": true,
+      "intersectsViewport": true,
+      "clippedViewportRatio": 1,
+      "sampledPixels": [
+        [
+          0,
+          160,
+          0
+        ],
+        [
+          0,
+          160,
+          0
+        ]
+      ]
+    },
+    {
+      "name": "transparent",
+      "hasLayoutBox": true,
+      "cssVisible": false,
+      "intersectsViewport": true,
+      "clippedViewportRatio": 1,
+      "sampledPixels": [
+        [
+          255,
+          255,
+          255
+        ],
+        [
+          255,
+          255,
+          255
+        ]
+      ]
+    },
+    {
+      "name": "outside",
+      "hasLayoutBox": true,
+      "cssVisible": true,
+      "intersectsViewport": false,
+      "clippedViewportRatio": 0,
+      "sampledPixels": [
+        [
+          255,
+          255,
+          255
+        ],
+        [
+          255,
+          255,
+          255
+        ]
+      ]
+    },
+    {
+      "name": "parent-transparent",
+      "hasLayoutBox": true,
+      "cssVisible": false,
+      "intersectsViewport": true,
+      "clippedViewportRatio": 1,
+      "sampledPixels": [
+        [
+          255,
+          255,
+          255
+        ],
+        [
+          255,
+          255,
+          255
+        ]
+      ]
+    },
+    {
+      "name": "parent-hidden",
+      "hasLayoutBox": true,
+      "cssVisible": false,
+      "intersectsViewport": true,
+      "clippedViewportRatio": 1,
+      "sampledPixels": [
+        [
+          255,
+          255,
+          255
+        ],
+        [
+          255,
+          255,
+          255
+        ]
+      ]
+    },
+    {
+      "name": "parent-no-layout",
+      "hasLayoutBox": false,
+      "cssVisible": false,
+      "intersectsViewport": false,
+      "clippedViewportRatio": 0,
+      "sampledPixels": [
+        [
+          255,
+          255,
+          255
+        ],
+        [
+          255,
+          255,
+          255
+        ]
+      ]
+    },
+    {
+      "name": "partial-clip",
+      "hasLayoutBox": true,
+      "cssVisible": true,
+      "intersectsViewport": true,
+      "clippedViewportRatio": 0.5,
+      "sampledPixels": [
+        [
+          0,
+          160,
+          0
+        ],
+        [
+          255,
+          255,
+          255
+        ]
+      ]
+    },
+    {
+      "name": "full-clip",
+      "hasLayoutBox": true,
+      "cssVisible": true,
+      "intersectsViewport": true,
+      "clippedViewportRatio": 0,
+      "sampledPixels": [
+        [
+          255,
+          255,
+          255
+        ],
+        [
+          255,
+          255,
+          255
+        ]
+      ]
+    },
+    {
+      "name": "covered",
+      "hasLayoutBox": true,
+      "cssVisible": true,
+      "intersectsViewport": true,
+      "clippedViewportRatio": 1,
+      "sampledPixels": [
+        [
+          255,
+          255,
+          255
+        ],
+        [
+          255,
+          255,
+          255
+        ]
+      ]
+    }
+  ],
+  "scope": "Native DOM measurements and two fixture screenshot pixels. Covered elements deliberately retain CSS/intersection success; no universal visibility or operability claim."
+}

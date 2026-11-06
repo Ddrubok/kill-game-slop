@@ -33,7 +33,7 @@ const skill=path.join(root,'skills','kill-game-slop');
 const runtime=files.filter(f=>f.startsWith(skill+path.sep));
 assert.equal(runtime.length,9,'Installed package must remain the nine instruction/metadata/license files');
 assert.ok(runtime.every(f=>/\.(md|yaml)$/.test(f)||path.basename(f)==='LICENSE'),'Executable added to installed package');
-const snapshot=JSON.parse(await readFile(new URL('./security-quality-2026-11-06/snapshot.json',import.meta.url),'utf8'));
+const snapshot=JSON.parse(await readFile(new URL('./review-v2-2026-11-06/snapshot.json',import.meta.url),'utf8'));
 assert.deepEqual(Object.keys(snapshot.runtime_sha256_lf).sort(),runtime.map(f=>path.relative(skill,f).replaceAll('\\','/')).sort());
 for(const [file,expected] of Object.entries(snapshot.runtime_sha256_lf)) {
   const text=(await readFile(path.join(skill,file),'utf8')).replaceAll('\r\n','\n');
@@ -48,4 +48,12 @@ for(const [file,expected] of Object.entries(historical.files)) {
   if(!file.endsWith('.png'))bytes=Buffer.from(bytes.toString('utf8').replaceAll('\r\n','\n'));
   assert.equal(createHash('sha256').update(bytes).digest('hex'),expected,`Historical evidence changed: ${file}`);
 }
-console.log(JSON.stringify({status:'passed',json,localLinks:links,scripts,runtimeFiles:runtime.length,evidenceFiles:Object.keys(evidence).length,historicalFiles:Object.keys(historical.files).length,scope:'Static integrity only; external URLs/anchors and behavior are not checked'}));
+const archives={};
+for(const [name,directory,count] of [['Comparison','runs/2026-11-06-comparison-utf8/',74],['Review v2','review-v2-2026-11-06/',43]]) {
+  const base=new URL(directory,import.meta.url);
+  const hashes=JSON.parse(await readFile(new URL('artifact-sha256.json',base),'utf8'));
+  assert.equal(Object.keys(hashes).length,count,`${name} archive must retain all ${count} entries`);
+  for(const [file,expected] of Object.entries(hashes)) assert.equal(createHash('sha256').update(await readFile(new URL(file,base))).digest('hex'),expected,`${name} evidence changed: ${file}`);
+  archives[name]=Object.keys(hashes).length;
+}
+console.log(JSON.stringify({status:'passed',json,localLinks:links,scripts,runtimeFiles:runtime.length,evidenceFiles:Object.keys(evidence).length,historicalFiles:Object.keys(historical.files).length,archives,scope:'Static integrity only; external URLs/anchors and behavior are not checked'}));

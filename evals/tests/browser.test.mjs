@@ -6,7 +6,7 @@ import { readFile, mkdtemp, readdir } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import path from 'node:path';
 import { restrictedContext } from '../lib/browser-policy.mjs';
-import { screenshot, selectionState } from '../lib/evidence.mjs';
+import { screenshot, selectionState, writeJSON } from '../lib/evidence.mjs';
 import { requireTool, tooling } from '../lib/environment.mjs';
 
 async function listen(server, protocol = 'http') {
@@ -113,5 +113,43 @@ test('collector excludes dummy account/chat data; screenshots are exclusive writ
     await assert.rejects(screenshot(page,file), {code:'EEXIST'});
     assert.deepEqual(await readFile(file), before);
     assert.deepEqual(await readdir(out), ['capture.png']);
+  } finally { await browser.close(); }
+});
+
+test('presentation distinguishes CSS, viewport and clipping; occlusion still needs rendered evidence', async () => {
+  const { chromium } = requireTool('playwright');
+  const browser = await chromium.launch({ headless: true, ...(process.env.BROWSER_PATH ? { executablePath: process.env.BROWSER_PATH } : {}) });
+  const out = await mkdtemp(path.join(tmpdir(), 'kill-game-presentation-'));
+  const rows = [], green = [0,160,0], white = [255,255,255];
+  try {
+    const page = await browser.newPage({ viewport: { width: 200, height: 120 } });
+    for (const [name,parentStyle,style,cover,layout,css,inViewport,ratio,pixels] of [
+      ['normal','','',false,true,true,true,1,[green,green]],
+      ['transparent','','opacity:0',false,true,false,true,1,[white,white]],
+      ['outside','','transform:translateX(4000px)',false,true,true,false,0,[white,white]],
+      ['parent-transparent','opacity:0','',false,true,false,true,1,[white,white]],
+      ['parent-hidden','visibility:hidden','',false,true,false,true,1,[white,white]],
+      ['parent-no-layout','display:none','',false,false,false,false,0,[white,white]],
+      ['partial-clip','width:40px;overflow:hidden','',false,true,true,true,0.5,[green,white]],
+      ['full-clip','overflow:hidden','transform:translateX(100px)',false,true,true,true,0,[white,white]],
+      ['covered','','',true,true,true,true,1,[white,white]],
+    ]) {
+      await page.setContent(`<style>body{margin:0;background:white}#parent{position:absolute;left:20px;top:20px;width:80px;height:60px}#preview{width:80px;height:60px;background:rgb(0,160,0)}</style><div id="parent" style="${parentStyle}"><div id="preview" style="${style}"></div></div>${cover?'<div style="position:absolute;inset:0;background:white"></div>':''}`);
+      await page.evaluate(() => { globalThis.__presentationQA=()=>({aimRuntime:{selectedPieceId:'pawn'},turnRuntime:{phase:'ready',currentSide:'white'},inputRuntime:{mode:'aim'},aimParametersRuntime:{root:document.querySelector('#preview'),redDot:{visible:true}}}); });
+      const state = await page.evaluate(selectionState);
+      assert.deepEqual(state.preview,{hasLayoutBox:layout,cssVisible:css,intersectsViewport:inViewport,clippedViewportRatio:ratio},name);
+      const file=path.join(out,`${name}.png`);await screenshot(page,file);
+      const sampledPixels=await page.evaluate(data=>new Promise(resolve=>{
+        const img=new Image();img.onload=()=>{
+          const canvas=document.createElement('canvas');canvas.width=img.width;canvas.height=img.height;
+          const ctx=canvas.getContext('2d');ctx.drawImage(img,0,0);
+          resolve([[30,30],[90,70]].map(([x,y])=>[...ctx.getImageData(x,y,1,1).data].slice(0,3)));
+        };img.src='data:image/png;base64,'+data;
+      }),(await readFile(file)).toString('base64'));
+      assert.deepEqual(sampledPixels,pixels,name);
+      rows.push({name,...state.preview,sampledPixels});
+    }
+    await writeJSON(path.join(out,'results.json'),{browser:browser.version(),rows,scope:'Native DOM measurements and two fixture screenshot pixels. Covered elements deliberately retain CSS/intersection success; no universal visibility or operability claim.'});
+    console.log(`Presentation fixtures: ${out}`);
   } finally { await browser.close(); }
 });

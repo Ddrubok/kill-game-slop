@@ -10,7 +10,7 @@ npm test --prefix evals
 node evals/preflight.mjs tools
 ```
 
-The first command checks local Markdown targets (not external URLs or anchors), JSON, JavaScript syntax and the current runtime snapshot. Browser tests exercise exact origins, HTTP/HTTPS redirects, popup requests, WS/WSS, Service Worker registration, dummy-data exclusion, exclusive artifact writes and source/version drift. These are checker tests, not skill-effectiveness measurements. The localhost TLS certificate/private key under `tests/fixtures/` is a public test credential with no external use.
+The first command checks local Markdown targets (not external URLs or anchors), JSON, JavaScript syntax, the current runtime snapshot, historical evidence and the frozen comparison/review-v2 archive hashes. It never rewrites hashes; create a new record for a new run. Hashes detect accidental changes or loss, not an attacker who can rewrite both the evidence and manifest. Browser tests exercise exact origins, HTTP/HTTPS redirects, popup requests, WS/WSS, Service Worker registration, dummy-data exclusion, exclusive artifact writes, source/version drift and presentation measurements. These are checker tests, not skill-effectiveness measurements. The localhost TLS certificate/private key under `tests/fixtures/` is a public test credential with no external use.
 
 The common policy creates fresh contexts, blocks Service Workers and all WebSockets, fetches only the exact HTTP(S) origin with redirects disabled, and rejects every redirect. That intentionally disables Vite HMR. Denied records contain origins only; raw URL paths/queries, headers, bodies and exception messages are omitted. Playwright routing does not isolate Node, Vite, WebRTC, DNS, speculative TCP connections or the host. Use host isolation for untrusted executables. A browser can open a speculative TCP connection even if its HTTP request is subsequently blocked; do not label results `externalNetwork: blocked`.
 
@@ -34,6 +34,8 @@ node evals/real/chess-selection-2026-10-14/verify-in-game.mjs new-selection-run
 ```
 
 Promotion additionally checks its two historical fixture hashes against `source.json`; use the original source for `--expect-broken` and the supplied repair patch for the after variant. Selection starts its own loopback server; it no longer connects to an assumed port 5236. A missing getter/selector, changed fixture or startup failure is a failed/blocked rerun, not a new game diagnosis. New output directories are mandatory and both JSON/captures use exclusive writes. Keep failed runs for diagnosis. The selection collector retains state/button fields, uses a dummy guest and masks known account/chat regions; adapting it to a different scene requires reviewing its selectors and capture scope.
+
+`--expect-broken` now requires the exact duplicate/stale callback signature at both widths and the separate reduced-motion signature. Missing callbacks or unexpected choices fail. Selection records `hasLayoutBox`, `cssVisible` (including ancestor opacity/visibility), bounding-box `intersectsViewport`, and native `clippedViewportRatio` separately. These fields do not prove readability, occlusion or operability; review captures and the actual pointer/touch results. See the [v2 response and reruns](review-v2-2026-11-06/report.md).
 
 ## Agent comparison
 

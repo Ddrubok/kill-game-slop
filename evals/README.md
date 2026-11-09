@@ -2,13 +2,15 @@
 
 [한국어](README.ko.md)
 
+The [2026-11-09 real-game/routing pilot](runs/2026-11-09-real-routing/report.md) records eight fresh sessions, explicit image attachments, omissions and uncertain proposals, plus actual reference reads for copy/art/whole-game tasks. It separates new cosmetics material from the old promotion control. Selective reading worked in the observed runs; no accuracy or token-saving advantage was established. This is one game and provisional AI grading.
+
 For repeatable static/checker tests, pinned game preflight and frozen comparison input preparation, see [MAINTENANCE.md](MAINTENANCE.md). The [2026-11-06 report](security-quality-2026-11-06/report.md) separates actual browser/checker runs from unrun agent comparisons. Preparing packets does not run a reviewer.
 
 The [v2 review response](review-v2-2026-11-06/report.md) repairs archive validation, presentation measurements and expected-defect signatures, with new browser/game reruns. It does not add a new agent-effectiveness comparison.
 
 The [gameplay coherence set](gameplay-coherence-2026-11-05/README.md) adds action combinations, intended motion, interruption and contextual meaning. A [2026-11-06 three-condition comparison](runs/2026-11-06-comparison-utf8/report.md) reviews its C cases plus U/V and safety cases: all conditions met the 26 authored case criteria in one run each. The full skill used more tokens; no accuracy advantage was demonstrated. Earlier NOT RUN records remain historical.
 
-The [actual repair comparison](runs/2026-11-06-repair-comparison/report.md) measures four conditions × three fresh sessions on one real promotion component. All functional repairs passed after one disclosed visual adjudication; one current-skill trial wrote a temporary file outside its assigned directory before cleaning it up. Current-versus-previous full-skill total-token median fell 51.6%, while uncached-input median rose 21.2%. These are descriptive results, not proof of lower monetary cost, broad effectiveness or human preference.
+The [2026-11-06 version's repair comparison](runs/2026-11-06-repair-comparison/report.md) measures four conditions × three fresh sessions on one real promotion component. All functional repairs passed after one disclosed visual adjudication; one trial of that day's skill wrote a temporary file outside its assigned directory before cleaning it up. That version's full-skill total-token median fell 51.6% versus its predecessor, while uncached-input median rose 21.2%. These are historical descriptive results, not measurements of the latest skill or proof of lower monetary cost, broad effectiveness or human preference.
 
 The [2026-11-09 art/content revision](art-content-2026-11-09/README.md) adds conditional art/narrative checks and broad-review coverage. It preserves the supplied authored pilot separately from the Windows integration's 10/10 checker tests and fixture replay. Its nine favorable AI judgments are not a real-game or comparative effectiveness result. The installed skill now has eleven files; earlier package counts describe their historical versions.
 

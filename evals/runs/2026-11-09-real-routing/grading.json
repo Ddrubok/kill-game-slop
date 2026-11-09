@@ -1,0 +1,145 @@
+{
+  "graded_at": "2026-11-09T05:21:05.415841+00:00",
+  "grader": "Coordinating AI, not blind or independent human review",
+  "rubric_sha256": "56630e78bcabae92df2f4254697f2830d38954314f35e5a074a69b8159f8e64a",
+  "no_aggregate_accuracy_score": true,
+  "runs": [
+    {
+      "run": "art-generic",
+      "D1": "missed: historical record read but no defect reported",
+      "reported_control_subfacts": [],
+      "omitted_control_subfacts": [
+        "duplicate selection",
+        "obsolete callback",
+        "pending cue",
+        "reduced-motion animation"
+      ],
+      "N1": "not flagged; no explicit final-answer diagnosis",
+      "N2": "no forced palette unification; explicit preservation in brief/full",
+      "N3": "explicitly preserved",
+      "U1": "bounded to supplied source/stills; no audio/narrative claim",
+      "U2": "limited scope, no whole-game clearance",
+      "unproven_proposals": [
+        "badge motif/name mismatch asserted without established identity requirement",
+        "sync copy change proposed while actual save flow unavailable"
+      ],
+      "confirmed_false_positive_count": 0,
+      "false_positive_limit": "No independent gold truth for unproven proposals; zero confirmed does not mean zero actual errors."
+    },
+    {
+      "run": "art-brief",
+      "D1": "missed: historical record read but no defect reported",
+      "reported_control_subfacts": [],
+      "omitted_control_subfacts": [
+        "duplicate selection",
+        "obsolete callback",
+        "pending cue",
+        "reduced-motion animation"
+      ],
+      "N1": "not flagged; no explicit final-answer diagnosis",
+      "N2": "no forced palette unification; explicit preservation in brief/full",
+      "N3": "explicitly preserved",
+      "U1": "bounded to supplied source/stills; no audio/narrative claim",
+      "U2": "limited scope, no whole-game clearance",
+      "unproven_proposals": [],
+      "confirmed_false_positive_count": 0,
+      "false_positive_limit": "No independent gold truth for unproven proposals; zero confirmed does not mean zero actual errors."
+    },
+    {
+      "run": "art-full",
+      "D1": "missed: historical record read but no defect reported",
+      "reported_control_subfacts": [],
+      "omitted_control_subfacts": [
+        "duplicate selection",
+        "obsolete callback",
+        "pending cue",
+        "reduced-motion animation"
+      ],
+      "N1": "not flagged; no explicit final-answer diagnosis",
+      "N2": "no forced palette unification; explicit preservation in brief/full",
+      "N3": "explicitly preserved",
+      "U1": "bounded to supplied source/stills; no audio/narrative claim",
+      "U2": "limited scope, no whole-game clearance",
+      "unproven_proposals": [],
+      "confirmed_false_positive_count": 0,
+      "false_positive_limit": "No independent gold truth for unproven proposals; zero confirmed does not mean zero actual errors."
+    },
+    {
+      "run": "visual-recheck/art-generic",
+      "D1": "partial: feedback candidate, not an explicit historical contradiction",
+      "reported_control_subfacts": [
+        "pending cue (optional wording)"
+      ],
+      "omitted_control_subfacts": [
+        "duplicate selection",
+        "obsolete callback",
+        "reduced-motion animation"
+      ],
+      "N1": "not flagged; no explicit final-answer diagnosis",
+      "N2": "explicitly preserved",
+      "N3": "explicitly preserved",
+      "U1": "bounded to supplied source/stills",
+      "U2": "component and historical limitations disclosed",
+      "unproven_proposals": [],
+      "confirmed_false_positive_count": 0,
+      "false_positive_limit": "No independent gold truth; ambiguous title classification tracked separately, not declared correct."
+    },
+    {
+      "run": "visual-recheck/art-brief",
+      "D1": "met: duplicate Queen delivery recorded as historical; present-game status remains unknown",
+      "reported_control_subfacts": [
+        "duplicate selection"
+      ],
+      "omitted_control_subfacts": [
+        "obsolete callback",
+        "pending cue",
+        "reduced-motion animation"
+      ],
+      "N1": "not flagged; no explicit final-answer diagnosis",
+      "N2": "explicitly preserved",
+      "N3": "explicitly preserved",
+      "U1": "bounded to supplied source/stills",
+      "U2": "component and historical limitations disclosed",
+      "unproven_proposals": [],
+      "confirmed_false_positive_count": 0,
+      "false_positive_limit": "No independent gold truth; ambiguous title classification tracked separately, not declared correct."
+    },
+    {
+      "run": "visual-recheck/art-full",
+      "D1": "met: historical duplicate and post-replacement cases mentioned; no new-reproduction claim",
+      "reported_control_subfacts": [
+        "duplicate selection",
+        "obsolete callback"
+      ],
+      "omitted_control_subfacts": [
+        "pending cue",
+        "reduced-motion animation"
+      ],
+      "N1": "not flagged; no explicit final-answer diagnosis",
+      "N2": "explicitly preserved",
+      "N3": "explicitly preserved",
+      "U1": "bounded to supplied source/stills",
+      "U2": "component and historical limitations disclosed",
+      "unproven_proposals": [],
+      "confirmed_false_positive_count": 0,
+      "false_positive_limit": "No independent gold truth; ambiguous title classification tracked separately, not declared correct."
+    },
+    {
+      "run": "copy-full",
+      "judgment": "Exact requested English string change confirmed by collector; all other normalized text identical; no extra reviewed-root files."
+    },
+    {
+      "run": "whole-full",
+      "judgment": "Historical duplicate/obsolete callback defect reported. Coverage limited; absent narrative/audio/late-game/player evidence disclosed. Responsive title difference kept unresolved. Domain rows grouped; not an independent ten-domain or whole-game clearance."
+    }
+  ],
+  "outside_rubric": {
+    "title_visibility": {
+      "observation": "Actual CSS and captures hide equipped title at 380px, show it at 960px.",
+      "judgment": "Hypothesis: contradiction with intended responsive behavior or actual settings promise is not established. Some full/generic outputs overstate confirmation.",
+      "counted_as_new_success": false
+    },
+    "scope_confound": "Art task emphasizes current presentation, historical control is not explicitly a mandatory scene checklist. Misses are recorded, not generalized into a recall ranking.",
+    "image_evidence": "Initial traces lack image-view events. Recheck supplies all four images through frozen CLI wrapper flags; groups are not pooled."
+  }
+}

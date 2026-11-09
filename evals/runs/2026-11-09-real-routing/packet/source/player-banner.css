@@ -1,0 +1,228 @@
+/* ==========================================================================
+   플레이어 배너 스타일 (Player Banner CSS)
+   - 6슬롯 코스메틱 완벽 통합
+   - 친구 추가 버튼 오버랩 방지 및 모바일 반응형
+   ========================================================================== */
+
+.player-banners {
+  position: absolute;
+  inset: 0;
+  z-index: 9;
+  pointer-events: none;
+  user-select: none;
+}
+.player-banners[hidden] {
+  display: none;
+}
+
+.player-banner {
+  --banner-ink: #302418;
+  --banner-accent: #795520;
+  --banner-bg: #eee2c9;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  width: min(330px, calc(100vw - 28px));
+  aspect-ratio: 3 / 1;
+  box-sizing: border-box;
+  color: var(--banner-ink);
+  border: 0;
+  border-radius: 6px;
+  pointer-events: none;
+  container-type: inline-size;
+}
+
+/* A confirmed loss, not a win cue; no layout shift or flashing animation. */
+.player-banner.piece-loss { outline: 2px solid #d9ad6b; outline-offset: -2px; }
+
+/* 6개 기본 테마별 설정 */
+.player-banner[data-theme="slate"] {
+  --banner-ink: #172c43;
+  --banner-accent: #35506e;
+  --banner-bg: #dce5f0;
+}
+.player-banner[data-theme="forest"] {
+  --banner-ink: #25351e;
+  --banner-accent: #3d542d;
+  --banner-bg: #e1e7cb;
+}
+.player-banner[data-theme="banner_cosmic_knight"] {
+  --banner-ink: #f8fafc;
+  --banner-accent: #818cf8;
+  --banner-bg: #0f172a;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.85);
+}
+.player-banner[data-theme="banner_crimson_sun"] {
+  --banner-ink: #fff1f2;
+  --banner-accent: #fb7185;
+  --banner-bg: #1c1917;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.85);
+}
+.player-banner[data-theme="banner_hidden_myeongnyang"] {
+  --banner-ink: #f0fdfa;
+  --banner-accent: #2dd4bf;
+  --banner-bg: #042f2e;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.85);
+}
+.player-banner[data-theme="plain"] {
+  --banner-ink: #f1f5f9;
+  --banner-accent: #94a3b8;
+  --banner-bg: #273344;
+}
+
+/* 위치 지정 */
+.player-banner[data-owner="opponent"] {
+  top: 54px;
+  left: 14px;
+}
+.player-banner[data-owner="self"] {
+  bottom: calc(14px + env(safe-area-inset-bottom, 0px));
+  right: 14px;
+}
+
+/* 기물 엠블럼 (접근성 및 스크린리더용) */
+.player-banner-emblem {
+  display: none;
+}
+
+/* 친구 추가 버튼 (우측 상단/우측단 오버랩 방지) */
+.player-banner-add {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  pointer-events: auto;
+  flex-shrink: 0;
+  width: 38px;
+  height: 38px;
+  padding: 0;
+  border: 1px solid var(--banner-accent);
+  border-radius: 6px;
+  background: var(--banner-bg);
+  color: var(--banner-ink);
+  font-size: 22px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.25);
+  transition: transform 0.1s ease, background-color 0.15s ease;
+}
+.player-banner-add:hover:not(:disabled) {
+  transform: translateY(-50%) scale(1.05);
+}
+.player-banner-add[hidden] {
+  display: none !important;
+}
+.player-banner-add:disabled {
+  cursor: default;
+  opacity: 0.7;
+}
+.player-banner-add:focus-visible {
+  outline: 2px solid var(--banner-ink);
+  outline-offset: 2px;
+}
+
+/* 친구 추가 버튼이 활성화된 경우 텍스트 영역 우측 패딩 확보 (오버랩 완벽 방지) */
+.player-banner[data-owner="opponent"]:has(.player-banner-add:not([hidden])) .player-banner-text {
+  right: 52px;
+}
+
+/* 상태 메시지 말풍선 */
+.player-banner-status {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  margin: 5px 0 0;
+  max-width: 100%;
+  padding: 8px;
+  background: var(--banner-bg);
+  color: var(--banner-ink);
+  border: 1px solid var(--banner-accent);
+  border-radius: 6px;
+  font-size: 12px;
+  line-height: 1.4;
+  pointer-events: none;
+  z-index: 11;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+.player-banner-status[hidden] {
+  display: none !important;
+}
+
+/* 모바일 및 화면 크기별 브레이크포인트 */
+@media (max-width: 600px) {
+  .player-banner {
+    width: min(270px, calc(100vw - 20px));
+  }
+  .player-banner[data-owner="opponent"] {
+    top: 50px;
+    left: 10px;
+  }
+  .player-banner[data-owner="self"] {
+    bottom: calc(10px + env(safe-area-inset-bottom, 0px));
+    right: 10px;
+  }
+  .player-banner-name {
+    font-size: 14px;
+  }
+  .player-banner-detail {
+    font-size: 11.5px;
+  }
+  .player-banner-add {
+    width: 32px;
+    height: 32px;
+    font-size: 18px;
+    right: 6px;
+  }
+  .player-banner[data-owner="opponent"]:has(.player-banner-add:not([hidden])) .player-banner-text {
+    right: 42px;
+  }
+}
+
+@media (max-width: 1050px) {
+  .player-banners:not([hidden]) ~ .turn-hud-container > .mastery-hud-objective {
+    position: absolute;
+    top: 145px;
+    width: max-content;
+  }
+}
+
+/* 저높이 가로 화면 대응 */
+@media (orientation: landscape) and (max-height: 500px) {
+  .player-banner {
+    width: 210px;
+    aspect-ratio: 3 / 1;
+  }
+  .player-banner-name {
+    font-size: 13px;
+  }
+  .player-banner-detail {
+    font-size: 11px;
+  }
+  .player-banner-add {
+    width: 30px;
+    height: 30px;
+    font-size: 16px;
+    right: 4px;
+  }
+  .player-banner[data-owner="opponent"]:has(.player-banner-add:not([hidden])) .player-banner-text {
+    right: 38px;
+  }
+}
+
+@media (max-width: 380px) and (orientation: portrait) {
+  .player-banner[data-owner="opponent"] {
+    top: 92px;
+  }
+}
+
+@media (orientation: landscape) and (max-height: 500px) and (max-width: 740px) {
+  .player-banner {
+    width: 180px;
+  }
+  .player-banner[data-owner="self"] {
+    bottom: calc(4px + env(safe-area-inset-bottom, 0px));
+  }
+}

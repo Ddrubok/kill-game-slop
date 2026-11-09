@@ -1,0 +1,53 @@
+{
+  "source": "Actual CLI turn.completed usage; elapsed includes runner startup and concurrent scheduling. No prices inferred.",
+  "runs": [
+    {
+      "id": "art-generic",
+      "task": "art",
+      "condition": "generic",
+      "input_tokens": 129276,
+      "cached_input_tokens": 82048,
+      "output_tokens": 2017,
+      "uncached_input_tokens": 47228,
+      "total_tokens": 131293,
+      "elapsed_seconds": 49.54700000000048,
+      "completed_turns": 1,
+      "command_count": 17,
+      "copy_exact_change": null,
+      "changed_inputs": {},
+      "new_files_in_reviewed_roots": []
+    },
+    {
+      "id": "art-brief",
+      "task": "art",
+      "condition": "brief",
+      "input_tokens": 158209,
+      "cached_input_tokens": 126080,
+      "output_tokens": 2154,
+      "uncached_input_tokens": 32129,
+      "total_tokens": 160363,
+      "elapsed_seconds": 55.60900000000038,
+      "completed_turns": 1,
+      "command_count": 18,
+      "copy_exact_change": null,
+      "changed_inputs": {},
+      "new_files_in_reviewed_roots": []
+    },
+    {
+      "id": "art-full",
+      "task": "art",
+      "condition": "full",
+      "input_tokens": 165742,
+      "cached_input_tokens": 133120,
+      "output_tokens": 2919,
+      "uncached_input_tokens": 32622,
+      "total_tokens": 168661,
+      "elapsed_seconds": 73.42200000000048,
+      "completed_turns": 1,
+      "command_count": 19,
+      "copy_exact_change": null,
+      "changed_inputs": {},
+      "new_files_in_reviewed_roots": []
+    }
+  ]
+}

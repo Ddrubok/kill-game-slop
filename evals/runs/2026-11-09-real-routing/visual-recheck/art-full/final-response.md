@@ -1,0 +1,11 @@
+I’ll read the local prompt and packet instructions, then measure the supplied screenshots and routing artifacts within this Git root.
+
+The packet separates new cosmetics captures from older promotion observations. I’ll use the new captures for the fresh comparison and treat promotion as a limited historical reference.
+
+제공된 자료만 검토했으며 파일은 수정하지 않았습니다.
+
+**확인된 표시 불일치 — 칭호가 작은 화면에서 사라집니다.** 새 화장품 캡처에서 같은 `Explorer` 칭호가 [960px 화면](<C:/Users/DooBokWie/orca/projects/Default/skill-releases/github-sync-20261102/kill-game-slop/.orca/real-routing-images-20261109/art-full/packet/cosmetics/cosmetics-960.png>)에는 표시되고 [380px 화면](<C:/Users/DooBokWie/orca/projects/Default/skill-releases/github-sync-20261102/kill-game-slop/.orca/real-routing-images-20261109/art-full/packet/cosmetics/cosmetics-380.png>)에는 표시되지 않습니다. [관찰 기록](<C:/Users/DooBokWie/orca/projects/Default/skill-releases/github-sync-20261102/kill-game-slop/.orca/real-routing-images-20261109/art-full/packet/cosmetics/observations.json>)도 두 테마에서 각각 `block`과 `none`을 기록합니다. 원인은 [CSS의 380px 이하 숨김 규칙](<C:/Users/DooBokWie/orca/projects/Default/skill-releases/github-sync-20261102/kill-game-slop/.orca/real-routing-images-20261109/art-full/packet/source/cosmetics-view.css:336>)으로 확인됩니다. 9개 언어의 실제 문구는 모두 칭호를 닉네임 아래에 표시되는 항목으로 설명하므로, 작은 화면에서도 읽을 수 있게 배치할 여지를 검토할 만합니다. 수정한다면 380px에서 이름·상세·칭호가 함께 보이는지 다시 캡처해야 합니다.
+
+**유지할 표현 — 빈 슬롯 처리와 테마 구분.** 칭호와 배지가 없는 샘플에서는 해당 장식도 숨겨집니다. [표시 코드](<C:/Users/DooBokWie/orca/projects/Default/skill-releases/github-sync-20261102/kill-game-slop/.orca/real-routing-images-20261109/art-full/packet/source/cosmetics-view.ts:227>)의 슬롯 조건과 캡처가 일치합니다. 클래식과 우주 테마도 같은 배지·프레임을 공유하면서 배경과 글자색을 구분해 보여줍니다. 이 범위에서 추가로 확인된 아트 불일치는 없습니다.
+
+프로모션 자료는 **2026-11-05의 과거 관찰**입니다. [기록](<C:/Users/DooBokWie/orca/projects/Default/skill-releases/github-sync-20261102/kill-game-slop/.orca/real-routing-images-20261109/art-full/packet/promotion/observations.json>)에 중복 선택 및 교체 후 콜백 사례가 있지만, 이번에 재현하거나 새 결함으로 판정하지 않았습니다. 게임 실행, 자연 대국, 다른 화면 크기·언어의 시각 확인, 모션·오디오는 검토 범위 밖입니다.

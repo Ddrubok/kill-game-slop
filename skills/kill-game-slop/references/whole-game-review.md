@@ -6,6 +6,8 @@ Use only when the user requests a broad game/slop review. For a local HUD, text 
 
 Record the intended experience, audience, current build and available evidence. Follow an actual core loop from entry through a meaningful action/decision, outcome and return. Where progression matters, sample contrasting early/later situations and explain why they were selected. Do not impose a universal session length, number of choices or content quota. Missing late-game access remains a coverage gap, not a failed check.
 
+For large rosters, card pools or catalogs, group by relevant character/family, role, rarity, state and display context. Choose representatives and exceptions that expose different decisions or presentation risks, reusing samples across domains. Record selection reasons and excluded groups, branches and progression ranges. A few normal samples cannot clear the remainder; expand the sample when a finding suggests a shared cause.
+
 Use only relevant references already linked from SKILL.md. Cover these domains briefly; one line per domain is enough, and genuinely inapplicable domains need no invented test:
 
 | Domain | Question |

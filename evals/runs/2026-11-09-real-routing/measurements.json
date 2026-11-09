@@ -1,0 +1,87 @@
+{
+  "source": "Actual CLI turn.completed usage; elapsed includes runner startup and concurrent scheduling. No prices inferred.",
+  "runs": [
+    {
+      "id": "art-generic",
+      "task": "art",
+      "condition": "generic",
+      "input_tokens": 285239,
+      "cached_input_tokens": 243456,
+      "output_tokens": 2486,
+      "uncached_input_tokens": 41783,
+      "total_tokens": 287725,
+      "elapsed_seconds": 71.61000000000058,
+      "completed_turns": 1,
+      "command_count": 18,
+      "copy_exact_change": null,
+      "changed_inputs": {},
+      "new_files_in_reviewed_roots": []
+    },
+    {
+      "id": "art-brief",
+      "task": "art",
+      "condition": "brief",
+      "input_tokens": 183395,
+      "cached_input_tokens": 157184,
+      "output_tokens": 2356,
+      "uncached_input_tokens": 26211,
+      "total_tokens": 185751,
+      "elapsed_seconds": 68.53100000000086,
+      "completed_turns": 1,
+      "command_count": 15,
+      "copy_exact_change": null,
+      "changed_inputs": {},
+      "new_files_in_reviewed_roots": []
+    },
+    {
+      "id": "art-full",
+      "task": "art",
+      "condition": "full",
+      "input_tokens": 326746,
+      "cached_input_tokens": 286976,
+      "output_tokens": 2856,
+      "uncached_input_tokens": 39770,
+      "total_tokens": 329602,
+      "elapsed_seconds": 79.125,
+      "completed_turns": 1,
+      "command_count": 20,
+      "copy_exact_change": null,
+      "changed_inputs": {},
+      "new_files_in_reviewed_roots": []
+    },
+    {
+      "id": "copy-full",
+      "task": "copy",
+      "condition": "full",
+      "input_tokens": 90978,
+      "cached_input_tokens": 82560,
+      "output_tokens": 1496,
+      "uncached_input_tokens": 8418,
+      "total_tokens": 92474,
+      "elapsed_seconds": 45.48400000000038,
+      "completed_turns": 1,
+      "command_count": 7,
+      "copy_exact_change": true,
+      "changed_inputs": {
+        "packet/source/ui-polish-copy.ts": "aa70744d8a23c98f0537488a26a0f8c5d1381fd621a18c9d6fbd9afeb806222a"
+      },
+      "new_files_in_reviewed_roots": []
+    },
+    {
+      "id": "whole-full",
+      "task": "whole",
+      "condition": "full",
+      "input_tokens": 391589,
+      "cached_input_tokens": 347136,
+      "output_tokens": 3960,
+      "uncached_input_tokens": 44453,
+      "total_tokens": 395549,
+      "elapsed_seconds": 102.64099999999962,
+      "completed_turns": 1,
+      "command_count": 24,
+      "copy_exact_change": null,
+      "changed_inputs": {},
+      "new_files_in_reviewed_roots": []
+    }
+  ]
+}

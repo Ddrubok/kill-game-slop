@@ -8,6 +8,8 @@ Identify the relevant character/item/event IDs, build, equipped variants, progre
 
 Compare a small relevant set: for example, the same character in portrait/play/result views, or several items sharing a role. Inspect the displayed composition and target scale before enlarging details. Keep unexplored assets unreviewed; do not extend one sample to the whole catalog. Existing screenshots, contact sheets and clips are sufficient—do not introduce an asset pipeline merely to audit.
 
+For a large catalog, group by relevant entity/family, role, rarity, state/variant and display context. Select representatives plus exceptions such as a transformation, unusual silhouette, long localized name or a reported outlier; explain which contrasts each sample covers. Reuse overlapping samples rather than impose a fixed count. Record excluded groups/states and expand only when a finding or unresolved contrast warrants it.
+
 ## Inspect relationships, not fashionable styles
 
 | Relationship | Evidence to inspect | Legitimate variation to preserve |

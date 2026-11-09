@@ -1,0 +1,354 @@
+/* ==========================================================================
+   인게임 6슬롯 코스메틱 뷰 스타일 (Cosmetics View CSS)
+   ========================================================================== */
+
+/* 1. 배너 카드 기본 규격 및 격리 */
+.player-banner, .pb-card {
+  --banner-ink: #302418;
+  --banner-accent: #795520;
+  --banner-bg: #eee2c9;
+  --frame-gold-edge: #b58a41;
+  --frame-gold-shine: #f4d890;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  width: min(330px, calc(100vw - 28px));
+  aspect-ratio: 3 / 1;
+  container-type: inline-size;
+  isolation: isolate;
+  border-radius: 6px;
+  overflow: visible;
+  user-select: none;
+  pointer-events: none;
+  box-sizing: border-box;
+  padding: 0;
+  background: transparent;
+}
+
+/* 2. 배경 레이어 (3:1 비율) */
+.pb-layer-background {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  border-radius: 6px;
+  overflow: hidden;
+  background-color: var(--banner-bg);
+  background-position: center;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  transition: inset 0.15s ease, border-radius 0.15s ease;
+}
+
+/* 텍스트와 배지의 가독성을 위한 우아한 그라디언트 오버레이 */
+.pb-layer-background::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(232, 218, 190, 0.45) 0%, rgba(239, 226, 202, 0.7) 26%, rgba(244, 235, 218, 0.8) 50%, rgba(244, 235, 218, 0.5) 100%);
+  pointer-events: none;
+}
+
+/* 6개 기본 테마별 배경색 및 오버레이 */
+.player-banner[data-theme="slate"] .pb-layer-background,
+.pb-card[data-theme="slate"] .pb-layer-background {
+  --banner-ink: #172c43;
+  --banner-accent: #35506e;
+  --banner-bg: #dce5f0;
+}
+.player-banner[data-theme="slate"] .pb-layer-background::after,
+.pb-card[data-theme="slate"] .pb-layer-background::after {
+  background: linear-gradient(90deg, rgba(220, 229, 240, 0.4) 0%, rgba(220, 229, 240, 0.7) 35%, rgba(220, 229, 240, 0.45) 100%);
+}
+
+.player-banner[data-theme="forest"] .pb-layer-background,
+.pb-card[data-theme="forest"] .pb-layer-background {
+  --banner-ink: #25351e;
+  --banner-accent: #3d542d;
+  --banner-bg: #e1e7cb;
+}
+.player-banner[data-theme="forest"] .pb-layer-background::after,
+.pb-card[data-theme="forest"] .pb-layer-background::after {
+  background: linear-gradient(90deg, rgba(225, 231, 203, 0.4) 0%, rgba(225, 231, 203, 0.7) 35%, rgba(225, 231, 203, 0.45) 100%);
+}
+
+.player-banner[data-theme="banner_cosmic_knight"] .pb-layer-background,
+.pb-card[data-theme="banner_cosmic_knight"] .pb-layer-background {
+  --banner-ink: #f8fafc;
+  --banner-accent: #818cf8;
+  --banner-bg: #0f172a;
+}
+.player-banner[data-theme="banner_cosmic_knight"] .pb-layer-background::after,
+.pb-card[data-theme="banner_cosmic_knight"] .pb-layer-background::after {
+  background: linear-gradient(90deg, rgba(15, 23, 42, 0.5) 0%, rgba(15, 23, 42, 0.75) 40%, rgba(15, 23, 42, 0.4) 100%);
+}
+
+.player-banner[data-theme="banner_crimson_sun"] .pb-layer-background,
+.pb-card[data-theme="banner_crimson_sun"] .pb-layer-background {
+  --banner-ink: #fff1f2;
+  --banner-accent: #fb7185;
+  --banner-bg: #1c1917;
+}
+.player-banner[data-theme="banner_crimson_sun"] .pb-layer-background::after,
+.pb-card[data-theme="banner_crimson_sun"] .pb-layer-background::after {
+  background: linear-gradient(90deg, rgba(28, 25, 23, 0.5) 0%, rgba(28, 25, 23, 0.75) 40%, rgba(28, 25, 23, 0.4) 100%);
+}
+
+.player-banner[data-theme="banner_hidden_myeongnyang"] .pb-layer-background,
+.pb-card[data-theme="banner_hidden_myeongnyang"] .pb-layer-background {
+  --banner-ink: #f0fdfa;
+  --banner-accent: #2dd4bf;
+  --banner-bg: #042f2e;
+}
+.player-banner[data-theme="banner_hidden_myeongnyang"] .pb-layer-background::after,
+.pb-card[data-theme="banner_hidden_myeongnyang"] .pb-layer-background::after {
+  background: linear-gradient(90deg, rgba(4, 47, 46, 0.5) 0%, rgba(4, 47, 46, 0.75) 40%, rgba(4, 47, 46, 0.4) 100%);
+}
+
+.player-banner[data-theme="plain"],
+.pb-card[data-theme="plain"] {
+  --banner-ink: #f1f5f9;
+  --banner-accent: #94a3b8;
+  --banner-bg: #273344;
+}
+.player-banner[data-theme="plain"] .pb-layer-background,
+.pb-card[data-theme="plain"] .pb-layer-background {
+  background-image: none !important;
+  background-color: #273344;
+}
+.player-banner[data-theme="plain"] .pb-layer-background::after,
+.pb-card[data-theme="plain"] .pb-layer-background::after {
+  display: none;
+}
+
+/* 3. 배경 프레임 레이어 (외곽 테두리 & 황금 레일) */
+.pb-layer-frame {
+  position: absolute;
+  inset: 0;
+  z-index: 4;
+  overflow: visible;
+  pointer-events: none;
+}
+.pb-frame-img {
+  position: absolute;
+  left: -1%;
+  top: -24%;
+  width: 102%;
+  height: 160%;
+  object-fit: fill;
+  pointer-events: none;
+  display: block;
+}
+.pb-frame-fallback {
+  position: absolute;
+  inset: 0;
+  border: 2px solid var(--frame-gold-edge);
+  border-radius: 6px;
+  display: none;
+  box-shadow: inset 0 0 4px rgba(212, 175, 55, 0.4);
+}
+
+/* 프레임이 활성화되었을 때 배경을 황금 레일 안쪽으로 축소 맞춤 */
+.player-banner[data-has-frame="true"] .pb-layer-background,
+.pb-card[data-has-frame="true"] .pb-layer-background {
+  inset: 8% 5% 6%;
+  border-radius: 2px;
+}
+
+/* 숙련도 올클리어 골드 프레임 효과 */
+.player-banner[data-frame-style="mastery-complete"] .pb-frame-img,
+.pb-card[data-frame-style="mastery-complete"] .pb-frame-img {
+  filter: drop-shadow(0 0 6px rgba(244, 216, 144, 0.65)) brightness(1.08);
+}
+
+/* 4. 배지 레이어 (좌측 독립 구획) */
+.pb-layer-badge,
+.pb-layer-badgeframe {
+  position: absolute;
+  left: 12%;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 15%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  box-sizing: border-box;
+}
+
+.pb-layer-badge {
+  z-index: 2;
+  background: #382816;
+  padding: 3px;
+  display: grid;
+  place-items: center;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.35);
+  overflow: hidden;
+}
+
+.pb-badge-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.pb-badge-glyph {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  font-size: 18px;
+  line-height: 1;
+  color: #ffe7a3;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.8);
+}
+
+.pb-badge-fallback-svg {
+  width: 80%;
+  height: 80%;
+  display: none;
+}
+
+/* 5. 배지 프레임 (CSS 네이티브 링) */
+.pb-layer-badgeframe {
+  z-index: 3;
+  pointer-events: none;
+  border: 2px solid var(--frame-gold-edge);
+  outline: 1px solid var(--frame-gold-shine);
+  outline-offset: 1px;
+}
+.pb-layer-badgeframe[data-frame="silver"] {
+  border-color: #a4b8cf;
+  outline-color: #eef5ff;
+}
+.pb-layer-badgeframe[data-frame="violet"] {
+  border-color: #b986d7;
+  outline-color: #f1d9ff;
+}
+
+/* 6. 텍스트 및 정보 콘텐츠 (우측 영역, 3단 위계) */
+.pb-layer-content,
+.player-banner-text {
+  position: absolute;
+  left: 32%;
+  right: 14%;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  min-width: 0;
+  z-index: 3;
+  color: var(--banner-ink);
+  pointer-events: none;
+}
+
+/* 배지가 숨겨졌을 때 텍스트 영역 좌측 여백 확장 */
+.player-banner[data-badge-visible="false"] .player-banner-text,
+.pb-card[data-badge-visible="false"] .pb-layer-content {
+  left: 14%;
+}
+
+/* 1위계: 닉네임 (가장 강조) */
+.pb-name,
+.player-banner-name {
+  font-size: 16px;
+  line-height: 1.25;
+  font-weight: 800;
+  color: var(--banner-ink);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* 2위계: 티어 (중간 크기, 부차적 정보) */
+.pb-tier,
+.player-banner-detail {
+  font-size: 12px;
+  line-height: 1.25;
+  font-weight: 600;
+  color: var(--banner-ink);
+  opacity: 0.88;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* 3위계: 칭호 (단독 장식 플레이트) */
+.pb-title-plate {
+  --title-edge: #bc904a;
+  --title-ink: #ffe6b2;
+  --title-fill: #322316;
+  font-size: 11px;
+  line-height: 1.2;
+  font-weight: 600;
+  color: var(--banner-accent);
+  padding: 1px 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+  display: inline-block;
+}
+
+/* 칭호 프레임 스타일링 (CSS-native) */
+.pb-title-plate[data-frame]:not([data-frame="none"]):not([data-frame=""]) {
+  color: var(--title-ink);
+  background: var(--title-fill);
+  border: 1px solid var(--title-edge);
+  border-radius: 3px;
+  box-shadow: inset 0 0 0 1px var(--title-fill), inset 0 0 0 2px color-mix(in srgb, var(--title-edge) 45%, transparent);
+  padding: 2px 7px;
+  width: fit-content;
+}
+
+.pb-title-plate[data-frame="silver"] {
+  --title-edge: #a4b8cf;
+  --title-ink: #eef5ff;
+  --title-fill: #1d2c40;
+}
+
+.pb-title-plate[data-frame="violet"] {
+  --title-edge: #b986d7;
+  --title-ink: #f1d9ff;
+  --title-fill: #321c45;
+}
+
+/* 활성 턴 인디케이터 */
+.player-banner[data-active="true"] .player-banner-text {
+  border-bottom: 2px solid var(--banner-accent);
+}
+
+/* 숨김 처리 */
+.pb-layer-frame[hidden],
+.pb-layer-badge[hidden],
+.pb-layer-badgeframe[hidden],
+.pb-title-plate[hidden] {
+  display: none !important;
+}
+
+/* 7. 소형 화면 및 반응형 대응 (폭 280px 이하 칭호 숨김) */
+@container (max-width: 280px) {
+  .pb-name, .player-banner-name { font-size: 14px; }
+  .pb-tier, .player-banner-detail { font-size: 11.5px; }
+  .pb-title-plate { display: none !important; }
+}
+
+@media (max-width: 380px) {
+  .pb-title-plate { display: none !important; }
+}
+
+/* 저높이 가로 화면 대응 */
+@media (orientation: landscape) and (max-height: 500px) {
+  .player-banner, .pb-card {
+    width: 210px;
+    padding: 0;
+  }
+  .pb-name, .player-banner-name { font-size: 13px; }
+  .pb-tier, .player-banner-detail { font-size: 11px; }
+  .pb-title-plate { display: none !important; }
+  .pb-layer-content, .player-banner-text { gap: 2px; }
+}
+
+/* Keep decorative pixels within the card and preserve readable vertical spacing. */
+.pb-layer-frame { overflow:hidden; border-radius:6px; }
+.pb-layer-content, .player-banner-text { gap:6px; }

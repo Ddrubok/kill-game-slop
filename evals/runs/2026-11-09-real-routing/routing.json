@@ -1,0 +1,116 @@
+{
+  "scope": "Observed explicit read commands; excludes enumeration, final-answer self-report and hidden host context. Initial image-opening events absent; separate recheck attaches image inputs.",
+  "runs": [
+    {
+      "run": "copy-full",
+      "trace": "worker-stdout.jsonl",
+      "reads": [
+        {
+          "file": "skill/SKILL.md",
+          "event": "item_3",
+          "exit_code": 0,
+          "truncated": false
+        },
+        {
+          "file": "skill/references/presentation-checks.md",
+          "event": "item_6",
+          "exit_code": 0,
+          "truncated": false
+        }
+      ],
+      "failed_commands": []
+    },
+    {
+      "run": "art-full",
+      "trace": "worker-stdout.jsonl",
+      "reads": [
+        {
+          "file": "skill/SKILL.md",
+          "event": "item_6",
+          "exit_code": 0,
+          "truncated": false
+        },
+        {
+          "file": "skill/references/art-content-coherence.md",
+          "event": "item_8",
+          "exit_code": 0,
+          "truncated": false
+        },
+        {
+          "file": "skill/references/presentation-checks.md",
+          "event": "item_7",
+          "exit_code": 0,
+          "truncated": false
+        }
+      ],
+      "failed_commands": [
+        "item_20"
+      ]
+    },
+    {
+      "run": "whole-full",
+      "trace": "worker-stdout.jsonl",
+      "reads": [
+        {
+          "file": "skill/SKILL.md",
+          "event": "item_5",
+          "exit_code": 0,
+          "truncated": false
+        },
+        {
+          "file": "skill/references/whole-game-review.md",
+          "event": "item_8",
+          "exit_code": 0,
+          "truncated": false
+        },
+        {
+          "file": "skill/references/presentation-checks.md",
+          "event": "item_9",
+          "exit_code": 0,
+          "truncated": false
+        },
+        {
+          "file": "skill/references/art-content-coherence.md",
+          "event": "item_10",
+          "exit_code": 0,
+          "truncated": false
+        },
+        {
+          "file": "skill/references/gameplay-coherence.md",
+          "event": "item_12",
+          "exit_code": 0,
+          "truncated": false
+        }
+      ],
+      "failed_commands": []
+    },
+    {
+      "run": "visual-recheck/art-full",
+      "trace": "worker-stdout.jsonl",
+      "reads": [
+        {
+          "file": "skill/SKILL.md",
+          "event": "item_6",
+          "exit_code": 0,
+          "truncated": false
+        },
+        {
+          "file": "skill/references/art-content-coherence.md",
+          "event": "item_11",
+          "exit_code": 0,
+          "truncated": false
+        },
+        {
+          "file": "skill/references/presentation-checks.md",
+          "event": "item_12",
+          "exit_code": 0,
+          "truncated": false
+        }
+      ],
+      "failed_commands": [
+        "item_15"
+      ]
+    }
+  ],
+  "entrypoint_whitespace_words": 1397
+}

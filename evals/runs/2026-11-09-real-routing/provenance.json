@@ -1,0 +1,18 @@
+{
+  "repository": "Ddrubok/ChessAlkkkaegi",
+  "commit": "974cb39bcc716815aee79117f4f710b367454050",
+  "new_samples": "cosmetic cards, effective unlock copy, theme/state variants",
+  "previously_reviewed_control": "promotion 2026-11-05; not a novel defect",
+  "transformation": "Historical promotion results copied with only fixed verdict removed. Source files copied unchanged. Cosmetics captures use actual modules/CSS and injected loadouts/minimal host markup.",
+  "source_sha256": {
+    "cosmetics-copy.ts": "74f8d7510ce3a2a8618d116fdff44935c354f7711cccd61dc0faf6c92baa24ea",
+    "cosmetics.ts": "e64095fb2bb7077d1b3498104237dee479e575e661bb56c551ef797eaea3164e",
+    "cosmetics-view.ts": "66b57938f07eb11bbeb63fcd3b9ed94d96a411bdd75be6124e19c565432a9569",
+    "cosmetics-view.css": "0d9b84675b1859c503302fad1b56d450ae0df3e93578d07f3d84a52e3fd50995",
+    "player-banner.ts": "a0976c0f66322ee19ac34ffa15e9a8adcc62c5d8bad69ddeee9113adbeb5031f",
+    "player-banner.css": "963a68f3f890486f9bbbb022472f51141988f6cdcbff16f523cc17da42975cf7",
+    "ui-polish-copy.ts": "ff900fe0fe0e1adb07a7d09679fbfc154390897bc47f2285d57cff02861bda79",
+    "banner-theme.ts": "99f2fd98312c560cb68ddee9ccf38acbf7ed8aac5f702e1924db3c81f4f1464c"
+  },
+  "capture_source_sha256": "958386f4ff2b77e70a69a269c6d03025648118505d977c206921e90cc82547f0"
+}

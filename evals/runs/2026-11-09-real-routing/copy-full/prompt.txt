@@ -1,0 +1,3 @@
+packet/source/ui-polish-copy.ts에서 영어(en) friendlyTitle만 "Online friendly match"에서 "Online friendly game"으로 수정해주세요. 다른 값과 언어는 유지해주세요. 이 파일만 수정하고 결과를 한국어로 짧게 알려주세요. 외부 자료와 게임 실행은 필요하지 않습니다.
+
+Apply the supplied skill/SKILL.md and relevant linked references.

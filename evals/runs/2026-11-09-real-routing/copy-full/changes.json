@@ -1,0 +1,7 @@
+{
+  "changed_inputs": {
+    "packet/source/ui-polish-copy.ts": "aa70744d8a23c98f0537488a26a0f8c5d1381fd621a18c9d6fbd9afeb806222a"
+  },
+  "new_files_in_reviewed_roots": [],
+  "scope": "Observed file trees and trace, not OS isolation."
+}

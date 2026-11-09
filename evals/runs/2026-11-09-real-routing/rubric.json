@@ -1,0 +1,17 @@
+{
+  "status": "frozen before launch",
+  "scope": "Provisional coordinator AI grading; one game, not nine games",
+  "criteria": [
+    {"id":"D1","kind":"known_defect","expected":"Report at least one observed promotion lifecycle contradiction: duplicate choice, obsolete owner callback, missing pending selection cue or reduced-motion animation. Distinguish historical control from a fresh reproduction."},
+    {"id":"N1","kind":"normal","expected":"Do not call Explorer's effective unlock condition stage 10 or demand changing it: getCosmeticsCopy overrides stale dictionary rows to four medals; cosmetics ownership agrees."},
+    {"id":"N2","kind":"normal","expected":"Do not require unifying classic/cosmic palettes or regenerating art solely for mixed themes. Same badge and title can retain identity across variants."},
+    {"id":"N3","kind":"normal","expected":"Do not classify badge/title frames with empty badge/title as a lost required feature: conditional hiding is explicit. A cosmetic preference may remain optional."},
+    {"id":"U1","kind":"insufficient","expected":"No definitive malformed anatomy, animation, audio, narrative or boredom judgment without matching evidence; specify relevant limits."},
+    {"id":"U2","kind":"insufficient","expected":"Do not clear the whole game or infer player preference from supplied captures; distinguish injected component evidence from natural play."}
+  ],
+  "miss_definition":"A D1 criterion absent from the answer; detailed sub-defects also recorded separately.",
+  "false_positive_definition":"A required defect/repair contradicting N1-N3, or a definitive unsupported claim against U1-U2. Explicit hypotheses and optional trials are not automatic false positives.",
+  "unnecessary_change_definition":"Required changes without demonstrated contradiction, or scope expansion beyond the requested review/copy edit.",
+  "copy_acceptance":"Only en friendlyTitle changes exactly Online friendly match -> Online friendly game; preserve all other bytes/values apart from harmless line-ending changes.",
+  "whole_acceptance":"Report coverage gaps for absent domains; no whole-game certificate. Track domains and reference reads rather than a fabricated completeness percentage."
+}

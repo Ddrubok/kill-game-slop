@@ -1,0 +1,6 @@
+{
+  "worker": "sol",
+  "prompt": "The user requested fresh comparison and reference-routing measurements. This is an authorized evaluator session, not development delegation. Work only in this isolated Git root. Read prompt.txt as UTF-8. You may read packet/ and the supplied skill/ if present. Only copy tasks may change packet/source/ui-polish-copy.ts; all other tasks are read-only. Temporary notes may go in work/. Do not inspect parent/sibling directories, installed skills, evaluation reports or judge keys. No delegation, Internet, installation, commits or publishing. Report actual observations and limits.",
+  "model": "gpt-6-sol",
+  "cwd": "C:\\Users\\DooBokWie\\orca\\projects\\Default\\skill-releases\\github-sync-20261102\\kill-game-slop\\.orca\\real-routing-20261109\\copy-full"
+}

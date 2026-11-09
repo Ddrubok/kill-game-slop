@@ -1,0 +1,3 @@
+packet/context.txt를 먼저 읽고, 제공된 실제 게임 자료로 전체 게임의 일관성을 폭넓게 검토해주세요. 아트·정보·행동 피드백·선택·성장·서사·기능 목적·복구를 다뤄주세요. 제공되지 않은 영역은 그 사실을 밝혀주세요. 한국어로 보고하고 파일은 수정하지 마세요. 외부 자료를 가져오거나 게임을 실행하지 마세요.
+
+Apply the supplied skill/SKILL.md and relevant linked references.

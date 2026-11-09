@@ -1,0 +1,47 @@
+{
+  "status": "passed",
+  "started": "2026-11-09T05:21:42.058855+00:00",
+  "finished": "2026-11-09T05:22:45.075187+00:00",
+  "elapsed_seconds": 63.01499999999942,
+  "node": "v22.18.0",
+  "platform": "Windows-10-10.0.19045-SP0",
+  "commands": [
+    "node evals/check.mjs",
+    "node --test evals\\tests\\browser.test.mjs evals\\tests\\comparison.test.mjs evals\\tests\\evidence.test.mjs evals\\tests\\review-v2.test.mjs",
+    "uv run --offline --no-project --with pyyaml --python Python312 python quick_validate.py skills/kill-game-slop"
+  ],
+  "checker_summary": {
+    "status": "passed",
+    "json": 344,
+    "localLinks": 668,
+    "scripts": 61,
+    "runtimeFiles": 11,
+    "evidenceFiles": 34,
+    "historicalFiles": 71,
+    "archives": {
+      "Comparison": 76,
+      "Review v2": 45,
+      "Repair comparison": 553,
+      "Art/content": 16,
+      "Real-game routing": 151
+    },
+    "scope": "Static integrity only; external URLs/anchors and behavior are not checked"
+  },
+  "checker_test_count": 11,
+  "browser_test_count": 3,
+  "skill_quick_validation": "passed in a separate command before this run",
+  "game_source_edited": false,
+  "scope": "Checker/static integrity only; behavioral pilot is reported separately. TAP is raw stdout.",
+  "code_sha256": {
+    "evals/check.mjs": "0d920ac4cd50db428c0f71a39f47a84b8e96dcfd1bfcc62715c7159583d34319",
+    "evals\\tests\\browser.test.mjs": "15293fed27c1bf74f8193ddef9764281f4992daf7650b23ab63deb8f954d1ba1",
+    "evals\\tests\\comparison.test.mjs": "834f6f8122d9954daaaa73695b2584290fa7bfbb731e877ab9b568189cf33057",
+    "evals\\tests\\evidence.test.mjs": "06a5fe395b27a724706b66df9663f9227f16a631368fa4f2330d23351bbef8c2",
+    "evals\\tests\\review-v2.test.mjs": "9fbb6e1ba7583865ab73bcac3228d99fe7643207ba490c0bdda68efe3bac9648",
+    "evals/real-routing-2026-11-09/capture.mjs": "958386f4ff2b77e70a69a269c6d03025648118505d977c206921e90cc82547f0",
+    "evals/real-routing-2026-11-09/collect.py": "3829f10b9bf217c89d9dd9c758d5dfa079f83b95494305e2d5ce9c411274086b",
+    "evals/real-routing-2026-11-09/prepare.py": "d71e4c12b532ce9e9ee5dd4110efaa22b2bb76d0cb026ec35cc4b089b4ff88ca",
+    "evals/real-routing-2026-11-09/run-images.py": "dc3421ed8c9bac4ce1b36b0e7a87697a482b523de458a9c78f87db58d4da0ba7",
+    "evals/real-routing-2026-11-09/run.py": "9f7cd71f07de3170c5ff2fdb2812554410fb29d65da3d140b78e1e0f3904cf64"
+  }
+}

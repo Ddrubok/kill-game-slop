@@ -1,0 +1,16 @@
+{
+  "captured_at": "2026-11-09T05:10:57.650334+00:00",
+  "runtime_sha256_lf": {
+    "agents/openai.yaml": "2188f6c666cdd7582f1f927b020149c7e5679aee0e9280759873e685f35c66a3",
+    "LICENSE": "70bdc0ae8b62c13933d0fe19bfb87892d44f17d1ad84ae66c29ee906f228c0d6",
+    "references/art-content-coherence.md": "cef93d3fddcf94c0ed5a815faa0d86dea79945e2b63980710f3501b63a9a482c",
+    "references/editor-specs.md": "ba7a53f85c84f6781f7ba4547b5a4665d4dedede20c6052b192d71b9c26bb9d5",
+    "references/examples.md": "2ca7bc89ae8ddf9c563f995618347ad3b1113c52fd9c82b25804fe1bdf85bb8b",
+    "references/gameplay-coherence.md": "de48266e8cfd0704ec73cc3b89bacad0af1cd5c657b67f3bda57c8ceedd5a349",
+    "references/presentation-checks.md": "a60ef2492dfc805a7d366562a47881563d4ec3a7599cc95f88ab20ff13346034",
+    "references/runtime-checks.md": "eba5a2fa88acbf6aaa156c9f982c9d6e3e89986a51ef9c308ff76676e345cb6e",
+    "references/skill-handoff.md": "2f9f4afbd6c88bb0d2d0ebd52a7b1adb8f5206eaecc43c2308d60d2676e47377",
+    "references/whole-game-review.md": "55db2618e712387ee0877c694be0b7a6fec3424f3e4ca84ef01506532e0e6316",
+    "SKILL.md": "ca3311327fe1e7dcb1fb31e8431606584faa4f0f5178ec3d9487e981205868fe"
+  }
+}

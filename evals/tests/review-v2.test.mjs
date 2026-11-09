@@ -16,13 +16,14 @@ test('default check rejects changed or missing comparison and art/content eviden
   const cases = [
     ...['full/final-response.md','results.json','full/worker-stdout.jsonl','case-scores.csv'].map(name => ['runs/2026-11-06-comparison-utf8',name]),
     ...['inputs/contact-sheet.png','pilot-response.ko.md','pilot-result.json'].map(name => ['art-content-2026-11-09',name]),
+    ...['packet/cosmetics/cosmetics-380.png','visual-recheck/art-full/final-response.md','measurements.json'].map(name => ['runs/2026-11-09-real-routing',name]),
   ];
   for (const [directory,name] of cases) {
     const file = path.join(copy,'evals',directory,name), original = await readFile(file);
     try {
       // Trailing whitespace keeps JSON valid, so this exercises the hash check.
       await writeFile(file, Buffer.concat([original,Buffer.from('\n ')]));
-      const changed = run(); assert.notEqual(changed.status,0); assert.match(changed.stderr,/(Comparison|Art\/content) evidence changed/);
+      const changed = run(); assert.notEqual(changed.status,0); assert.match(changed.stderr,/(Comparison|Art\/content|Real-game routing) evidence changed/);
       await unlink(file);
       const missing = run(); assert.notEqual(missing.status,0); assert.match(missing.stderr,/ENOENT|Missing local link/);
     } finally { await writeFile(file,original); }

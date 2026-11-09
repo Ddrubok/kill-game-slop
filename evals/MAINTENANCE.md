@@ -2,6 +2,8 @@
 
 [한국어](MAINTENANCE.ko.md)
 
+The current runtime snapshot is in [the 2026-11-09 real-game/routing record](runs/2026-11-09-real-routing/runtime-snapshot.json); the earlier art/content snapshot stays frozen. The new archive protects packet images/source, raw evaluator outputs, measurements and grading. Its [report](runs/2026-11-09-real-routing/report.md) links maintainer capture/preparation/run/collection tools and fresh-path reproduction requirements. These are outside the eleven-file installed skill.
+
 The installed `skills/kill-game-slop/` contains eleven text/metadata/license files. Node dependencies, TLS test fixtures and browser automation live only in `evals/`. Run commands from the repository root with Node 22 or later.
 
 ```sh

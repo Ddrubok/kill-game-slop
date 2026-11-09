@@ -10,6 +10,8 @@ The [gameplay coherence set](gameplay-coherence-2026-11-05/README.md) adds actio
 
 The [actual repair comparison](runs/2026-11-06-repair-comparison/report.md) measures four conditions × three fresh sessions on one real promotion component. All functional repairs passed after one disclosed visual adjudication; one current-skill trial wrote a temporary file outside its assigned directory before cleaning it up. Current-versus-previous full-skill total-token median fell 51.6%, while uncached-input median rose 21.2%. These are descriptive results, not proof of lower monetary cost, broad effectiveness or human preference.
 
+The [2026-11-09 art/content revision](art-content-2026-11-09/README.md) adds conditional art/narrative checks and broad-review coverage. It preserves the supplied authored pilot separately from the Windows integration's 10/10 checker tests and fixture replay. Its nine favorable AI judgments are not a real-game or comparative effectiveness result. The installed skill now has eleven files; earlier package counts describe their historical versions.
+
 ## Document languages and original records
 
 Reader-facing guides and reports use English `.md` and Korean `.ko.md`. Each language's README and guide links point to that language. The installed `skills/kill-game-slop/` contains shared English agent instructions, including Korean invocation phrases.

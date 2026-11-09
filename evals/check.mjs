@@ -33,9 +33,9 @@ for(const file of files) {
 }
 const skill=path.join(root,'skills','kill-game-slop');
 const runtime=files.filter(f=>f.startsWith(skill+path.sep));
-assert.equal(runtime.length,9,'Installed package must remain the nine instruction/metadata/license files');
+assert.equal(runtime.length,11,'Installed package must remain the eleven instruction/metadata/license files');
 assert.ok(runtime.every(f=>/\.(md|yaml)$/.test(f)||path.basename(f)==='LICENSE'),'Executable added to installed package');
-const snapshot=JSON.parse(await readFile(new URL('./review-v2-2026-11-06/snapshot.json',import.meta.url),'utf8'));
+const snapshot=JSON.parse(await readFile(new URL('./art-content-2026-11-09/runtime-snapshot.json',import.meta.url),'utf8'));
 assert.deepEqual(Object.keys(snapshot.runtime_sha256_lf).sort(),runtime.map(f=>path.relative(skill,f).replaceAll('\\','/')).sort());
 for(const [file,expected] of Object.entries(snapshot.runtime_sha256_lf)) {
   const text=(await readFile(path.join(skill,file),'utf8')).replaceAll('\r\n','\n');
@@ -52,7 +52,7 @@ for(const [file,expected] of Object.entries(historical.files)) {
 }
 const archives={};
 // Original report hashes follow report.original.ko.md; translated editions add two entries.
-for(const [name,directory,count] of [['Comparison','runs/2026-11-06-comparison-utf8/',76],['Review v2','review-v2-2026-11-06/',45],['Repair comparison','runs/2026-11-06-repair-comparison/',553]]) {
+for(const [name,directory,count] of [['Comparison','runs/2026-11-06-comparison-utf8/',76],['Review v2','review-v2-2026-11-06/',45],['Repair comparison','runs/2026-11-06-repair-comparison/',553],['Art/content','art-content-2026-11-09/',16]]) {
   const base=new URL(directory,import.meta.url);
   const hashes=JSON.parse(await readFile(new URL('artifact-sha256.json',base),'utf8'));
   assert.equal(Object.keys(hashes).length,count,`${name} archive must retain all ${count} entries`);

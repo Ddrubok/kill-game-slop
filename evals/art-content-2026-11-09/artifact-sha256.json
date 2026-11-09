@@ -1,0 +1,18 @@
+{
+  "fixture-replay.json": "b2a8686aeda0b3760db47500b75c4ebc7ef39a1dd61428f5d8f1d6892cdfc803",
+  "inputs/brief.md": "65bb4fee6cd85f8d927e7e44d44672c07d6282ad69a32d528fb6e900cd5478ec",
+  "inputs/combat.mjs": "87ecd6c7e205b93bf9017a2a31ff9bfccf3dacc88b1a7ec3e88cd90025723c49",
+  "inputs/contact-sheet.png": "857a4d82a09731a667e11dac016c8e415a0589d298b9b3aee87b9f98edd8535c",
+  "inputs/contact-sheet.svg": "72dbed6cab5df5fd941575bbfe917919f88fd2772c381c3e866221cc60fcb0b4",
+  "inputs/defense.json": "5017f35a60960d6af2cf9d6dc2e9d779b862e0f27ec51a83a2ccff771de25488",
+  "inputs/dialogue.mjs": "2838f3a65cdc76a1a666e2617ad39b0e41a793a43250bd92b66a0e24ed60a643",
+  "judge/rubric.md": "802d1dc92ea3e18017b1f00d4f4031ffe624ab46ce35b4c9da187e2f2746d19a",
+  "local-tests.tap": "05374afff7711d7d5a14cb19ea8fadd53e196229646d85eea3af0d2902d824ba",
+  "local-validation.json": "499ec0979a90aab8fb39c3e9e25c9574e6e09d0a5f435e7d931b58971d72b46c",
+  "pilot-inputs.json": "4389822265fa2b98e2f432973e8fe90f8fc562a3d0ca53018332c21e8fa37425",
+  "pilot-response.ko.md": "0b2fec5c33783a745d8e4513411e89045051a7ddef15af3d4bde6e237872509e",
+  "pilot-result.json": "9219132bd883c119e2d43e7ac708a88b3fb0a2a84deac75ed1c45b55ed880856",
+  "replay-fixtures.mjs": "161e07d63509adf70044a8bb9ae255699f68d35f3e3ebeb5060cab1e03a1516f",
+  "runtime-snapshot.json": "3490b9fee1b5511225b34d29c157795f7cbbb1eca450c454b57afb2c84fb7113",
+  "validation.json": "1b4bd34870c3963787dec5255536d02a2f7068e8f3ed21d020e41b0325e74831"
+}

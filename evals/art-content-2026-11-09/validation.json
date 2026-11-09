@@ -1,0 +1,20 @@
+{
+  "skill_format": "passed",
+  "static_integrity": "passed after adding pilot response, results and report links",
+  "tests": {
+    "total": 10,
+    "passed": 7,
+    "blocked_by_environment": 3,
+    "initial_error": "Playwright headless shell executable absent",
+    "browser_retry": "BROWSER_PATH=/usr/bin/chromium",
+    "retry_error": "Chromium process_singleton socket() Operation not permitted before test assertions",
+    "suite_exit_code": 1
+  },
+  "playwright": "1.62.1",
+  "svg_renderer": "sharp 0.35.5",
+  "media_size": [
+    960,
+    400
+  ],
+  "human_and_real_game_tests": "not run"
+}

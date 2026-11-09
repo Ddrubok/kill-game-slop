@@ -1,0 +1,11 @@
+{
+  "units": [
+    {"id":"needle","damage":10,"range":6,"targeting":"first","slow":0,"cost":6},
+    {"id":"bell","damage":10,"range":2,"targeting":"all-in-range","slow":0.5,"cost":9}
+  ],
+  "encounters": [
+    {"id":1,"enemies":[{"id":"boat-a","distance":5,"health":10}]},
+    {"id":6,"enemies":[{"id":"boat-b","distance":1,"health":10},{"id":"boat-c","distance":1.5,"health":10},{"id":"boat-d","distance":2,"health":10}]}
+  ],
+  "album": {"combatBonus":0,"purpose":"memory collection and expression","entry":"optional menu"}
+}

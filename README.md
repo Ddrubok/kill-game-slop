@@ -70,6 +70,14 @@ A technically working UI can still make necessary information hard to find, conf
 
 For temporary or coinciding displays, record the starting state, trigger, and evidence, then recheck the affected moment and neighboring elements after a change. Distinguish reachable play from scripted input or injected states. A rectangle overlap may be intentional containment, and an AI reader's uncertainty does not establish human confusion. Use geometry warnings to find candidates, then inspect what is actually visible and operable; no new scanner is required.
 
+## Art, content and broad reviews
+
+For inconsistent assets or writing, compare the same entities and states using the conditional [art/content guide](skills/kill-game-slop/references/art-content-coherence.md). It covers form, cross-view identity, feedback vocabulary and narrative continuity while preserving deliberate collage, abstraction and cosmetic variation.
+
+For a requested whole-game review, use the [coverage route](skills/kill-game-slop/references/whole-game-review.md). Report reviewed/partial/not-reviewed/not-applicable domains separately from findings. Choice, progression and feature purpose receive bounded diagnosis; they do not authorize balance changes or prove fun. Local UI fixes do not load this route.
+
+The [2026-11-09 evaluation record](evals/art-content-2026-11-09/README.md) distinguishes new authored visual/data calibration from real-game, human and comparative effectiveness tests. Earlier results do not validate this revision.
+
 ## Installation
 
 `kill-game-slop` is packaged as a portable Markdown skill definition located at `skills/kill-game-slop/SKILL.md`.

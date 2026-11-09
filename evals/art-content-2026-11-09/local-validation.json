@@ -1,0 +1,91 @@
+{
+  "status": "passed",
+  "recorded_at_utc": "2026-11-09T03:51:37.988671+00:00",
+  "baseline_commit": "4420609f33ec1bcc567e6f5c8561c60e7977a976",
+  "supplied_patch_sha256": "b5757089933e913400ad8bba42de125806bb3fe3b613c0beddde87d609284002",
+  "supplied_guide_sha256": "b1879186102e2c1f9f9d33ff78fc95539675510c2ace059f6f6350012c12b8ea",
+  "environment": {
+    "node": "22.18.0",
+    "playwright": "1.62.1",
+    "chromium": "151.0.7922.34",
+    "platform": "Windows"
+  },
+  "skill_format": "passed using quick_validate.py with Python 3.12 and existing PyYAML",
+  "tests": {
+    "command": [
+      "node",
+      "--test",
+      "--test-reporter=tap",
+      "evals/tests/browser.test.mjs",
+      "evals/tests/comparison.test.mjs",
+      "evals/tests/evidence.test.mjs",
+      "evals/tests/review-v2.test.mjs"
+    ],
+    "exit_code": 0,
+    "elapsed_seconds": 38.718,
+    "total": 10,
+    "passed": 10,
+    "failed": 0,
+    "skipped": 0,
+    "browser_tests_passed": 3,
+    "log": "local-tests.tap",
+    "original_log_sha256": "a4bcdd58bd57da56353f0adc3f3906f19aeb97fe74bac748250af087ab359fff",
+    "log_redaction": "Only the temporary presentation-capture directory is redacted."
+  },
+  "fixture_replay": {
+    "command": [
+      "node",
+      "evals/art-content-2026-11-09/replay-fixtures.mjs"
+    ],
+    "status": "passed",
+    "attack_calls": 4,
+    "bridge_calls": 2,
+    "storyteller_calls": 1,
+    "output": "fixture-replay.json"
+  },
+  "visual_inspection": {
+    "method": "Coordinator opened the supplied PNG and read the SVG",
+    "observed": "Portrait and album show amber diamonds; board shows a blue triangle. The image is an authored contact sheet, not a game capture."
+  },
+  "source_sha256": {
+    "evals/check.mjs": "1688bfff2de40790ab145c15867a3d364d963694ef59642bb4cabd57858b1ea0",
+    "evals/tests/review-v2.test.mjs": "fe5c2bd2e9fa68b49c2cc75fcd93e5c575481e4081fb4bf08a53217b6db87bcb",
+    "evals/tests/browser.test.mjs": "15293fed27c1bf74f8193ddef9764281f4992daf7650b23ab63deb8f954d1ba1",
+    "evals/tests/comparison.test.mjs": "42135c600231391679c23efcc9dda4bac33ccb7d32661a56475934207f4ea28c",
+    "evals/tests/evidence.test.mjs": "06a5fe395b27a724706b66df9663f9227f16a631368fa4f2330d23351bbef8c2",
+    "evals/art-content-2026-11-09/replay-fixtures.mjs": "161e07d63509adf70044a8bb9ae255699f68d35f3e3ebeb5060cab1e03a1516f"
+  },
+  "entrypoint_whitespace_words": {
+    "before": 1312,
+    "after": 1397,
+    "change": 85,
+    "token_or_time_measurement": false
+  },
+  "installation": {
+    "updated_existing_personal_skill": true,
+    "files": 11,
+    "matches_runtime_snapshot_lf": true,
+    "previous_installation_matched_baseline": true
+  },
+  "limits": [
+    "Supplied pilot response, scoring and validation are preserved; their historical execution trace was not supplied.",
+    "No new independent agent comparison, human review or real-game art/audio/playthrough evaluation.",
+    "Checker tests and fixture replay do not measure skill accuracy, token savings, fees or speed."
+  ],
+  "static_integrity": {
+    "status": "passed",
+    "json": 272,
+    "localLinks": 585,
+    "scripts": 58,
+    "runtimeFiles": 11,
+    "evidenceFiles": 34,
+    "historicalFiles": 71,
+    "archives": {
+      "Comparison": 76,
+      "Review v2": 45,
+      "Repair comparison": 553,
+      "Art/content": 16
+    },
+    "scope": "Static integrity only; external URLs/anchors and behavior are not checked"
+  }
+}

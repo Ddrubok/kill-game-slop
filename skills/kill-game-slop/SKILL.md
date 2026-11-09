@@ -2,10 +2,10 @@
 name: kill-game-slop
 description: >-
   Review and repair game experience coherence: awkward action combinations,
-  broken transitions, motion/hit/feedback mismatches, and misleading or
-  difficult-to-use presentation. Use for kill-game-slop, game deslop,
-  sliding attack animations, stale action cues, 게임 동작 정합성 점검,
-  이동 공격 어색함, 상태 전환 검토, HUD 사용성 검토, and 잘못된 상태 안내 수정.
+  broken transitions, motion/hit/feedback mismatches, inconsistent art/content,
+  and misleading presentation. Use for kill-game-slop, game deslop, sliding
+  attacks, stale cues, whole-game coherence reviews, 게임 동작 정합성 점검,
+  아트 일관성, 반복 콘텐츠 점검, HUD 사용성 검토, and 잘못된 상태 안내 수정.
   Preserve intended rules and art direction. Not an AI-authorship detector,
   general code audit, or unsolicited combat redesign; broader requested
   design alternatives belong to bettermakegame.
@@ -43,8 +43,12 @@ Evidence type and judgment are separate fields, not confidence percentages. A vi
 
 For a simple text/layout correction, start with presentation checks; add gameplay coherence only for interacting actions or transitions. Choose needed references before reading, batch independent reads, and reuse already-loaded guidance. Open examples only for an unresolved classification and handoff only for requested downstream work.
 
+For asset or narrative consistency, select art/content checks. For an explicitly broad game review, use the whole-game route to sample relevant domains and report coverage; do not expand a local repair into a whole-game audit. No confirmed defect in a sample is not clearance of uninspected content.
+
 - [presentation-checks.md](references/presentation-checks.md): symptoms, legitimate counterexamples, UI usability, coinciding displays and the finding record. Use it when examining a suspected cost or reporting a finding.
 - [gameplay-coherence.md](references/gameplay-coherence.md): combined actions, transitions, spatial/timing alignment and repeated/contextual meaning. Read for gameplay or animation coherence, not a simple text/layout correction.
+- [art-content-coherence.md](references/art-content-coherence.md): cross-asset identity, form, feedback vocabulary and narrative consistency. Read for mismatched assets, inconsistent characters/content or expressive sameness.
+- [whole-game-review.md](references/whole-game-review.md): coverage and bounded choice/repetition/feature-purpose diagnosis. Read only for a broad game review; design changes remain separately scoped.
 - [editor-specs.md](references/editor-specs.md): editor-only or serialized changes. Identify the actual target and unapplied specification if the editor is unavailable.
 - [runtime-checks.md](references/runtime-checks.md): relevant engine/input checks and human observation when verifying a repair.
 - [skill-handoff.md](references/skill-handoff.md): a finding leads to requested design/effect production. Local repairs need no companion.

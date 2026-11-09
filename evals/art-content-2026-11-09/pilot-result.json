@@ -1,0 +1,73 @@
+{
+  "evaluation": "single fresh-session full-skill authored calibration",
+  "judge": "authoring assistant, not independent human",
+  "model_build": "not exposed",
+  "comparative_advantage": "not measured",
+  "input_manifest": "pilot-inputs.json",
+  "response": "pilot-response.ko.md",
+  "criteria": [
+    {
+      "id": "visual_continuity",
+      "status": "met",
+      "basis": "F01 identifies PNG/SVG badge mismatch; cause remains bounded."
+    },
+    {
+      "id": "deliberate_media",
+      "status": "met",
+      "basis": "P03 preserves intentional paper/flat media."
+    },
+    {
+      "id": "narrative_state",
+      "status": "met",
+      "basis": "F02 identifies the bridgeOpen branch contradiction as source/function evidence."
+    },
+    {
+      "id": "unreliable_speaker",
+      "status": "met",
+      "basis": "P03 preserves Pip as an unreliable storyteller."
+    },
+    {
+      "id": "choice",
+      "status": "met",
+      "basis": "P01 compares all four unit/encounter outputs, notes absent cooldown/economy/slow integration."
+    },
+    {
+      "id": "repetition",
+      "status": "met",
+      "basis": "P02 limits comparison to encounters 1 and 6."
+    },
+    {
+      "id": "nonmechanical_purpose",
+      "status": "met",
+      "basis": "P03 preserves optional collection/expression purpose."
+    },
+    {
+      "id": "coverage",
+      "status": "met",
+      "basis": "Ten domains distinguish observed samples and missing runtime/late-game/audio evidence."
+    },
+    {
+      "id": "scope",
+      "status": "met",
+      "basis": "Response proposes fixes without editing inputs or asserting a playthrough."
+    }
+  ],
+  "reviewer_reported_checks": {
+    "images": [
+      "contact-sheet.png",
+      "contact-sheet.svg"
+    ],
+    "function_calls": {
+      "attack": 4,
+      "bridgeKeeper": 2,
+      "storyteller": 1
+    },
+    "runtime_gameplay": "not run"
+  },
+  "limits": [
+    "Author-created SVG/PNG and toy data; not a real game or hidden benchmark.",
+    "Single full-skill session; no generic/brief condition, repetitions or human judgment.",
+    "Tool claims are reviewer-reported; full execution trace not exported.",
+    "Instruction-scoped folder access; no filesystem security isolation."
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "type": "authored visual/source/data calibration",
+  "files": {
+    "inputs/brief.md": "65bb4fee6cd85f8d927e7e44d44672c07d6282ad69a32d528fb6e900cd5478ec",
+    "inputs/combat.mjs": "87ecd6c7e205b93bf9017a2a31ff9bfccf3dacc88b1a7ec3e88cd90025723c49",
+    "inputs/contact-sheet.png": "857a4d82a09731a667e11dac016c8e415a0589d298b9b3aee87b9f98edd8535c",
+    "inputs/contact-sheet.svg": "72dbed6cab5df5fd941575bbfe917919f88fd2772c381c3e866221cc60fcb0b4",
+    "inputs/defense.json": "5017f35a60960d6af2cf9d6dc2e9d779b862e0f27ec51a83a2ccff771de25488",
+    "inputs/dialogue.mjs": "2838f3a65cdc76a1a666e2617ad39b0e41a793a43250bd92b66a0e24ed60a643",
+    "skill/LICENSE": "70bdc0ae8b62c13933d0fe19bfb87892d44f17d1ad84ae66c29ee906f228c0d6",
+    "skill/SKILL.md": "ca3311327fe1e7dcb1fb31e8431606584faa4f0f5178ec3d9487e981205868fe",
+    "skill/agents/openai.yaml": "2188f6c666cdd7582f1f927b020149c7e5679aee0e9280759873e685f35c66a3",
+    "skill/references/art-content-coherence.md": "dac1bdc6cd40697cb4ca495165e3eff97ac929dd24df0d55a83ede48e0912697",
+    "skill/references/editor-specs.md": "ba7a53f85c84f6781f7ba4547b5a4665d4dedede20c6052b192d71b9c26bb9d5",
+    "skill/references/examples.md": "2ca7bc89ae8ddf9c563f995618347ad3b1113c52fd9c82b25804fe1bdf85bb8b",
+    "skill/references/gameplay-coherence.md": "de48266e8cfd0704ec73cc3b89bacad0af1cd5c657b67f3bda57c8ceedd5a349",
+    "skill/references/presentation-checks.md": "a60ef2492dfc805a7d366562a47881563d4ec3a7599cc95f88ab20ff13346034",
+    "skill/references/runtime-checks.md": "eba5a2fa88acbf6aaa156c9f982c9d6e3e89986a51ef9c308ff76676e345cb6e",
+    "skill/references/skill-handoff.md": "2f9f4afbd6c88bb0d2d0ebd52a7b1adb8f5206eaecc43c2308d60d2676e47377",
+    "skill/references/whole-game-review.md": "161bfeba84302bba62a600dc0c07c1491306772572908f696d862ef196aa0b9c"
+  },
+  "judge_sha256": "802d1dc92ea3e18017b1f00d4f4031ffe624ab46ce35b4c9da187e2f2746d19a",
+  "human_review": "not run",
+  "comparative_conditions": "not run"
+}

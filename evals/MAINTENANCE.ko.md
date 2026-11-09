@@ -2,7 +2,7 @@
 
 [English](MAINTENANCE.md)
 
-설치용 `skills/kill-game-slop/`는 텍스트·메타데이터·라이선스 9개 파일을 유지합니다. Node 의존성, TLS 테스트 자료와 브라우저 자동화는 `evals/`에만 있습니다. 저장소 루트에서 Node 22 이상으로 실행하세요.
+설치용 `skills/kill-game-slop/`는 텍스트·메타데이터·라이선스 11개 파일을 유지합니다. Node 의존성, TLS 테스트 자료와 브라우저 자동화는 `evals/`에만 있습니다. 저장소 루트에서 Node 22 이상으로 실행하세요.
 
 ```sh
 node evals/check.mjs
@@ -15,6 +15,8 @@ node evals/preflight.mjs tools
 첫 명령은 Markdown 로컬 대상(외부 URL·앵커 제외), JSON, JavaScript 문법, 현재 실행 지침 스냅샷, 과거 증거, 고정된 비교·재검토 v2·실제 수정 비교의 아카이브 해시를 검사합니다. 원문 작업자 답변은 세션 로컬 링크를 유지하므로 경로를 해석하는 대신 해시로 바이트를 확인합니다. 검사기는 해시를 다시 쓰지 않습니다. 새 실행에는 새 기록을 만드세요. 해시는 실수·손실을 감지하며 자료와 해시를 함께 바꿀 수 있는 공격자를 인증하지 않습니다. 브라우저 테스트는 정확한 origin, HTTP/HTTPS 리디렉션, 팝업, WS/WSS, Service Worker 등록, 더미 정보 제외, 배타적 파일 생성, 소스·버전 변경, 표시 측정을 다룹니다. 이는 검사기 테스트이며 스킬 효과 측정이 아닙니다. `tests/fixtures/`의 localhost TLS 인증서·개인키는 외부 용도가 없는 공개 테스트 자격정보입니다.
 
 공통 정책은 새 컨텍스트를 만들고 Service Worker와 모든 WebSocket을 차단하며, 정확한 HTTP(S) origin만 리디렉션 없이 요청하고 모든 리디렉션을 거부합니다. Vite HMR도 의도적으로 비활성화됩니다. 거부 기록에는 origin만 남기고 원본 URL 경로·쿼리, 헤더, 본문, 예외 메시지는 제외합니다. Playwright 라우팅은 Node·Vite·WebRTC·DNS·추측성 TCP 연결·호스트를 격리하지 않습니다. 신뢰할 수 없는 실행 파일에는 호스트 격리를 사용하세요. HTTP 요청이 차단돼도 브라우저가 추측성 TCP 연결을 열 수 있으므로 `externalNetwork: blocked`라고 표시하지 마세요.
+
+기본 명령은 현재 지침 스냅샷과 16개 파일의 [아트·콘텐츠 증거 아카이브](art-content-2026-11-09/README.ko.md)도 검사합니다. 전달된 예비 평가와 로컬 재실행은 별도 기록으로 유지합니다. `node evals/art-content-2026-11-09/replay-fixtures.mjs`는 의도적으로 잘못된 대사를 포함한 제공 함수의 출력을 재현하며, 에이전트 효과 시험이 아닙니다. 새 출력은 고정된 아카이브 밖에 저장하세요.
 
 ## 실제 게임 재실행
 

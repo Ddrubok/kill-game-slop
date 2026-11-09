@@ -2,7 +2,7 @@
 
 [한국어](MAINTENANCE.ko.md)
 
-The installed `skills/kill-game-slop/` remains nine text/metadata/license files. Node dependencies, TLS test fixtures and browser automation live only in `evals/`. Run commands from the repository root with Node 22 or later.
+The installed `skills/kill-game-slop/` contains eleven text/metadata/license files. Node dependencies, TLS test fixtures and browser automation live only in `evals/`. Run commands from the repository root with Node 22 or later.
 
 ```sh
 node evals/check.mjs
@@ -15,6 +15,8 @@ node evals/preflight.mjs tools
 The first command checks local Markdown targets (not external URLs or anchors), JSON, JavaScript syntax, the current runtime snapshot, historical evidence and the frozen comparison/review-v2/repair-comparison archive hashes. Raw worker answers keep session-local links, so their bytes are checked by hashes instead of resolving those paths as maintained documentation. It never rewrites hashes; create a new record for a new run. Hashes detect accidental changes or loss, not an attacker who can rewrite both the evidence and manifest. Browser tests exercise exact origins, HTTP/HTTPS redirects, popup requests, WS/WSS, Service Worker registration, dummy-data exclusion, exclusive artifact writes, source/version drift and presentation measurements. These are checker tests, not skill-effectiveness measurements. The localhost TLS certificate/private key under `tests/fixtures/` is a public test credential with no external use.
 
 The common policy creates fresh contexts, blocks Service Workers and all WebSockets, fetches only the exact HTTP(S) origin with redirects disabled, and rejects every redirect. That intentionally disables Vite HMR. Denied records contain origins only; raw URL paths/queries, headers, bodies and exception messages are omitted. Playwright routing does not isolate Node, Vite, WebRTC, DNS, speculative TCP connections or the host. Use host isolation for untrusted executables. A browser can open a speculative TCP connection even if its HTTP request is subsequently blocked; do not label results `externalNetwork: blocked`.
+
+The current instruction snapshot and the 16-file [art/content evidence archive](art-content-2026-11-09/README.md) are also checked by the default command. The supplied pilot and the local rerun remain separate records. `node evals/art-content-2026-11-09/replay-fixtures.mjs` reproduces the supplied function outputs, including the intentionally faulty dialogue; it is not an agent-effectiveness test. Save new output outside the frozen archive.
 
 ## Real game reruns
 

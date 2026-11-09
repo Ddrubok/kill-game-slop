@@ -1,0 +1,66 @@
+{
+  "status": "passed",
+  "node": "v22.18.0",
+  "platform": "win32",
+  "attacks": [
+    {
+      "encounter": 1,
+      "unit": "needle",
+      "results": [
+        {
+          "id": "boat-a",
+          "damage": 10,
+          "slow": 0
+        }
+      ]
+    },
+    {
+      "encounter": 1,
+      "unit": "bell",
+      "results": []
+    },
+    {
+      "encounter": 6,
+      "unit": "needle",
+      "results": [
+        {
+          "id": "boat-b",
+          "damage": 10,
+          "slow": 0
+        }
+      ]
+    },
+    {
+      "encounter": 6,
+      "unit": "bell",
+      "results": [
+        {
+          "id": "boat-b",
+          "damage": 10,
+          "slow": 0.5
+        },
+        {
+          "id": "boat-c",
+          "damage": 10,
+          "slow": 0.5
+        },
+        {
+          "id": "boat-d",
+          "damage": 10,
+          "slow": 0.5
+        }
+      ]
+    }
+  ],
+  "dialogue": {
+    "closed": "The bridge is still closed. Bring the key.",
+    "open": "The bridge is still closed. Bring the key.",
+    "boast": "I built this whole harbor in a single afternoon!"
+  },
+  "album": {
+    "combatBonus": 0,
+    "purpose": "memory collection and expression",
+    "entry": "optional menu"
+  },
+  "scope": "Four attack calls, two bridge-state calls and one storyteller call on supplied fixtures. No new agent review, game playthrough, repair or skill-effectiveness measurement."
+}

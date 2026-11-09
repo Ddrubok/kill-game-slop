@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="400" viewBox="0 0 960 400">
+  <rect width="960" height="400" fill="#ece9e1"/>
+  <g font-family="sans-serif" fill="#263342">
+    <text x="24" y="32" font-size="20">Paper Harbor / mira / default / three views</text>
+    <text x="56" y="80" font-size="17">Portrait</text><text x="372" y="80" font-size="17">Board</text><text x="688" y="80" font-size="17">Album</text>
+  </g>
+  <rect x="24" y="100" width="280" height="270" rx="16" fill="#d4e4e5"/>
+  <rect x="340" y="100" width="280" height="270" fill="#b4d1cc"/>
+  <rect x="656" y="100" width="280" height="270" rx="2" fill="#f4dfbc" stroke="#9c8261" stroke-width="3"/>
+  <path d="M670 121L920 114M671 141L925 137M670 340L918 347M675 356L926 349" stroke="#d2b78f" stroke-width="2"/>
+  <defs>
+    <g id="courier">
+      <path d="M-45 45L-58 110L-27 116L-15 62M45 45L58 110L27 116L15 62" fill="#304958"/>
+      <rect x="-56" y="-22" width="112" height="110" rx="22" fill="#417584" stroke="#263342" stroke-width="5"/>
+      <rect x="-53" y="-94" width="106" height="81" rx="28" fill="#f8d8a5" stroke="#263342" stroke-width="5"/>
+      <path d="M-54 -66Q-68 -130 0 -121Q68 -130 54 -66L34 -68Q0 -102 -34 -68Z" fill="#417584" stroke="#263342" stroke-width="5"/>
+      <circle cx="-19" cy="-57" r="5" fill="#263342"/><circle cx="19" cy="-57" r="5" fill="#263342"/>
+      <path d="M-10 -36Q0 -28 10 -36" fill="none" stroke="#263342" stroke-width="3"/>
+      <path d="M-57 5L-79 59M57 5L79 59" stroke="#417584" stroke-width="23" stroke-linecap="round"/>
+    </g>
+  </defs>
+  <use href="#courier" transform="translate(164 242)"/>
+  <path d="M164 251L180 269L164 287L148 269Z" fill="#e6a73a" stroke="#263342" stroke-width="3"/>
+  <use href="#courier" transform="translate(480 242)"/>
+  <path d="M480 250L499 286L461 286Z" fill="#467de3" stroke="#263342" stroke-width="3"/>
+  <use href="#courier" transform="translate(796 242)"/>
+  <path d="M796 251L812 269L796 287L780 269Z" fill="#e6a73a" stroke="#263342" stroke-width="3"/>
+</svg>
